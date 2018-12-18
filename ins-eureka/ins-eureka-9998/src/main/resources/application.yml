@@ -1,0 +1,25 @@
+
+logging.config: classpath:log4j2.yml
+
+server:
+  port: 9998
+  #官方写的就是 8761
+spring:
+  application:
+    name: eureka-server-cluster
+
+eureka:
+  server:
+    enable-self-preservation: true # 设为false，关闭自我保护
+    eviction-interval-timer-in-ms: 4000 # 清理间隔（单位毫秒，默认是60*1000）
+  instance:
+    hostname: eureka2
+    instanceId: ${spring.application.name}:${server.port}
+    #配置主机名
+  client:
+    registerWithEureka: true
+    #配置服务注册中心是否以自己为客户端进行注册(配置false)
+    fetchRegistry: true
+    #是否取得注册信息(配置false)
+    serviceUrl:
+      defaultZone: http://eureka1:9997/eureka,http://eureka2:9998/eureka,http://eureka3:9999/eureka

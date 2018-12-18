@@ -1,0 +1,51 @@
+
+## org.springframework.boot.autoconfigure.web.ServerProperties
+server:
+  port: 9102
+  http2:
+    enabled: true
+#  servlet:
+#    context-path: /i5xforyou
+
+
+##  https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+spring:
+  application:
+    name: boms-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          ####开启Service_id 用时需要大写service_id
+          enabled: true
+
+
+register.center: http://eureka1:9997/eureka #,http://eureka2:9998/eureka,http://eureka3:9999/eureka
+
+eureka:
+  client:
+    register-with-eureka: true
+    # 开启健康检查
+    healthcheck.enabled: false
+    # feign 间隔多久去拉取服务注册信息(默认 30 秒)
+    registry-fetch-interval-seconds: 10
+    service-url.defaultZone: ${register.center}
+  instance:
+    # feign 发送心跳给 server 端的频率(默认 30 秒)
+    lease-renewal-interval-in-seconds: 5
+    # server 收到心跳等待下一次心跳的超时时间, 要比上面的大(默认 90 秒)
+    lease-expiration-duration-in-seconds: 10
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
+    status-page-url-path: /actuator/info
+    health-check-url-path: /actuator/health
+
+
+
+# 超时时间设置为 60 秒
+hystrix.command.default.execution:
+  timeout.enabled: true
+  isolation.thread.timeoutInMilliseconds: 60000
+
+

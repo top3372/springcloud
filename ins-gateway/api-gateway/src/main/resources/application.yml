@@ -1,0 +1,88 @@
+
+## org.springframework.boot.autoconfigure.web.ServerProperties
+server:
+  port: 9101
+
+
+##  https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+spring:
+  main:
+    #允许配置文件中存在相同名字时 覆盖
+    allow-bean-definition-overriding: true
+  application:
+    name: api-gateway
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
+
+#  cloud:
+#    sentinel:
+#      transport:
+#        dashboard: 172.19.250.6:8002
+
+#  cat:
+#    zuul.enabled: true
+
+#  zipkin:    #内存方式配置，不需要
+#    #base-url: http://localhost:9411
+#    #日志发送队列类型
+#    sender:
+#      type: rabbit
+#      #发送的队列名称，默认zipkin，正常情况不要修改因为zipkin-server默认监控队列也是zipkin
+#  rabbitmq:
+#    host: 192.168.1.171
+#    port: 5672
+#    username: guest
+#    password: guest
+#    queue: zipkin
+#  sleuth:
+#    sampler:
+#      probability: 1.0
+
+register.center: http://127.0.0.1:9997/eureka #,http://eureka2:9998/eureka,http://eureka3:9999/eureka
+
+eureka:
+  client:
+    # 开启健康检查
+    healthcheck.enabled: false
+    # feign 间隔多久去拉取服务注册信息(默认 30 秒)
+    registry-fetch-interval-seconds: 10
+    service-url.defaultZone: ${register.center}
+  instance:
+    # feign 发送心跳给 server 端的频率(默认 30 秒)
+    lease-renewal-interval-in-seconds: 5
+    # server 收到心跳等待下一次心跳的超时时间, 要比上面的大(默认 90 秒)
+    lease-expiration-duration-in-seconds: 10
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
+
+
+# 超时时间设置为 60 秒
+hystrix.command.default.execution:
+  timeout.enabled: true
+  isolation.thread.timeoutInMilliseconds: 60000
+
+# 路由
+zuul:
+#  routes:
+#    users:
+#      path: /member/**
+#      serviceId: member-server
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
+  max.host.connections: 500
+  SimpleHostRoutingFilter.route.disable: true
+
+
+
+#shiro:
+#  loginUrl: /login
+#  successUrl: /
+#  unauthorizedUrl: /error
+#  userNativeSessionManager: true
+#  sessionManager:
+#    sessionIdUrlRewritingEnabled: false

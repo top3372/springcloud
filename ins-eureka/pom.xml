@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>haili-ins</artifactId>
+        <groupId>com.haili.ins</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.haili.ins.eureka</groupId>
+    <artifactId>ins-eureka</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>ins-eureka-9997</module>
+        <module>ins-eureka-9998</module>
+		<module>ins-eureka-9999</module>
+    </modules>
+    <dependencies>
+
+    </dependencies>
+
+</project>
