@@ -29,17 +29,18 @@ public class InvokeService {
             InvokeLogger.info("请求参数校验");
             validate(invokeParameter);
 
-            //是否解压缩
-            String dataMsg = getCompress(invokeParameter.getMsgCompress(), invokeParameter.getDataMsg());
+            //在feign中已经解压缩
+            //String dataMsg = getCompress(invokeParameter.getMsgCompress(), invokeParameter.getDataMsg());
+            //String dataMsg = invokeParameter.getDataMsg();
 
-            InvokeLogger.info("<=== Request", "dataMsg", invokeParameter.getMsgCompress() == 0 ? dataMsg : "<compressed>");
+            //InvokeLogger.info("<=== Request", "dataMsg", invokeParameter.getMsgCompress() == 0 ? dataMsg : "<compressed>");
 
             //验证请求服务代码是否正确
             BusinessHandler service = getBusinessHandler(invokeParameter.getSerCode());
             if(service==null){
                 throw new ServiceException(ResponseCodeEnum.UNDEFINED_SERVICE.getCode(), ResponseCodeEnum.UNDEFINED_SERVICE.getDesc());
             }
-            invokeParameter.setDataMsg(dataMsg);
+            //invokeParameter.setDataMsg(dataMsg);
             InvokeResponse response = service.invokeBusiness(invokeParameter);
 
             long cost = System.currentTimeMillis() - start;
@@ -72,7 +73,7 @@ public class InvokeService {
      */
     private  void validate(InvokeParameter invokeParameter) throws ServiceException {
         InvokeHelper.validateReqParam(invokeParameter.getSerCode(), invokeParameter.getSysTraceNo(), invokeParameter.getOriginNo(),invokeParameter.getTargetNo(),
-                invokeParameter.getVersionNo() , invokeParameter.getDataLength(), invokeParameter.getMsgCompress(), invokeParameter.getDataMsg());
+                invokeParameter.getVersionNo() , invokeParameter.getDataLength(), invokeParameter.getDataMsg());
         //验证请求消息正文内容长度
         InvokeHelper.validateDataMsgSize(invokeParameter.getDataLength(), invokeParameter.getDataMsg());
     }

@@ -58,22 +58,22 @@ public class InvokeHelper {
 		return param.toString();
 	}
 
-	/**
-	 * 处理响应参数，如果dataMsg被压缩，则解压
-	 * @param param
-	 * @return
-	 */
-	public static void processResponse(InvokeParameter param){
-
-		if(param.getMsgCompress()==1){
-			try {
-				param.setDataMsg(ZipUtil.uncompress(param.getDataMsg()));
-				param.setMsgCompress(0);
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-		}
-	}
+//	/**
+//	 * 处理响应参数，如果dataMsg被压缩，则解压
+//	 * @param param
+//	 * @return
+//	 */
+//	public static void processResponse(InvokeParameter param){
+//
+//		if(param.getMsgCompress()==1){
+//			try {
+//				param.setDataMsg(ZipUtil.uncompress(param.getDataMsg()));
+//				param.setMsgCompress(0);
+//			} catch (IOException e) {
+//				throw new RuntimeException(e);
+//			}
+//		}
+//	}
 
 	/**
 	 * 处理请求参数，如果大于1024 byte，压缩后返回
@@ -90,17 +90,17 @@ public class InvokeHelper {
 		}
 
 
-		if(param.getDataLength()>compressLimit){
-
-			try {
-				param.setDataMsg(ZipUtil.compress(srcDataMsg));
-				param.setMsgCompress(1);
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-		}else{
-			param.setMsgCompress(0);
-		}
+//		if(param.getDataLength()>compressLimit){
+//
+//			try {
+//				param.setDataMsg(ZipUtil.compress(srcDataMsg));
+//				param.setMsgCompress(1);
+//			} catch (IOException e) {
+//				throw new RuntimeException(e);
+//			}
+//		}else{
+//			param.setMsgCompress(0);
+//		}
 
 		return param;
 	}
@@ -124,20 +124,7 @@ public class InvokeHelper {
 		param.setOriginNo(originNo);
 		param.setVersionNo(versionNo);
 		param.setDataMsg(dataMsg);
-		
-		if(param.getDataLength()>compressLimit){
-			
-			try {
-				param.setDataMsg(ZipUtil.compress(param.getDataMsg()));
-				param.setMsgCompress(1);
-			} catch (IOException e) {
-				InvokeLogger.error("报文解压失败", e);
-				Map<String, String> result = new HashMap<String, String>(2);
-				result.put("responseCode", ResponseCodeEnum.COMPRESS_FAILURE.getCode());
-				result.put("responseDesc", ResponseCodeEnum.COMPRESS_FAILURE.getDesc());
-				param.setDataMsg(JSONUtil.toJson(result));
-			}
-		}
+
 		return param.toString();
 	}
 
@@ -149,14 +136,13 @@ public class InvokeHelper {
 	 * @param targetNo
 	 * @param versionNo
 	 * @param dataLength
-	 * @param msgCompress
 	 * @param dataMsg
 	 * @throws ServiceException
 	 */
 	public static void validateReqParam(String serCode, String sysTraceNo, String originNo,
-			String targetNo, String versionNo, int dataLength, int msgCompress,
+			String targetNo, String versionNo, int dataLength,
 			String dataMsg) throws ServiceException{
-		if(StringUtils.isEmpty(serCode)||StringUtils.isEmpty(sysTraceNo)||StringUtils.isEmpty(originNo)||StringUtils.isEmpty(targetNo)||StringUtils.isEmpty(versionNo)||dataLength==0||(msgCompress!=0&&msgCompress!=1)||StringUtils.isEmpty(dataMsg)){
+		if(StringUtils.isEmpty(serCode)||StringUtils.isEmpty(sysTraceNo)||StringUtils.isEmpty(originNo)||StringUtils.isEmpty(targetNo)||StringUtils.isEmpty(versionNo)||dataLength==0||StringUtils.isEmpty(dataMsg)){
 			throw new ServiceException(ResponseCodeEnum.INVALID_PARAM);
 		}
 	}
@@ -287,7 +273,7 @@ public class InvokeHelper {
 			result = invokeService.invoke(param);
 
 			invokeParam.parse(result);
-			InvokeHelper.processResponse(invokeParam);
+			//InvokeHelper.processResponse(invokeParam);
 			InvokeLogger.info("######  " + targetSysEnum.getDesc() + "响应 Response：" + invokeParam.getDataMsg());
 			response = JSONUtil.toObject(invokeParam.getDataMsg(), InvokeResponse.class);
 

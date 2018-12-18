@@ -16,7 +16,7 @@ public class InvokeParameter implements Serializable {
     private String targetNo;
     private String versionNo;
     private int dataLength;
-    private int msgCompress;
+//    private int msgCompress;
     private String dataMsg;
 
     public void parse(String responseStr) {
@@ -25,7 +25,7 @@ public class InvokeParameter implements Serializable {
         }
 
         String[] params = responseStr.split("\\[分隔符\\]");
-        if (params.length != 8) {
+        if (params.length != 7) {
             throw new RuntimeException("无效请求参数");
         }
 
@@ -35,8 +35,8 @@ public class InvokeParameter implements Serializable {
         this.targetNo = params[3];
         this.versionNo = params[4];
         this.dataLength = Integer.parseInt(params[5]);
-        this.msgCompress = Integer.parseInt(params[6]);
-        this.dataMsg = params[7];
+//        this.msgCompress = Integer.parseInt(params[6]);
+        this.dataMsg = params[6];
     }
 
     public void setDataMsg(String dataMsg) {
@@ -58,7 +58,7 @@ public class InvokeParameter implements Serializable {
         sbf.append(targetNo).append(SPLITOR);
         sbf.append(versionNo).append(SPLITOR);
         sbf.append(dataLength).append(SPLITOR);
-        sbf.append(msgCompress).append(SPLITOR);
+        //sbf.append(msgCompress).append(SPLITOR);
         sbf.append(dataMsg);
         return sbf.toString();
     }
@@ -79,7 +79,7 @@ public class InvokeParameter implements Serializable {
         param.setOriginNo("404");
         param.setTargetNo("403");
         param.setVersionNo("1.0.0");
-        param.setMsgCompress(0);
+        //param.setMsgCompress(0);
         param.setDataMsg("测试");
 
         String tmp = param.toString();
