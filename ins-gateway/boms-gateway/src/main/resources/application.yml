@@ -23,7 +23,7 @@ spring:
           enabled: true
 
 
-register.center: http://eureka1:9997/eureka #,http://eureka2:9998/eureka,http://eureka3:9999/eureka
+register.center: http://127.0.0.1:9997/eureka #,http://eureka2:9998/eureka,http://eureka3:9999/eureka
 
 eureka:
   client:

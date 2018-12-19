@@ -23,7 +23,9 @@ server.port: 9003
 
 
 spring:
-# 配置下面两个值将会走到 ControllerAdvice 全局里面去
+  main:
+    allow-bean-definition-overriding: true
+  # 配置下面两个值将会走到 ControllerAdvice 全局里面去
 # org.springframework.boot.autoconfigure.web.WebMvcProperties
   mvc.throw-exception-if-no-handler-found: true
 # org.springframework.boot.autoconfigure.web.ResourceProperties
@@ -57,9 +59,29 @@ spring:
 # 注册中心地址, 多个使用 , 分隔
 register.center: http://127.0.0.1:9997/eureka/
 
+feign:
+  compression:
+    request:
+      enabled: true
+      mime-types: ["text/xml","application/xml","application/json"]
+      min-request-size: 2048
+    response.enabled: true
+  hystrix:
+    # 在feign中开启hystrix功能，默认情况下feign不开启hystrix功能
+    enabled: true
+  ## 配置httpclient线程池
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+    log.level: "BODY"
+
 hystrix.command.default.execution:
   timeout.enabled: true
-  isolation.thread.timeoutInMilliseconds: 60000
+  isolation:
+    thread:
+      timeoutInMilliseconds: 60000
+
 
 eureka:
   client:

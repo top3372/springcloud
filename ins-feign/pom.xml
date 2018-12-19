@@ -16,5 +16,8 @@
         <module>invoke-feign</module>
     </modules>
 
+    <dependencies>
 
+
+    </dependencies>
 </project>
