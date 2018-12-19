@@ -27,11 +27,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>com.netflix.zuul</groupId>-->
-            <!--<artifactId>zuul-core</artifactId>-->
-            <!--<version>2.1.3</version>-->
-        <!--</dependency>-->
 
         <!--<dependency>-->
             <!--<groupId>org.springframework.cloud</groupId>-->
@@ -52,16 +47,6 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.9.2</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.9.2</version>
-        </dependency>
     </dependencies>
 
     <build>
