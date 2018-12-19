@@ -2,6 +2,7 @@ package com.haili.ins.common.apollo.database;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyEditorRegistry;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.bind.BindHandler;
 import org.springframework.boot.context.properties.bind.Bindable;
 import org.springframework.boot.context.properties.bind.Binder;
@@ -22,6 +23,7 @@ import java.util.function.Consumer;
  * @see org.springframework.boot.context.properties.ConfigurationPropertiesBinder
  */
 @Component
+@ConditionalOnProperty(value = "spring.haili.apollo.database.enabled", havingValue ="true")
 public class CustomizedConfigurationPropertiesBinder implements ApplicationContextAware {
 
   private ConfigurableApplicationContext applicationContext;

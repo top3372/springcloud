@@ -83,6 +83,7 @@ hystrix.command.default.execution:
       timeoutInMilliseconds: 60000
 
 
+
 eureka:
   client:
     # 开启健康检查

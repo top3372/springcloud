@@ -4,8 +4,11 @@ import com.zaxxer.hikari.HikariDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.bind.Bindable;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -14,6 +17,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 @Component
+@ConditionalOnProperty(value = "spring.haili.apollo.database.enabled", havingValue ="true")
 public class DataSourceManager {
 
   private static final Logger logger = LoggerFactory.getLogger(DataSourceManager.class);

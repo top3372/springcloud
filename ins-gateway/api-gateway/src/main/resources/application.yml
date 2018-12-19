@@ -83,7 +83,7 @@ feign:
     enabled: false
   okhttp:
     enabled: true
-    log.level: "BODY"
+    log.level: "NONE"
 
 hystrix.command.default.execution:
   timeout.enabled: true
@@ -102,7 +102,6 @@ zuul:
     connect-timeout-millis: 60000
   max.host.connections: 500
   SimpleHostRoutingFilter.route.disable: true
-
 
 
 #shiro:
