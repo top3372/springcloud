@@ -44,11 +44,29 @@ eureka:
     status-page-url-path: /actuator/info
     health-check-url-path: /actuator/health
 
-
+feign:
+  compression:
+    request:
+      enabled: true
+      mime-types: ["text/xml","application/xml","application/json"]
+      min-request-size: 2048
+    response.enabled: true
+  hystrix:
+    # 在feign中开启hystrix功能，默认情况下feign不开启hystrix功能
+    enabled: true
+  ## 配置httpclient线程池
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+    log.level: "BODY"
 
 # 超时时间设置为 60 秒
 hystrix.command.default.execution:
   timeout.enabled: true
-  isolation.thread.timeoutInMilliseconds: 60000
+  isolation:
+    thread:
+      timeoutInMilliseconds: 60000
+
 
 
