@@ -23,16 +23,19 @@ server.port: 9002
 
 
 spring:
-  web:
-    swagger2:
-      enabled: true
-    filter:
-      enabled: true
+  haili:
+    web:
+      swagger2:
+        enabled: true
+      filter:
+        enabled: true
+
 ####cat链追踪配置
-#  cat:
-#    web.enabled: true
-#    feign.enabled: true
-#    mybatis.enabled: true
+#    cat:
+#      web.enabled: true
+#      feign.enabled: true
+#      mybatis.enabled: true
+
   #  zipkin:    #内存方式配置，不需要
   #   #base-url: http://localhost:9411
   #  #日志发送队列类型

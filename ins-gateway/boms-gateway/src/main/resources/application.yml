@@ -10,6 +10,9 @@ server:
 
 ##  https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 spring:
+  haili:
+    webflux:
+      filter.enabled: true
   application:
     name: boms-gateway
   cloud:

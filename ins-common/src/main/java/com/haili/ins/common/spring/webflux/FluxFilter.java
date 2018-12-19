@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
 
 @Configuration
 @Order(-1)
-@ConditionalOnProperty(value = "spring.webflux.filter.enabled", havingValue ="true")
+@ConditionalOnProperty(value = "spring.haili.webflux.filter.enabled", havingValue ="true")
 @Slf4j
 public class FluxFilter  implements WebFilter {
     @Override

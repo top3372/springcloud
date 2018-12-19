@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 
 
 @Configuration
-@ConditionalOnProperty(value = "spring.web.filter.enabled", havingValue ="true")
+@ConditionalOnProperty(value = "spring.haili.web.filter.enabled", havingValue ="true")
 public class WebConfiguration {
 
 

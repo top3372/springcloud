@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.Collections;
 
 @Configuration
-@ConditionalOnProperty(value = "spring.cat.web.enabled", havingValue ="true")
+@ConditionalOnProperty(value = "spring.haili.cat.web.enabled", havingValue ="true")
 public class CatWebConfiguration {
 
     private static final Logger log = LoggerFactory.getLogger(RestTemplate.class);

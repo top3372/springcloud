@@ -32,8 +32,9 @@ spring:
 #  redis:
 #    host: 192.168.100.211
 #    port: 6379
-  webflux:
-    filter.enabled: true
+  haili:
+    webflux:
+      filter.enabled: true
   # 当前服务名
   application.name: order-server
   datasource:

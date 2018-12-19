@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty(value = "spring.cat.zuul.enabled", havingValue ="true")
+@ConditionalOnProperty(value = "spring.hailicat.zuul.enabled", havingValue ="true")
 public class CatZuulConfiguration {
 
     @Bean

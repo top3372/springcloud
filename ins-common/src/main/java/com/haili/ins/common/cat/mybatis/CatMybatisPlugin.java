@@ -35,7 +35,7 @@ import java.util.regex.Matcher;
  * @author zhanzehui(west_20@163.com)
  */
 @Component
-@ConditionalOnProperty(value = "spring.cat.mybatis.enabled", havingValue ="true")
+@ConditionalOnProperty(value = "spring.haili.cat.mybatis.enabled", havingValue ="true")
 @Intercepts({
         @Signature(method = "query", type = Executor.class, args = {
                 MappedStatement.class, Object.class, RowBounds.class,

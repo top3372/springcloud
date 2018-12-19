@@ -17,13 +17,21 @@ spring:
       force: true
       enabled: true
 
+  haili:
+    web:
+      swagger2:
+        enabled: true
+      filter:
+        enabled: true
+#   cat:
+#     zuul.enabled: true
+
 #  cloud:
 #    sentinel:
 #      transport:
 #        dashboard: 172.19.250.6:8002
 
-#  cat:
-#    zuul.enabled: true
+
 
 #  zipkin:    #内存方式配置，不需要
 #    #base-url: http://localhost:9411
