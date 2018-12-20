@@ -25,6 +25,11 @@
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-web</artifactId>
                 </exclusion>
+                <!-- spring-cloud-starter-gateway启用 不能同时存在feign 否则会有 httpclient bean的冲突 -->
+                <exclusion>
+                        <groupId>org.springframework.cloud</groupId>
+                        <artifactId>spring-cloud-starter-openfeign</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
 

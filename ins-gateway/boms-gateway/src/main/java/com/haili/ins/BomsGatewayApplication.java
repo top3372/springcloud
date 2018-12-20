@@ -1,4 +1,4 @@
-package com.haili.ins.boms.gateway;
+package com.haili.ins;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
