@@ -1,4 +1,4 @@
-package com.haili.ins.common.database.mapper.config;
+package com.haili.ins.common.database.mybatis.config;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;

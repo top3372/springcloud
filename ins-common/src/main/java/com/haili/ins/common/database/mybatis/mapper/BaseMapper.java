@@ -1,4 +1,4 @@
-package com.haili.ins.common.database.mapper;
+package com.haili.ins.common.database.mybatis.mapper;
 
 
 import tk.mybatis.mapper.common.Mapper;

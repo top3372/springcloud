@@ -1,7 +1,7 @@
 
 online: false
 
-logging.config: classpath:log4j2.yml
+#logging.config: classpath:log4j2.yml
 
 pagehelper:
   helperDialect: mysql
@@ -19,7 +19,7 @@ mapper:
   notEmpty: true
 
 ## org.springframework.boot.autoconfigure.web.ServerProperties
-server.port: 9002
+server.port: 9000
 
 spring:
   haili:
@@ -65,7 +65,7 @@ spring:
   #    host: 192.168.100.211
   #    port: 6379
   # 当前服务名
-  application.name: member-server
+  application.name: auth-server
   datasource:
     url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
     userName: root

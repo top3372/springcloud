@@ -3,14 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>com.haili.ins.auth</groupId>
+        <groupId>com.haili.ins.service.auth</groupId>
         <artifactId>ins-auth</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.haili.ins.auth</groupId>
-    <artifactId>ins-auth-dao</artifactId>
+    <groupId>com.haili.ins.service.auth</groupId>
+    <artifactId>auth-dao</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.haili.ins.common</groupId>

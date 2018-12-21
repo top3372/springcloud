@@ -5,20 +5,20 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.haili.ins.auth</groupId>
+        <groupId>com.haili.ins.service.auth</groupId>
         <artifactId>ins-auth</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.haili.ins.auth</groupId>
-    <artifactId>ins-auth-service</artifactId>
+    <groupId>com.haili.ins.service.auth</groupId>
+    <artifactId>auth-service</artifactId>
 
     <packaging>jar</packaging>
     <description>鉴权微服务中心</description>
     <dependencies>
         <dependency>
-            <groupId>com.haili.ins.auth</groupId>
-            <artifactId>ins-auth-dao</artifactId>
+            <groupId>com.haili.ins.service.auth</groupId>
+            <artifactId>auth-dao</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -28,5 +28,17 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <finalName>auth-9000</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.haili.ins.AuthServerApplication</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     
 </project>

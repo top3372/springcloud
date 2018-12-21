@@ -13,6 +13,7 @@
     <artifactId>ins-service</artifactId>
     <packaging>pom</packaging>
     <modules>
+        <module>ins-auth</module>
         <module>ins-member</module>
         <module>ins-order-webflux</module>
     </modules>

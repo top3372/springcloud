@@ -6,9 +6,9 @@ server:
 
 ##  https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 spring:
-  main:
-    #允许配置文件中存在相同名字时 覆盖
-    allow-bean-definition-overriding: true
+#  main:
+#    #允许配置文件中存在相同名字时 覆盖
+#    allow-bean-definition-overriding: true
   application:
     name: api-gateway
   http:
