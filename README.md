@@ -1,12 +1,15 @@
 # springcloud
-探索
+对与spring-cloud的理解和学习
 
 
-eg:  “---------”左右两边的“：”决定文字的对齐方式
-
-| 星期        | 车次           | 时间  |
+模块简介
+| 模块	        | 描述           |  |
 | ------------- |:-------------:| -----:|
-| 星期一      |G1008 | 4:30 |
-|  星期二  | G1006      |  14:55 |
-|  星期三   | G1007    |   18:30 |
-
+| ins-commons      |工具包 |  |
+| ins-config  | 配置中心      |   |
+| ins-feign   | feign调用    |    |
+| ins-gateway   | 网关    |    |
+| ins-moniter   | 系统监控    |    |
+| ins-registry   | 服务注册与发现    |    |
+| ins-service   | 业务服务    |    |
+| ins-web   | web    |    |
