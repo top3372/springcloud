@@ -1,4 +1,4 @@
-package com.haili.ins.handler._001001;
+package com.haili.ins.handler.v1._002001;
 
 import lombok.Data;
 

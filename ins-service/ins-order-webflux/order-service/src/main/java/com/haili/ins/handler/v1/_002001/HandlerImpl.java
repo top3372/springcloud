@@ -1,4 +1,4 @@
-package com.haili.ins.handler._002001;
+package com.haili.ins.handler.v1._002001;
 
 import com.haili.ins.common.exception.ServiceException;
 
