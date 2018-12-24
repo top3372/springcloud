@@ -14,13 +14,14 @@
     <artifactId>haili-ins</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>ins-mybatis-plugins</module>
-        <module>ins-common</module>
+        <module>ins-commons</module>
         <module>ins-config</module>
-        <module>ins-eureka</module>
+        <module>ins-registry</module>
         <module>ins-gateway</module>
         <module>ins-service</module>
         <module>ins-feign</module>
+        <module>ins-web</module>
+        <module>ins-moniter</module>
     </modules>
     <packaging>pom</packaging>
 
