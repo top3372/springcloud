@@ -32,6 +32,8 @@ public enum ResponseCodeEnum {
 
 	BUSI_ERROR("000014", "内部服务异常"),
 
+	API_VERSION_ERROR("000015", "调用接口服务版本错误"),
+
 	FAILURE("999996","失败"),
 
 	REMOTE_CALL_FAILURE("999997", "远程调用失败"),

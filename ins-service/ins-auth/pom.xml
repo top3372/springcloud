@@ -14,7 +14,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>auth-dao</module>
-        <module>auth-service</module>
+        <module>auth-oauth2-service</module>
+        <module>auth-oauth2-jwt-service</module>
     </modules>
     
 </project>

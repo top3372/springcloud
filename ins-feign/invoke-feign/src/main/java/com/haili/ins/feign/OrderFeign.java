@@ -10,13 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-
 @Component
-@FeignClient(name = "member-server")
-/**
- * @author mali
- */
-public interface MemberFeign {
+@FeignClient(name = "order-server")
+public interface OrderFeign {
 
     /**
      * member invoke
@@ -24,7 +20,6 @@ public interface MemberFeign {
      * @return
      */
     @ResponseStatus(HttpStatus.OK)
-    @PostMapping("/v1/invoke")
+    @PostMapping("/invoke")
     InvokeResponse invoke(@RequestBody InvokeRequest invokeRequest);
-
 }

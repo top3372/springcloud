@@ -11,10 +11,10 @@
     </parent>
 
     <groupId>com.haili.ins.service.auth</groupId>
-    <artifactId>auth-oauth2-service</artifactId>
+    <artifactId>auth-oauth2-jwt-service</artifactId>
 
     <packaging>jar</packaging>
-    <description>OAuth2鉴权微服务中心</description>
+    <description>OAuth2-JWT鉴权微服务中心</description>
     <dependencies>
         <dependency>
             <groupId>com.haili.ins.service.auth</groupId>
@@ -29,13 +29,13 @@
     </dependencies>
 
     <build>
-        <finalName>oauth2-9000</finalName>
+        <finalName>oauth2-jwt-8999</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.haili.ins.OAuth2ServerApplication</mainClass>
+                    <mainClass>com.haili.ins.OAuth2JWTServerApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

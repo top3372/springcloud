@@ -1,4 +1,4 @@
-package com.haili.ins.common.apache.http;
+package com.haili.ins.common.feign.http;
 
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;

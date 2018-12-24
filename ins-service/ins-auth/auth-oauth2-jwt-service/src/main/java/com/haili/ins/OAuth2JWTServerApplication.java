@@ -8,9 +8,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableFeignClients
 @EnableEurekaClient
-public class OAuth2ServerApplication {
+public class OAuth2JWTServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OAuth2ServerApplication.class, args);
+        SpringApplication.run(OAuth2JWTServerApplication.class, args);
     }
 }

@@ -9,6 +9,5 @@ public class InvokeRequest {
     private String originNo;
     private String targetNo;
     private String dataMsg;
-    private String versionNo;
 
 }

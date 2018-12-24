@@ -1,6 +1,5 @@
 package com.haili.ins.feign;
 
-
 import com.haili.ins.common.invoke.dto.InvokeRequest;
 import com.haili.ins.common.invoke.dto.InvokeResponse;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -10,13 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-
-@Component
-@FeignClient(name = "member-server")
 /**
- * @author mali
+ * @author: LeonMa
+ * @date: 2018/12/23 23:10
  */
-public interface MemberFeign {
+@Component
+@FeignClient(name = "oauth2-server")
+public interface AuthOAuth2Feign {
 
     /**
      * member invoke
@@ -24,7 +23,6 @@ public interface MemberFeign {
      * @return
      */
     @ResponseStatus(HttpStatus.OK)
-    @PostMapping("/v1/invoke")
+    @PostMapping("/invoke")
     InvokeResponse invoke(@RequestBody InvokeRequest invokeRequest);
-
 }

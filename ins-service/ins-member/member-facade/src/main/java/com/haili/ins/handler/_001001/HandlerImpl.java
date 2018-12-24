@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
  * @author jack
  *
  */
-@Service("001001")
+@Service("001001.v1")
 public class HandlerImpl implements BusinessHandler {
 	
 	@Autowired

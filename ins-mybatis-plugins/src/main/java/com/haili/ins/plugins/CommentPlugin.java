@@ -202,7 +202,7 @@ public class CommentPlugin extends PluginAdapter {
     public boolean sqlMapDocumentGenerated(Document document, IntrospectedTable introspectedTable) {
         document.getRootElement().addElement(new TextElement(""));
         document.getRootElement().addElement(new TextElement("<!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: " + (new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(new Date()) + " ### -->\n\n\n"));
-        document.getRootElement().addElement(new TextElement("<!-- Your codes goes here!!! -->"));
+        document.getRootElement().addElement(new TextElement("<!-- Your codes goes start here!!! -->"));
         document.getRootElement().addElement(new TextElement(""));
         return true;
     }

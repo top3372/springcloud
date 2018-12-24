@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
  * @author jack
  *
  */
-@Service("002001")
+@Service("002001.v1")
 public class HandlerImpl implements BusinessHandler {
 	
 	@Autowired
@@ -39,7 +39,6 @@ public class HandlerImpl implements BusinessHandler {
 			ir.setOriginNo("002");
 			ir.setSerCode("001001");
 			ir.setTargetNo("001");
-			ir.setVersionNo("1.0");
 
 			memberFeign.invoke(ir);
 			response.buildSuccResp();

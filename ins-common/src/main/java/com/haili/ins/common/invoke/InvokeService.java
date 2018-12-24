@@ -36,7 +36,7 @@ public class InvokeService {
             //InvokeLogger.info("<=== Request", "dataMsg", invokeParameter.getMsgCompress() == 0 ? dataMsg : "<compressed>");
 
             //验证请求服务代码是否正确
-            BusinessHandler service = getBusinessHandler(invokeParameter.getSerCode());
+            BusinessHandler service = getBusinessHandler(invokeParameter.getSerCode() + "." +invokeParameter.getVersionNo());
             if(service==null){
                 throw new ServiceException(ResponseCodeEnum.UNDEFINED_SERVICE.getCode(), ResponseCodeEnum.UNDEFINED_SERVICE.getDesc());
             }

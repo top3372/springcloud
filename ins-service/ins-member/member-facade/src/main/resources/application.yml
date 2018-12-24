@@ -28,7 +28,9 @@ spring:
         enabled: true
       filter:
         enabled: true
-
+    api:
+      ###接口支持的版本号
+      version: 1,2
 ####cat链追踪配置
 #    cat:
 #      web.enabled: true
