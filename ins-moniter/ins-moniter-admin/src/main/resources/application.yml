@@ -1,21 +1,9 @@
 server:
-  port: 8001
+  port: 7001
 
 spring:
   application:
-    name: ins-config
-  cloud:
-    config:
-      server:
-        svn:
-          uri: svn://svn.hailijr.com:9099/tec/config/
-          username: kehengcheng
-          password: hlkhc1q2w
-          default-label: trunk
-          search-paths:
-            - ins-order
-  profiles:
-    active: subversion
+    name: ins-moniter-admin
 
 
 register.center: http://127.0.0.1:9999/eureka/
