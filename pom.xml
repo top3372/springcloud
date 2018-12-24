@@ -16,6 +16,7 @@
     <modules>
         <module>ins-commons</module>
         <module>ins-config</module>
+        <module>ins-core</module>
         <module>ins-registry</module>
         <module>ins-gateway</module>
         <module>ins-service</module>
