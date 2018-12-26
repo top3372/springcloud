@@ -1,4 +1,4 @@
-logging.config: classpath:log4j2.yml
+logging.config: classpath:log4j2.xml
 ## org.springframework.boot.autoconfigure.web.ServerProperties
 server:
   port: 9102

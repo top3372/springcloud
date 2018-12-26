@@ -1,7 +1,7 @@
 
 online: false
 
-logging.config: classpath:log4j2.yml
+logging.config: classpath:log4j2.xml
 
 pagehelper:
   helperDialect: mysql

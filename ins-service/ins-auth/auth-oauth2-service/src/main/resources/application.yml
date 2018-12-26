@@ -1,4 +1,4 @@
-
+logging.config: classpath:log4j2.xml
 online: false
 
 #logging.config: classpath:log4j2.yml
