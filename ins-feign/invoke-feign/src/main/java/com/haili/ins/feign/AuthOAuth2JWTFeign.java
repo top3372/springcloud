@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @date: 2018/12/23 23:10
  */
 @Component
-@FeignClient(name = "oauth2-server")
-public interface AuthOAuth2Feign {
+@FeignClient(name = "oauth2-jwt-server")
+public interface AuthOAuth2JWTFeign {
 
     /**
      * member invoke

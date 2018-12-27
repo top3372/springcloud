@@ -83,7 +83,19 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
-
+####Redis配置
+  redis:
+    database: 0
+    host: 47.100.3.157
+    password:
+    timeout: 3000
+    jedis:
+      pool:
+        max-active: 5
+        min-idle: 0
+        max-wait: 1
+        max-idle: 8
+    port: 6061
 
 # 注册中心地址, 多个使用 , 分隔
 register.center: http://127.0.0.1:9997/eureka

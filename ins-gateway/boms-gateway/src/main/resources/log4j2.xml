@@ -22,8 +22,8 @@
         <!--</File>-->
         <!-- 这个会打印出所有的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档-->
         <RollingFile name="RollingFile" fileName="./logs/ins-boms-gateway-9102.log"
-                     filePattern="./log/$${date:yyyy-MM}/ins-boms-gateway-9102-%d{MM-dd-yyyy}-%i.log.gz">
-            <PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level  %processId [%t] %class{36} %L %M - %msg%xEx%n"/>
+                     filePattern="./logs/$${date:yyyy-MM}/ins-boms-gateway-9102-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %processId [%t] %class{36} %L %M - %msg%xEx%n"/>
             <SizeBasedTriggeringPolicy size="5MB"/>
             <!-- DefaultRolloverStrategy属性如不设置，则默认为最多同一文件夹下7个文件，这里设置了20 -->
             <DefaultRolloverStrategy max="20"/>
