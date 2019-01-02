@@ -36,7 +36,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.haili.ins.web.config.ConfigServerApplication</mainClass>
+                    <mainClass>com.haili.ins.config.ConfigServerApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

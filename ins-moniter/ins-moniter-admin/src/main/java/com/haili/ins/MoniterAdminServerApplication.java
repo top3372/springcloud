@@ -1,4 +1,4 @@
-package com.haili.ins.web.config;
+package com.haili.ins.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

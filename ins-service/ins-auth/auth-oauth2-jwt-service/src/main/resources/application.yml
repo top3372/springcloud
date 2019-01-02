@@ -1,79 +1,45 @@
 logging.config: classpath:log4j2.xml
 online: false
 
-#logging.config: classpath:log4j2.yml
-
-pagehelper:
-  helperDialect: mysql
-  reasonable: false
-  supportMethodsArguments: true
-  params: count=countSql
-
-mybatis:
-  type-aliases-package: com.haili.ins.dao.model
-  mapper-locations: classpath*:/mybatis/*.xml
-
-##tk.mybatis
-mapper:
-  #mappers: tk.mybatis.mapper.common.Mapper,tk.mybatis.mapper.common.Mapper2
-  notEmpty: true
-
 ## org.springframework.boot.autoconfigure.web.ServerProperties
 server.port: 8999
 
 spring:
   # 当前服务名
   application.name: oauth2-jwt-server
+#####haili自定义的配置
   haili:
     web:
       swagger2:
         enabled: true
       filter:
         enabled: true
-
 ####cat链追踪配置
 #    cat:
 #      web.enabled: true
 #      feign.enabled: true
 #      mybatis.enabled: true
-
-  #  zipkin:    #内存方式配置，不需要
-  #   #base-url: http://localhost:9411
-  #  #日志发送队列类型
-  #    sender:
-  #      type: rabbit
-  #      #发送的队列名称，默认zipkin，正常情况不要修改因为zipkin-server默认监控队列也是zipkin
-  #  #
-  #  rabbitmq:
-  #    host: 192.168.1.171
-  #    port: 5672
-  #    username: guest
-  #    password: guest
-  #    queue: zipkin
-  #  sleuth:
-  #    sampler:
-  #      probability: 1.0
+######haili自定义的配置
 
   # 配置下面两个值将会走到 ControllerAdvice 全局里面去
   # org.springframework.boot.autoconfigure.web.WebMvcProperties
-#  main:
-#    #允许配置文件中存在相同名字时 覆盖
-#    allow-bean-definition-overriding: true
   mvc.throw-exception-if-no-handler-found: true
   # org.springframework.boot.autoconfigure.web.ResourceProperties
   resources.add-mappings: false
-  # org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
-  #  redis:
-  #    host: 192.168.100.211
-  #    port: 6379
-
-
+#####数据库配置
   datasource:
-    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://localhost:3306/auth?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
     userName: root
     password: 111111
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
+#    dbcp2:
+#      max-idle: 5
+#      max-wait-millis: 10000
+#      min-idle: 2
+#      initial-size: 3
+#      validation-query: SELECT 1
+#      time-between-eviction-runs-millis: 18800
     hikari:
       minimum-idle: 5
       maximum-pool-size: 15
@@ -83,7 +49,7 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
-####Redis配置
+####Redis配置 # org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
   redis:
     database: 0
     host: 47.100.3.157
@@ -97,9 +63,40 @@ spring:
         max-idle: 8
     port: 6061
 
+######分页配置
+pagehelper:
+  helperDialect: mysql
+  reasonable: false
+  supportMethodsArguments: true
+  params: count=countSql
+
+###mybatis配置
+mybatis:
+  type-aliases-package: com.haili.ins.dao.model
+  mapper-locations: classpath*:/mybatis/*.xml
+
+##tk.mybatis配置
+mapper:
+  #mappers: tk.mybatis.mapper.common.Mapper,tk.mybatis.mapper.common.Mapper2
+  notEmpty: true
+
 # 注册中心地址, 多个使用 , 分隔
 register.center: http://127.0.0.1:9997/eureka
 
+eureka:
+  client:
+    # 开启健康检查
+    healthcheck.enabled: true
+    # client 间隔多久去拉取服务注册信息(默认 30 秒)
+    registry-fetch-interval-seconds: 10
+    serviceUrl.defaultZone: ${register.center}
+  instance:
+    # client 发送心跳给 server 端的频率(默认 30 秒)
+    lease-renewal-interval-in-seconds: 5
+    # server 收到心跳等待下一次心跳的超时时间, 要比上面的大(默认 90 秒)
+    lease-expiration-duration-in-seconds: 10
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
 
 feign:
   compression:
@@ -124,20 +121,6 @@ hystrix.command.default.execution:
     thread:
       timeoutInMilliseconds: 60000
 
-eureka:
-  client:
-    # 开启健康检查
-    healthcheck.enabled: true
-    # client 间隔多久去拉取服务注册信息(默认 30 秒)
-    registry-fetch-interval-seconds: 10
-    serviceUrl.defaultZone: ${register.center}
-  instance:
-    # client 发送心跳给 server 端的频率(默认 30 秒)
-    lease-renewal-interval-in-seconds: 5
-    # server 收到心跳等待下一次心跳的超时时间, 要比上面的大(默认 90 秒)
-    lease-expiration-duration-in-seconds: 10
-    preferIpAddress: true
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
 
 #apollo:
 #  bootstrap:

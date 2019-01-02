@@ -41,6 +41,11 @@ public enum ResponseCodeEnum {
 	DB_ERROR("999998", "数据库执行失败"),
 
 	UNDEFINED_ERROR("999999", "服务处理失败"),
+
+
+	LOGIN_FAILURE("10001","登录失败"),
+
+	LOGOUT_FAILURE("10002","注销失败")
 	
 	;
 	private String code;
