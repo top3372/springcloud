@@ -56,6 +56,7 @@ public class ClientDetailsServiceImpl implements ClientDetailsService {
         if(clientDetails == null) {
             throw new ClientRegistrationException("应用" + clientId + "不存在!");
         }
+        //clientDetails.isAutoApprove("true");
         cacheClientDetails(clientDetails);
         return clientDetails;
     }

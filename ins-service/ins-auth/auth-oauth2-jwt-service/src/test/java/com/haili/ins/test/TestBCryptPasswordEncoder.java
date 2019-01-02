@@ -18,7 +18,7 @@ public class TestBCryptPasswordEncoder {
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 // 加密
-        String encodedPassword = passwordEncoder.encode("frontend");
+        String encodedPassword = passwordEncoder.encode("123456");
 
         System.out.println(encodedPassword);
 

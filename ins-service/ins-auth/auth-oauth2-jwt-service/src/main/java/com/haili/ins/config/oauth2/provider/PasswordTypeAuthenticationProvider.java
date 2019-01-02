@@ -1,4 +1,4 @@
-package com.haili.ins.config.oauth2;
+package com.haili.ins.config.oauth2.provider;
 
 import com.haili.ins.config.oauth2.token.CustomAuthenticationToken;
 import com.haili.ins.dto.CustomUserDetails;
@@ -19,7 +19,7 @@ import java.util.Map;
  * @date 2017/8/5
  */
 @Component
-public class CustomAuthenticationProvider implements AuthenticationProvider {
+public class PasswordTypeAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
     private UserDetailsService oauth2UserDetailsService;
