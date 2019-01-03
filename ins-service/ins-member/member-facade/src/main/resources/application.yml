@@ -62,10 +62,7 @@ spring:
   mvc.throw-exception-if-no-handler-found: true
   # org.springframework.boot.autoconfigure.web.ResourceProperties
   resources.add-mappings: false
-  # org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
-  #  redis:
-  #    host: 192.168.100.211
-  #    port: 6379
+
   # 当前服务名
   application.name: member-server
   datasource:

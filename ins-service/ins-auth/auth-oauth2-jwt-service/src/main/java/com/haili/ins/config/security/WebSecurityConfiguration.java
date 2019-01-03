@@ -32,7 +32,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin().permitAll()
-                .and().requestMatchers().antMatchers("/login", "/oauth/authorize", "/oauth/confirm_access")
+                .and().requestMatchers().antMatchers("/login", "**/oauth/**")
                 .and().authorizeRequests().anyRequest().authenticated()
                 .and().csrf().disable();
     }

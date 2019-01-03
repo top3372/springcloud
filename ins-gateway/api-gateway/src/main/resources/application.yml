@@ -6,9 +6,6 @@ server:
 
 ##  https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 spring:
-#  main:
-#    #允许配置文件中存在相同名字时 覆盖
-#    allow-bean-definition-overriding: true
   application:
     name: api-gateway
   http:
@@ -26,28 +23,8 @@ spring:
 #   cat:
 #     zuul.enabled: true
 
-#  cloud:
-#    sentinel:
-#      transport:
-#        dashboard: 172.19.250.6:8002
 
 
-
-#  zipkin:    #内存方式配置，不需要
-#    #base-url: http://localhost:9411
-#    #日志发送队列类型
-#    sender:
-#      type: rabbit
-#      #发送的队列名称，默认zipkin，正常情况不要修改因为zipkin-server默认监控队列也是zipkin
-#  rabbitmq:
-#    host: 192.168.1.171
-#    port: 5672
-#    username: guest
-#    password: guest
-#    queue: zipkin
-#  sleuth:
-#    sampler:
-#      probability: 1.0
 
 register.center: http://127.0.0.1:9997/eureka #,http://eureka2:9998/eureka,http://eureka3:9999/eureka
 
@@ -100,16 +77,47 @@ ribbon:
 
 # 路由
 zuul:
-#  routes:
-#    users:
-#      path: /member/**
-#      serviceId: member-server
+  ribbon:
+    eager-load:
+      enabled: true
   host:
     socket-timeout-millis: 60000
     connect-timeout-millis: 60000
-  max.host.connections: 500
-  SimpleHostRoutingFilter.route.disable: true
+    max-per-route-connections: 20
+    max-total-connections: 200
+    connection-request-timeout-millis: 500
+  routes:
+    auth:
+      path: /uua/**
+      service-id: oauth2-jwt-server
+      sensitive-headers:
+      custom-sensitive-headers: true
+    member:
+      path: /user/**
+      service-id: member-server
+      sensitive-headers:
+      custom-sensitive-headers: true
+  retryable: true
 
+
+
+auth:
+  permitall:
+    -
+      pattern: /uua/**
+    -
+      pattern: /**/public/**
+
+security:
+  oauth2:
+    client:
+      access-token-uri: http://localhost:${server.port}/uua/oauth/token
+      user-authorization-uri: http://localhost:${server.port}/uua/oauth/authorize
+      client-id: frontend
+      client-secret: frontend
+    resource:
+      user-info-uri: http://localhost:${server.port}/uua/user
+      token-info-uri: http://localhost:${server.port}/uua/oauth/check_token
 
 #shiro:
 #  loginUrl: /login

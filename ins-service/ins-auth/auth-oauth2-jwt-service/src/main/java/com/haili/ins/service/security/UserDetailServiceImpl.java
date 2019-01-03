@@ -39,8 +39,8 @@ public class UserDetailServiceImpl implements UserDetailsService {
         CustomUserDetails customUserDetails = new CustomUserDetails();
         customUserDetails.setClientId("frontend");
         customUserDetails.setUsername("admin");
-//        customUserDetails.setPassword("123456");
-        customUserDetails.setPassword("$2a$10$c.RLty6VdbwA3IiEc7uJnO9ly0KDHUEeHkCWckZQmzieY6aMyjla.");
+        customUserDetails.setPassword("123456");
+        //customUserDetails.setPassword("$2a$10$c.RLty6VdbwA3IiEc7uJnO9ly0KDHUEeHkCWckZQmzieY6aMyjla.");
         customUserDetails.setEnabled(true);
         customUserDetails.setUserId("111");
 //        customUserDetails.setAuthorities(null);

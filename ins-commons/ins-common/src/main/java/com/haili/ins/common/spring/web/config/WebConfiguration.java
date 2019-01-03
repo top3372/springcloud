@@ -31,7 +31,7 @@ public class WebConfiguration {
 
     /** 处理字符的 filter. */
     @Bean
-    public FilterRegistrationBean filterRegistrationBean() {
+    public FilterRegistrationBean encodingFilterRegistrationBean() {
         CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
         encodingFilter.setEncoding(StandardCharsets.UTF_8.displayName());
         encodingFilter.setForceEncoding(true);
