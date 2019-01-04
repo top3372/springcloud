@@ -3,6 +3,13 @@ logging.config: classpath:log4j2.xml
 server:
   port: 9101
 
+management:
+  endpoint:
+    health:
+      redis:
+        enabled: false
+      show-details: always
+
 
 ##  https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 spring:
@@ -107,6 +114,16 @@ auth:
       pattern: /uua/**
     -
       pattern: /**/public/**
+    -
+      pattern: /**/swagger-ui.html
+    -
+      pattern: /**/swagger-resources/**
+    -
+      pattern: /**/v2/api-docs
+    -
+      pattern: /**/webjars/**
+    -
+      pattern: /**/actuator/**
 
 security:
   oauth2:
