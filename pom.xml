@@ -17,12 +17,14 @@
         <module>ins-commons</module>
         <module>ins-config</module>
         <module>ins-cores</module>
-        <module>ins-registry</module>
-        <module>ins-gateway</module>
-        <module>ins-service</module>
         <module>ins-feign</module>
-        <module>ins-web</module>
+        <module>ins-gateway</module>
         <module>ins-moniter</module>
+        <module>ins-message</module>
+        <module>ins-registry</module>
+        <module>ins-service</module>
+        <module>ins-thirdparty</module>
+        <module>ins-web</module>
     </modules>
     <packaging>pom</packaging>
 
