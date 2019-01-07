@@ -1,0 +1,11 @@
+
+spring:
+  #配置rabbitmq的主机
+  rabbitmq:
+    host: 192.168.18.133
+  #访问端口
+    port: 5672
+  #安装RabbitMQ时配置的用户名
+    username: root
+  #安装RabbitMQ时配置的密码
+    password: 123456
