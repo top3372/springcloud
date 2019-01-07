@@ -113,7 +113,7 @@ feign:
     enabled: false
   okhttp:
     enabled: true
-    log.level: "BODY"
+    log.level: "HEADERS"
 
 hystrix.command.default.execution:
   timeout.enabled: true
