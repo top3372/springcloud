@@ -2,23 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>haili-ins</artifactId>
-        <groupId>com.haili.ins</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>com.haili.ins.moniter</groupId>
+        <artifactId>ins-moniter</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
     <groupId>com.haili.ins.moniter</groupId>
-    <artifactId>ins-moniter</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-       <module>ins-moniter-admin</module>
-       <module>ins-elk</module>
-    </modules>
+    <artifactId>ins-elk</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
-    <dependencies>
-
-
-    </dependencies>
+    
 </project>

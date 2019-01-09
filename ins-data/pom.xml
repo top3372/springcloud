@@ -2,25 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>haili-ins</artifactId>
-        <groupId>com.haili.ins</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.haili.ins.registry</groupId>
-    <artifactId>ins-registry</artifactId>
+    <parent>
+        <groupId>com.haili.ins</groupId>
+        <artifactId>haili-ins</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.haili.ins.data</groupId>
+    <artifactId>ins-data</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>ins-eureka</module>
-        <module>ins-consul</module>
-        <module>ins-nacos</module>
-        <module>ins-zookeeper</module>
+        <module>ins-elasticsearch</module>
+        <module>ins-solr</module>
     </modules>
-
-    <dependencies>
-
-
-    </dependencies>
+    
 </project>

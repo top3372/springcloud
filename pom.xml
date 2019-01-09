@@ -17,6 +17,7 @@
         <module>ins-commons</module>
         <module>ins-config</module>
         <module>ins-cores</module>
+        <module>ins-data</module>
         <module>ins-feign</module>
         <module>ins-gateway</module>
         <module>ins-moniter</module>

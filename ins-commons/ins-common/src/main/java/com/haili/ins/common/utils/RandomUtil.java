@@ -178,17 +178,7 @@ public final class RandomUtil {
 		String sysTraceNo=date+RandomUtil.randomDegital(8);
 		return sysTraceNo;
 	}
-    
-    /**
-     * 生成流水号
-     * @return
-     */
-    public static String generateImvSeqNo(){
 
-		String date=DateUtil.now(DateFormatType.YYYYMMDDHHMMSS);
-		String sysTraceNo=date+RandomUtil.randomDegital(4);
-		return sysTraceNo;
-	}
       
     public static void main(String[] args) {
         //测试  
