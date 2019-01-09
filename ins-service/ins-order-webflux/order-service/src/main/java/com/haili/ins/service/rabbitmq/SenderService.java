@@ -43,9 +43,12 @@ public class SenderService {
             MessageCorrelationData data = new MessageCorrelationData(id,message);
             data.setId(id);
             data.setExchange(rabbitConfProperties.getMessageExchange());
-            data.setRoutingKey(rabbitConfProperties.getMessageRoutingKey());
+            //data.setRoutingKey(rabbitConfProperties.getMessageRoutingKey());
 
-            rabbitTemplate.convertAndSend(data.getExchange(),data.getRoutingKey(), message,data);
+            rabbitTemplate.convertAndSend(data.getExchange(),null, message,data);
+
+
         }
+
     }
 }
