@@ -8,6 +8,7 @@
 | ins-commons | 工具包 | 0 |
 | ins-config  | 配置中心      | 0  |
 | ins-cores  | 框架核心      | 0  |
+| ins-data  | 数据处理      | 0  |
 | ins-feign   | feign调用    |  0  |
 | ins-gateway   | 网关    |  0  |
 | ins-moniter   | 系统监控    |   0 |
