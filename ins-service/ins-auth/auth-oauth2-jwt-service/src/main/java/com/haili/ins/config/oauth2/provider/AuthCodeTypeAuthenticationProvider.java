@@ -1,5 +1,6 @@
 package com.haili.ins.config.oauth2.provider;
 
+import com.haili.ins.config.oauth2.token.CustomAuthenticationToken;
 import com.haili.ins.dto.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -34,7 +35,8 @@ public class AuthCodeTypeAuthenticationProvider implements AuthenticationProvide
                 }
                 if (userDetails.getPassword().equals(token.getCredentials().toString())) {
 
-                    return new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
+                    //return new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
+                    return new CustomAuthenticationToken(userDetails);
                 }else{
                     throw new BadCredentialsException("密码错误");
                 }

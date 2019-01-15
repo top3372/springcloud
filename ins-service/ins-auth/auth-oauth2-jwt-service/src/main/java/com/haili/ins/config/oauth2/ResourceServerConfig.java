@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author: LeonMa
  * @date: 2018/12/28 12:54
  */
-@Configuration
-@EnableResourceServer
+//@Configuration
+//@EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override

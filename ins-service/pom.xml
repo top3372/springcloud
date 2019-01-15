@@ -13,9 +13,17 @@
     <artifactId>ins-service</artifactId>
     <packaging>pom</packaging>
     <modules>
+        <module>ins-admin</module>
         <module>ins-auth</module>
+        <module>ins-account</module>
+        <module>ins-cms</module>
         <module>ins-member</module>
+        <module>ins-marketing</module>
+        <module>ins-merchant</module>
         <module>ins-order-webflux</module>
+        <module>ins-payment-service</module>
+        <module>ins-refund</module>
+        <module>ins-stock</module>
     </modules>
     <dependencies>
 

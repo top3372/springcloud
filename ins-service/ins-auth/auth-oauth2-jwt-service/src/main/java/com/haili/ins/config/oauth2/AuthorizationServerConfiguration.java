@@ -64,6 +64,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .allowFormAuthenticationForClients()
                  .tokenKeyAccess("permitAll()")
                 .checkTokenAccess("isAuthenticated()");
+//                .addTokenEndpointAuthenticationFilter();
     }
 
     /**
@@ -99,7 +100,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .tokenStore(tokenStore())
 
                 .userDetailsService(oauth2UserDetailsService)
-                //.authorizationCodeServices(new JdbcAuthorizationCodeServices(dataSource))
+                .authorizationCodeServices(redisAuthenticationCodeServices())
                 .accessTokenConverter(accessTokenConverter())
                 ;
     }
@@ -122,11 +123,14 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
         return new RedisTokenStore(redisConnectionFactory);
     }
 
-//    @Bean
-//    public ClientDetailsService clientDetailsService() {
-//        return new ClientDetailsServiceImpl();
-//    }
-//
 
+    /**
+     * AuthenticationCode 存入redis中
+     * @return
+     */
+    @Bean
+    public RedisAuthenticationCodeServices redisAuthenticationCodeServices(){
+        return new RedisAuthenticationCodeServices(redisConnectionFactory);
+    }
 
 }
