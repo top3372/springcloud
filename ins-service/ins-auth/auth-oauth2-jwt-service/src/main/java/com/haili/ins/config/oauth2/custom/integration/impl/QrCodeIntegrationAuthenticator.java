@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class QrCodeIntegrationAuthenticator extends AbstractPreparableIntegrationAuthenticator {
 
-    private final static String QRCODE_AUTH_TYPE = "sms";
+    private final static String QRCODE_AUTH_TYPE = "qr";
 
     @Override
     public Oauth2User authenticate(IntegrationAuthentication integrationAuthentication) {
