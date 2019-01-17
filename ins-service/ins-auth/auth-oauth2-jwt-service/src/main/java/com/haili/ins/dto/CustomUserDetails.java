@@ -1,8 +1,14 @@
 package com.haili.ins.dto;
 
+
+import com.haili.ins.dto.auth.Oauth2User;
+import lombok.Data;
+import org.springframework.security.core.CredentialsContainer;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -10,132 +16,61 @@ import java.util.List;
  * @author: LeonMa
  * @date: 2018/12/28 12:28
  */
-public class CustomUserDetails implements UserDetails {
+@Data
+public class CustomUserDetails implements UserDetails, CredentialsContainer {
 
 
     private static final long serialVersionUID = -8414051577561674553L;
-    private String userId;
-
-    private String username;
-
-    private String password;
-
-    private boolean enabled = true;
-
+    private final Oauth2User oauth2User;
+    private final User user;
+    private Collection<String> resources = new ArrayList<>();
+    private Collection<String> roles = new ArrayList<>();
+    private Collection<GrantedAuthority> grantedAuthorities;
     private String clientId;
 
-    private List<String> roles;
-
-    private Collection<? extends GrantedAuthority> authorities;
-
-    public String getClientId() {
-        return clientId;
+    public CustomUserDetails(Oauth2User oauth2User,User user){
+        this.oauth2User = oauth2User;
+        this.user = user;
     }
 
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
-        this.authorities = authorities;
-    }
-
-    public List<String> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<String> roles) {
-        this.roles = roles;
+    @Override
+    public void eraseCredentials() {
+        user.eraseCredentials();
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
+        return user.getAuthorities();
     }
 
     @Override
     public String getPassword() {
-        return this.password;
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return this.username;
+        return user.getUsername();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return user.isAccountNonExpired();
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return user.isAccountNonLocked();
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return user.isCredentialsNonExpired();
     }
 
     @Override
     public boolean isEnabled() {
-        return enabled;
-    }
-
-    public static class CustomUserDetailsBuilder {
-        private CustomUserDetails userDetails = new CustomUserDetails();
-
-        public CustomUserDetailsBuilder withUsername(String username) {
-            userDetails.setUsername(username);
-            userDetails.setAuthorities(null);
-            return this;
-        }
-
-        public CustomUserDetailsBuilder withPassword(String password) {
-            userDetails.setPassword(password);
-            return this;
-        }
-
-        public CustomUserDetailsBuilder withClientId(String clientId) {
-            userDetails.setClientId(clientId);
-            return this;
-        }
-
-        public CustomUserDetailsBuilder withUserId(String userId) {
-            userDetails.setUserId(userId);
-            return this;
-        }
-
-        public CustomUserDetailsBuilder withRoles(List<String> roles) {
-            userDetails.setRoles(roles);
-            return this;
-        }
-
-        public CustomUserDetails build() {
-            return userDetails;
-        }
+        return user.isEnabled();
     }
 
 }

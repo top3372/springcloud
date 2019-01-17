@@ -33,13 +33,6 @@ spring:
     password: 111111
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-#    dbcp2:
-#      max-idle: 5
-#      max-wait-millis: 10000
-#      min-idle: 2
-#      initial-size: 3
-#      validation-query: SELECT 1
-#      time-between-eviction-runs-millis: 18800
     hikari:
       minimum-idle: 5
       maximum-pool-size: 15
@@ -62,7 +55,8 @@ spring:
         max-wait: 1
         max-idle: 8
     port: 6061
-
+    redisson:
+      config: classpath:redisson.yaml
 ######分页配置
 pagehelper:
   helperDialect: mysql

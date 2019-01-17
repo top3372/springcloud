@@ -1,28 +1,24 @@
 package com.haili.ins.config.oauth2;
 
-import com.haili.ins.config.oauth2.token.CustomJwtAccessTokenConverter;
-import com.haili.ins.service.oauth2.ClientDetailsServiceImpl;
+import com.haili.ins.config.oauth2.custom.exception.CustomOauth2ExceptionTranslator;
+import com.haili.ins.config.oauth2.custom.filter.IntegrationAuthenticationFilter;
+import com.haili.ins.config.oauth2.custom.token.generate.CustomJwtAccessTokenConverter;
+import com.haili.ins.service.oauth2.CustomClientDetailsService;
+import com.haili.ins.service.security.custom.IntegrationUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
-import org.springframework.security.oauth2.provider.ClientDetailsService;
-import org.springframework.security.oauth2.provider.code.InMemoryAuthorizationCodeServices;
-import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
-import javax.annotation.Resource;
-import javax.sql.DataSource;
 
 /**
  * 认证服务器配置
@@ -33,9 +29,6 @@ import javax.sql.DataSource;
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfiguration extends AuthorizationServerConfigurerAdapter {
-
-    @Resource
-    DataSource dataSource;
 
     /**
      * 认证管理器，当你选择了资源所有者密码（password）授权类型的时候，
@@ -48,10 +41,18 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     private RedisConnectionFactory redisConnectionFactory;
 
     @Autowired
-    private ClientDetailsService oauth2ClientDetailsService;
+    private CustomClientDetailsService customClientDetailsService;
 
     @Autowired
-    private UserDetailsService oauth2UserDetailsService;
+    private IntegrationUserDetailsService integrationUserDetailsService;
+
+    @Autowired
+    private CustomOauth2ExceptionTranslator customOauth2ExceptionTranslator;
+
+    @Autowired
+    private IntegrationAuthenticationFilter integrationAuthenticationFilter;
+
+
 
     /**
      * 配置令牌端点(Token Endpoint)的安全约束.
@@ -62,9 +63,9 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security
                 .allowFormAuthenticationForClients()
-                 .tokenKeyAccess("permitAll()")
-                .checkTokenAccess("isAuthenticated()");
-//                .addTokenEndpointAuthenticationFilter();
+                .tokenKeyAccess("permitAll()")
+                .checkTokenAccess("isAuthenticated()")
+                .addTokenEndpointAuthenticationFilter(integrationAuthenticationFilter);
     }
 
     /**
@@ -74,7 +75,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.withClientDetails(oauth2ClientDetailsService);
+        clients.withClientDetails(customClientDetailsService);
     }
 
     /**
@@ -98,8 +99,8 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.authenticationManager(authenticationManager)
                 .tokenStore(tokenStore())
-
-                .userDetailsService(oauth2UserDetailsService)
+                .exceptionTranslator(customOauth2ExceptionTranslator)
+                .userDetailsService(integrationUserDetailsService)
                 .authorizationCodeServices(redisAuthenticationCodeServices())
                 .accessTokenConverter(accessTokenConverter())
                 ;

@@ -1,4 +1,4 @@
-package com.haili.ins.config.oauth2.token;
+package com.haili.ins.config.oauth2.custom.token.generate;
 
 import com.haili.ins.dto.CustomUserDetails;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
@@ -28,7 +28,7 @@ public class CustomJwtAccessTokenConverter extends JwtAccessTokenConverter {
 
         authentication.getUserAuthentication().getPrincipal();
         Map<String, Object> info = new HashMap<String, Object>(2) {{
-            put(TOKEN_SEG_USER_ID, userDetails.getUserId());
+            put(TOKEN_SEG_USER_ID, userDetails.getOauth2User().getId());
             //put("roles", String.join(",", userDetails.getRoles()));
         }};
 

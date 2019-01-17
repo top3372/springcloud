@@ -19,8 +19,8 @@ import java.util.Map;
  * @modified By:
  * @version: 1.0
  **/
-@Service("oauth2ClientDetailsService")
-public class ClientDetailsServiceImpl implements ClientDetailsService {
+@Service
+public class CustomClientDetailsService implements ClientDetailsService {
 
     @Resource
     DataSource dataSource;
@@ -56,6 +56,7 @@ public class ClientDetailsServiceImpl implements ClientDetailsService {
         if(clientDetails == null) {
             throw new ClientRegistrationException("应用" + clientId + "不存在!");
         }
+        //是否自动授权
         //clientDetails.isAutoApprove("true");
         cacheClientDetails(clientDetails);
         return clientDetails;

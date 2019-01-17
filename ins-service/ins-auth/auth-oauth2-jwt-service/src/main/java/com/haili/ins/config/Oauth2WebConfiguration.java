@@ -7,6 +7,7 @@ import org.springframework.core.Ordered;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
@@ -15,7 +16,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
  * @date: 2019/01/14 23:23
  */
 @Configuration
-public class WebConfiguration  extends WebMvcConfigurationSupport {
+public class Oauth2WebConfiguration  extends WebMvcConfigurationSupport {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -23,6 +24,7 @@ public class WebConfiguration  extends WebMvcConfigurationSupport {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/oauth/confirm_access").setViewName("authorize");
     }
+
 
     /**
      * 跨域, 开发环境使用 vue-cli 代理，正式用nginx

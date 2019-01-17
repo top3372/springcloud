@@ -3,6 +3,7 @@ package com.haili.ins.config.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,10 +16,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+@Order(2)
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private UserDetailsService oauth2UserDetailsService;
     /**
      * 设置获取token的url
      *
@@ -31,10 +31,13 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin().loginPage("/login").permitAll()
-                .and().requestMatchers().antMatchers("**/login", "**/oauth/**","**/actuator/**")
+        http
+                .requestMatchers().antMatchers("/login", "/oauth/**","/actuator/**")
                 .and().authorizeRequests().anyRequest().authenticated()
-                .and().csrf().disable();
+                .and().formLogin().permitAll()
+                .and().logout().permitAll()
+                //.and().csrf().disable()
+        ;
     }
 
     @Bean
@@ -42,11 +45,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-////        auth.userDetailsService(oauth2UserDetailsService);
-//        auth.parentAuthenticationManager(authenticationManagerBean());
-//    }
+
 
 
     @Override
