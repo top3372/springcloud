@@ -95,12 +95,12 @@ zuul:
     connection-request-timeout-millis: 500
   routes:
     auth:
-      path: /uua/**
+      path: /auth/**
       service-id: oauth2-jwt-server
       sensitive-headers:
       custom-sensitive-headers: true
     member:
-      path: /user/**
+      path: /member/**
       service-id: member-server
       sensitive-headers:
       custom-sensitive-headers: true
@@ -111,30 +111,22 @@ zuul:
 auth:
   permitall:
     -
-      pattern: /uua/**
+      pattern: /auth/**
     -
       pattern: /**/public/**
     -
-      pattern: /**/swagger-ui.html
-    -
-      pattern: /**/swagger-resources/**
-    -
-      pattern: /**/v2/api-docs
-    -
-      pattern: /**/webjars/**
-    -
-      pattern: /**/actuator/**
+      pattern: /actuator/**
 
 security:
   oauth2:
     client:
-      access-token-uri: http://localhost:${server.port}/uua/oauth/token
-      user-authorization-uri: http://localhost:${server.port}/uua/oauth/authorize
+      access-token-uri: http://localhost:${server.port}/auth/oauth/token
+      user-authorization-uri: http://localhost:${server.port}/auth/oauth/authorize
       client-id: frontend
       client-secret: frontend
     resource:
-      user-info-uri: http://localhost:${server.port}/uua/user
-      token-info-uri: http://localhost:${server.port}/uua/oauth/check_token
+      user-info-uri: http://localhost:${server.port}/auth/user
+      token-info-uri: http://localhost:${server.port}/auth/oauth/check_token
 
 #shiro:
 #  loginUrl: /login
