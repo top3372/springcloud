@@ -6,15 +6,13 @@
 
     <parent>
         <groupId>com.haili.ins.message</groupId>
-        <artifactId>ins-notification</artifactId>
+        <artifactId>ins-email</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <groupId>com.haili.ins.message</groupId>
-    <artifactId>ins-sms</artifactId>
+    <artifactId>ins-aliyun-email</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <modules>
-        <module>ins-aliyun-sms</module>
-    </modules>
+
+    
 </project>

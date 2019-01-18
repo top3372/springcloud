@@ -13,6 +13,8 @@
     <groupId>com.haili.ins.message</groupId>
     <artifactId>ins-email</artifactId>
     <version>1.0-SNAPSHOT</version>
-
-    
+    <packaging>pom</packaging>
+    <modules>
+        <module>ins-aliyun-email</module>
+    </modules>
 </project>
