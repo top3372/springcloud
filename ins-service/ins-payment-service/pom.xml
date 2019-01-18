@@ -18,6 +18,7 @@
         <module>ins-payment</module><!--支付模块-->
         <module>ins-payment-route</module><!--支付路由-->
         <module>ins-payment-channel</module><!--支付渠道-->
+        <module>ins-payment-repair</module><!--补单-->
     </modules>
     
 </project>

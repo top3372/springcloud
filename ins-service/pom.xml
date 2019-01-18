@@ -13,17 +13,48 @@
     <artifactId>ins-service</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>ins-admin</module>
-        <module>ins-auth</module>
-        <module>ins-account</module>
-        <module>ins-cms</module>
-        <module>ins-member</module>
-        <module>ins-marketing</module>
-        <module>ins-merchant</module>
-        <module>ins-order-webflux</module>
-        <module>ins-payment-service</module>
-        <module>ins-refund</module>
-        <module>ins-stock</module>
+
+        <module>ins-account-service</module><!--账户服务-->
+
+        <module>ins-base-service</module><!--基础服务-->
+
+        <module>ins-scheduler-service</module><!--调度中心-->
+
+        <module>ins-custom-service</module><!--售后/客服服务-->
+
+        <module>ins-evaluate-service</module><!--评价服务-->
+
+        <module>ins-goods-service</module><!--商品服务-->
+
+        <module>ins-logistics-service</module><!--物流服务-->
+
+        <module>ins-member-service</module><!--会员系统-->
+
+        <module>ins-marketing-service</module><!--营销服务-->
+
+        <module>ins-merchant-service</module><!--商户-->
+
+        <module>ins-operation-service</module><!--运营-->
+
+        <module>ins-order-service</module><!--订单服务-->
+
+        <module>ins-payment-service</module><!--支付服务-->
+
+        <module>ins-recommend-service</module><!--推荐服务-->
+
+        <module>ins-risk-control-service</module><!--风控服务-->
+
+        <module>ins-finance-service</module><!--财务管理-->
+
+        <module>ins-shopping-cart</module><!--购物车-->
+
+        <module>ins-stock-service</module><!--库存系统-->
+
+        <module>ins-system-service</module><!--系统管理-->
+
+        <module>ins-statistics-service</module><!--统计服务-->
+
+
     </modules>
     <dependencies>
 

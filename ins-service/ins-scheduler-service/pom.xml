@@ -5,19 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.haili.ins</groupId>
-        <artifactId>haili-ins</artifactId>
+        <groupId>com.haili.ins.service</groupId>
+        <artifactId>ins-service</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.haili.ins.data</groupId>
-    <artifactId>ins-data</artifactId>
+    <groupId>com.haili.ins.service.scheduler</groupId>
+    <artifactId>ins-scheduler-service</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>ins-elasticsearch</module>
-        <module>ins-solr</module>
-        <module>ins-file</module>
+        <module>ins-batch</module>
+        <module>ins-scheduler-job</module>
     </modules>
     
 </project>
