@@ -5,20 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.haili.ins.data.file</groupId>
-        <artifactId>ins-file</artifactId>
+        <groupId>com.haili.ins.service.account</groupId>
+        <artifactId>ins-account-service</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.haili.ins.data.file</groupId>
-    <artifactId>ins-aliyun-oss</artifactId>
+    <groupId>com.haili.ins.service.account</groupId>
+    <artifactId>ins-account</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>com.aliyun.oss</groupId>
-            <artifactId>aliyun-sdk-oss</artifactId>
-            <version>2.8.3</version>
-        </dependency>
-    </dependencies>
+
     
 </project>

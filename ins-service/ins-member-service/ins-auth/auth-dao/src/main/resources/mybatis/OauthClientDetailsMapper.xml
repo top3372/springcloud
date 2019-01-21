@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haili.ins.mapper.OauthClientDetailsMapper">
+  <resultMap id="BaseResultMap" type="com.haili.ins.model.OauthClientDetails">
+    <id column="client_id" jdbcType="VARCHAR" property="clientId" />
+    <result column="resource_ids" jdbcType="VARCHAR" property="resourceIds" />
+    <result column="client_secret" jdbcType="VARCHAR" property="clientSecret" />
+    <result column="scope" jdbcType="VARCHAR" property="scope" />
+    <result column="authorized_grant_types" jdbcType="VARCHAR" property="authorizedGrantTypes" />
+    <result column="web_server_redirect_uri" jdbcType="VARCHAR" property="webServerRedirectUri" />
+    <result column="authorities" jdbcType="VARCHAR" property="authorities" />
+    <result column="access_token_validity" jdbcType="INTEGER" property="accessTokenValidity" />
+    <result column="refresh_token_validity" jdbcType="INTEGER" property="refreshTokenValidity" />
+    <result column="additional_information" jdbcType="VARCHAR" property="additionalInformation" />
+    <result column="autoapprove" jdbcType="VARCHAR" property="autoapprove" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    client_id, resource_ids, client_secret, scope, authorized_grant_types, web_server_redirect_uri, 
+    authorities, access_token_validity, refresh_token_validity, additional_information, 
+    autoapprove
+  </sql>
+  
+  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-01-21 00:24:02 ### -->
+
+
+
+
+  <!-- Your codes goes start here!!! -->
+  
+</mapper>
