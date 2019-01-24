@@ -24,6 +24,8 @@ recommend 推荐服务
 
 scheduler 调度服务
 
+shopping-cart 购物车
+
 statistics 统计服务
 
 stock 库存服务
