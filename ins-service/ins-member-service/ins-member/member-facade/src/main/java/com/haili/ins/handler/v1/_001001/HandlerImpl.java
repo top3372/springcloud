@@ -11,6 +11,8 @@ import com.haili.ins.invoke.dto.InvokeResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
  * 
  * @author jack
@@ -19,7 +21,7 @@ import org.springframework.stereotype.Service;
 @Service("001001.v1")
 public class HandlerImpl implements BusinessHandler {
 	
-	@Autowired
+	@Resource
 	private MemberFeign memberFeign;
 
 	
