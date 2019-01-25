@@ -13,9 +13,7 @@
     <artifactId>ins-eureka</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>ins-eureka-9997</module>
-        <module>ins-eureka-9998</module>
-		<module>ins-eureka-9999</module>
+            <module>ins-eureka-9997</module>
     </modules>
     <dependencies>
 
