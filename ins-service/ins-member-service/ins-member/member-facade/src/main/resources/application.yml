@@ -66,7 +66,7 @@ spring:
   # 当前服务名
   application.name: member-server
   datasource:
-    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://localhost:3306/member?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
     userName: root
     password: 111111
     type: com.zaxxer.hikari.HikariDataSource
@@ -101,7 +101,7 @@ feign:
     enabled: false
   okhttp:
     enabled: true
-    log.level: "BODY"
+    log.level: "HEADERS"
 
 hystrix.command.default.execution:
   timeout.enabled: true

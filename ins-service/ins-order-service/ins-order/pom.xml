@@ -15,13 +15,5 @@
         <module>order-service</module>
         <module>order-dao</module>
     </modules>
-    <dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>com.haili.ins.common</groupId>
-            <artifactId>ins-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
-    </dependencyManagement>
+
 </project>
