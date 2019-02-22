@@ -58,7 +58,7 @@ public class InvokeService {
 
         } catch (Exception e) {
             InvokeLogger.error("InvokeServiceImpl.invoke throws Exception error", e);
-            Map<String, String> result = new HashMap();
+            Map<String, String> result = new HashMap<>();
             result.put("responseCode", ResponseCodeEnum.UNDEFINED_ERROR.getCode());
             result.put("responseDesc", ResponseCodeEnum.UNDEFINED_ERROR.getDesc());
             InvokeLogger.error("response:" + JSONUtil.toJson(result));

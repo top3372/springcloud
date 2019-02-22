@@ -54,6 +54,7 @@
 
         <module>ins-statistics-service</module><!--统计服务-->
 
+        <module>ins-block-service</module><!--区块链服务-->
 
     </modules>
     <dependencies>
