@@ -15,7 +15,8 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-
+        <module>ins-encrypt</module><!--加密服务-->
+        <module>ins-leaf</module><!--分布式id生成服务-->
     </modules>
     
 </project>

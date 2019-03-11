@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haili.ins.mapper.MemberRegLogMapper">
+  <resultMap id="BaseResultMap" type="com.haili.ins.model.MemberRegLog">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="MEMBER_ID" jdbcType="VARCHAR" property="memberId" />
+    <result column="REG_TYPE" jdbcType="VARCHAR" property="regType" />
+    <result column="THIRD_SOURCE" jdbcType="VARCHAR" property="thirdSource" />
+    <result column="REG_IP" jdbcType="VARCHAR" property="regIp" />
+    <result column="SOURCE_CODE" jdbcType="VARCHAR" property="sourceCode" />
+    <result column="REG_TERMINAL" jdbcType="VARCHAR" property="regTerminal" />
+    <result column="DEVICE_ID" jdbcType="VARCHAR" property="deviceId" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="ERR_MSG" jdbcType="VARCHAR" property="errMsg" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.haili.ins.model.MemberRegLog">
+    <result column="REG_DESC" jdbcType="LONGVARCHAR" property="regDesc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    ID, MEMBER_ID, REG_TYPE, THIRD_SOURCE, REG_IP, SOURCE_CODE, REG_TERMINAL, DEVICE_ID, 
+    STATUS, ERR_MSG, CREATE_DATE, CREATE_BY, UPDATE_DATE, UPDATE_BY
+  </sql>
+  <sql id="Blob_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    REG_DESC
+  </sql>
+  
+  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-01 00:42:55 ### -->
+
+
+
+  <!-- Your codes goes start here!!! -->
+  
+</mapper>

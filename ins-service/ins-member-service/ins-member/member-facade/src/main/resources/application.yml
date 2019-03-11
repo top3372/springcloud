@@ -10,7 +10,7 @@ pagehelper:
   params: count=countSql
 
 mybatis:
-  type-aliases-package: com.haili.ins.dao.model
+  type-aliases-package: com.haili.ins.model
   mapper-locations: classpath*:/mybatis/*.xml
 
 ##tk.mybatis

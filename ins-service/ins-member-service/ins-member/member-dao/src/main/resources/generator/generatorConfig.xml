@@ -74,14 +74,12 @@
 
 		<!-- 要生成的表对象 %代表全部生成,单独的表修改talbeName -->
 
-		<table tableName="fabric_ca_user"
-			domainObjectName="FabricCaUser" enableCountByExample="false"
+		<table tableName="t_member_base"
+			domainObjectName="MemberBase" enableCountByExample="false"
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false">
-			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+<!--			<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
 		</table>
-
-
 
 		<!-- Maven命令执行：mvn mybatis-generator:generate -->
 	</context>

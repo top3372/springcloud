@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haili.ins.mapper.MemberPayInfoMapper">
+  <resultMap id="BaseResultMap" type="com.haili.ins.model.MemberPayInfo">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="MEMBER_ID" jdbcType="VARCHAR" property="memberId" />
+    <result column="PAY_PWD_TYPE" jdbcType="VARCHAR" property="payPwdType" />
+    <result column="PAY_PWD" jdbcType="VARCHAR" property="payPwd" />
+    <result column="PAY_PWD_STRENGTH" jdbcType="VARCHAR" property="payPwdStrength" />
+    <result column="PAY_STATUS" jdbcType="VARCHAR" property="payStatus" />
+    <result column="LAST_PAY_TIME" jdbcType="TIMESTAMP" property="lastPayTime" />
+    <result column="LAST_PAY_IP" jdbcType="VARCHAR" property="lastPayIp" />
+    <result column="LAST_PAY_FAIL_TIME" jdbcType="TIMESTAMP" property="lastPayFailTime" />
+    <result column="LOCK_TIMES" jdbcType="VARCHAR" property="lockTimes" />
+    <result column="LOCK_DATE" jdbcType="DATE" property="lockDate" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    ID, MEMBER_ID, PAY_PWD_TYPE, PAY_PWD, PAY_PWD_STRENGTH, PAY_STATUS, LAST_PAY_TIME, 
+    LAST_PAY_IP, LAST_PAY_FAIL_TIME, LOCK_TIMES, LOCK_DATE, CREATE_DATE, CREATE_BY, UPDATE_DATE, 
+    UPDATE_BY
+  </sql>
+  
+  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-01 00:42:55 ### -->
+
+
+
+  <!-- Your codes goes start here!!! -->
+  
+</mapper>

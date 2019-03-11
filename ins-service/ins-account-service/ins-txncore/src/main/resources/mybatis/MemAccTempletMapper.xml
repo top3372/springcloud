@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haili.ins.dao.mapper.MemAccTempletMapper">
+  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.MemAccTemplet">
+    <id column="ORG_CODE" jdbcType="VARCHAR" property="orgCode" />
+    
+    <!-- 模板属性
+            会员
+            100-普通会员
+            
+            支付机构
+            200-第三方支付机构
+            201-银行机构
+            
+            投资标
+            400-高风投资标
+            
+            内部账户
+            999-高风内部账户
+             -->
+    <result column="TEMPLET_TYPE" jdbcType="VARCHAR" property="templetType" />
+    
+    <!-- 账户类型-具体见账户说明文档
+             -->
+    <result column="ACC_TYPE" jdbcType="CHAR" property="accType" />
+    <result column="ACC_INNER_TYPE" jdbcType="VARCHAR" property="accInnerType" />
+    
+    <!-- 账户说明 -->
+    <result column="ACC_DESP" jdbcType="VARCHAR" property="accDesp" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    ORG_CODE, TEMPLET_TYPE, ACC_TYPE, ACC_INNER_TYPE, ACC_DESP
+  </sql>
+  
+  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-08 15:00:06 ### -->
+
+
+
+  <!-- Your codes goes start here!!! -->
+  
+</mapper>

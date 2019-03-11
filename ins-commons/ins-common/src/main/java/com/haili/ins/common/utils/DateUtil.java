@@ -37,6 +37,15 @@ public class DateUtil {
 		return format(date, DateFormatType.YYYY_MM_DD_HH_MM_SS);
 	}
 
+	/**
+	 * 把long 转换成 日期 再转换成String类型
+	 */
+	public static String transferLongToDate(DateFormatType dateFormatType, Long millSec) {
+		SimpleDateFormat sdf = new SimpleDateFormat(dateFormatType.getValue());
+		Date date = new Date(millSec);
+		return sdf.format(date);
+	}
+
 	/** 格式化日期对象成字符串 */
 	public static String format(Date date, DateFormatType type) {
 		if (U.isBlank(date) || U.isBlank(type)) {

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haili.ins.dao.mapper.AccTitleInfoMapper">
+  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.AccTitleInfo">
+    
+    <!-- 记录号 -->
+    <id column="RECORD_NO" jdbcType="VARCHAR" property="recordNo" />
+    
+    <!-- 科目号 -->
+    <result column="TITLE_NO" jdbcType="VARCHAR" property="titleNo" />
+    
+    <!-- 汇总科目号 -->
+    <result column="SUM_TITLE_NO" jdbcType="VARCHAR" property="sumTitleNo" />
+    
+    <!-- 科目名称:
+            1:对公
+            2:对私
+            9:内部 -->
+    <result column="TITLE_NAME" jdbcType="VARCHAR" property="titleName" />
+    
+    <!-- 科目级别:
+            0:汇总科目
+            1:一级科目
+            2:二级科目
+            3:三级科目
+            9:明细科目
+             -->
+    <result column="GRADE" jdbcType="CHAR" property="grade" />
+    
+    <!-- 所属一级科目 -->
+    <result column="TITLE_CLASS_A" jdbcType="VARCHAR" property="titleClassA" />
+    
+    <!-- 所属一级科目号 -->
+    <result column="TITLE_CLASS_A_CODE" jdbcType="VARCHAR" property="titleClassACode" />
+    
+    <!-- 所属二级科目 -->
+    <result column="TITLE_CLASS_B" jdbcType="VARCHAR" property="titleClassB" />
+    
+    <!-- 所属二级科目号 -->
+    <result column="TITLE_CLASS_B_CODE" jdbcType="VARCHAR" property="titleClassBCode" />
+    <result column="TITLE_CLASS_C" jdbcType="VARCHAR" property="titleClassC" />
+    <result column="TITLE_CLASS_C_CODE" jdbcType="VARCHAR" property="titleClassCCode" />
+    
+    <!-- 币种代码:
+            156:人民币 -->
+    <result column="CURRENCY_CODE" jdbcType="VARCHAR" property="currencyCode" />
+    
+    <!-- 借贷标识:
+            D:借
+            C:贷
+            0:双向 -->
+    <result column="DIRECTION" jdbcType="CHAR" property="direction" />
+    
+    <!-- 单多账户标识:
+            0:汇总科目 (不开户)
+            1:单帐户科目
+            2:多帐户科目
+             -->
+    <result column="ACCOUNT_NUM_FLAG" jdbcType="CHAR" property="accountNumFlag" />
+    
+    <!-- 科目属性:
+            1:对公
+            2:对私
+            3:贷款
+            4:清算
+            5:待清算
+            9:内部帐
+             -->
+    <result column="TITLE_ATTRIBUTE" jdbcType="CHAR" property="titleAttribute" />
+    
+    <!-- 科目类型:
+            1:资产
+            2:负债
+            3:共同
+            4:所有者权益
+            5:损益
+             -->
+    <result column="TITLE_TYPE" jdbcType="CHAR" property="titleType" />
+    
+    <!-- 内部账户类型 -->
+    <result column="ACCOUNT_INNER_TYPE" jdbcType="VARCHAR" property="accountInnerType" />
+    
+    <!-- 科目账户基本类型:
+            1:基本户
+            2:一般户
+            3:专用户
+            4:临时户
+            5:保证金户
+            6:备付金户
+            
+             -->
+    <result column="ACCOUNT_BASE_TYPE" jdbcType="CHAR" property="accountBaseType" />
+    
+    <!-- 状态:
+            A-新建待审核
+            B-更新待审核
+            C-停用待审核
+            Z-注销待审核
+            1-正常
+            2-停用
+            9-注销 -->
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    
+    <!-- 录入人 -->
+    <result column="CREATE_UID" jdbcType="VARCHAR" property="createUid" />
+    
+    <!-- 录入时间 -->
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    
+    <!-- 审核人 -->
+    <result column="CHECK_UID" jdbcType="VARCHAR" property="checkUid" />
+    
+    <!-- 审核时间 -->
+    <result column="CHECK_TIME" jdbcType="TIMESTAMP" property="checkTime" />
+    
+    <!-- 最后修改人 -->
+    <result column="LAST_MODIFY_UID" jdbcType="VARCHAR" property="lastModifyUid" />
+    
+    <!-- 最后修改时间 -->
+    <result column="LAST_MODIFY_TIME" jdbcType="TIMESTAMP" property="lastModifyTime" />
+    
+    <!-- 归档标志:
+            1-未归档
+            2-已归档 -->
+    <result column="ARCHIVE_FLAG" jdbcType="CHAR" property="archiveFlag" />
+    
+    <!-- 归档人 -->
+    <result column="ARCHIVE_UID" jdbcType="VARCHAR" property="archiveUid" />
+    
+    <!-- 归档时间 -->
+    <result column="ARCHIVE_TIME" jdbcType="TIMESTAMP" property="archiveTime" />
+    
+    <!-- 原记录编号 -->
+    <result column="L_RECORD_NO" jdbcType="DECIMAL" property="lRecordNo" />
+    
+    <!-- 备注 -->
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    
+    <!-- 保留域1 -->
+    <result column="RESV_FLD1" jdbcType="VARCHAR" property="resvFld1" />
+    
+    <!-- 保留域2 -->
+    <result column="RESV_FLD2" jdbcType="VARCHAR" property="resvFld2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    RECORD_NO, TITLE_NO, SUM_TITLE_NO, TITLE_NAME, GRADE, TITLE_CLASS_A, TITLE_CLASS_A_CODE, 
+    TITLE_CLASS_B, TITLE_CLASS_B_CODE, TITLE_CLASS_C, TITLE_CLASS_C_CODE, CURRENCY_CODE, 
+    DIRECTION, ACCOUNT_NUM_FLAG, TITLE_ATTRIBUTE, TITLE_TYPE, ACCOUNT_INNER_TYPE, ACCOUNT_BASE_TYPE, 
+    STATUS, CREATE_UID, CREATE_TIME, CHECK_UID, CHECK_TIME, LAST_MODIFY_UID, LAST_MODIFY_TIME, 
+    ARCHIVE_FLAG, ARCHIVE_UID, ARCHIVE_TIME, L_RECORD_NO, REMARK, RESV_FLD1, RESV_FLD2
+  </sql>
+  
+  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-08 15:00:32 ### -->
+
+
+
+  <!-- Your codes goes start here!!! -->
+  
+</mapper>
