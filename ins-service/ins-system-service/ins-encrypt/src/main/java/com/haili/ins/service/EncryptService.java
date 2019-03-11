@@ -1,6 +1,9 @@
 package com.haili.ins.service;
 
 import com.haili.ins.common.utils.security.MD5Util;
+import com.haili.ins.invoke.dto.InvokeRequest;
+import com.haili.ins.invoke.dto.InvokeResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +13,7 @@ import org.springframework.stereotype.Service;
  * @Version 1.0
  */
 @Service
+@Slf4j
 public class EncryptService {
 
     @Value("${encrypt.keyword:GAOEX&021#38645}")
@@ -18,6 +22,18 @@ public class EncryptService {
     private EncryptService(){
         // 读取证书地址
 
+    }
+
+    public InvokeResponse encrypt(InvokeRequest invokeRequest)throws Exception{
+        InvokeResponse invokeResponse = new InvokeResponse();
+
+        String dataMsg = invokeRequest.getDataMsg();
+
+        String encryptMsg = encryptedMsg(dataMsg);
+
+        invokeResponse.buildSuccResp(encryptMsg);
+
+        return invokeResponse;
     }
 
     /**

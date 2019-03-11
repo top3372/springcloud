@@ -45,8 +45,9 @@ public enum ResponseCodeEnum {
 
 	LOGIN_FAILURE("10001","登录失败"),
 
-	LOGOUT_FAILURE("10002","注销失败")
-	
+	LOGOUT_FAILURE("10002","注销失败"),
+
+	ENCRYPT_FAILURE("10003","加密服务失败"),
 	;
 	private String code;
 	private String desc;
