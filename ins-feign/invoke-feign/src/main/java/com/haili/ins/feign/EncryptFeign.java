@@ -39,4 +39,8 @@ public interface EncryptFeign {
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/api/encryptedMsg")
     String encryptedMsg(String dataMsg);
+
+    @ResponseStatus(HttpStatus.OK)
+    @PostMapping("/encryp/jwt/check")
+    String jwtCheck(String jwt);
 }

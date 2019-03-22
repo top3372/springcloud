@@ -2,9 +2,11 @@ package com.haili.ins.feign.filter;
 
 import com.haili.ins.common.constants.HttpHeaderConstant;
 import com.haili.ins.enums.RequestSourceEnum;
+import com.haili.ins.feign.EncryptFeign;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 
+import javax.annotation.Resource;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -16,6 +18,9 @@ import java.io.IOException;
  */
 @Slf4j
 public class Oauth2Filter implements Filter {
+
+    @Resource
+    private EncryptFeign encryptFeign;
     
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -28,7 +33,13 @@ public class Oauth2Filter implements Filter {
         log.info(requestSource + token);
 
         if(RequestSourceEnum.isRequestSourceEnum(requestSource)){
-
+            String flag = encryptFeign.jwtCheck(token);
+            if(Boolean.parseBoolean(flag)){
+                filterChain.doFilter(servletRequest, servletResponse);
+            }else{
+                servletResponse.getWriter().print("验证失败");
+                return;
+            }
         }
 
 
