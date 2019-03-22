@@ -12,6 +12,8 @@ import lombok.Data;
 @Table(name = "`T_ACC_ACCOUNT_INFO`")
 @Data
 public class AccAccountInfo implements Serializable {
+
+    private BigDecimal tmpAvailableAmt;
     /**
      * 账户号
      *

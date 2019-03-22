@@ -279,7 +279,7 @@ public class InvokeHelper {
 			InvokeResponse response = new InvokeResponse();
 			response.setResponseCode(ResponseCodeEnum.UNDEFINED_ERROR.getCode());
 			response.setResponseDesc(ResponseCodeEnum.UNDEFINED_ERROR.getDesc());
-			response.setData(e.getMessage());
+			response.setResponseData(e.getMessage());
 			return response;
 		} finally {
 			// 清理线程信息

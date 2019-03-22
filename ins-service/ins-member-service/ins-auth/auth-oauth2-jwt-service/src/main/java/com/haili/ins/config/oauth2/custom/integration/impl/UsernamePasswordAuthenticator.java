@@ -4,11 +4,14 @@ import com.haili.ins.config.oauth2.custom.integration.AbstractPreparableIntegrat
 
 import com.haili.ins.config.oauth2.custom.integration.IntegrationAuthentication;
 import com.haili.ins.dto.auth.Oauth2User;
+import com.haili.ins.feign.MemberFeign;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 /**
  * 默认登录处理
@@ -21,22 +24,26 @@ public class UsernamePasswordAuthenticator extends AbstractPreparableIntegration
 
     private final static String PWD_AUTH_TYPE = "pwd";
 
-    @Autowired
+    @Resource
     private PasswordEncoder passwordEncoder;
 
-//    @Autowired
-//    private SysUserClient sysUserClient;
+    @Resource
+    private MemberFeign memberFeign;
 
     @Override
     public Oauth2User authenticate(IntegrationAuthentication integrationAuthentication) {
 //        Oauth2User oauth2User = sysUserClient
 //        .findUserByUsername(integrationAuthentication.getUsername());
 //        return oauth2User;
+        //获取密码，实际值是验证码
+        String password = integrationAuthentication.getAuthParameter("password");
+        //获取用户名，实际值是手机号
+        String username = integrationAuthentication.getUsername();
 
         Oauth2User oauth2User = new Oauth2User();
         oauth2User.setId("11111111");
         oauth2User.setUsername("admin");
-        oauth2User.setPassword(passwordEncoder.encode("123456"));
+        //oauth2User.setPassword(passwordEncoder.encode("123456"));
         oauth2User.setStatus("1");
         oauth2User.setName("找找");
 

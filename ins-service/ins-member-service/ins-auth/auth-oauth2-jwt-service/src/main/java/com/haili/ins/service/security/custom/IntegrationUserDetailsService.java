@@ -7,6 +7,7 @@ import com.haili.ins.config.oauth2.custom.integration.IntegrationAuthenticator;
 import com.haili.ins.dto.CustomUserDetails;
 import com.haili.ins.dto.auth.BaseRole;
 import com.haili.ins.dto.auth.Oauth2User;
+import com.haili.ins.feign.MemberFeign;
 import com.haili.ins.utils.RedisUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,8 +31,11 @@ import java.util.List;
 @Service
 public class IntegrationUserDetailsService implements UserDetailsService {
 
-//    @Autowired
-//    private RedisUtil redisUtil;
+    @Resource
+    private RedisUtil redisUtil;
+
+    @Resource
+    private MemberFeign memberFeign;
 
     private List<IntegrationAuthenticator> authenticators;
 
@@ -50,7 +55,7 @@ public class IntegrationUserDetailsService implements UserDetailsService {
         Oauth2User oauth2User = this.authenticate(integrationAuthentication);
 
         if(oauth2User == null){
-            throw new UsernameNotFoundException("用户名或密码错误");
+            throw new UsernameNotFoundException("用户获取失败");
         }
 
         // 调用FeignClient查询角色

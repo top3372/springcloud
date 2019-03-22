@@ -44,7 +44,7 @@ spring:
       connection-test-query: SELECT 1
 ####Redis配置 # org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
   redis:
-    database: 0
+    database: 2
     host: 47.100.3.157
     password:
     timeout: 3000
@@ -55,8 +55,10 @@ spring:
         max-wait: 1
         max-idle: 8
     port: 6061
-#    redisson:
-#      config: classpath:redisson.yaml
+    redisson:
+      config: classpath:redisson.yaml
+
+
 ######分页配置
 pagehelper:
   helperDialect: mysql

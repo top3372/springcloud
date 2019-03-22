@@ -8,6 +8,7 @@ import com.haili.ins.core.helper.IdHelper;
 import com.haili.ins.dto.member.request.RegisterRequest;
 import com.haili.ins.dto.member.response.MemberInfo;
 import com.haili.ins.enums.member.*;
+import com.haili.ins.feign.LeafIdFeign;
 import com.haili.ins.mapper.MemberBaseMapper;
 import com.haili.ins.mapper.MemberLoginInfoMapper;
 import com.haili.ins.mapper.MemberRegLogMapper;
@@ -26,16 +27,16 @@ import javax.annotation.Resource;
 public abstract class AbstractRegisterService {
 
     @Resource
-    private MemberBaseMapper memberBaseMapper;
+    protected MemberBaseMapper memberBaseMapper;
 
     @Resource
-    private MemberLoginInfoMapper memberLoginInfoMapper;
+    protected MemberLoginInfoMapper memberLoginInfoMapper;
 
     @Resource
-    private MemberRegLogMapper memberRegLogMapper;
+    protected MemberRegLogMapper memberRegLogMapper;
 
     @Resource
-    private IdHelper idHelper;
+    protected LeafIdFeign leafIdFeign;
 
     /**
      *
@@ -53,7 +54,7 @@ public abstract class AbstractRegisterService {
     public MemberInfo register(RegisterRequest registerRequest){
         registerBefore(registerRequest);
         //生成分布式唯一id
-        String memberId = String.valueOf(idHelper.nextId());
+        String memberId = leafIdFeign.getSnowflakeID("member");
 
 
         MemberInfo memberInfo = new MemberInfo();
@@ -123,7 +124,7 @@ public abstract class AbstractRegisterService {
 
         MemberLoginInfo memberLoginInfo = new MemberLoginInfo();
 
-        memberLoginInfo.setId(String.valueOf(idHelper.nextId()));
+        memberLoginInfo.setId(leafIdFeign.getSegmentID("member"));
         memberLoginInfo.setMemberId(memberId);
 
         memberLoginInfo.setLoginType(registerRequest.getRegisterType());

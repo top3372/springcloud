@@ -17,7 +17,7 @@ public class InvokeResponse {
 
 	private String responseCode;
 	private String responseDesc;
-	private Object data;
+	private Object responseData;
 
 	public InvokeResponse() {
 		this.buildSuccResp();
@@ -27,13 +27,13 @@ public class InvokeResponse {
 	public void build(ResponseCodeEnum responseCodeEnum) {
 		this.responseCode = responseCodeEnum.getCode();
 		this.responseDesc = responseCodeEnum.getDesc();
-		this.data = new HashMap<String, Object>();
+		this.responseData = new HashMap<String, Object>();
 	}
 
 	public void build(String code, String desc, Object data) {
 		this.responseCode = code;
 		this.responseDesc = desc;
-		this.data = data;
+		this.responseData = data;
 	}
 
 
@@ -41,38 +41,38 @@ public class InvokeResponse {
 	public void buildSuccResp(Object data) {
 		this.responseCode = ResponseCodeEnum.SUCCESS.getCode();
 		this.responseDesc = ResponseCodeEnum.SUCCESS.getDesc();
-		this.data = data;
+		this.responseData = data;
 	}
 
 	public void buildSuccResp() {
 		this.responseCode = ResponseCodeEnum.SUCCESS.getCode();
 		this.responseDesc = ResponseCodeEnum.SUCCESS.getDesc();
-		this.data = new HashMap<String, Object>();
+		this.responseData = new HashMap<String, Object>();
 	}
 
 	// buildFailResp
 	public void buildFailResp() {
 		this.responseCode = ResponseCodeEnum.PROCESS_ERROR.getCode();
 		this.responseDesc = ResponseCodeEnum.PROCESS_ERROR.getDesc();
-		this.data = new HashMap<String, Object>();
+		this.responseData = new HashMap<String, Object>();
 	}
 
 	public void buildFailResp(String msg) {
 		this.responseCode = ResponseCodeEnum.PROCESS_ERROR.getCode();
 		this.responseDesc = msg;
-		this.data = new HashMap<String, Object>();
+		this.responseData = new HashMap<String, Object>();
 	}
 
 	public void buildFailResp(ResponseCodeEnum responseCodeEnum) {
 		this.responseCode = responseCodeEnum.getCode();
 		this.responseDesc = responseCodeEnum.getDesc();
-		this.data = new HashMap<String, Object>();
+		this.responseData = new HashMap<String, Object>();
 	}
 
 	public void buildFailResp(ResponseCodeEnum responseCodeEnum, String msg) {
 		this.responseCode = responseCodeEnum.getCode();
 		this.responseDesc = msg;
-		this.data = new HashMap<String, Object>();
+		this.responseData = new HashMap<String, Object>();
 	}
 
 

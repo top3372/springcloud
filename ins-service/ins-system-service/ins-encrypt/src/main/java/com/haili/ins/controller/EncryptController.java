@@ -31,7 +31,16 @@ public class EncryptController {
         try {
             return encryptService.encrypt(invokeRequest);
         } catch (Exception e) {
-            throw new ServiceException(ResponseCodeEnum.ENCRYPT_FAILURE);
+            throw new ServiceException(ResponseCodeEnum.ENCRYP_MACHINE_HANDLE_FAILURE);
+        }
+    }
+
+    @RequestMapping(value = "/api/encryptedMsg")
+    public String encryptedMsg(String dataMsg) {
+        try {
+            return encryptService.encryptedMsg(dataMsg);
+        } catch (Exception e) {
+            throw new ServiceException(ResponseCodeEnum.ENCRYP_MACHINE_HANDLE_FAILURE);
         }
     }
 }

@@ -11,7 +11,8 @@
     
     <!-- 交易时间 -->
     <result column="TXN_TIME" jdbcType="TIMESTAMP" property="txnTime" />
-    
+
+    <result column="OWNER_ORG" jdbcType="VARCHAR" property="ownerOrg" />
     <!-- 账户号码 -->
     <result column="ACCOUNT_NO" jdbcType="VARCHAR" property="accountNo" />
     
@@ -56,7 +57,7 @@
     <!--
       WARNING - @mbg.generated
     -->
-    ACC_SEQ_NO, SYS_TRACE_NO, TXN_TIME, ACCOUNT_NO, TXN_TYPE, TXN_CODE, TXN_DSCPT, BEFORE_STATUS, 
+    ACC_SEQ_NO, SYS_TRACE_NO, TXN_TIME, OWNER_ORG,ACCOUNT_NO, TXN_TYPE, TXN_CODE, TXN_DSCPT, BEFORE_STATUS,
     AFTER_STATUS, REMARK, RSVD_AMT1, RSVD_AMT2, RSVD_TEXT1, RSVD_TEXT2
   </sql>
   

@@ -12,8 +12,8 @@ import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.RIBBON_ROUTING_FILTER_ORDER;
-import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.ROUTE_TYPE;
+import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.*;
+
 
 public class CatZuulFilter extends ZuulFilter {
 
@@ -21,12 +21,12 @@ public class CatZuulFilter extends ZuulFilter {
 
     @Override
     public String filterType() {
-        return ROUTE_TYPE;
+        return PRE_TYPE;
     }
 
     @Override
     public int filterOrder() {
-        return RIBBON_ROUTING_FILTER_ORDER  - 1 ;
+        return RIBBON_ROUTING_FILTER_ORDER   ;
     }
 
     @Override

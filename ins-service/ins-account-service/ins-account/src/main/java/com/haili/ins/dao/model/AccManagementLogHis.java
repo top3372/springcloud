@@ -43,6 +43,9 @@ public class AccManagementLogHis implements Serializable {
     @Column(name = "`TXN_TIME`")
     private Date txnTime;
 
+    @Column(name = "`OWNER_ORG`")
+    private String ownerOrg;
+
     /**
      * 账户号码
      *

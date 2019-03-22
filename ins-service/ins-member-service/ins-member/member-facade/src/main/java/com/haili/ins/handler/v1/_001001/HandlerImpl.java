@@ -30,6 +30,7 @@ public class HandlerImpl implements BusinessHandler {
 		InvokeLogger.info("_001001开始");
 		InvokeResponse response = new InvokeResponse();
 
+		String token = invokeParam.getToken();
 		try {
 			Request request = JSONUtil.toObject(invokeParam.getDataMsg(), Request.class);
 			// 请求参数校验

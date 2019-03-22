@@ -6,8 +6,6 @@ server:
 management:
   endpoint:
     health:
-      redis:
-        enabled: false
       show-details: always
 
 
@@ -111,7 +109,7 @@ zuul:
 auth:
   permitall:
     -
-      pattern: /auth/**
+      pattern: /auth/oauth/**
     -
       pattern: /**/public/**
     -
@@ -127,11 +125,5 @@ security:
     resource:
       user-info-uri: http://localhost:${server.port}/auth/user
       token-info-uri: http://localhost:${server.port}/auth/oauth/check_token
-
-#shiro:
-#  loginUrl: /login
-#  successUrl: /
-#  unauthorizedUrl: /error
-#  userNativeSessionManager: true
-#  sessionManager:
-#    sessionIdUrlRewritingEnabled: false
+#      jwt:
+#        key-value: secret #使用对称加密方式，默认算法为HS256

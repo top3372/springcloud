@@ -144,8 +144,69 @@
   
   <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-08 15:00:32 ### -->
 
-
-
   <!-- Your codes goes start here!!! -->
-  
+  <update id="updateBalance" parameterType="com.haili.ins.dao.model.AccAccountInfo">
+      update
+      	T_ACC_ACCOUNT_INFO t
+      set
+		BALANCE = #{balance},
+		AVAILABLE_BALANCE = #{availableBalance},
+		ENCRYPTED_MSG = #{encryptedMsg},
+		LAST_UPDATE_TIME = #{lastUpdateTime},
+		LAST_TXN_TIME = #{lastTxnTime}
+      where
+      	ACCOUNT_NO=#{accountNo}
+  </update>
+
+
+  <update id="updateAccStatus" parameterType="com.haili.ins.dao.model.AccAccountInfo">
+    update T_ACC_ACCOUNT_INFO
+    <set>
+      <if test="lastUpdateTime != null">
+        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="statusMap != null">
+        STATUS_MAP = #{statusMap,jdbcType=VARCHAR},
+      </if>
+      <if test="encryptedMsg != null">
+        ENCRYPTED_MSG = #{encryptedMsg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateFrozenAmt" parameterType="com.haili.ins.dao.model.AccAccountInfo">
+    update
+      	T_ACC_ACCOUNT_INFO t
+      set
+		FROZEN_AMOUNT = #{frozenAmount},
+		AVAILABLE_BALANCE = #{availableBalance},
+		ENCRYPTED_MSG = #{encryptedMsg},
+		LAST_UPDATE_TIME = #{lastUpdateTime},
+		LAST_TXN_TIME = #{lastTxnTime}
+      where
+      	ACCOUNT_NO=#{accountNo}
+  </update>
+
+  <select id="lockAccountRows" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+    select * from T_ACC_ACCOUNT_INFO
+    where 1 = 1
+    and ACCOUNT_NO in
+    <foreach item="acctNo" index="index" collection="acctNos"
+             open="(" separator="," close=")">
+      #{acctNo}
+    </foreach>
+    for update
+  </select>
+
+  <select id="selectByAccountNoList" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+    select * from T_ACC_ACCOUNT_INFO
+    where 1 = 1
+    and ACCOUNT_NO in
+    <foreach item="acctNo" index="index" collection="acctNos"
+             open="(" separator="," close=")">
+      #{acctNo}
+    </foreach>
+  </select>
+
 </mapper>

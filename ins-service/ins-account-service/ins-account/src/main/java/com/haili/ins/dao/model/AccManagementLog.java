@@ -44,6 +44,12 @@ public class AccManagementLog implements Serializable {
     private Date txnTime;
 
     /**
+     * 机构号
+     */
+    @Column(name = "`OWNER_ORG`")
+    private String ownerOrg;
+
+    /**
      * 账户号码
      *
      * Table:     T_ACC_MANAGEMENT_LOG

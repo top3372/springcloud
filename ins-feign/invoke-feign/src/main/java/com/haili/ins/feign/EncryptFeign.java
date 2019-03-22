@@ -29,4 +29,14 @@ public interface EncryptFeign {
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/api/encrypt")
     InvokeResponse encrypt(@RequestBody InvokeRequest invokeRequest);
+
+    /**
+     * encrypt加密
+     *
+     * @param dataMsg
+     * @return
+     */
+    @ResponseStatus(HttpStatus.OK)
+    @PostMapping("/api/encryptedMsg")
+    String encryptedMsg(String dataMsg);
 }

@@ -40,6 +40,17 @@ public class ServiceException extends RuntimeException {
         this.desc = respCodeEnum.getDesc();
     }
 
+    public ServiceException(ResponseCodeEnum respCodeEnum, Throwable cause) {
+        super(cause);
+        this.code = respCodeEnum.getCode();
+        this.desc = respCodeEnum.getDesc();
+    }
+
+    public ServiceException(ResponseCodeEnum respCodeEnum, String msg, Throwable cause) {
+        super(msg, cause);
+        this.code = respCodeEnum.getCode();
+        this.desc = respCodeEnum.getDesc();
+    }
 
     // ------GET SET--------
     public String getCode() {

@@ -5,10 +5,14 @@ import lombok.Data;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 
+/**
+ * @author Leon
+ */
 @Data
 public class InvokeParameter implements Serializable {
 
     private static final String SPLITOR = "[分隔符]";
+    private static final int SIZE = 9;
 
     private String serCode;
     private String sysTraceNo;
@@ -18,6 +22,8 @@ public class InvokeParameter implements Serializable {
     private int dataLength;
 //    private int msgCompress;
     private String dataMsg;
+    private String token;
+    private String requestSource;
 
     public void parse(String responseStr) {
         if (responseStr == null || responseStr.length() == 0) {
@@ -25,7 +31,7 @@ public class InvokeParameter implements Serializable {
         }
 
         String[] params = responseStr.split("\\[分隔符\\]");
-        if (params.length != 7) {
+        if (params.length != SIZE) {
             throw new RuntimeException("无效请求参数");
         }
 
@@ -37,6 +43,8 @@ public class InvokeParameter implements Serializable {
         this.dataLength = Integer.parseInt(params[5]);
 //        this.msgCompress = Integer.parseInt(params[6]);
         this.dataMsg = params[6];
+        this.token = params[7];
+        this.requestSource = params[8];
     }
 
     public void setDataMsg(String dataMsg) {
@@ -60,6 +68,8 @@ public class InvokeParameter implements Serializable {
         sbf.append(dataLength).append(SPLITOR);
         //sbf.append(msgCompress).append(SPLITOR);
         sbf.append(dataMsg);
+        sbf.append(token);
+        sbf.append(requestSource);
         return sbf.toString();
     }
 
@@ -69,6 +79,8 @@ public class InvokeParameter implements Serializable {
         sbf.append("[").append(sysTraceNo).append("]");
         sbf.append("[").append(originNo).append("]");
         sbf.append("[").append(targetNo).append("]");
+        sbf.append("[").append(token).append("]");
+        sbf.append("[").append(requestSource).append("]");
         return sbf.toString();
     }
 
@@ -78,9 +90,11 @@ public class InvokeParameter implements Serializable {
         param.setSysTraceNo("1");
         param.setOriginNo("404");
         param.setTargetNo("403");
-        param.setVersionNo("1.0.0");
+        param.setVersionNo("v1");
         //param.setMsgCompress(0);
         param.setDataMsg("测试");
+        param.setToken("12312313");
+        param.setRequestSource("gateway");
 
         String tmp = param.toString();
 
