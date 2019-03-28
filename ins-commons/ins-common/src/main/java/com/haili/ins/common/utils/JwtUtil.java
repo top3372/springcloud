@@ -91,7 +91,7 @@ public class JwtUtil {
         }
         // 获取JWT字符串
         String compact = Jwts.builder()
-                .signWith(key,alg)
+                .signWith(key,alg )
                 .setSubject(sub)
                 .setAudience(aud)
                 .setId(jti)

@@ -8,4 +8,8 @@ package com.haili.ins.common.constants;
 public class HttpHeaderConstant {
 
     public static final String REQUEST_SOURCE = "request-source";
+
+    public static final String USER_ID = "user_id";
+
+    public static final String SECURITY_TOKEN = "security_token";
 }

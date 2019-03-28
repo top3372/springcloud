@@ -2,14 +2,17 @@ package com.haili.ins.api.gateway.config.oauth2;
 
 import com.haili.ins.api.gateway.properties.PermitAllUrlProperties;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
-import org.springframework.security.oauth2.provider.OAuth2Authentication;
+import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
+
 
 /**
  * @author: LeonMa
@@ -21,6 +24,14 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Autowired
     private PermitAllUrlProperties permitAllUrlProperties;
+
+    @Autowired
+    private ResourceServerProperties sso;
+
+    @Bean
+    public ResourceServerTokenServices customUserInfoTokenServices() {
+        return new CustomUserInfoTokenServices(sso.getUserInfoUri(), sso.getClientId());
+    }
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
@@ -34,6 +45,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-        super.configure(resources);
+        resources.tokenServices(customUserInfoTokenServices());
     }
 }

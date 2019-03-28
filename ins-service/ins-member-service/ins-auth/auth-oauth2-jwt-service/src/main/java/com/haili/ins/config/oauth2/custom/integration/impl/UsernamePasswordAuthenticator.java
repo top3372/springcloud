@@ -43,7 +43,7 @@ public class UsernamePasswordAuthenticator extends AbstractPreparableIntegration
         Oauth2User oauth2User = new Oauth2User();
         oauth2User.setId("11111111");
         oauth2User.setUsername("admin");
-        //oauth2User.setPassword(passwordEncoder.encode("123456"));
+        oauth2User.setPassword(passwordEncoder.encode("123456"));
         oauth2User.setStatus("1");
         oauth2User.setName("找找");
 

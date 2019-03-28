@@ -8,7 +8,7 @@
  */
 package com.haili.ins.enums;
 
-import com.gaoex.service.account.util.BitmapStatusEnumable;
+
 
 /**
  * 

@@ -15,6 +15,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.error.WebResponseExceptionTranslator;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
@@ -52,6 +53,9 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     @Autowired
     private IntegrationAuthenticationFilter integrationAuthenticationFilter;
 
+    @Autowired
+    private WebResponseExceptionTranslator customWebResponseExceptionTranslator;
+
 
 
     /**
@@ -65,7 +69,10 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .allowFormAuthenticationForClients()
                 .tokenKeyAccess("permitAll()")
                 .checkTokenAccess("isAuthenticated()")
+                .authenticationEntryPoint(new AuthExceptionEntryPoint())
                 .addTokenEndpointAuthenticationFilter(integrationAuthenticationFilter);
+
+
     }
 
     /**
@@ -99,10 +106,12 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.authenticationManager(authenticationManager)
                 .tokenStore(tokenStore())
-                .exceptionTranslator(customOauth2ExceptionTranslator)
+                //.exceptionTranslator(customOauth2ExceptionTranslator)
                 .userDetailsService(integrationUserDetailsService)
                 .authorizationCodeServices(redisAuthenticationCodeServices())
                 .accessTokenConverter(accessTokenConverter())
+                //自定义OAuth2返回格式
+                .exceptionTranslator(customWebResponseExceptionTranslator)
                 ;
     }
 

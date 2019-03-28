@@ -1,8 +1,8 @@
 package com.haili.ins.feign.config;
 
 import com.haili.ins.feign.Strategy.FeignHystrixConcurrencyStrategy;
-import com.haili.ins.feign.filter.Oauth2Filter;
-import com.haili.ins.feign.interceptor.Oauth2Interceptor;
+import com.haili.ins.feign.filter.SecurityFilter;
+import com.haili.ins.feign.interceptor.SecurityInterceptor;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,8 +21,8 @@ public class FeignConfig {
     }
 
     @Bean
-    public Oauth2Interceptor catFeignInterceptor() {
-        return new Oauth2Interceptor();
+    public SecurityInterceptor catFeignInterceptor() {
+        return new SecurityInterceptor();
     }
 
     @Bean
@@ -30,11 +30,11 @@ public class FeignConfig {
 
         FilterRegistrationBean registration = new FilterRegistrationBean();
 
-        Oauth2Filter filter = new Oauth2Filter();
+        SecurityFilter filter = new SecurityFilter();
 
         registration.setFilter(filter);
         registration.addUrlPatterns("/*");
-        registration.setName("oauth2-filter");
+        registration.setName("mic-service-security-filter");
         registration.setOrder(1);
         return registration;
     }

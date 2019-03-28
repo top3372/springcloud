@@ -257,6 +257,7 @@ public class InvokeHelper {
 			param.setOriginNo(invokeParam.getOriginNo());
 			param.setSerCode(invokeParam.getSerCode());
 			param.setVersionNo(invokeParam.getVersionNo());
+
 			SystemCodeEnum currentSysEnum = SystemCodeEnum.getSystemCodeEnum(param.getOriginNo());
 			SystemCodeEnum targetSysEnum = SystemCodeEnum.getSystemCodeEnum(param.getTargetNo());
 			InvokeLogger.info("###### "+ currentSysEnum.getDesc() +"("+ currentSysEnum.getCode()+")调用"+ targetSysEnum.getDesc()+"("+targetSysEnum.getCode()+ ") 服务码 "+param.getSerCode()+"   Request："+param.getDataMsg());

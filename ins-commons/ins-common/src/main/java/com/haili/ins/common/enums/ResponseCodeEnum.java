@@ -34,6 +34,12 @@ public enum ResponseCodeEnum {
 
 	API_VERSION_ERROR("000015", "调用接口服务版本错误"),
 
+	/** token 过期 **/
+	TOKEN_TIMEOUT_CODE("000016","token 过期"),
+	/** 禁止访问 **/
+	NO_AUTH_CODE("000017","禁止访问"),
+
+
 	DB_ERROR("999990", "数据库执行失败"),
 
 	DB_BUSY("999991", "数据库执行忙"),

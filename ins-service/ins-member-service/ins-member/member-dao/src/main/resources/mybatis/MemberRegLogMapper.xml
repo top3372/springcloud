@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.haili.ins.mapper.MemberRegLogMapper">
-  <resultMap id="BaseResultMap" type="com.haili.ins.model.MemberRegLog">
+<mapper namespace="com.haili.ins.dao.mapper.MemberRegLogMapper">
+  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.MemberRegLog">
     <id column="ID" jdbcType="VARCHAR" property="id" />
     <result column="MEMBER_ID" jdbcType="VARCHAR" property="memberId" />
     <result column="REG_TYPE" jdbcType="VARCHAR" property="regType" />
@@ -17,7 +17,7 @@
     <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
     <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.haili.ins.model.MemberRegLog">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.haili.ins.dao.model.MemberRegLog">
     <result column="REG_DESC" jdbcType="LONGVARCHAR" property="regDesc" />
   </resultMap>
   <sql id="Base_Column_List">

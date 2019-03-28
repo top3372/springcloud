@@ -50,7 +50,7 @@
 
 		<!-- 生成模型的包名和位置 -->
 		<javaModelGenerator
-			targetPackage="com.haili.ins.model"
+			targetPackage="com.haili.ins.dao.model"
 			targetProject="${mybatis.project}">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />

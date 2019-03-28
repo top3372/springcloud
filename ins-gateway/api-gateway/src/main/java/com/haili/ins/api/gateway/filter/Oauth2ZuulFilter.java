@@ -1,8 +1,11 @@
 package com.haili.ins.api.gateway.filter;
 
 
+import com.haili.ins.api.gateway.config.oauth2.CustomPrincipal;
 import com.haili.ins.api.gateway.properties.PermitAllUrlProperties;
 import com.haili.ins.common.constants.HttpHeaderConstant;
+import com.haili.ins.common.utils.JSONUtil;
+import com.haili.ins.common.utils.JWTUtils;
 import com.haili.ins.enums.RequestSourceEnum;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
@@ -43,7 +46,7 @@ public class Oauth2ZuulFilter extends ZuulFilter {
 
         HttpServletRequest request = requestContext.getRequest();
         String url = request.getRequestURI();
-        String requestMethod = requestContext.getRequest().getMethod();
+//        String requestMethod = requestContext.getRequest().getMethod();
 
         if(permitAllUrlProperties.isPermitAllUrl(url)){
             return false;
@@ -54,22 +57,33 @@ public class Oauth2ZuulFilter extends ZuulFilter {
 
     @Override
     public Object run() {
-        logger.info(" 开始OAuth2Zuul路由调用 : ");
+        logger.info(" 开始SecurityZuul路由调用 : ");
 
         RequestContext requestContext = RequestContext.getCurrentContext();
         HttpServletRequest request = requestContext.getRequest();
         String routeName = request.getRequestURL().toString();
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        CustomPrincipal customPrincipal = (CustomPrincipal)authentication.getPrincipal();
+        System.out.println(JSONUtil.toJson(customPrincipal));
+//        OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails) authentication.getDetails();
+//        //details.
+//        String tokenValue = details.getTokenValue();
 
-        OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails) authentication.getDetails();
-        String token = details.getTokenType() + "" + details.getTokenValue();
-        System.out.println(token);
 
-        requestContext.addZuulRequestHeader(HttpHeaders.AUTHORIZATION, token);
-        requestContext.addZuulRequestHeader(HttpHeaderConstant.REQUEST_SOURCE, RequestSourceEnum.GATEWAY.getCode());
 
-        logger.info(" 开始OAuth2Zuul路由调用 : " + routeName);
+        requestContext.addZuulRequestHeader(HttpHeaderConstant.USER_ID, customPrincipal.getUserId());
+
+//        String token = details.getTokenType() + "" + details.getTokenValue();
+//        System.out.println(token);
+//
+//
+//
+//        String jwtToken = JWTUtils.getInstance().getToken("111");
+//        requestContext.addZuulRequestHeader(HttpHeaderConstant.SECURITY_TOKEN, jwtToken);
+
+
+        logger.info(" 开始SecurityZuul路由调用 : " + routeName);
         return null;
 
     }

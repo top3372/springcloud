@@ -44,16 +44,12 @@ public class InvokeController {
                 return invokeResponse;
             }
         }
-        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = requestAttributes.getRequest();
-        String token = request.getHeader(HttpHeaders.AUTHORIZATION);
-        String requestSource = request.getHeader(HttpHeaderConstant.REQUEST_SOURCE);
+//        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+//        HttpServletRequest request = requestAttributes.getRequest();
 
         InvokeParameter parameter = new InvokeParameter();
         BeanUtils.copyProperties(invokeRequest,parameter);
         parameter.setVersionNo(version);
-        parameter.setRequestSource(requestSource);
-        parameter.setToken(token);
 
         invokeResponse = InvokeHelper.invoke(invokeService,parameter);
 

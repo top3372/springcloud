@@ -1,4 +1,4 @@
-package com.haili.ins.model;
+package com.haili.ins.dao.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -6,22 +6,23 @@ import javax.persistence.*;
 import lombok.Data;
 
 /**
- * Table: t_member_login_info
+ * Table: t_member_login_log
  */
-@Table(name = "`t_member_login_info`")
+@Table(name = "`t_member_login_log`")
 @Data
-public class MemberLoginInfo implements Serializable {
+public class MemberLoginLog implements Serializable {
     /**
-     * Table:     t_member_login_info
+     * Table:     t_member_login_log
      * Column:    ID
      * Nullable:  false
      */
     @Id
     @Column(name = "`ID`")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
     /**
-     * Table:     t_member_login_info
+     * Table:     t_member_login_log
      * Column:    MEMBER_ID
      * Nullable:  true
      */
@@ -29,7 +30,7 @@ public class MemberLoginInfo implements Serializable {
     private String memberId;
 
     /**
-     * Table:     t_member_login_info
+     * Table:     t_member_login_log
      * Column:    LOGIN_TYPE
      * Nullable:  true
      */
@@ -37,15 +38,15 @@ public class MemberLoginInfo implements Serializable {
     private String loginType;
 
     /**
-     * Table:     t_member_login_info
-     * Column:    THIRD_SOURCE_CODE
+     * Table:     t_member_login_log
+     * Column:    THIRD_SOURCE
      * Nullable:  true
      */
-    @Column(name = "`THIRD_SOURCE_CODE`")
-    private String thirdSourceCode;
+    @Column(name = "`THIRD_SOURCE`")
+    private String thirdSource;
 
     /**
-     * Table:     t_member_login_info
+     * Table:     t_member_login_log
      * Column:    LOGIN_NAME_TYPE
      * Nullable:  true
      */
@@ -53,7 +54,7 @@ public class MemberLoginInfo implements Serializable {
     private String loginNameType;
 
     /**
-     * Table:     t_member_login_info
+     * Table:     t_member_login_log
      * Column:    LOGIN_NAME
      * Nullable:  true
      */
@@ -61,7 +62,7 @@ public class MemberLoginInfo implements Serializable {
     private String loginName;
 
     /**
-     * Table:     t_member_login_info
+     * Table:     t_member_login_log
      * Column:    LOGIN_PWD_TYPE
      * Nullable:  true
      */
@@ -69,23 +70,7 @@ public class MemberLoginInfo implements Serializable {
     private String loginPwdType;
 
     /**
-     * Table:     t_member_login_info
-     * Column:    LOGIN_PWD
-     * Nullable:  true
-     */
-    @Column(name = "`LOGIN_PWD`")
-    private String loginPwd;
-
-    /**
-     * Table:     t_member_login_info
-     * Column:    LOGIN_PWD_STRENGTH
-     * Nullable:  true
-     */
-    @Column(name = "`LOGIN_PWD_STRENGTH`")
-    private String loginPwdStrength;
-
-    /**
-     * Table:     t_member_login_info
+     * Table:     t_member_login_log
      * Column:    LOGIN_STATUS
      * Nullable:  true
      */
@@ -93,47 +78,47 @@ public class MemberLoginInfo implements Serializable {
     private String loginStatus;
 
     /**
-     * Table:     t_member_login_info
-     * Column:    LAST_LOGIN_TIME
+     * Table:     t_member_login_log
+     * Column:    FAIL_CAUSE
      * Nullable:  true
      */
-    @Column(name = "`LAST_LOGIN_TIME`")
-    private Date lastLoginTime;
+    @Column(name = "`FAIL_CAUSE`")
+    private String failCause;
 
     /**
-     * Table:     t_member_login_info
-     * Column:    LAST_LOGIN_IP
+     * Table:     t_member_login_log
+     * Column:    LOGIN_IP
      * Nullable:  true
      */
-    @Column(name = "`LAST_LOGIN_IP`")
-    private String lastLoginIp;
+    @Column(name = "`LOGIN_IP`")
+    private String loginIp;
 
     /**
-     * Table:     t_member_login_info
-     * Column:    LAST_LOGIN_FAIL_TIME
+     * Table:     t_member_login_log
+     * Column:    LOGIN_DEVICE_ID
      * Nullable:  true
      */
-    @Column(name = "`LAST_LOGIN_FAIL_TIME`")
-    private Date lastLoginFailTime;
+    @Column(name = "`LOGIN_DEVICE_ID`")
+    private String loginDeviceId;
 
     /**
-     * Table:     t_member_login_info
-     * Column:    FAIL_TIMES
+     * Table:     t_member_login_log
+     * Column:    LOGIN_TERMINAL
      * Nullable:  true
      */
-    @Column(name = "`FAIL_TIMES`")
-    private String failTimes;
+    @Column(name = "`LOGIN_TERMINAL`")
+    private String loginTerminal;
 
     /**
-     * Table:     t_member_login_info
-     * Column:    LOCK_DATE
+     * Table:     t_member_login_log
+     * Column:    LOGIN_DESC
      * Nullable:  true
      */
-    @Column(name = "`LOCK_DATE`")
-    private Date lockDate;
+    @Column(name = "`LOGIN_DESC`")
+    private String loginDesc;
 
     /**
-     * Table:     t_member_login_info
+     * Table:     t_member_login_log
      * Column:    CREATE_DATE
      * Nullable:  true
      */
@@ -141,7 +126,7 @@ public class MemberLoginInfo implements Serializable {
     private Date createDate;
 
     /**
-     * Table:     t_member_login_info
+     * Table:     t_member_login_log
      * Column:    CREATE_BY
      * Nullable:  true
      */
@@ -149,7 +134,7 @@ public class MemberLoginInfo implements Serializable {
     private String createBy;
 
     /**
-     * Table:     t_member_login_info
+     * Table:     t_member_login_log
      * Column:    UPDATE_DATE
      * Nullable:  true
      */
@@ -157,7 +142,7 @@ public class MemberLoginInfo implements Serializable {
     private Date updateDate;
 
     /**
-     * Table:     t_member_login_info
+     * Table:     t_member_login_log
      * Column:    UPDATE_BY
      * Nullable:  true
      */

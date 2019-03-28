@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.haili.ins.mapper.MemberLoginInfoMapper">
-  <resultMap id="BaseResultMap" type="com.haili.ins.model.MemberLoginInfo">
+<mapper namespace="com.haili.ins.dao.mapper.MemberLoginInfoMapper">
+  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.MemberLoginInfo">
     <id column="ID" jdbcType="VARCHAR" property="id" />
     <result column="MEMBER_ID" jdbcType="VARCHAR" property="memberId" />
     <result column="LOGIN_TYPE" jdbcType="VARCHAR" property="loginType" />

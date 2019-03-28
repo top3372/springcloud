@@ -77,6 +77,7 @@ public class IntegrationUserDetailsService implements UserDetailsService {
                 isActive(oauth2User.getStatus()), authorities);
         CustomUserDetails custom=  new CustomUserDetails(oauth2User,user);
         custom.setRoles(rolesIds);
+//        custom.setResources();
         return custom;
 
     }

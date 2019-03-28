@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.haili.ins.mapper.MemberBaseMapper">
-  <resultMap id="BaseResultMap" type="com.haili.ins.model.MemberBase">
+<mapper namespace="com.haili.ins.dao.mapper.MemberBaseMapper">
+  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.MemberBase">
     <id column="MEMBER_ID" jdbcType="VARCHAR" property="memberId" />
     
     <!-- 用户名 -->
