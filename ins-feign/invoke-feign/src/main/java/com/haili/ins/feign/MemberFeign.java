@@ -26,7 +26,7 @@ public interface MemberFeign {
      * @return
      */
     @ResponseStatus(HttpStatus.OK)
-    @PostMapping("/{version}/invoke")
+    @PostMapping("/api/{version}/invoke")
     InvokeResponse invoke(@PathVariable(value="version") String version,
                           @RequestBody InvokeRequest invokeRequest);
 

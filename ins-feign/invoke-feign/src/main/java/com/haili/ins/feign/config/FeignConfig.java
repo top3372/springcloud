@@ -33,7 +33,7 @@ public class FeignConfig {
         SecurityFilter filter = new SecurityFilter();
 
         registration.setFilter(filter);
-        registration.addUrlPatterns("/*");
+        registration.addUrlPatterns("/api/*");
         registration.setName("mic-service-security-filter");
         registration.setOrder(1);
         return registration;

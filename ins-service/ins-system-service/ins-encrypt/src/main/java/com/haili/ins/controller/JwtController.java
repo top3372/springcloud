@@ -1,6 +1,5 @@
 package com.haili.ins.controller;
 
-import com.haili.ins.common.utils.JwtUtil;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

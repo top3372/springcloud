@@ -1,17 +1,20 @@
 package com.haili.ins.common.utils;
 
+
+
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.Claim;
+import com.auth0.jwt.interfaces.DecodedJWT;
+import com.auth0.jwt.interfaces.JWTVerifier;
 import com.haili.ins.common.enums.ResponseCodeEnum;
-import com.haili.ins.common.utils.security.RSAUtils;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.SignatureException;
+import org.apache.commons.lang3.StringUtils;
 
-
-import java.security.interfaces.RSAPrivateKey;
-import java.security.interfaces.RSAPublicKey;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * API调用认证工具类，采用RSA加密
@@ -19,126 +22,103 @@ import java.util.Date;
  *
  */
 public class JWTUtils {
-    private static RSAPrivateKey priKey;
-    private static RSAPublicKey pubKey;
 
-    private static class SingletonHolder {
-        private static final JWTUtils INSTANCE = new JWTUtils();
-    }
 
-    public synchronized static JWTUtils getInstance(String modulus, String privateExponent, String publicExponent) {
-        if (priKey == null && pubKey == null) {
-            priKey = RSAUtils.getPrivateKey(modulus, privateExponent);
-            pubKey = RSAUtils.getPublicKey(modulus, publicExponent);
-        }
-        return SingletonHolder.INSTANCE;
-    }
 
-    public synchronized static void reload(String modulus, String privateExponent, String publicExponent) {
-        priKey = RSAUtils.getPrivateKey(modulus, privateExponent);
-        pubKey = RSAUtils.getPublicKey(modulus, publicExponent);
-    }
-
-    public synchronized static JWTUtils getInstance() {
-        if (priKey == null && pubKey == null) {
-            priKey = RSAUtils.getPrivateKey(RSAUtils.modulus, RSAUtils.private_exponent);
-            pubKey = RSAUtils.getPublicKey(RSAUtils.modulus, RSAUtils.public_exponent);
-        }
-        return SingletonHolder.INSTANCE;
-    }
+    /** token秘钥，请勿泄露，请勿随便修改 backups:JKKLJOoasdlfj */
+    public static final String SECRET = "haili.ins.service";
+    /** token 过期时间: 10天 */
+    public static final int calendarField = Calendar.DATE;
+    public static final int calendarInterval = 10;
 
     /**
-     * 获取Token
-     * @param uid 用户ID
-     * @param exp 失效时间，单位分钟
-     * @return
+     * JWT生成Token.<br/>
+     *
+     * JWT构成: header, payload, signature
+     *
+     * @param sequenceNo
+     *            登录成功后用户user_id, 参数user_id不可传空
      */
-    public static String getToken(String uid, int exp) {
-        long endTime = System.currentTimeMillis() + 1000 * 60 * exp;
-        return Jwts.builder().setSubject(uid).setExpiration(new Date(endTime))
-                .signWith(priKey,SignatureAlgorithm.RS512).compact();
+    public static String createToken(String sequenceNo){
+        Date iatDate = new Date();
+        // expire time
+        Calendar nowTime = Calendar.getInstance();
+        nowTime.add(calendarField, calendarInterval);
+        Date expiresDate = nowTime.getTime();
+
+        // header Map
+        Map<String, Object> map = new ConcurrentHashMap<>();
+        map.put("alg", "HS256");
+        map.put("typ", "JWT");
+
+        // build token
+        // param backups {iss:Service, aud:APP}
+        String token = JWT.create().withHeader(map) // header
+//                .withClaim("iss", "Service") // payload
+////                .withClaim("aud", "APP")
+                .withClaim("sequence_no", sequenceNo)
+                .withIssuedAt(iatDate) // sign time
+                .withExpiresAt(expiresDate) // expire time
+                .sign(Algorithm.HMAC256(SECRET)); // signature
+
+        return token;
     }
 
     /**
-     * 获取Token
-     * @param uid 用户ID
-     * @return
-     */
-    public String getToken(String uid) {
-        long endTime = System.currentTimeMillis() + 1000 * 60 * 1440;
-        return Jwts.builder().setSubject(uid).setExpiration(new Date(endTime))
-                .signWith(priKey,SignatureAlgorithm.RS512).compact();
-    }
-
-    /**
-     * 检查Token是否合法
+     * 解密Token
+     *
      * @param token
-     * @return JWTResult
+     * @return
+     * @throws Exception
      */
-    public JWTResult checkToken(String token) {
+    public static ResponseCodeEnum verifyToken(String token) {
+
         try {
-            Claims claims = Jwts.parser().setSigningKey(pubKey).parseClaimsJws(token).getBody();
-            String sub = claims.get("sub", String.class);
-            return new JWTResult(true, sub, "合法请求", ResponseCodeEnum.SUCCESS.getCode());
-        } catch (ExpiredJwtException e) {
-            // 在解析JWT字符串时，如果‘过期时间字段’已经早于当前时间，将会抛出ExpiredJwtException异常，说明本次请求已经失效
-            return new JWTResult(false, null, "token已过期", ResponseCodeEnum.TOKEN_TIMEOUT_CODE.getCode());
-        } catch (SignatureException e) {
-            // 在解析JWT字符串时，如果密钥不正确，将会解析失败，抛出SignatureException异常，说明该JWT字符串是伪造的
-            return new JWTResult(false, null, "非法请求", ResponseCodeEnum.NO_AUTH_CODE.getCode());
-        } catch (Exception e) {
-            return new JWTResult(false, null, "非法请求", ResponseCodeEnum.NO_AUTH_CODE.getCode());
+            JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
+            verifier.verify(token);
+            return ResponseCodeEnum.VERIFY_SUCCESS;
+        }catch(JWTVerificationException je){
+            je.printStackTrace();
+            return ResponseCodeEnum.VERIFY_ERROR;
+        }catch (Exception e) {
+            e.printStackTrace();
+            return ResponseCodeEnum.VERIFY_ERROR;
         }
     }
 
-    public static class JWTResult {
-        private boolean status;
-        private String uid;
-        private String msg;
-        private String code;
+    public static Map<String,Claim> praseClaim(String token) {
+        DecodedJWT jwt = null;
+        try {
+            JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
+            jwt = verifier.verify(token);
 
-        public JWTResult() {
-            super();
-        }
+        }catch(JWTVerificationException je){
+            je.printStackTrace();
 
-        public JWTResult(boolean status, String uid, String msg, String code) {
-            super();
-            this.status = status;
-            this.uid = uid;
-            this.msg = msg;
-            this.code = code;
-        }
+        }catch (Exception e) {
+            e.printStackTrace();
 
-        public String getCode() {
-            return code;
         }
+        return jwt.getClaims();
+    }
 
-        public void setCode(String code) {
-            this.code = code;
+    /**
+     * 根据Token获取user_id
+     *
+     * @param token
+     * @return user_id
+     */
+    public static String getAppUID(String token) {
+        Map<String, Claim> claims = praseClaim(token);
+        Claim user_id_claim = claims.get("sequence_no");
+        if (null == user_id_claim || StringUtils.isEmpty(user_id_claim.asString())) {
+            // token 校验失败, 抛出Token验证非法异常
         }
+        return user_id_claim.asString();
+    }
 
-        public String getMsg() {
-            return msg;
-        }
 
-        public void setMsg(String msg) {
-            this.msg = msg;
-        }
-
-        public boolean isStatus() {
-            return status;
-        }
-
-        public void setStatus(boolean status) {
-            this.status = status;
-        }
-
-        public String getUid() {
-            return uid;
-        }
-
-        public void setUid(String uid) {
-            this.uid = uid;
-        }
+    public static void main(String[] args) throws Exception {
+        System.out.println(JWTUtils.createToken("111111L"));
     }
 }

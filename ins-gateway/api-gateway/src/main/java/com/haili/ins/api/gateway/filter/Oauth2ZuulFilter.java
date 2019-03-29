@@ -66,16 +66,10 @@ public class Oauth2ZuulFilter extends ZuulFilter {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         CustomPrincipal customPrincipal = (CustomPrincipal)authentication.getPrincipal();
         System.out.println(JSONUtil.toJson(customPrincipal));
-//        OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails) authentication.getDetails();
-//        //details.
-//        String tokenValue = details.getTokenValue();
-
-
 
         requestContext.addZuulRequestHeader(HttpHeaderConstant.USER_ID, customPrincipal.getUserId());
 
-//        String token = details.getTokenType() + "" + details.getTokenValue();
-//        System.out.println(token);
+
 //
 //
 //

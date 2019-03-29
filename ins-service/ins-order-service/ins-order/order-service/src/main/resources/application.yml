@@ -42,9 +42,9 @@ spring:
   # 当前服务名
   application.name: order-server
   datasource:
-    url:  jdbc:mysql://localhost:3306/order?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url:  jdbc:mysql://47.100.3.157:3306/order?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
     userName: root
-    password: 111111
+    password: 123456
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:

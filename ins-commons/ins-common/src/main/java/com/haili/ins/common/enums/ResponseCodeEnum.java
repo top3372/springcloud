@@ -39,6 +39,9 @@ public enum ResponseCodeEnum {
 	/** 禁止访问 **/
 	NO_AUTH_CODE("000017","禁止访问"),
 
+	VERIFY_SUCCESS("000018","校验成功"),
+
+	VERIFY_ERROR("000019","校验失败"),
 
 	DB_ERROR("999990", "数据库执行失败"),
 
@@ -50,7 +53,6 @@ public enum ResponseCodeEnum {
 
 
 	FAILURE("999999","失败"),
-
 
 	LOGIN_FAILURE("10001","登录失败"),
 

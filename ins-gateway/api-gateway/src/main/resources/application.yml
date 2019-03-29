@@ -2,10 +2,10 @@ logging.config: classpath:log4j2.xml
 ## org.springframework.boot.autoconfigure.web.ServerProperties
 server:
   port: 9101
-  servlet:
-    session:
-      cookie:
-        name: OAUTH2SESSION # This is to prevent cookie clash with other service as they run on the same host and context path
+#  servlet:
+#    session:
+#      cookie:
+#        name: OAUTH2SESSION # This is to prevent cookie clash with other service as they run on the same host and context path
 
 management:
   endpoint:
@@ -106,6 +106,11 @@ zuul:
       service-id: member-server
       sensitive-headers:
       custom-sensitive-headers: true
+    order:
+      path: /order/**
+      service-id: order-server
+      sensitive-headers:
+      custom-sensitive-headers: true
   retryable: true
 
 
@@ -113,9 +118,7 @@ zuul:
 auth:
   permitall:
     -
-      pattern: /auth/oauth/**
-    -
-      pattern: /auth/auth/user
+      pattern: /auth/**
     -
       pattern: /**/public/**
     -

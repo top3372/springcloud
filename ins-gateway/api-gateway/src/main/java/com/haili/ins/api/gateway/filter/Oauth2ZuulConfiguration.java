@@ -9,7 +9,12 @@ import org.springframework.context.annotation.Configuration;
 public class Oauth2ZuulConfiguration {
 
     @Bean
-    public Oauth2ZuulFilter catZuulFilter() {
+    public Oauth2ZuulFilter oauth2ZuulFilter() {
         return new Oauth2ZuulFilter();
+    }
+
+    @Bean
+    public JwtZuulFilter jwtZuulFilter() {
+        return new JwtZuulFilter();
     }
 }

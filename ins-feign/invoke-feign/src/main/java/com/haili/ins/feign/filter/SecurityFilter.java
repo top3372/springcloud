@@ -29,44 +29,28 @@ public class SecurityFilter implements Filter {
 //    @Resource
 //    private EncryptFeign encryptFeign;
 
-    private static final Pattern[] IGNORE_PATTERNS = new Pattern[]{Pattern.compile("/oauth/*"),Pattern.compile("/auth/*")};
-
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        log.info(" 开始SecurityFilter调用 : " );
+        log.info(" 开始SecurityFilter调用 : ");
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         servletResponse.setCharacterEncoding("UTF-8");
         String url = request.getRequestURI();
-        log.info("请求uri: " + url );
-        boolean flag = false;
-        for(Pattern pattern : IGNORE_PATTERNS){
+        log.info("请求uri: " + url);
 
-            if(pattern.matcher(url).find()){
-                flag = true;
-                break;
+        String token = request.getHeader(HttpHeaderConstant.SECURITY_TOKEN);
+        if (StringUtils.isNotEmpty(token)) {
+            log.info("接收到的token: " + token);
+            ResponseCodeEnum responseCodeEnum = JWTUtils.verifyToken(token);
+            if (ResponseCodeEnum.VERIFY_SUCCESS.getCode().equals(responseCodeEnum.getCode())) {
+                filterChain.doFilter(servletRequest, servletResponse);
+            } else {
+                servletResponse.getWriter().print("服务调用token验证失败");
             }
+        } else {
+            servletResponse.getWriter().print("服务调用token不存在");
+
         }
 
-
-
-//        if(!flag){
-//            String token = request.getHeader(HttpHeaderConstant.SECURITY_TOKEN);
-//            if (StringUtils.isNotEmpty(token)) {
-//                log.info(token);
-//                JWTUtils.JWTResult result = JWTUtils.getInstance().checkToken(token);
-//                if (result.isStatus()) {
-//                    filterChain.doFilter(servletRequest, servletResponse);
-//                } else {
-//                    servletResponse.getWriter().print("验证失败");
-//                    return;
-//                }
-//            } else {
-//                servletResponse.getWriter().print("token不存在");
-//                return;
-//            }
-//        }
-
-        filterChain.doFilter(servletRequest, servletResponse);
 
     }
 
