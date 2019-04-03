@@ -1,0 +1,95 @@
+
+online: false
+
+logging.config: classpath:log4j2.xml
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: false
+  supportMethodsArguments: true
+  params: count=countSql
+
+mybatis:
+  type-aliases-package: com.haili.ins.dao.model
+  mapper-locations: classpath*:/mybatis/*.xml
+
+##tk.mybatis
+mapper:
+  #mappers: tk.mybatis.mapper.common.Mapper,tk.mybatis.mapper.common.Mapper2
+  notEmpty: true
+
+## org.springframework.boot.autoconfigure.web.ServerProperties
+server.port: 9003
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+## 注册中心地址, 多个使用 , 分隔
+register.center: 127.0.0.1:8848
+
+spring:
+  haili:
+    web:
+      swagger2:
+        enabled: false
+      filter:
+        enabled: false
+    api:
+      ###接口支持的版本号
+      version: 1,2
+    webflux:
+      filter:
+        enabled: true
+
+  # 配置下面两个值将会走到 ControllerAdvice 全局里面去
+  # org.springframework.boot.autoconfigure.web.WebMvcProperties
+  # main:
+  #    #允许配置文件中存在相同名字时 覆盖
+  #    allow-bean-definition-overriding: true
+  mvc.throw-exception-if-no-handler-found: true
+  # org.springframework.boot.autoconfigure.web.ResourceProperties
+  resources.add-mappings: false
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${register.center}
+
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+
+
+feign:
+  compression:
+    request:
+      enabled: true
+      mime-types: ["text/xml","application/xml","application/json"]
+      min-request-size: 2048
+    response.enabled: true
+  hystrix:
+    # 在feign中开启hystrix功能，默认情况下feign不开启hystrix功能
+    enabled: true
+  ## 配置httpclient线程池
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+    log.level: "HEADERS"
+
+hystrix.command.default.execution:
+  timeout.enabled: true
+  isolation:
+    thread:
+      timeoutInMilliseconds: 60000

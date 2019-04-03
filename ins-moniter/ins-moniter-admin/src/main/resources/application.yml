@@ -1,7 +1,4 @@
-logging.config: classpath:log4j2.xml
 
-server:
-  port: 7001
 
 spring:
   application:
@@ -12,32 +9,8 @@ spring:
       password: "password"
 
 
-register.center: http://127.0.0.1:9997/eureka/
-eureka:
-  client:
-    # 开启健康检查
-    healthcheck.enabled: true
-    # feign 间隔多久去拉取服务注册信息(默认 30 秒)
-    registry-fetch-interval-seconds: 10
-    serviceUrl.defaultZone: ${register.center}
-  instance:
-    health-check-url-path: /actuator/health
-    # feign 发送心跳给 server 端的频率(默认 30 秒)
-    lease-renewal-interval-in-seconds: 5
-    # server 收到心跳等待下一次心跳的超时时间, 要比上面的大(默认 90 秒)
-    lease-expiration-duration-in-seconds: 10
-    preferIpAddress: true
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
-    metadata-map:
-      user.name: "user"         #These two are needed so that the server
-      user.password: "password" #can access the protected client endpoints
-
 management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
   endpoint:
     health:
       show-details: ALWAYS
-# end::configuration-eureka[]
+

@@ -4,6 +4,7 @@ import com.haili.ins.common.exception.ServiceException;
 import com.haili.ins.dao.mapper.AccManagementLogMapper;
 import com.haili.ins.dao.model.AccManagementLog;
 import com.haili.ins.dto.MgmLogParam;
+import org.springframework.stereotype.Service;
 
 
 import javax.annotation.Resource;
@@ -17,6 +18,7 @@ import java.util.List;
  * @Date: 2019/3/13 16:27
  * @Version 1.0
  */
+@Service
 public class MgmLogService extends AccountBaseService{
 
     @Resource

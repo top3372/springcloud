@@ -1,16 +1,5 @@
-logging.config: classpath:log4j2.xml
-## org.springframework.boot.autoconfigure.web.ServerProperties
-server:
-  port: 9102
-  http2:
-    enabled: true
-#  servlet:
-#    context-path: /i5xforyou
 
-
-##  https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 spring:
-
   application:
     name: boms-gateway
   cloud:
@@ -20,60 +9,3 @@ spring:
           ####开启Service_id 用时需要大写service_id
           enabled: true
           lowerCaseServiceId: true
-  main:
-    allow-bean-definition-overriding: false
-register.center: http://127.0.0.1:9997/eureka #,http://eureka2:9998/eureka,http://eureka3:9999/eureka
-
-eureka:
-  client:
-    register-with-eureka: true
-    # 开启健康检查
-    healthcheck.enabled: false
-    # feign 间隔多久去拉取服务注册信息(默认 30 秒)
-    registry-fetch-interval-seconds: 10
-    service-url.defaultZone: ${register.center}
-  instance:
-    # feign 发送心跳给 server 端的频率(默认 30 秒)
-    lease-renewal-interval-in-seconds: 5
-    # server 收到心跳等待下一次心跳的超时时间, 要比上面的大(默认 90 秒)
-    lease-expiration-duration-in-seconds: 10
-    preferIpAddress: true
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
-    prefer-ip-address: true
-    status-page-url-path: /actuator/info
-    health-check-url-path: /actuator/health
-
-
-
-#feign:
-#  compression:
-#    request:
-#      enabled: true
-#      mime-types: ["text/xml","application/xml","application/json"]
-#      min-request-size: 2048
-#    response.enabled: true
-#    # 在feign中开启hystrix功能，默认情况下feign不开启hystrix功能
-#  hystrix:
-#    enabled: true
-#  ## 配置httpclient线程池
-#  httpclient:
-#    enabled: false
-#  okhttp:
-#    enabled: true
-#    log.level: "BODY"
-
-hystrix.command.default.execution:
-  timeout.enabled: true
-  isolation:
-    thread:
-      timeoutInMilliseconds: 60000
-
-ribbon:
-  http:
-    client:
-      enabled: false
-  okhttp:
-    enabled: true
-
-
-

@@ -1,7 +1,9 @@
 package com.haili.ins.feign.filter;
 
 import com.haili.ins.common.constants.HttpHeaderConstant;
+import com.haili.ins.common.dto.ResultInfo;
 import com.haili.ins.common.enums.ResponseCodeEnum;
+import com.haili.ins.common.utils.JSONUtil;
 import com.haili.ins.common.utils.JWTUtils;
 import com.haili.ins.enums.RequestSourceEnum;
 import com.haili.ins.feign.EncryptFeign;
@@ -34,6 +36,7 @@ public class SecurityFilter implements Filter {
         log.info(" 开始SecurityFilter调用 : ");
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         servletResponse.setCharacterEncoding("UTF-8");
+        servletResponse.setContentType("application/json; charset=utf-8");
         String url = request.getRequestURI();
         log.info("请求uri: " + url);
 
@@ -44,10 +47,10 @@ public class SecurityFilter implements Filter {
             if (ResponseCodeEnum.VERIFY_SUCCESS.getCode().equals(responseCodeEnum.getCode())) {
                 filterChain.doFilter(servletRequest, servletResponse);
             } else {
-                servletResponse.getWriter().print("服务调用token验证失败");
+                servletResponse.getWriter().print(JSONUtil.toJson(new ResultInfo(ResponseCodeEnum.VERIFY_ERROR,"服务调用token验证失败")));
             }
         } else {
-            servletResponse.getWriter().print("服务调用token不存在");
+            servletResponse.getWriter().print(JSONUtil.toJson(new ResultInfo(ResponseCodeEnum.VERIFY_ERROR,"服务调用token不存在")));
 
         }
 

@@ -1,6 +1,7 @@
 package com.haili.ins.handler.v1._002001;
 
 
+import com.esotericsoftware.minlog.Log;
 import com.haili.ins.common.exception.ServiceException;
 import com.haili.ins.common.utils.JSONUtil;
 import com.haili.ins.feign.MemberFeign;
@@ -41,7 +42,8 @@ public class HandlerImpl implements BusinessHandler {
 			ir.setSerCode("001001");
 			ir.setTargetNo("001");
 
-			memberFeign.invoke("v1",ir);
+			InvokeResponse invokeResponse = memberFeign.invoke("v1",ir);
+			Log.info("invokeResponse: " + JSONUtil.toJson(invokeResponse));
 			response.buildSuccResp();
 
 		}catch(ServiceException se) {

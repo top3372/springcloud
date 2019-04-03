@@ -1,4 +1,4 @@
-package com.haili.ins.invoke.dto;
+package com.haili.ins.common.dto;
 
 import com.haili.ins.common.enums.ResponseCodeEnum;
 import com.haili.ins.common.utils.JSONUtil;
@@ -14,25 +14,38 @@ import java.util.HashMap;
  *
  */
 @Data
-public class InvokeResponse implements Serializable {
+public class ResultInfo implements Serializable {
 
 	private static final long serialVersionUID = -3355484205126156607L;
 	private String responseCode;
 	private String responseDesc;
 	private Object responseData;
 
-	public InvokeResponse() {
+	public ResultInfo() {
 		this.buildSuccResp();
 	}
 
 	//bulid
-	public void build(ResponseCodeEnum responseCodeEnum) {
+	public ResultInfo(ResponseCodeEnum responseCodeEnum) {
 		this.responseCode = responseCodeEnum.getCode();
 		this.responseDesc = responseCodeEnum.getDesc();
 		this.responseData = new HashMap<String, Object>();
 	}
 
-	public void build(String code, String desc, Object data) {
+	//bulid
+	public ResultInfo(ResponseCodeEnum responseCodeEnum,String msg) {
+		this.responseCode = responseCodeEnum.getCode();
+		this.responseDesc = msg;
+		this.responseData = new HashMap<String, Object>();
+	}
+
+	public ResultInfo(ResponseCodeEnum responseCodeEnum,Object data) {
+		this.responseCode = responseCodeEnum.getCode();
+		this.responseDesc = responseCodeEnum.getDesc();
+		this.responseData = data;
+	}
+
+	public void ResultInfo(String code, String desc, Object data) {
 		this.responseCode = code;
 		this.responseDesc = desc;
 		this.responseData = data;

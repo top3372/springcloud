@@ -21,7 +21,7 @@ public class FeignConfig {
     }
 
     @Bean
-    public SecurityInterceptor catFeignInterceptor() {
+    public SecurityInterceptor securityInterceptor() {
         return new SecurityInterceptor();
     }
 

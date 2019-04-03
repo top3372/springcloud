@@ -26,16 +26,14 @@ public class SecurityInterceptor implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate requestTemplate) {
 
-        ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        if (attrs != null) {
-            HttpServletRequest request = attrs.getRequest();
-            String routeName = request.getRequestURI();
-
-            String jwtToken = JWTUtils.createToken(routeName + "&" + RandomUtil.generateSeqNo());
-            requestTemplate.header(HttpHeaderConstant.SECURITY_TOKEN, jwtToken);
+        String routeName = requestTemplate.url();
+        log.info("routeName: " + routeName);
+        String jwtToken = JWTUtils.createToken(routeName + "&" + RandomUtil.generateSeqNo());
+        log.info("jwtToken: " + jwtToken);
+        requestTemplate.header(HttpHeaderConstant.SECURITY_TOKEN, jwtToken);
 
 
-        }
+
 
     }
 }
