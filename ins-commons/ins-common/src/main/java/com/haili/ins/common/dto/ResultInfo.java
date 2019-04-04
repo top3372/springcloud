@@ -25,6 +25,7 @@ public class ResultInfo implements Serializable {
 		this.buildSuccResp();
 	}
 
+
 	//bulid
 	public ResultInfo(ResponseCodeEnum responseCodeEnum) {
 		this.responseCode = responseCodeEnum.getCode();
@@ -45,7 +46,7 @@ public class ResultInfo implements Serializable {
 		this.responseData = data;
 	}
 
-	public void ResultInfo(String code, String desc, Object data) {
+	public ResultInfo(String code, String desc, Object data) {
 		this.responseCode = code;
 		this.responseDesc = desc;
 		this.responseData = data;

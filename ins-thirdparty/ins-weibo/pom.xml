@@ -5,20 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.haili.ins.data.file</groupId>
-        <artifactId>ins-file</artifactId>
+        <groupId>com.haili.ins.thirdparty</groupId>
+        <artifactId>ins-thirdparty</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.haili.ins.data.file</groupId>
-    <artifactId>ins-aliyun-oss</artifactId>
+    <groupId>com.haili.ins.thirdparty</groupId>
+    <artifactId>ins-weibo</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>com.aliyun.oss</groupId>
-            <artifactId>aliyun-sdk-oss</artifactId>
-            <version>3.4.2</version>
-        </dependency>
-    </dependencies>
+
     
 </project>

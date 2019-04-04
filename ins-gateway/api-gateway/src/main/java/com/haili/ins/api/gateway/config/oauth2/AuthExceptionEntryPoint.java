@@ -1,17 +1,18 @@
-package com.haili.ins.config.oauth2;
+package com.haili.ins.api.gateway.config.oauth2;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.haili.ins.common.dto.ResultInfo;
 import com.haili.ins.common.enums.ResponseCodeEnum;
 import com.haili.ins.common.utils.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.http.protocol.HTTP;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Date;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,7 +39,6 @@ public class AuthExceptionEntryPoint implements AuthenticationEntryPoint {
         map.put("message", authException.getMessage());
         map.put("path", request.getServletPath());
         map.put("timestamp", String.valueOf(System.currentTimeMillis()));
-
         ResultInfo resultInfo = new ResultInfo();
         resultInfo.setResponseCode(ResponseCodeEnum.NO_AUTH_CODE.getCode());
         resultInfo.setResponseDesc(ResponseCodeEnum.NO_AUTH_CODE.getDesc());

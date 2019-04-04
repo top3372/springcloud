@@ -35,7 +35,6 @@ zuul:
     max-per-route-connections: 20
     max-total-connections: 200
     connection-request-timeout-millis: 500
-
   routes:
     auth:
       path: /auth/**

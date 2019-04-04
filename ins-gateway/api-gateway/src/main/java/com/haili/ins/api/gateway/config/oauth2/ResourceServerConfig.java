@@ -36,6 +36,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
+                .exceptionHandling().authenticationEntryPoint(new AuthExceptionEntryPoint())
+                .and()
                 .requestMatchers().antMatchers("/**")
                 .and()
                 .authorizeRequests()
@@ -45,6 +47,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
-        resources.tokenServices(customUserInfoTokenServices());
+        resources.tokenServices(customUserInfoTokenServices())
+                .authenticationEntryPoint(new AuthExceptionEntryPoint());;
     }
 }

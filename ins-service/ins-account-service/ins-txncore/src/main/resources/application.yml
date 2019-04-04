@@ -113,7 +113,7 @@ hystrix.command.default.execution:
   timeout.enabled: true
   isolation:
     thread:
-      timeoutInMilliseconds: 60000
+      timeout-in-milliseconds: 60000
 
 
 #apollo:
