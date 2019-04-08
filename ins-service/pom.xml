@@ -13,6 +13,9 @@
     <artifactId>ins-service</artifactId>
     <packaging>pom</packaging>
     <modules>
+        <module>ins-admin-service</module><!--后台管理服务-->
+
+        <module>ins-auth-service</module><!--授权服务-->
 
         <module>ins-account-service</module><!--账户服务-->
 

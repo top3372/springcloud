@@ -1,0 +1,24 @@
+
+spring:
+  # 当前服务名
+  application.name: auth-member-server
+
+  datasource:
+    url: jdbc:mysql://47.100.3.157:3306/oauth?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    userName: root
+    password: 123456
+####Redis配置 # org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+  redis:
+    database: 0
+    host: 47.100.3.157
+    password:
+    timeout: 3000
+    lettuce:
+      pool:
+        max-active: 8 #最大连接数
+        max-wait: -1 #默认-1 最大连接阻塞等待时间
+        max-idle: 8 #最大空闲连接 默认8
+        min-idle: 0 #最小空闲连接
+    port: 6061
+    redisson:
+      config: classpath:redisson.yaml

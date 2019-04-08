@@ -11,7 +11,7 @@
         <!--这个输出控制台的配置-->
         <Console name="Console" target="SYSTEM_OUT">
             <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
-            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+<!--            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>-->
             <!--这个都知道是输出日志的格式-->
             <PatternLayout pattern="%highlight{%d{yyyy.MM.dd 'at' HH:mm:ss z} %-5level %processId [%t] %class{36} %M() @%L - %msg%n}{FATAL=Bright Red, ERROR=Bright Magenta, WARN=Bright Yellow, INFO=Bright Green, DEBUG=Bright Cyan, TRACE=Bright White}"/>
         </Console>
@@ -32,7 +32,7 @@
     <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效-->
     <loggers>
         <!--建立一个默认的root的logger-->
-        <root level="info">
+        <root level="debug">
             <appender-ref ref="RollingFile"/>
             <appender-ref ref="Console"/>
         </root>

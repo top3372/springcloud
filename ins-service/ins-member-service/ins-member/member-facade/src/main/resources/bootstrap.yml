@@ -18,8 +18,12 @@ mapper:
   #mappers: tk.mybatis.mapper.common.Mapper,tk.mybatis.mapper.common.Mapper2
   notEmpty: true
 
+## 注册中心地址, 多个使用 , 分隔
+register.center: 127.0.0.1:8848
+
 ## org.springframework.boot.autoconfigure.web.ServerProperties
 server.port: 9002
+
 management:
   endpoints:
     web:
@@ -75,7 +79,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: ${register.center}
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -90,8 +94,7 @@ spring:
       connection-test-query: SELECT 1
 
 
-## 注册中心地址, 多个使用 , 分隔
-#register.center: http://127.0.0.1:9997/eureka
+
 
 
 feign:

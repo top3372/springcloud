@@ -30,8 +30,8 @@ spring:
         retry:
           #是否支持重试
           enabled: true
-      direct:
-        acknowledge-mode: manual
+#      direct:
+#        acknowledge-mode: manual
     connection-timeout: 50000
 
 
