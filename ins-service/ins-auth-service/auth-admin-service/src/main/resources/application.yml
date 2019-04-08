@@ -1,7 +1,7 @@
 
 spring:
   # 当前服务名
-  application.name: auth-member-server
+  application.name: auth-admin-server
 
   datasource:
     url: jdbc:mysql://47.100.3.157:3306/oauth?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false

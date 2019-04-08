@@ -6,17 +6,21 @@
 
     <parent>
         <groupId>com.haili.ins.service.admin</groupId>
-        <artifactId>ins-admin-service</artifactId>
+        <artifactId>ins-admin</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <groupId>com.haili.ins.service.admin</groupId>
-    <artifactId>ins-admin</artifactId>
+    <artifactId>admin-service</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <modules>
-        <module>admin-dao</module>
-        <module>admin-service</module>
-    </modules>
+    <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>com.haili.ins.service.admin</groupId>
+            <artifactId>admin-dao</artifactId>
+        </dependency>
+
+
+    </dependencies>
     
 </project>
