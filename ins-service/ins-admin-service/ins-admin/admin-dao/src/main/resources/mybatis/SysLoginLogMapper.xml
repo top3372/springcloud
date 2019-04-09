@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haili.ins.dao.mapper.SysLoginLogMapper">
+  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.SysLoginLog">
+    
+    <!-- 访问ID -->
+    <id column="info_id" jdbcType="BIGINT" property="infoId" />
+    
+    <!-- 登录账号 -->
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    
+    <!-- 登录IP地址 -->
+    <result column="ipaddr" jdbcType="VARCHAR" property="ipaddr" />
+    
+    <!-- 登录地点 -->
+    <result column="login_location" jdbcType="VARCHAR" property="loginLocation" />
+    
+    <!-- 浏览器类型 -->
+    <result column="browser" jdbcType="VARCHAR" property="browser" />
+    
+    <!-- 操作系统 -->
+    <result column="os" jdbcType="VARCHAR" property="os" />
+    
+    <!-- 登录状态（0成功 1失败） -->
+    <result column="status" jdbcType="CHAR" property="status" />
+    
+    <!-- 提示消息 -->
+    <result column="msg" jdbcType="VARCHAR" property="msg" />
+    
+    <!-- 访问时间 -->
+    <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    info_id, login_name, ipaddr, login_location, browser, os, status, msg, login_time
+  </sql>
+  
+  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-04-09 16:00:00 ### -->
+
+
+
+  <!-- Your codes goes start here!!! -->
+  
+</mapper>

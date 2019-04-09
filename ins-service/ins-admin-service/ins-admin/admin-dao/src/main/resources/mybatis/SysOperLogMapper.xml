@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haili.ins.dao.mapper.SysOperLogMapper">
+  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.SysOperLog">
+    
+    <!-- 日志主键 -->
+    <id column="oper_id" jdbcType="BIGINT" property="operId" />
+    
+    <!-- 模块标题 -->
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    
+    <!-- 业务类型（0其它 1新增 2修改 3删除） -->
+    <result column="business_type" jdbcType="INTEGER" property="businessType" />
+    
+    <!-- 方法名称 -->
+    <result column="method" jdbcType="VARCHAR" property="method" />
+    
+    <!-- 操作类别（0其它 1后台用户 2手机端用户） -->
+    <result column="operator_type" jdbcType="INTEGER" property="operatorType" />
+    
+    <!-- 操作人员 -->
+    <result column="oper_name" jdbcType="VARCHAR" property="operName" />
+    
+    <!-- 部门名称 -->
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    
+    <!-- 请求URL -->
+    <result column="oper_url" jdbcType="VARCHAR" property="operUrl" />
+    
+    <!-- 主机地址 -->
+    <result column="oper_ip" jdbcType="VARCHAR" property="operIp" />
+    
+    <!-- 操作地点 -->
+    <result column="oper_location" jdbcType="VARCHAR" property="operLocation" />
+    
+    <!-- 请求参数 -->
+    <result column="oper_param" jdbcType="VARCHAR" property="operParam" />
+    
+    <!-- 操作状态（0正常 1异常） -->
+    <result column="status" jdbcType="INTEGER" property="status" />
+    
+    <!-- 错误消息 -->
+    <result column="error_msg" jdbcType="VARCHAR" property="errorMsg" />
+    
+    <!-- 操作时间 -->
+    <result column="oper_time" jdbcType="TIMESTAMP" property="operTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    oper_id, title, business_type, method, operator_type, oper_name, dept_name, oper_url, 
+    oper_ip, oper_location, oper_param, status, error_msg, oper_time
+  </sql>
+  
+  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-04-09 16:00:00 ### -->
+
+  
+</mapper>

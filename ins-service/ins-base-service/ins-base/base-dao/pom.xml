@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.haili.ins.service.admin</groupId>
-        <artifactId>ins-admin</artifactId>
+        <groupId>com.haili.ins.service.base</groupId>
+        <artifactId>ins-base</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.haili.ins.service.admin</groupId>
-    <artifactId>admin-dao</artifactId>
+    <groupId>com.haili.ins.service.base</groupId>
+    <artifactId>base-dao</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <dependencies>
@@ -77,4 +77,5 @@
             </plugin>
         </plugins>
     </build>
+    
 </project>

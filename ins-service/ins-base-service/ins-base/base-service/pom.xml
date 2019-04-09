@@ -5,17 +5,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.haili.ins.service</groupId>
-        <artifactId>ins-service</artifactId>
+        <groupId>com.haili.ins.service.base</groupId>
+        <artifactId>ins-base</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <groupId>com.haili.ins.service.base</groupId>
-    <artifactId>ins-base-service</artifactId>
+    <artifactId>base-service</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <modules>
-        <module>ins-base</module>
-    </modules>
+    <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>com.haili.ins.service.base</groupId>
+            <artifactId>base-dao</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+    </dependencies>
     
 </project>

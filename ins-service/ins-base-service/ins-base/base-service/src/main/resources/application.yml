@@ -1,0 +1,7 @@
+spring:
+  application:
+    name:  base-server
+  datasource:
+    url: jdbc:mysql://47.100.3.157:3306/base?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    userName: root
+    password: 123456

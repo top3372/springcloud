@@ -61,7 +61,7 @@
 		<sqlMapGenerator targetPackage="mybatis"
 			targetProject="${mybatis.resources}">
 			<property name="enableSubPackages" value="true" />
-			<property name="mergeable" value="true"></property>
+<!--			<property name="mergeable" value="true"></property>-->
 		</sqlMapGenerator>
 
 		<!-- 生成DAO的包名和位置 -->
@@ -74,12 +74,12 @@
 
 		<!-- 要生成的表对象 %代表全部生成,单独的表修改talbeName -->
 
-		<table tableName="sys_user"
-			domainObjectName="SysUser" enableCountByExample="false"
-			enableUpdateByExample="false" enableDeleteByExample="false"
-			enableSelectByExample="false">
-			<generatedKey column="user_id" sqlStatement="Mysql" identity="true" />
+		<table tableName="sys_region"
+			   domainObjectName="SysRegion" enableCountByExample="false"
+			   enableUpdateByExample="false" enableDeleteByExample="false"
+			   enableSelectByExample="false">
 		</table>
+
 
 		<!-- Maven命令执行：mvn mybatis-generator:generate -->
 	</context>
