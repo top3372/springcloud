@@ -25,7 +25,6 @@
         <module>ins-registry</module>
         <module>ins-service</module>
         <module>ins-thirdparty</module>
-        <module>ins-web</module>
     </modules>
     <packaging>pom</packaging>
 
