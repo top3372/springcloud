@@ -18,6 +18,7 @@
         <dependency>
             <groupId>com.haili.ins.service.admin</groupId>
             <artifactId>admin-dao</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
 
