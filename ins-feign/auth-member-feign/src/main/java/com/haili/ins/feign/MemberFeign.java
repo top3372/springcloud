@@ -12,16 +12,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Component
-@FeignClient(name = "order-server")
-public interface OrderFeign {
+@FeignClient(name = "member-server")
+/**
+ * @author mali
+ */
+public interface MemberFeign {
 
     /**
-     * member invoke
+     * invoke调用服务
+     *
+     * @param version
      * @param invokeRequest
      * @return
      */
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/api/{version}/invoke")
-    InvokeResponse invoke(@PathVariable(value="version") String version,
+    InvokeResponse invoke(@PathVariable(value = "version") String version,
                           @RequestBody InvokeRequest invokeRequest);
+
 }

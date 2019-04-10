@@ -2,28 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>ins-feign</artifactId>
-        <groupId>com.haili.ins.feign</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.haili.ins.feign</groupId>
-    <artifactId>invoke-feign</artifactId>
+    <parent>
+        <groupId>com.haili.ins.feign</groupId>
+        <artifactId>ins-feign</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
+    <groupId>com.haili.ins.feign</groupId>
+    <artifactId>account-feign</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <dependencies>
-
         <dependency>
-            <groupId>com.haili.ins.cores</groupId>
-            <artifactId>ins-invoke</artifactId>
+            <groupId>com.haili.ins.feign</groupId>
+            <artifactId>common-feign</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
-
     </dependencies>
-
-
-
+    
 </project>

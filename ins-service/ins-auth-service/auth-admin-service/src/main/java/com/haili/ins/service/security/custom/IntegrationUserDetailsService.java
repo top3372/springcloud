@@ -7,9 +7,7 @@ import com.haili.ins.config.oauth2.custom.integration.IntegrationAuthenticator;
 import com.haili.ins.dto.CustomUserDetails;
 import com.haili.ins.dto.auth.BaseRole;
 import com.haili.ins.dto.auth.Oauth2User;
-import com.haili.ins.feign.MemberFeign;
 import com.haili.ins.utils.RedisUtil;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -33,9 +31,6 @@ public class IntegrationUserDetailsService implements UserDetailsService {
 
     @Resource
     private RedisUtil redisUtil;
-
-    @Resource
-    private MemberFeign memberFeign;
 
     private List<IntegrationAuthenticator> authenticators;
 

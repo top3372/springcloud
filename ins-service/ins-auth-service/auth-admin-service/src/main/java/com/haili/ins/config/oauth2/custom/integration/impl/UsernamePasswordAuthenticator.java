@@ -4,9 +4,7 @@ import com.haili.ins.config.oauth2.custom.integration.AbstractPreparableIntegrat
 
 import com.haili.ins.config.oauth2.custom.integration.IntegrationAuthentication;
 import com.haili.ins.dto.auth.Oauth2User;
-import com.haili.ins.feign.MemberFeign;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -26,9 +24,6 @@ public class UsernamePasswordAuthenticator extends AbstractPreparableIntegration
 
     @Resource
     private PasswordEncoder passwordEncoder;
-
-    @Resource
-    private MemberFeign memberFeign;
 
     @Override
     public Oauth2User authenticate(IntegrationAuthentication integrationAuthentication) {

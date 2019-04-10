@@ -13,11 +13,14 @@
     <artifactId>ins-feign</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>invoke-feign</module>
+        <module>common-feign</module>
+        <module>member-feign</module>
+        <module>order-feign</module>
+        <module>account-feign</module>
+        <module>txncore-feign</module>
+        <module>auth-member-feign</module>
+        <module>auth-admin-feign</module>
+        <module>admin-feign</module>
     </modules>
 
-    <dependencies>
-
-
-    </dependencies>
 </project>

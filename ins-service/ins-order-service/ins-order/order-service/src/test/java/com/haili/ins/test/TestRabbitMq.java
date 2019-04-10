@@ -12,14 +12,14 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @author: LeonMa
  * @date: 2019/01/08 11:03
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = OrderApplication.class)
+//@RunWith(SpringRunner.class)
+//@SpringBootTest(classes = OrderApplication.class)
 public class TestRabbitMq {
 
-    @Autowired
+    //@Autowired
     private SenderService senderService;
 
-    @Test
+    //@Test
     public void testFind() {
         System.out.println("测试开始");
         senderService.send();
