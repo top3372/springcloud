@@ -1,7 +1,7 @@
 package com.haili.ins.endpoint;
 
+import com.haili.ins.common.dto.ResultInfo;
 import com.haili.ins.common.enums.ResponseCodeEnum;
-import com.haili.ins.common.response.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.oauth2.provider.endpoint.FrameworkEndpoint;
@@ -23,12 +23,12 @@ public class RevokeTokenEndpoint {
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/oauth/token")
     @ResponseBody
-    public ResponseMessage revokeToken(String access_token) {
+    public ResultInfo revokeToken(String access_token) {
 
         if (consumerTokenServices.revokeToken(access_token)){
-            return new ResponseMessage(ResponseCodeEnum.SUCCESS,"注销成功");
+            return new ResultInfo(ResponseCodeEnum.SUCCESS,"注销成功");
         }else{
-            return new ResponseMessage(ResponseCodeEnum.LOGOUT_FAILURE,"注销失败");
+            return new ResultInfo(ResponseCodeEnum.LOGOUT_FAILURE,"注销失败");
         }
     }
 }

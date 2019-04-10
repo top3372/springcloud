@@ -1,6 +1,5 @@
 package com.haili.ins.feign;
 
-import com.haili.ins.invoke.dto.InvokeRequest;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;

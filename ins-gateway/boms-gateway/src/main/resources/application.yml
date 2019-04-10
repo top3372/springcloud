@@ -1,4 +1,7 @@
 
+server:
+  port: 9102
+
 spring:
   application:
     name: boms-gateway

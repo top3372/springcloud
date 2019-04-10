@@ -17,23 +17,22 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.haili.ins.cores</groupId>
-            <artifactId>ins-core</artifactId>
+            <groupId>com.haili.ins.commons</groupId>
+            <artifactId>ins-common-springcloud</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <!-- spring-cloud-starter-gateway启用 不能同时存在feign 否则会有 httpclient bean的冲突 -->
             <exclusions>
                 <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                </exclusion>
-                <!-- spring-cloud-starter-gateway启用 不能同时存在feign 否则会有 httpclient bean的冲突 -->
-                <exclusion>
-                        <groupId>org.springframework.cloud</groupId>
-                        <artifactId>spring-cloud-starter-openfeign</artifactId>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-openfeign</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
-
-
+        <dependency>
+            <groupId>com.haili.ins.cores</groupId>
+            <artifactId>ins-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>

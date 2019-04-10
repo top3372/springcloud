@@ -23,7 +23,7 @@
 		<!-- 带上序列化接口 -->
 		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
 		<!-- 自定义的注释生成插件-->
-		<plugin type="com.haili.ins.plugins.CommentPlugin">
+		<plugin type="CommentPlugin">
 			<!-- 抑制警告 -->
 			<property name="suppressTypeWarnings" value="true" />
 			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
@@ -32,7 +32,7 @@
 			<property name="suppressDate" value="true" />
 		</plugin>
 		<!-- 整合lombok-->
-		<plugin type="com.haili.ins.plugins.LombokPlugin" >
+		<plugin type="LombokPlugin" >
 			<property name="hasLombok" value="true"/>
 		</plugin>
 

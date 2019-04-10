@@ -1,8 +1,8 @@
 package com.haili.ins.service;
 
 import com.haili.ins.common.utils.security.MD5Util;
-import com.haili.ins.invoke.dto.InvokeRequest;
-import com.haili.ins.invoke.dto.InvokeResponse;
+import com.haili.ins.common.invoke.dto.InvokeRequest;
+import com.haili.ins.common.invoke.dto.InvokeResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

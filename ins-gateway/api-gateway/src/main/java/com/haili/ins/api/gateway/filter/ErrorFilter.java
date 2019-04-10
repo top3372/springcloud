@@ -1,21 +1,14 @@
 package com.haili.ins.api.gateway.filter;
 
 import com.haili.ins.common.dto.ResultInfo;
-import com.haili.ins.common.utils.JSONUtil;
-import com.haili.ins.common.utils.WebUtils;
-import com.netflix.client.ClientException;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.cloud.netflix.zuul.filters.post.SendErrorFilter;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.ReflectionUtils;
+import com.haili.ins.common.spring.webmvc.utils.WebUtils;
 
-import javax.servlet.http.HttpServletRequest;
-import java.net.ConnectException;
-import java.net.SocketTimeoutException;
 
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.*;
 
@@ -62,20 +55,20 @@ public class ErrorFilter extends ZuulFilter {
                 // 根据具体的业务逻辑来处理
 //                ctx.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
 
-                WebUtils.responseOutJson(ctx.getResponse(), JSONUtil.toJson(new ResultInfo(String.valueOf(HttpStatus.BAD_REQUEST.value()),
-                        zuulException.getMessage(),zuulException.getCause().getMessage())));
+                WebUtils.renderJson(ctx.getResponse(), new ResultInfo(String.valueOf(HttpStatus.BAD_REQUEST.value()),
+                        zuulException.getMessage(), zuulException.getCause().getMessage()));
 
             }else{
                 Exception exception = (Exception) e;
                 ((Exception) e).printStackTrace();
-                WebUtils.responseOutJson(ctx.getResponse(), JSONUtil.toJson(new ResultInfo(String.valueOf(HttpStatus.NOT_FOUND.value()),
-                        exception.getMessage(),exception.getCause().getMessage())));
+                WebUtils.renderJson(ctx.getResponse(), new ResultInfo(String.valueOf(HttpStatus.NOT_FOUND.value()),
+                        exception.getMessage(),exception.getCause().getMessage()));
             }
         } catch (Exception ex) {
             String error = "Error during filtering[ErrorFilter]";
             log.error("Exception filtering in custom error filter", ex);
             ReflectionUtils.rethrowRuntimeException(ex);
-            WebUtils.responseOutJson(ctx.getResponse(), JSONUtil.toJson(new ResultInfo(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()), error,error)));
+            WebUtils.renderJson(ctx.getResponse(), new ResultInfo(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()), error,error));
         }
         return null;
     }

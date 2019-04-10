@@ -22,7 +22,7 @@ spring:
     listener:
       simple:
         #采用手动应答
-        acknowledge-mode: manual
+#        acknowledge-mode: manual
         #指定最小消费者数量
         concurrency: 1
         #指定最大消费者数量

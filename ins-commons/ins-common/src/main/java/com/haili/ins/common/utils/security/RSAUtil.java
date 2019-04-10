@@ -352,7 +352,7 @@ public class RSAUtil {
 
 	/**
 	 * 获取私钥对象
-	 * @param key
+	 * @param privateKey
 	 * @return
 	 * @throws Exception 
 	 */

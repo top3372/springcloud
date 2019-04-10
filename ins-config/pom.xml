@@ -9,16 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.haili.ins</groupId>
+    <groupId>com.haili.ins.config</groupId>
     <artifactId>ins-config</artifactId>
     <packaging>pom</packaging>
 
-    <dependencies>
+    <modules>
+        <module>ins-config-apollo</module>
+    </modules>
 
-    </dependencies>
-
-    <build>
-
-    </build>
 
 </project>

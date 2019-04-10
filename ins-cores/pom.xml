@@ -16,7 +16,6 @@
 
     <modules>
         <module>ins-core</module>
-        <module>ins-invoke</module>
     </modules>
 
     

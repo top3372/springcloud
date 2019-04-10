@@ -58,11 +58,12 @@
         <httpcore-nio.version>4.4.11</httpcore-nio.version>
         <okhttp3.version>3.14.0</okhttp3.version>
         <hibernate-validator.version>6.1.0.Alpha4</hibernate-validator.version>
-        <validation-api.version>2.0.1.Final</validation-api.version>
-        <javax.el.version>3.0.1-b11</javax.el.version>
+        <javax-validation.version>2.0.1.Final</javax-validation.version>
+        <glassfish-el.version>3.0.1-b11</glassfish-el.version>
         <swagger2.version>2.9.2</swagger2.version>
         <zxing.version>3.3.3</zxing.version>
         <auth0.jwt.version>3.8.0</auth0.jwt.version>
+        <hikaricp.version>3.3.1</hikaricp.version>
     </properties>
 
     <dependencyManagement>

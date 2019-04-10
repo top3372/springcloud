@@ -3,24 +3,9 @@ online: false
 
 logging.config: classpath:log4j2.xml
 
-pagehelper:
-  helperDialect: mysql
-  reasonable: false
-  supportMethodsArguments: true
-  params: count=countSql
-
-mybatis:
-  type-aliases-package: com.haili.ins.dao.model
-  mapper-locations: classpath*:/mybatis/*.xml
-
-##tk.mybatis
-mapper:
-  #mappers: tk.mybatis.mapper.common.Mapper,tk.mybatis.mapper.common.Mapper2
-  notEmpty: true
 
 ## org.springframework.boot.autoconfigure.web.ServerProperties
 server:
-  port: 9102
   http2:
     enabled: true
 

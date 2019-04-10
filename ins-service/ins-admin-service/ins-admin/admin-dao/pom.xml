@@ -16,17 +16,25 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>com.haili.ins.cores</groupId>
-            <artifactId>ins-invoke</artifactId>
+            <groupId>com.haili.ins.commons</groupId>
+            <artifactId>ins-common-mybatis</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-webflux</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
-
+        <dependency>
+            <groupId>com.haili.ins.commons</groupId>
+            <artifactId>ins-common-springcloud</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.haili.ins.cores</groupId>
+            <artifactId>ins-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.haili.ins.commons</groupId>
+            <artifactId>ins-common-webmvc</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -68,8 +76,8 @@
                         <version>8.0.15</version>
                     </dependency>
                     <dependency>
-                        <groupId>com.ins.common.mybatis.plugin</groupId>
-                        <artifactId>ins-common-mybatis-plugin</artifactId>
+                        <groupId>com.haili.ins.commons</groupId>
+                        <artifactId>ins-common-mybatis</artifactId>
                         <version>1.0-SNAPSHOT</version>
                     </dependency>
                 </dependencies>
