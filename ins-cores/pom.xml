@@ -16,6 +16,7 @@
 
     <modules>
         <module>ins-core</module>
+        <module>ins-security-admin</module>
     </modules>
 
     

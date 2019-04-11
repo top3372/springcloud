@@ -21,7 +21,7 @@
         </dependency>
         <dependency>
             <groupId>com.haili.ins.commons</groupId>
-            <artifactId>ins-common-springcloud</artifactId>
+            <artifactId>ins-common-webmvc</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

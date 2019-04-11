@@ -14,6 +14,7 @@
 | ins-data  | 数据处理      | 0  |
 | ins-feign   | feign调用    |  0  |
 | ins-gateway   | 网关    |  0  |
+| ins-invocation-chain   | 调用链    |  0  |
 | ins-moniter   | 系统监控    |   0 |
 | ins-message   | 消息中心    |   0 |
 | ins-registry   | 服务注册与发现    |  0  |

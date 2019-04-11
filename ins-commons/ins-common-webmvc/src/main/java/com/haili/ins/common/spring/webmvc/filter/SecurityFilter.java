@@ -7,6 +7,7 @@ import com.haili.ins.common.utils.JSONUtil;
 import com.haili.ins.common.utils.JWTUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.core.annotation.Order;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -18,10 +19,8 @@ import java.io.IOException;
  * @Version 1.0
  */
 @Slf4j
+@Order(0)
 public class SecurityFilter implements Filter {
-
-//    @Resource
-//    private EncryptFeign encryptFeign;
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {

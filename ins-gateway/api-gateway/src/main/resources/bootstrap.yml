@@ -20,17 +20,9 @@ spring:
     buffer-size: 1024
     direct-buffers: true
   haili:
-    web:
-      swagger2:
-        enabled: true
-      filter:
-        enabled: true
     api:
       ###接口支持的版本号
       version: 1,2
-    webflux:
-      filter:
-        enabled: false
 
   # 配置下面两个值将会走到 ControllerAdvice 全局里面去
   # org.springframework.boot.autoconfigure.web.WebMvcProperties

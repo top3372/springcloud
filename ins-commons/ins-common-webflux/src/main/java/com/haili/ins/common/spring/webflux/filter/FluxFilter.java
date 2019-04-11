@@ -1,5 +1,6 @@
-package com.haili.ins.common.spring.webflux;
+package com.haili.ins.common.spring.webflux.filter;
 
+import com.haili.ins.common.spring.webflux.utils.ReactiveRequestContextHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +19,7 @@ public class FluxFilter implements WebFilter {
     public Mono<Void> filter(ServerWebExchange serverWebExchange,
                              WebFilterChain webFilterChain) {
         ServerHttpRequest request =  serverWebExchange.getRequest();
-        //ServerHttpResponse response =  exchange.getResponse();
+        //ServerHttpResponse response =  exchange.getResponse();'
         StringBuilder sb = new StringBuilder();
         sb.append("###FluxFilter[Thread-")
                 .append((Thread.currentThread()).getId())

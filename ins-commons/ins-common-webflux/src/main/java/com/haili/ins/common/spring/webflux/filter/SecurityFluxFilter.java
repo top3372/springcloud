@@ -1,8 +1,9 @@
-package com.haili.ins.common.spring.webflux;
+package com.haili.ins.common.spring.webflux.filter;
 
 import com.haili.ins.common.constants.HttpHeaderConstant;
 import com.haili.ins.common.dto.ResultInfo;
 import com.haili.ins.common.enums.ResponseCodeEnum;
+import com.haili.ins.common.spring.webflux.utils.ReactiveRequestContextHolder;
 import com.haili.ins.common.utils.JSONUtil;
 import com.haili.ins.common.utils.JWTUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -42,7 +43,6 @@ public class SecurityFluxFilter implements WebFilter {
         ServerHttpResponse serverHttpResponse =  serverWebExchange.getResponse();
         String url = serverHttpRequest.getURI().toString();
         log.info("请求uri: " + url);
-
         //获取请求http头xttblog_token值
         String token = serverHttpRequest.getHeaders().getFirst(HttpHeaderConstant.SECURITY_TOKEN);
         if (StringUtils.isNotEmpty(token)) {

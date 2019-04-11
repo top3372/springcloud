@@ -38,7 +38,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configuration
 @EnableSwagger2
-@ConditionalOnProperty(value = "spring.haili.web.swagger2.enabled", havingValue ="true")
 public class SwaggerConfig extends WebMvcConfigurationSupport {
        @Bean
        public Docket api() {

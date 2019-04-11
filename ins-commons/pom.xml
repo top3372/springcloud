@@ -21,7 +21,6 @@
         <module>ins-common-webmvc</module>
         <module>ins-common-springcloud</module>
         <module>ins-common-invoke</module>
-        <module>ins-common-cat</module>
 	    <module>ins-common-mybatis</module>
         <module>ins-common-swagger</module>
     </modules>

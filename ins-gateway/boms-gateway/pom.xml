@@ -18,7 +18,7 @@
     <dependencies>
         <dependency>
             <groupId>com.haili.ins.commons</groupId>
-            <artifactId>ins-common-springcloud</artifactId>
+            <artifactId>ins-common-webflux</artifactId>
             <version>1.0-SNAPSHOT</version>
             <!-- spring-cloud-starter-gateway启用 不能同时存在feign 否则会有 httpclient bean的冲突 -->
             <exclusions>

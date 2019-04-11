@@ -18,7 +18,7 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.haili.ins.common</groupId>
+            <groupId>com.haili.ins.commons</groupId>
             <artifactId>ins-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>

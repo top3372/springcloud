@@ -16,13 +16,6 @@
 
 
     <dependencies>
-
-        <dependency>
-            <groupId>com.haili.ins.commons</groupId>
-            <artifactId>ins-common-springcloud</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
         <dependency>
             <groupId>com.haili.ins.commons</groupId>
             <artifactId>ins-common-webmvc</artifactId>
@@ -47,6 +40,11 @@
                     <artifactId>spring-boot-starter-logging</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.haili.ins.commons</groupId>
+            <artifactId>ins-common-swagger</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

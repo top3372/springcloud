@@ -1,7 +1,7 @@
 package com.haili.ins.handler.v1._201001;
 
 import com.haili.ins.dto.account.AccountInfo;
-import com.haili.ins.invoke.dto.InvokeResponse;
+import com.haili.ins.common.invoke.dto.InvokeResponse;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

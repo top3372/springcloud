@@ -14,7 +14,7 @@ import java.util.HashMap;
  *
  */
 @Data
-public class ResultInfo implements Serializable {
+public class ResultInfo implements Serializable{
 
 	private static final long serialVersionUID = -3355484205126156607L;
 	private String responseCode;

@@ -16,6 +16,7 @@
     <modules>
         <module>ins-commons</module>
         <module>ins-config</module>
+        <module>ins-invocation-chain</module>
         <module>ins-cores</module>
         <module>ins-data</module>
         <module>ins-feign</module>

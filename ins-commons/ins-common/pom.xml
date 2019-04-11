@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.haili.ins.common</groupId>
+    <groupId>com.haili.ins.commons</groupId>
     <artifactId>ins-common</artifactId>
     <packaging>jar</packaging>
 

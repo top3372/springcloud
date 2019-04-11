@@ -16,7 +16,7 @@ public class WebConfiguration {
 
 
     @Bean
-    public FilterRegistrationBean webFilter() {
+    public FilterRegistrationBean webServletFilter() {
 
         FilterRegistrationBean registration = new FilterRegistrationBean();
 
@@ -25,7 +25,6 @@ public class WebConfiguration {
         registration.setFilter(filter);
         registration.addUrlPatterns("/*");
         registration.setName("web-filter");
-        registration.setOrder(2);
         return registration;
     }
 
@@ -51,7 +50,6 @@ public class WebConfiguration {
         registration.setFilter(filter);
         registration.addUrlPatterns("/api/*");
         registration.setName("mic-service-security-filter");
-        registration.setOrder(1);
         return registration;
     }
 

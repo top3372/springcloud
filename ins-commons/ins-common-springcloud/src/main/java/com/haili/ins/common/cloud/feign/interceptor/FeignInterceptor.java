@@ -1,10 +1,13 @@
-package com.haili.ins.common.cloud.feign;
+package com.haili.ins.common.cloud.feign.interceptor;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 
+/**
+ * @author Leon
+ */
 @Slf4j
 public class FeignInterceptor implements RequestInterceptor {
 

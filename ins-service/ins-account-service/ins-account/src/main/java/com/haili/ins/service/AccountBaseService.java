@@ -7,10 +7,10 @@ import com.haili.ins.dao.model.AccAccountInfo;
 import com.haili.ins.feign.EncryptFeign;
 import com.haili.ins.feign.LeafIdFeign;
 import com.haili.ins.handler.AbstractRequest;
-import com.haili.ins.invoke.InvokeLogger;
-import com.haili.ins.invoke.bussiness.BusinessHandler;
-import com.haili.ins.invoke.dto.InvokeParameter;
-import com.haili.ins.invoke.dto.InvokeResponse;
+import com.haili.ins.common.invoke.InvokeLogger;
+import com.haili.ins.common.invoke.bussiness.BusinessHandler;
+import com.haili.ins.common.invoke.dto.InvokeParameter;
+import com.haili.ins.common.invoke.dto.InvokeResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.jdbc.UncategorizedSQLException;
 

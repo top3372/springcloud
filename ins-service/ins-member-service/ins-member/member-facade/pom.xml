@@ -23,11 +23,7 @@
             <artifactId>member-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>com.haili.ins.commons</groupId>
-            <artifactId>ins-common-webmvc</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+
     </dependencies>
 
     <build>

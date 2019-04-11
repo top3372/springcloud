@@ -2,12 +2,14 @@ package com.haili.ins.common.spring.webmvc.filter;
 
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.annotation.Order;
 
 
 import javax.servlet.*;
 import java.io.IOException;
 
 @Slf4j
+@Order(-1)
 public class WebServletFilter implements Filter {
 
 

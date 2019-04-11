@@ -34,17 +34,9 @@ spring:
     buffer-size: 1024
     direct-buffers: true
   haili:
-    web:
-      swagger2:
-        enabled: true
-      filter:
-        enabled: true
     api:
       ###接口支持的版本号
       version: 1,2
-    webflux:
-      filter:
-        enabled: false
   ####cat链追踪配置
   #    cat:
   #      web.enabled: true
