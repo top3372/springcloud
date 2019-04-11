@@ -1,4 +1,4 @@
-package com.haili.ins.common.cloud.feign.config;
+package com.haili.ins.common.spring.webflux.feign.config;
 
 import com.haili.ins.common.cloud.feign.interceptor.FeignInterceptor;
 import com.haili.ins.common.cloud.feign.interceptor.SecurityInterceptor;
@@ -15,16 +15,13 @@ import org.springframework.core.convert.converter.ConverterRegistry;
 import java.util.ArrayList;
 
 @Configuration
-public class FeignConfiguration {
+public class FluxFeignConfiguration {
 
     @Bean
-    public FeignInterceptor feignInterceptor() {
-        return new FeignInterceptor();
+    public Contract fluxFeignContract(@Qualifier("webFluxConversionService") ConversionService conversionService) {
+        ConverterRegistry converterRegistry =  ((ConverterRegistry) conversionService);
+        converterRegistry.addConverter(new EnumToStringConverter());
+        converterRegistry.addConverter(new StringToEnumConverter());
+        return new InsSpringMvcContract(new ArrayList<>(), conversionService);
     }
-
-    @Bean
-    public SecurityInterceptor securityInterceptor() {
-        return new SecurityInterceptor();
-    }
-
 }

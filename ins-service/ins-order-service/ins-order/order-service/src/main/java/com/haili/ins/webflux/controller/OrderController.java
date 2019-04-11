@@ -1,6 +1,11 @@
 package com.haili.ins.webflux.controller;
 
 
+import com.haili.ins.common.cloud.version.annotation.ApiVersion;
+import com.haili.ins.common.cloud.version.annotation.UrlVersion;
+import com.haili.ins.common.utils.JSONUtil;
+import com.haili.ins.feign.MemberFeign;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.buffer.DataBufferUtils;
@@ -19,13 +24,21 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
+@Slf4j
 @RestController
-
 @RequestMapping("/order")
+@UrlVersion("1")
 public class OrderController {
 
+    @javax.annotation.Resource
+    private MemberFeign memberFeign;
+
     @GetMapping("/hello")
+    @UrlVersion("1.2")
     public Mono<String> hello() {
+
+        log.info("info: " + JSONUtil.toJson(memberFeign.info()));
+        log.info("info2: " + JSONUtil.toJson(memberFeign.info2()));
         // 【改】返回类型为Mono<String>
         return Mono.just("Welcome to reactive world ~");
         // 【改】使用Mono.just生成响应式数据

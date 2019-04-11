@@ -29,8 +29,8 @@ import static org.springframework.web.reactive.function.server.ServerResponse.ok
  * @Date: 2019/4/10 23:27
  * @Version 1.0
  */
-@Configuration
-@Order(0)
+//@Configuration
+//@Order(0)
 @Slf4j
 public class SecurityFluxFilter implements WebFilter {
 

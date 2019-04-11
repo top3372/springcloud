@@ -28,7 +28,6 @@ public class MemberController {
 
     @RequestMapping("/info2")
     @UrlVersion("1.2")
-
     public ResultInfo info2(){
         return new ResultInfo(ResponseCodeEnum.SUCCESS);
     }
