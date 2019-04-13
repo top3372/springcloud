@@ -1,6 +1,5 @@
 package com.haili.ins.service;
 
-import com.haili.ins.common.exception.ServiceException;
 import com.haili.ins.dao.mapper.AccManagementLogMapper;
 import com.haili.ins.dao.model.AccManagementLog;
 import com.haili.ins.dto.MgmLogParam;

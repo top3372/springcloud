@@ -1,8 +1,6 @@
 package com.haili.ins.common.spring.webmvc.version;
 
 import com.haili.ins.common.cloud.version.annotation.ApiVersion;
-import com.haili.ins.common.cloud.version.annotation.UrlVersion;
-import com.haili.ins.common.cloud.version.web.InsMediaType;
 import com.haili.ins.common.utils.StringPool;
 import com.haili.ins.common.utils.StringUtils;
 import org.springframework.core.annotation.AnnotatedElementUtils;
@@ -35,34 +33,18 @@ public class InsRequestMappingHandlerMapping extends RequestMappingHandlerMappin
     @Nullable
     private RequestMappingInfo getApiVersionMappingInfo(Method method, Class<?> handlerType) {
         // url 上的版本，优先获取方法上的版本
-        UrlVersion urlVersion = AnnotatedElementUtils.findMergedAnnotation(method, UrlVersion.class);
-        // 再次尝试类上的版本
-        if (urlVersion == null || StringUtils.isBlank(urlVersion.value())) {
-            urlVersion = AnnotatedElementUtils.findMergedAnnotation(handlerType, UrlVersion.class);
-        }
-        // Media Types 版本信息
         ApiVersion apiVersion = AnnotatedElementUtils.findMergedAnnotation(method, ApiVersion.class);
         // 再次尝试类上的版本
         if (apiVersion == null || StringUtils.isBlank(apiVersion.value())) {
             apiVersion = AnnotatedElementUtils.findMergedAnnotation(handlerType, ApiVersion.class);
         }
-        boolean nonUrlVersion = urlVersion == null || StringUtils.isBlank(urlVersion.value());
-        boolean nonApiVersion = apiVersion == null || StringUtils.isBlank(apiVersion.value());
-        // 先判断同时不纯在
-        if (nonUrlVersion && nonApiVersion) {
-            return null;
-        }
-        // 如果 header 版本不存在
+        boolean nonApiVersionUrl = apiVersion == null || StringUtils.isBlank(apiVersion.value());
+
         RequestMappingInfo.Builder mappingInfoBuilder = null;
-        if (nonApiVersion) {
-            mappingInfoBuilder = RequestMappingInfo.paths(urlVersion.value());
-        } else {
+        if (nonApiVersionUrl) {
             mappingInfoBuilder = RequestMappingInfo.paths(StringPool.EMPTY);
-        }
-        // 如果url版本不存在
-        if (nonUrlVersion) {
-            String vsersionMediaTypes = new InsMediaType(apiVersion.value()).toString();
-            mappingInfoBuilder.produces(vsersionMediaTypes);
+        } else {
+            mappingInfoBuilder = RequestMappingInfo.paths(apiVersion.value());
         }
         return mappingInfoBuilder.build();
     }

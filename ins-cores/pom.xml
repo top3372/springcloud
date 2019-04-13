@@ -15,8 +15,10 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>ins-core</module>
-        <module>ins-security-admin</module>
+        <module>ins-core-vo</module>
+        <module>ins-core-invoke</module>
+        <module>ins-core-security-admin</module>
+        <module>ins-core-security-admin-flux</module>
     </modules>
 
     

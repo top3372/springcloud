@@ -1,12 +1,12 @@
 package com.haili.ins.service.member.register;
 
 import com.haili.ins.common.constants.RegexConstant;
-import com.haili.ins.common.exception.ServiceException;
 import com.haili.ins.common.utils.RegexUtil;
 import com.haili.ins.common.utils.SecurityUtil;
 import com.haili.ins.dto.member.request.RegisterRequest;
 import com.haili.ins.dto.member.response.MemberInfo;
 import com.haili.ins.enums.member.*;
+import com.haili.ins.exception.ServiceException;
 import com.haili.ins.feign.LeafIdFeign;
 import com.haili.ins.dao.mapper.MemberBaseMapper;
 import com.haili.ins.dao.mapper.MemberLoginInfoMapper;

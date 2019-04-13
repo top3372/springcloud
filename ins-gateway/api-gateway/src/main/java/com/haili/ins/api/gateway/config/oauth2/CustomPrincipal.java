@@ -13,4 +13,6 @@ public class CustomPrincipal {
     private String userName;
     private String userId;
     private String status;
+    private String roles;
+    private String resources;
 }

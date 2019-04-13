@@ -101,4 +101,28 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 
         return str.toString().substring(fromIndex, toIndex);
     }
+
+    /**
+     * 转换为String数组<br>
+     *
+     * @param str 被转换的值
+     * @return 结果
+     */
+    public static String[] toStrArray(String str) {
+        return toStrArray(",", str);
+    }
+
+    /**
+     * 转换为String数组<br>
+     *
+     * @param split 分隔符
+     * @param str   被转换的值
+     * @return 结果
+     */
+    public static String[] toStrArray(String split, String str) {
+        if (isBlank(str)) {
+            return new String[]{};
+        }
+        return str.split(split);
+    }
 }

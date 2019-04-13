@@ -7,9 +7,11 @@ package com.haili.ins.common.constants;
  */
 public class HttpHeaderConstant {
 
-    public static final String REQUEST_SOURCE = "request-source";
-
     public static final String USER_ID = "user_id";
 
-    public static final String SECURITY_TOKEN = "security_token";
+    public static final String ROLES = "roles";
+
+    public static final String PERMISSIONS = "permissions";
+
+    public static final String SECURITY_TOKEN = "security_token"; //微服务间调用安全token
 }

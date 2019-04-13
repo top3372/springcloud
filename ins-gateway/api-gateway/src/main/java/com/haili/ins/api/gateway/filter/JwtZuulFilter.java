@@ -2,7 +2,6 @@ package com.haili.ins.api.gateway.filter;
 
 
 import com.haili.ins.common.constants.HttpHeaderConstant;
-import com.haili.ins.common.enums.ResponseCodeEnum;
 import com.haili.ins.common.utils.JWTUtils;
 import com.haili.ins.common.utils.RandomUtil;
 import com.netflix.zuul.ZuulFilter;

@@ -2,9 +2,8 @@ package com.haili.ins.config.oauth2.custom.integration.impl;
 
 import com.haili.ins.config.oauth2.custom.integration.AbstractPreparableIntegrationAuthenticator;
 import com.haili.ins.config.oauth2.custom.integration.IntegrationAuthentication;
-import com.haili.ins.dto.auth.Oauth2User;
+import com.haili.ins.dto.Oauth2User;
 import com.haili.ins.feign.MemberFeign;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;

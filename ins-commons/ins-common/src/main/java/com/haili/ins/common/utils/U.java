@@ -1,7 +1,7 @@
 package com.haili.ins.common.utils;
 
-import com.haili.ins.common.exception.ServiceException;
-import com.haili.ins.common.enums.ResponseCodeEnum;
+import com.haili.ins.common.constants.HailiInsConstant;
+import com.haili.ins.common.exception.CommonServiceException;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.UnsupportedEncodingException;
@@ -252,7 +252,7 @@ public final class U {
     public static void checkEmpty(Object obj,String msg,String log){
         if(isBlank(obj)){
 
-            throw new ServiceException(msg);
+            throw new CommonServiceException(msg);
         }
     }
 
@@ -260,17 +260,13 @@ public final class U {
         throwServiceExce(msg, msg);
     }
 
-    public static void throwServiceExce(ResponseCodeEnum respCodeEnum, String log){
-        throwServiceExce( respCodeEnum.getCode(), respCodeEnum.getDesc(), log);
-    }
-
     public static void throwServiceExce(String msg,String log){
-        throwServiceExce(ResponseCodeEnum.FAILURE.getCode(),msg,  log);
+        throwServiceExce(HailiInsConstant.FAILURE,msg,  log);
     }
 
     public static void throwServiceExce(String code,String msg,String log){
 
-        throw new ServiceException(code,msg);
+        throw new CommonServiceException(code,msg);
     }
 
 }

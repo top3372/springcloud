@@ -1,7 +1,7 @@
 package com.haili.ins.config.oauth2.custom.integration;
 
-import com.haili.ins.dto.auth.Oauth2User;
 
+import com.haili.ins.dto.Oauth2User;
 
 /**
  * @author LIQIU

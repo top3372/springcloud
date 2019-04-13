@@ -4,13 +4,11 @@ package com.haili.ins.config.oauth2.custom.integration.impl.sms;
 import com.haili.ins.config.oauth2.custom.integration.AbstractPreparableIntegrationAuthenticator;
 import com.haili.ins.config.oauth2.custom.integration.IntegrationAuthentication;
 import com.haili.ins.config.oauth2.custom.integration.impl.sms.event.SmsAuthenticateBeforeEvent;
-import com.haili.ins.config.oauth2.custom.integration.impl.sms.event.SmsAuthenticateSuccessEvent;
-import com.haili.ins.dto.auth.Oauth2User;
+import com.haili.ins.dto.Oauth2User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
 import org.springframework.stereotype.Component;
 
 /**

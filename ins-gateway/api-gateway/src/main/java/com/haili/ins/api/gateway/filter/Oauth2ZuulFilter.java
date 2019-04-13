@@ -67,7 +67,23 @@ public class Oauth2ZuulFilter extends ZuulFilter {
         CustomPrincipal customPrincipal = (CustomPrincipal)authentication.getPrincipal();
         System.out.println(JSONUtil.toJson(customPrincipal));
 
+        /**
+         * {
+         *     "result": false,
+         *     "data": {
+         *         "userName": "admin",
+         *         "userId": "11111111",
+         *         "status": "1",
+         *         "roles": "administrator",
+         *         "resources": "user::add,user::edit"
+         *     },
+         *     "code": "000000",
+         *     "msg": "请求处理成功"
+         * }
+         */
         requestContext.addZuulRequestHeader(HttpHeaderConstant.USER_ID, customPrincipal.getUserId());
+        requestContext.addZuulRequestHeader(HttpHeaderConstant.ROLES, customPrincipal.getRoles());
+        requestContext.addZuulRequestHeader(HttpHeaderConstant.PERMISSIONS, customPrincipal.getResources());
 
 
 //

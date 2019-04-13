@@ -97,19 +97,8 @@ public class CustomUserInfoTokenServices implements ResourceServerTokenServices 
      */
     protected Object getPrincipal(Map<String, Object> map) {
 
-        CustomPrincipal customPrincipal = new CustomPrincipal();
-        if( !map.isEmpty() ) {
-            customPrincipal.setUserName((String)map.get("userName"));
-            customPrincipal.setUserId((String)map.get("userId"));
-            customPrincipal.setStatus((String)map.get("status"));
-        }
-        return customPrincipal;
-
-
-        /*
         Object principal = this.principalExtractor.extractPrincipal(map);
         return (principal == null ? "unknown" : principal);
-        */
 
     }
 

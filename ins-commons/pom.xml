@@ -15,14 +15,13 @@
     <modules>
        <module>ins-common</module>
         <module>ins-common-database</module>
+        <module>ins-common-mybatis</module>
         <module>ins-common-security</module>
+        <module>ins-common-spring-cloud</module>
+        <module>ins-common-swagger</module>
         <module>ins-common-web</module>
         <module>ins-common-webflux</module>
         <module>ins-common-webmvc</module>
-        <module>ins-common-springcloud</module>
-        <module>ins-common-invoke</module>
-	    <module>ins-common-mybatis</module>
-        <module>ins-common-swagger</module>
     </modules>
 
     <dependencies>

@@ -8,7 +8,7 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.auth0.jwt.interfaces.JWTVerifier;
-import com.haili.ins.common.enums.ResponseCodeEnum;
+import com.haili.ins.common.constants.HailiInsConstant;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Calendar;
@@ -71,18 +71,18 @@ public class JWTUtils {
      * @return
      * @throws Exception
      */
-    public static ResponseCodeEnum verifyToken(String token) {
+    public static String verifyToken(String token) {
 
         try {
             JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
             verifier.verify(token);
-            return ResponseCodeEnum.VERIFY_SUCCESS;
+            return HailiInsConstant.SUCCESS;
         }catch(JWTVerificationException je){
             je.printStackTrace();
-            return ResponseCodeEnum.VERIFY_ERROR;
+            return HailiInsConstant.VERIFY_ERROR;
         }catch (Exception e) {
             e.printStackTrace();
-            return ResponseCodeEnum.VERIFY_ERROR;
+            return HailiInsConstant.VERIFY_ERROR;
         }
     }
 

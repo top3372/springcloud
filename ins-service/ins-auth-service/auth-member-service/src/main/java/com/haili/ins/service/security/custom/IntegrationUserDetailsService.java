@@ -5,11 +5,10 @@ import com.haili.ins.config.oauth2.custom.integration.IntegrationAuthentication;
 import com.haili.ins.config.oauth2.custom.integration.IntegrationAuthenticationContext;
 import com.haili.ins.config.oauth2.custom.integration.IntegrationAuthenticator;
 import com.haili.ins.dto.CustomUserDetails;
-import com.haili.ins.dto.auth.BaseRole;
-import com.haili.ins.dto.auth.Oauth2User;
+import com.haili.ins.dto.Oauth2User;
+import com.haili.ins.enums.ResponseCodeEnum;
 import com.haili.ins.feign.MemberFeign;
 import com.haili.ins.utils.RedisUtil;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -56,29 +55,28 @@ public class IntegrationUserDetailsService implements UserDetailsService {
         Oauth2User oauth2User = this.authenticate(integrationAuthentication);
 
         if(oauth2User == null){
-            throw new UsernameNotFoundException("用户获取失败");
+            throw new UsernameNotFoundException(ResponseCodeEnum.LOGIN_FAILURE.getDesc());
         }
 
         // 调用FeignClient查询角色
-        List<BaseRole> roles = new ArrayList<>();
-        List<String> rolesIds = new ArrayList<>();
-        roles.forEach(e -> {
-            rolesIds.add(e.getRoleCode());
-        });
+        List<String> rolesIdList = new ArrayList<>();
+        rolesIdList.add("administrator");
 
         //查询资源
-
+        List<String> resourcesList = new ArrayList<>();
+        resourcesList.add("user::add");
+        resourcesList.add("user::edit");
 
         // 获取用户权限列表 放入Security的User中
-        List<GrantedAuthority> authorities = convertToAuthorities(oauth2User, roles);
+        List<GrantedAuthority> authorities = convertToAuthorities(oauth2User, rolesIdList);
 
         User user = new User(oauth2User.getUsername(),
                 oauth2User.getPassword(), isActive(oauth2User.getStatus()),
                 true, true,
                 isActive(oauth2User.getStatus()), authorities);
         CustomUserDetails custom=  new CustomUserDetails(oauth2User,user);
-        custom.setRoles(rolesIds);
-//        custom.setResources();
+        custom.setRoles(rolesIdList);
+        custom.setResources(resourcesList);
         return custom;
 
     }
@@ -87,13 +85,13 @@ public class IntegrationUserDetailsService implements UserDetailsService {
         return "1".equals(active) ? true : false;
     }
 
-    private List<GrantedAuthority> convertToAuthorities(Oauth2User baseUser, List<BaseRole> roles) {
+    private List<GrantedAuthority> convertToAuthorities(Oauth2User baseUser, List<String> roles) {
         List<GrantedAuthority> authorities = new ArrayList();
         // 清除 Redis 中用户的角色
         //redisUtil.del(baseUser.getId());
         roles.forEach(e -> {
             // 存储用户、角色信息到GrantedAuthority，并放到GrantedAuthority列表
-            GrantedAuthority authority = new SimpleGrantedAuthority(e.getRoleCode());
+            GrantedAuthority authority = new SimpleGrantedAuthority(e);
             authorities.add(authority);
             //存储角色到redis
             //redisUtil.listRightPush(baseUser.getId(), e);

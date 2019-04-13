@@ -1,12 +1,11 @@
 package com.haili.ins.controller;
 
-import com.haili.ins.common.enums.ResponseCodeEnum;
-import com.haili.ins.common.exception.ServiceException;
 import com.haili.ins.common.invoke.dto.InvokeRequest;
 import com.haili.ins.common.invoke.dto.InvokeResponse;
+import com.haili.ins.enums.ResponseCodeEnum;
+import com.haili.ins.exception.ServiceException;
 import com.haili.ins.service.EncryptService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

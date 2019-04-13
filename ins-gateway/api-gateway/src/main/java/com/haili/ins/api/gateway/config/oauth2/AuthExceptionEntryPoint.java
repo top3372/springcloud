@@ -1,18 +1,17 @@
 package com.haili.ins.api.gateway.config.oauth2;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.haili.ins.common.dto.ResultInfo;
-import com.haili.ins.common.enums.ResponseCodeEnum;
 import com.haili.ins.common.utils.JSONUtil;
+import com.haili.ins.common.vo.ResultInfo;
+import com.haili.ins.enums.ResponseCodeEnum;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.http.protocol.HTTP;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,14 +38,13 @@ public class AuthExceptionEntryPoint implements AuthenticationEntryPoint {
         map.put("message", authException.getMessage());
         map.put("path", request.getServletPath());
         map.put("timestamp", String.valueOf(System.currentTimeMillis()));
-        ResultInfo resultInfo = new ResultInfo();
-        resultInfo.setResponseCode(ResponseCodeEnum.NO_AUTH_CODE.getCode());
-        resultInfo.setResponseDesc(ResponseCodeEnum.NO_AUTH_CODE.getDesc());
-        resultInfo.setResponseData(map);
+        ResultInfo<Map> resultInfo = new ResultInfo<>();
+        resultInfo.setCode(ResponseCodeEnum.NO_AUTH_CODE.getCode());
+        resultInfo.setMsg(ResponseCodeEnum.NO_AUTH_CODE.getDesc());
+        resultInfo.setData(map);
 
         log.info(JSONUtil.toJson(resultInfo));
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
+        response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         try {
             ObjectMapper mapper = new ObjectMapper();

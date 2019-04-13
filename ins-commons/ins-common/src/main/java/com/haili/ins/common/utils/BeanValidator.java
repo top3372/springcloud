@@ -3,6 +3,9 @@
  */
 package com.haili.ins.common.utils;
 
+import com.haili.ins.common.constants.HailiInsConstant;
+import com.haili.ins.common.exception.CommonServiceException;
+
 import java.util.Iterator;
 import java.util.Set;
 
@@ -11,11 +14,6 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
-import com.haili.ins.common.enums.ResponseCodeEnum;
-import com.haili.ins.common.exception.ServiceException;
-
-
-
 
 /**
  * @author new
@@ -23,7 +21,7 @@ import com.haili.ins.common.exception.ServiceException;
  */
 public class BeanValidator {
 	
-	public static<T> void validate(T bean) throws ServiceException {
+	public static<T> void validate(T bean) throws CommonServiceException {
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		Validator validator = factory.getValidator();
 		Set<ConstraintViolation<T>> constraintViolations=validator.validate(bean);
@@ -39,7 +37,7 @@ public class BeanValidator {
 			//sbf.append(";");
 		}
 		if(sbf.length()>0){
-			throw new ServiceException(ResponseCodeEnum.PARAM_VRFY_FAIL.getCode(), sbf.toString());
+			throw new CommonServiceException(HailiInsConstant.PARAM_VRFY_FAIL, sbf.toString());
 		}
 		
 	}

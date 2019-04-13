@@ -1,14 +1,13 @@
 package com.haili.ins.controller;
 
+import com.haili.ins.common.vo.ResultInfo;
 import com.haili.ins.dto.CustomUserDetails;
-import com.haili.ins.dto.auth.Oauth2User;
+import com.haili.ins.enums.ResponseCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.security.Principal;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -16,8 +15,8 @@ import java.util.Map;
 @RestController
 public class UserController {
 
-    @GetMapping("/auth/user")
-    public Map<String, String> user(Authentication authentication){
+    @GetMapping("/auth/userInfo")
+    public ResultInfo<Map> user(Authentication authentication){
         log.info("获取userInfo开始");
         Map<String, String> map = new LinkedHashMap<>();
 
@@ -25,8 +24,13 @@ public class UserController {
         map.put("userName",userDetails.getOauth2User().getUsername());
         map.put("userId",userDetails.getOauth2User().getId());
         map.put("status",userDetails.getOauth2User().getStatus());
+        map.put("roles",String.join(",", userDetails.getRoles()));
+        map.put("resources",String.join(",", userDetails.getResources()));
+
+        ResultInfo<Map> resultInfo = new ResultInfo<>(ResponseCodeEnum.SUCCESS.getCode(),ResponseCodeEnum.SUCCESS.getDesc());
+        resultInfo.setData(map);
         log.info("获取userInfo结束");
-        return map;
+        return resultInfo;
     }
 
 //    @RequestMapping("/error")

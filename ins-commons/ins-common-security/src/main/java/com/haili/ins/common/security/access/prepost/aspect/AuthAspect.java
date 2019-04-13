@@ -1,6 +1,7 @@
 package com.haili.ins.common.security.access.prepost.aspect;
 
-import com.haili.ins.common.enums.ResponseCodeEnum;
+import com.haili.ins.common.constants.HailiInsConstant;
+import com.haili.ins.common.security.access.prepost.annotations.PostAuth;
 import com.haili.ins.common.security.access.prepost.annotations.PreAuth;
 import com.haili.ins.common.security.access.prepost.exception.SecureException;
 import com.haili.ins.common.security.access.prepost.utils.ExpressionUtils;
@@ -19,6 +20,7 @@ import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 
@@ -28,7 +30,8 @@ import java.lang.reflect.Method;
  * @Version 1.0
  */
 @Aspect
-public class AuthAspect  implements ApplicationContextAware {
+@Component
+public class AuthAspect implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
 
@@ -48,39 +51,43 @@ public class AuthAspect  implements ApplicationContextAware {
      */
     @Around(
             "@annotation(com.haili.ins.common.security.access.prepost.annotations.PreAuth) || " +
-                    "@within(com.haili.ins.common.security.access.prepost.annotations.PreAuth)"
+                    "@within(com.haili.ins.common.security.access.prepost.annotations.PreAuth) "
     )
     public Object preAuth(ProceedingJoinPoint point) throws Throwable {
-        if (handleAuth(point)) {
+
+        if (handlePreAuth(point)) {
             return point.proceed();
         }
-        throw new SecureException(ResponseCodeEnum.NO_AUTH_CODE);
+        throw new SecureException(HailiInsConstant.NO_AUTH_CODE);
+
     }
 
-    /**
-     * 切 方法 和 类上的 @PostAuth 注解
-     *
-     * @param point 切点
-     * @return Object
-     * @throws Throwable 没有权限的异常
-     */
-    @Around(
-            "@annotation(com.haili.ins.common.security.access.prepost.annotations.PostAuth) || " +
-                    "@within(com.haili.ins.common.security.access.prepost.annotations.PostAuth)"
-    )
-    public Object postAuth(ProceedingJoinPoint point) throws Throwable {
-        if (handleAuth(point)) {
-            return point.proceed();
-        }
-        throw new SecureException(ResponseCodeEnum.NO_AUTH_CODE);
-    }
+//    /**
+//     * 切 方法 和 类上的 @PostAuth 注解
+//     *
+//     * @param point 切点
+//     * @return Object
+//     * @throws Throwable 没有权限的异常
+//     */
+//    @Around(
+//            "@annotation(com.haili.ins.common.security.access.prepost.annotations.PostAuth) || " +
+//                    "@within(com.haili.ins.common.security.access.prepost.annotations.PostAuth)"
+//    )
+//    public Object postAuth(ProceedingJoinPoint point) throws Throwable {
+//
+//        Object object = point.proceed();
+//        if (handlePostAuth(point)) {
+//            return object;
+//        }
+//        throw new SecureException(HailiInsConstant.NO_AUTH_CODE);
+//    }
 
     /**
      * 处理权限
      *
      * @param point 切点
      */
-    private boolean handleAuth(ProceedingJoinPoint point) {
+    private boolean handlePreAuth(ProceedingJoinPoint point) {
         MethodSignature ms = (MethodSignature) point.getSignature();
         Method method = ms.getMethod();
         // 读取权限注解，优先方法上，没有则读取类
@@ -117,5 +124,29 @@ public class AuthAspect  implements ApplicationContextAware {
         }
         return context;
     }
+
+//    /**
+//     * 处理权限
+//     *
+//     * @param point 切点
+//     */
+//    private boolean handlePostAuth(ProceedingJoinPoint point) {
+//        MethodSignature ms = (MethodSignature) point.getSignature();
+//        Method method = ms.getMethod();
+//        // 读取权限注解，优先方法上，没有则读取类
+//        PostAuth postAuth = ClassUtil.getAnnotation(method, PostAuth.class);
+//        // 判断表达式
+//        String condition = postAuth.value();
+//        if (StringUtils.isNotBlank(condition)) {
+//            Expression expression = SPEL_PARSER.parseExpression(condition);
+//            // 方法参数值
+//            Object[] args = point.getArgs();
+//            StandardEvaluationContext context = getEvaluationContext(method, args);
+//            return ExpressionUtils.evaluateAsBoolean(expression, context);
+//        }
+//        return false;
+//    }
+
+
 
 }

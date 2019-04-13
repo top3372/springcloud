@@ -112,7 +112,7 @@ public class WebUtils extends org.springframework.web.util.WebUtils {
      * @param contentType contentType
      */
     public static void renderJson(HttpServletResponse response, Object result, String contentType) {
-        response.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding(Charsets.UTF_8_NAME);
         response.setContentType(contentType);
         try (PrintWriter out = response.getWriter()) {
             out.append(JSONUtil.toJson(result));

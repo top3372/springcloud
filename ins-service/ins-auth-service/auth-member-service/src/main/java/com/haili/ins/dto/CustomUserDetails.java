@@ -1,7 +1,6 @@
 package com.haili.ins.dto;
 
 
-import com.haili.ins.dto.auth.Oauth2User;
 import lombok.Data;
 import org.springframework.security.core.CredentialsContainer;
 import org.springframework.security.core.GrantedAuthority;
@@ -10,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * @author: LeonMa

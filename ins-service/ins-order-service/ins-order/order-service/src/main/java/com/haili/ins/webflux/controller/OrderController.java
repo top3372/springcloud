@@ -2,7 +2,6 @@ package com.haili.ins.webflux.controller;
 
 
 import com.haili.ins.common.cloud.version.annotation.ApiVersion;
-import com.haili.ins.common.cloud.version.annotation.UrlVersion;
 import com.haili.ins.common.utils.JSONUtil;
 import com.haili.ins.feign.MemberFeign;
 import lombok.extern.slf4j.Slf4j;
@@ -27,14 +26,14 @@ import java.nio.file.StandardOpenOption;
 @Slf4j
 @RestController
 @RequestMapping("/order")
-@UrlVersion("1")
+@ApiVersion("1")
 public class OrderController {
 
     @javax.annotation.Resource
     private MemberFeign memberFeign;
 
     @GetMapping("/hello")
-    @UrlVersion("1.2")
+    @ApiVersion("1.2")
     public Mono<String> hello() {
 
         log.info("info: " + JSONUtil.toJson(memberFeign.info()));

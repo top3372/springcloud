@@ -1,6 +1,6 @@
 package com.haili.ins.api.gateway.filter;
 
-import com.haili.ins.common.dto.ResultInfo;
+import com.haili.ins.common.vo.ResultInfo;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;

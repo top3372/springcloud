@@ -17,7 +17,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 
-import com.haili.ins.common.exception.ServiceException;
+import com.haili.ins.common.exception.CommonServiceException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -115,7 +115,7 @@ public class ZipUtil {
 	{
 		if (StringUtils.isEmpty(srcPath) || StringUtils.isEmpty(zipPath) || StringUtils.isEmpty(zipFileName))
 		{
-			throw new ServiceException("原文件不能为空");
+			throw new CommonServiceException("原文件不能为空");
 		}
 		CheckedOutputStream cos = null;
 		ZipOutputStream zos = null;						
@@ -126,7 +126,7 @@ public class ZipUtil {
 			//判断压缩文件保存的路径是否为源文件路径的子文件夹，如果是，则抛出异常（防止无限递归压缩的发生）
 			if (srcFile.isDirectory() && zipPath.indexOf(srcPath)!=-1) 
 			{
-				throw new ServiceException("zipPath must not be the child directory of srcPath.");
+				throw new CommonServiceException("zipPath must not be the child directory of srcPath.");
 			}
 			
 			//判断压缩文件保存的路径是否存在，如果不存在，则创建目录
@@ -196,7 +196,7 @@ public class ZipUtil {
 	{
 		if (StringUtils.isEmpty(zipFilePath) || StringUtils.isEmpty(unzipFilePath))
 		{
-			throw new ServiceException("文件不能为空");
+			throw new CommonServiceException("文件不能为空");
 		}
 		File zipFile = new File(zipFilePath);
 		//如果解压后的文件保存路径包含压缩文件的文件名，则追加该文件名到解压路径

@@ -28,8 +28,8 @@ public class CustomJwtAccessTokenConverter extends JwtAccessTokenConverter {
 
         Map<String, Object> info = new HashMap<String, Object>(2) {{
             put(TOKEN_SEG_USER_ID, userDetails.getOauth2User().getId());
-            put("roles", "111,222");
-            //String.join(",", userDetails.getRoles())
+            put("roles", String.join(",", userDetails.getRoles()));
+            put("resources",String.join(",", userDetails.getResources()));
         }};
 
         DefaultOAuth2AccessToken customAccessToken = new DefaultOAuth2AccessToken(accessToken);

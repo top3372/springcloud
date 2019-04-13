@@ -1,7 +1,7 @@
 package com.haili.ins.service.member;
 
-import com.haili.ins.common.exception.ServiceException;
 import com.haili.ins.dto.member.response.MemberInfo;
+import com.haili.ins.exception.ServiceException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;

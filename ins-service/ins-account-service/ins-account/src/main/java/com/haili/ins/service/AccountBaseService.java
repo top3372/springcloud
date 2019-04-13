@@ -1,24 +1,14 @@
 package com.haili.ins.service;
 
-import com.haili.ins.common.enums.ResponseCodeEnum;
-import com.haili.ins.common.exception.ServiceException;
-import com.haili.ins.dao.mapper.AccAccountInfoMapper;
 import com.haili.ins.dao.model.AccAccountInfo;
+import com.haili.ins.enums.ResponseCodeEnum;
+import com.haili.ins.exception.ServiceException;
 import com.haili.ins.feign.EncryptFeign;
 import com.haili.ins.feign.LeafIdFeign;
-import com.haili.ins.handler.AbstractRequest;
 import com.haili.ins.common.invoke.InvokeLogger;
-import com.haili.ins.common.invoke.bussiness.BusinessHandler;
-import com.haili.ins.common.invoke.dto.InvokeParameter;
-import com.haili.ins.common.invoke.dto.InvokeResponse;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.jdbc.UncategorizedSQLException;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * @Author: leon
@@ -53,7 +43,7 @@ public class AccountBaseService{
      * @param account
      * @return
      */
-    public boolean checkEncryptMsg(AccAccountInfo account) throws ServiceException{
+    public boolean checkEncryptMsg(AccAccountInfo account) throws ServiceException {
 
         // 如果账户为初始化状态,则无需交验关键密文
 //		if (account.getLastTxnTime() == null &&
