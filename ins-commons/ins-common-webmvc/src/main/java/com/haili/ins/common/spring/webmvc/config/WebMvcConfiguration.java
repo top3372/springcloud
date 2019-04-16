@@ -76,6 +76,4 @@ public class WebMvcConfiguration {
         return bean;
     }
 
-
-
 }

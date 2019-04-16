@@ -66,6 +66,7 @@
         <zxing.version>3.3.3</zxing.version>
         <auth0.jwt.version>3.8.0</auth0.jwt.version>
         <hikaricp.version>3.3.1</hikaricp.version>
+        <poi.version>4.1.0</poi.version>
     </properties>
 
     <dependencyManagement>

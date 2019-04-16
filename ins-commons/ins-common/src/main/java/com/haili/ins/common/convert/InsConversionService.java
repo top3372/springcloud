@@ -28,7 +28,7 @@ public class InsConversionService extends ApplicationConversionService {
 	 * Return a shared default application {@code ConversionService} instance, lazily
 	 * building it once needed.
 	 * <p>
-	 * Note: This method actually returns an {@link BladeConversionService}
+	 * Note: This method actually returns an {@link InsConversionService}
 	 * instance. However, the {@code ConversionService} signature has been preserved for
 	 * binary compatibility.
 	 * @return the shared {@code BladeConversionService} instance (never{@code null})
