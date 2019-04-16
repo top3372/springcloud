@@ -27,7 +27,7 @@ public class InvokeController {
     @Value("#{'${haili.api.version:1}'.split(',')}")
     private List<String> supportVersionList;
 
-    @PostMapping("/api/{version}/invoke")
+    @PostMapping("{version}/api/invoke")
     public InvokeResponse invoke(@PathVariable String version, @RequestBody InvokeRequest invokeRequest) {
         InvokeResponse invokeResponse = new InvokeResponse();
         //判断版本

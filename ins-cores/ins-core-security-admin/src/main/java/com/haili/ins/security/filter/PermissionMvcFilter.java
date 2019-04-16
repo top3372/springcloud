@@ -40,7 +40,7 @@ public class PermissionMvcFilter implements Filter {
         String userId = request.getHeader(HttpHeaderConstant.USER_ID);
         String roles = request.getHeader(HttpHeaderConstant.ROLES);
         String permissions = request.getHeader(HttpHeaderConstant.PERMISSIONS);
-
+        log.info("userId: " + userId + ",roles: " + roles + ",permissions: " + permissions);
         UserRolePermission urp = new UserRolePermission(userId,roles,permissions);
         SecurityThreadLocalContext.setUserRolePermission(urp);
 

@@ -17,11 +17,7 @@ management:
 spring:
   application:
     name: api-gateway
-  http:
-    encoding:
-      charset: utf-8
-      force: true
-      enabled: true
+
 
 
 # 路由

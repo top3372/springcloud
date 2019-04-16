@@ -19,10 +19,11 @@ spring:
   undertow:
     buffer-size: 1024
     direct-buffers: true
-  haili:
-    api:
-      ###接口支持的版本号
-      version: 1,2
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
 
   # 配置下面两个值将会走到 ControllerAdvice 全局里面去
   # org.springframework.boot.autoconfigure.web.WebMvcProperties
@@ -37,6 +38,10 @@ spring:
     nacos:
       discovery:
         server-addr: ${register.center}
+    sentinel:
+      transport:
+        port: 8720
+        dashboard: localhost:9999
 
 feign:
   compression:
@@ -45,17 +50,16 @@ feign:
       mime-types: ["text/xml","application/xml","application/json"]
       min-request-size: 2048
     response.enabled: true
-  hystrix:
-    # 在feign中开启hystrix功能，默认情况下feign不开启hystrix功能
+  sentinel:
     enabled: true
   ## 配置httpclient线程池
   httpclient:
     enabled: false
   okhttp:
     enabled: true
-    log.level: "HEADERS"
+    log.level: "NONE"
 
-
+#
 hystrix.command.default.execution:
   timeout.enabled: true
   isolation:

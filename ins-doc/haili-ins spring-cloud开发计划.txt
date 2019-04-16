@@ -1,0 +1,14 @@
+PreAuth 优化(基本完成)
+MVC Flux 全局异常处理
+feign 全局异常处理
+Sentinel限流 熔断 取代 hystrix(基本完成)
+动态路由
+日志elk
+监控
+管理后台基本功能(管理员注册,登录,菜单,角色,权限,部门管理,公告管理,参数管理,数据字典,省市)
+集成工作流Flowable
+apollo配置中心
+Traefik反向代理，监听后台变化自动化应用新的配置文件
+elasticsearch
+Sentinel 客户端/服务端 和apollo整合
+分布式事务 Fescar TCC 

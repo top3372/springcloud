@@ -19,6 +19,7 @@
         <module>ins-invocation-chain</module>
         <module>ins-cores</module>
         <module>ins-data</module>
+		<module>ins-doc</module>
         <module>ins-feign</module>
         <module>ins-gateway</module>
         <module>ins-moniter</module>

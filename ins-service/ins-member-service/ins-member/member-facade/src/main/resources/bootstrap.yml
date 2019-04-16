@@ -72,6 +72,10 @@ spring:
     nacos:
       discovery:
         server-addr: ${register.center}
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:9999
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -86,9 +90,6 @@ spring:
       connection-test-query: SELECT 1
 
 
-
-
-
 feign:
   compression:
     request:
@@ -96,8 +97,10 @@ feign:
       mime-types: ["text/xml","application/xml","application/json"]
       min-request-size: 2048
     response.enabled: true
-  hystrix:
-    # 在feign中开启hystrix功能，默认情况下feign不开启hystrix功能
+#  hystrix:
+#    # 在feign中开启hystrix功能，默认情况下feign不开启hystrix功能
+#    enabled: true
+  sentinel:
     enabled: true
   ## 配置httpclient线程池
   httpclient:
@@ -106,11 +109,11 @@ feign:
     enabled: true
     log.level: "HEADERS"
 
-hystrix.command.default.execution:
-  timeout.enabled: true
-  isolation:
-    thread:
-      timeoutInMilliseconds: 60000
+#hystrix.command.default.execution:
+#  timeout.enabled: true
+#  isolation:
+#    thread:
+#      timeoutInMilliseconds: 60000
 
 #eureka:
 #  client:
