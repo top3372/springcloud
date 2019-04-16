@@ -2,7 +2,6 @@ package com.haili.ins.common.spring.webmvc.config;
 
 import com.haili.ins.common.spring.webmvc.filter.SecurityFilter;
 import com.haili.ins.common.spring.webmvc.filter.WebServletFilter;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -52,6 +51,9 @@ public class WebConfiguration {
         registration.setName("mic-service-security-filter");
         return registration;
     }
+
+
+
 
 
 
