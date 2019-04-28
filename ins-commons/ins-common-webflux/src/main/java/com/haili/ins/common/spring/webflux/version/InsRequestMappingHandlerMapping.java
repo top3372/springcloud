@@ -1,6 +1,6 @@
 package com.haili.ins.common.spring.webflux.version;
 
-import com.haili.ins.common.cloud.version.annotation.ApiVersion;
+import com.haili.ins.common.annotation.version.ApiVersion;
 import com.haili.ins.common.utils.StringPool;
 import com.haili.ins.common.utils.StringUtils;
 import org.springframework.core.annotation.AnnotatedElementUtils;

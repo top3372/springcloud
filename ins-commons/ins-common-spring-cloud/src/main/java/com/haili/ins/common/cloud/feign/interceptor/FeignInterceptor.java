@@ -4,6 +4,9 @@ import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpRequest;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
  * @author Leon
@@ -20,11 +23,5 @@ public class FeignInterceptor implements RequestInterceptor {
                 .append((Thread.currentThread()).getId())
                 .append("]");
         log.info(sb.toString());
-//        HttpHeaders headers = BladeHttpHeadersContextHolder.get();
-//        if (headers != null && !headers.isEmpty()) {
-//            headers.forEach((key, values) -> {
-//                values.forEach(value -> requestTemplate.header(key, value));
-//            });
-//        }
     }
 }

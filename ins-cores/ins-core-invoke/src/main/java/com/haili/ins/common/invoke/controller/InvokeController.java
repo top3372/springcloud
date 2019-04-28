@@ -1,5 +1,6 @@
 package com.haili.ins.common.invoke.controller;
 
+import com.haili.ins.common.annotation.version.ApiVersion;
 import com.haili.ins.common.invoke.InvokeHelper;
 import com.haili.ins.common.invoke.InvokeService;
 import com.haili.ins.common.invoke.dto.InvokeParameter;
@@ -19,31 +20,32 @@ import java.util.List;
 
 @Slf4j
 @RestController
+@ApiVersion("v1")
 public class InvokeController {
 
     @Resource
     private InvokeService invokeService;
 
-    @Value("#{'${haili.api.version:1}'.split(',')}")
-    private List<String> supportVersionList;
+//    @Value("#{'${haili.api.version:1}'.split(',')}")
+//    private List<String> supportVersionList;
 
-    @PostMapping("{version}/api/invoke")
-    public InvokeResponse invoke(@PathVariable String version, @RequestBody InvokeRequest invokeRequest) {
+    @PostMapping("/api/invoke")
+    public InvokeResponse invoke(@RequestBody InvokeRequest invokeRequest) {
         InvokeResponse invokeResponse = new InvokeResponse();
         //判断版本
-        String vSeq = version.substring(1);
-        if(supportVersionList != null && supportVersionList.size() != 0){
-            if(!supportVersionList.contains(vSeq)){
-                invokeResponse.build(ResponseCodeEnum.API_VERSION_ERROR);
-                return invokeResponse;
-            }
-        }
+//        String vSeq = version.substring(1);
+//        if(supportVersionList != null && supportVersionList.size() != 0){
+//            if(!supportVersionList.contains(vSeq)){
+//                invokeResponse.build(ResponseCodeEnum.API_VERSION_ERROR);
+//                return invokeResponse;
+//            }
+//        }
 //        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
 //        HttpServletRequest request = requestAttributes.getRequest();
 
         InvokeParameter parameter = new InvokeParameter();
         BeanUtils.copyProperties(invokeRequest,parameter);
-        parameter.setVersionNo(version);
+        parameter.setVersionNo("v1");
 
         invokeResponse = InvokeHelper.invoke(invokeService,parameter);
 

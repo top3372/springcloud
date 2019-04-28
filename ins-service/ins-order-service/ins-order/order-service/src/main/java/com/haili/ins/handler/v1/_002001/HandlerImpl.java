@@ -41,8 +41,8 @@ public class HandlerImpl implements BusinessHandler {
 			ir.setSerCode("001001");
 			ir.setTargetNo("001");
 
-//			InvokeResponse invokeResponse = memberFeign.invoke("v1",ir);
-//			Log.info("invokeResponse: " + JSONUtil.toJson(invokeResponse));
+			InvokeResponse invokeResponse = memberFeign.invoke(ir);
+			InvokeLogger.info("invokeResponse: " + JSONUtil.toJson(invokeResponse));
 			response.buildSuccResp();
 
 		}catch(ServiceException se) {

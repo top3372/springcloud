@@ -1,4 +1,4 @@
-package com.haili.ins.common.cloud.version.annotation;
+package com.haili.ins.common.annotation.version;
 
 import java.lang.annotation.*;
 

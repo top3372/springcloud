@@ -1,6 +1,6 @@
 package com.haili.ins.controller;
 
-import com.haili.ins.common.cloud.version.annotation.ApiVersion;
+import com.haili.ins.common.annotation.version.ApiVersion;
 import com.haili.ins.common.security.access.prepost.annotations.PreAuth;
 import com.haili.ins.common.vo.ResultInfo;
 import com.haili.ins.enums.ResponseCodeEnum;

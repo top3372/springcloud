@@ -1,0 +1,67 @@
+
+online: false
+
+logging.config: classpath:log4j2.xml
+
+
+## org.springframework.boot.autoconfigure.web.ServerProperties
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+## 注册中心地址, 多个使用 , 分隔
+register.center: 127.0.0.1:8848
+
+spring:
+  undertow:
+    buffer-size: 1024
+    direct-buffers: true
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
+
+  # 配置下面两个值将会走到 ControllerAdvice 全局里面去
+  # org.springframework.boot.autoconfigure.web.WebMvcProperties
+  # main:
+  #    #允许配置文件中存在相同名字时 覆盖
+  #    allow-bean-definition-overriding: true
+  mvc.throw-exception-if-no-handler-found: true
+  # org.springframework.boot.autoconfigure.web.ResourceProperties
+  resources.add-mappings: false
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${register.center}
+    sentinel:
+      transport:
+        port: 8720
+        dashboard: localhost:9999
+
+feign:
+  compression:
+    request:
+      enabled: true
+      mime-types: ["text/xml","application/xml","application/json"]
+      min-request-size: 2048
+    response.enabled: true
+  sentinel:
+    enabled: true
+  ## 配置httpclient线程池
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+    log.level: "NONE"
+
+#
+hystrix.command.default.execution:
+  timeout.enabled: true
+  isolation:
+    thread:
+      timeout-in-milliseconds: 60000

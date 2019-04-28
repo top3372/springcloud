@@ -1,5 +1,6 @@
 package com.haili.ins.common.cloud.version.annotation;
 
+import com.haili.ins.common.annotation.version.ApiVersion;
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
