@@ -14,13 +14,15 @@
     <artifactId>haili-ins</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
+		<module>ins-block</module>
         <module>ins-commons</module>
         <module>ins-config</module>
-        <module>ins-invocation-chain</module>
-        <module>ins-cores</module>
+		<module>ins-cores</module>
         <module>ins-data</module>
+        <module>ins-distribution-transaction</module>
 		<module>ins-doc</module>
         <module>ins-feign</module>
+		<module>ins-invocation-chain</module>
         <module>ins-gateway</module>
         <module>ins-moniter</module>
         <module>ins-message</module>
