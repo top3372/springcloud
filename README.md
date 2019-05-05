@@ -15,6 +15,7 @@
 | ins-data  | 数据处理      | 0  |
 | ins-doc  | 文档      | 0  |
 | ins-feign   | feign调用    |  0  |
+| ins-flow   | 工作流    |  0  |
 | ins-gateway   | 网关    |  0  |
 | ins-invocation-chain   | 调用链监控    |  0  |
 | ins-moniter   | 系统监控    |   0 |
