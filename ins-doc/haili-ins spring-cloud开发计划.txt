@@ -1,5 +1,5 @@
 PreAuth 优化(基本完成)
-MVC Flux 全局异常处理
+MVC Flux 全局异常处理(完成)
 feign 全局异常处理
 Sentinel限流 熔断 取代 hystrix(基本完成)
 动态路由
@@ -11,4 +11,6 @@ apollo配置中心
 Traefik反向代理，监听后台变化自动化应用新的配置文件
 elasticsearch
 Sentinel 客户端/服务端 和apollo整合
-分布式事务 Fescar TCC 
+分布式事务 seata
+rockermq
+kafka

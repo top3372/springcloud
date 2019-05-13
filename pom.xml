@@ -29,7 +29,7 @@
         <module>ins-message</module>
         <module>ins-registry</module>
         <module>ins-service</module>
-        <module>ins-thirdparty</module>
+        <module>ins-third-party</module>
     </modules>
     <packaging>pom</packaging>
 

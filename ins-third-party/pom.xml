@@ -5,14 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.haili.ins.service.block</groupId>
-        <artifactId>ins-block-service</artifactId>
+        <groupId>com.haili.ins</groupId>
+        <artifactId>haili-ins</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.haili.ins.service.block</groupId>
-    <artifactId>ins-block-eos</artifactId>
+    <groupId>com.haili.ins.third.party</groupId>
+    <artifactId>ins-third-party</artifactId>
     <version>1.0-SNAPSHOT</version>
-
-    
+    <packaging>pom</packaging>
+    <modules>
+        <module>ins-weixin</module>
+        <module>ins-alipay</module>
+        <module>ins-weibo</module>
+    </modules>
 </project>

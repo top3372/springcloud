@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.haili.ins.thirdparty</groupId>
-        <artifactId>ins-thirdparty</artifactId>
+        <groupId>com.haili.ins.third.party</groupId>
+        <artifactId>ins-third-party</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.haili.ins.thirdparty</groupId>
+    <groupId>com.haili.ins.third.party</groupId>
     <artifactId>ins-alipay</artifactId>
     <version>1.0-SNAPSHOT</version>
 
