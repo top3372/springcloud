@@ -22,5 +22,5 @@
 | ins-message   | 消息中心    |   0 |
 | ins-registry   | 服务注册与发现    |  0  |
 | ins-service   | 业务服务    |  0  |
-| ins-thirdparty   | 第三方服务    |  0  |
+| ins-third-party   | 第三方服务    |  0  |
 | ins-web   | web    |  0  |
