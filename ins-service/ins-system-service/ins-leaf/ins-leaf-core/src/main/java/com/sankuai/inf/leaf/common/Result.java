@@ -7,6 +7,7 @@ public class Result {
     public Result() {
 
     }
+
     public Result(String id, Status status) {
         this.id = id;
         this.status = status;

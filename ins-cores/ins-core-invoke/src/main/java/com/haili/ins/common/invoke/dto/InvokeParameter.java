@@ -20,7 +20,7 @@ public class InvokeParameter implements Serializable {
     private String targetNo;
     private String versionNo;
     private int dataLength;
-//    private int msgCompress;
+    //    private int msgCompress;
     private String dataMsg;
 
     public void parse(String responseStr) {

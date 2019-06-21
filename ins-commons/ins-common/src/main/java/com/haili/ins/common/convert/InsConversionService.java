@@ -11,40 +11,41 @@ import org.springframework.util.StringValueResolver;
  * @author L.cm
  */
 public class InsConversionService extends ApplicationConversionService {
-	@Nullable
-	private static volatile InsConversionService SHARED_INSTANCE;
+    @Nullable
+    private static volatile InsConversionService SHARED_INSTANCE;
 
-	public InsConversionService() {
-		this(null);
-	}
+    public InsConversionService() {
+        this(null);
+    }
 
-	public InsConversionService(@Nullable StringValueResolver embeddedValueResolver) {
-		super(embeddedValueResolver);
-		super.addConverter(new EnumToStringConverter());
-		super.addConverter(new StringToEnumConverter());
-	}
+    public InsConversionService(@Nullable StringValueResolver embeddedValueResolver) {
+        super(embeddedValueResolver);
+        super.addConverter(new EnumToStringConverter());
+        super.addConverter(new StringToEnumConverter());
+    }
 
-	/**
-	 * Return a shared default application {@code ConversionService} instance, lazily
-	 * building it once needed.
-	 * <p>
-	 * Note: This method actually returns an {@link InsConversionService}
-	 * instance. However, the {@code ConversionService} signature has been preserved for
-	 * binary compatibility.
-	 * @return the shared {@code BladeConversionService} instance (never{@code null})
-	 */
-	public static GenericConversionService getInstance() {
-		InsConversionService sharedInstance = InsConversionService.SHARED_INSTANCE;
-		if (sharedInstance == null) {
-			synchronized (InsConversionService.class) {
-				sharedInstance = InsConversionService.SHARED_INSTANCE;
-				if (sharedInstance == null) {
-					sharedInstance = new InsConversionService();
-					InsConversionService.SHARED_INSTANCE = sharedInstance;
-				}
-			}
-		}
-		return sharedInstance;
-	}
+    /**
+     * Return a shared default application {@code ConversionService} instance, lazily
+     * building it once needed.
+     * <p>
+     * Note: This method actually returns an {@link InsConversionService}
+     * instance. However, the {@code ConversionService} signature has been preserved for
+     * binary compatibility.
+     *
+     * @return the shared {@code BladeConversionService} instance (never{@code null})
+     */
+    public static GenericConversionService getInstance() {
+        InsConversionService sharedInstance = InsConversionService.SHARED_INSTANCE;
+        if (sharedInstance == null) {
+            synchronized (InsConversionService.class) {
+                sharedInstance = InsConversionService.SHARED_INSTANCE;
+                if (sharedInstance == null) {
+                    sharedInstance = new InsConversionService();
+                    InsConversionService.SHARED_INSTANCE = sharedInstance;
+                }
+            }
+        }
+        return sharedInstance;
+    }
 
 }

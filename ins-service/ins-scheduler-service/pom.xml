@@ -18,5 +18,5 @@
         <module>ins-batch</module>
         <module>ins-scheduler-job</module>
     </modules>
-    
+
 </project>

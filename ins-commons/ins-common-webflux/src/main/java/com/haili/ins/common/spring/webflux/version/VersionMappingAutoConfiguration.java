@@ -24,7 +24,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * url版本号处理
- *
+ * <p>
  * 参考：https://gitee.com/lianqu1990/spring-boot-starter-version-mapping
  *
  * @author L.cm
@@ -32,8 +32,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConditionalOnWebApplication
 public class VersionMappingAutoConfiguration {
-	@Bean
-	public WebFluxRegistrations insWebFluxRegistrations() {
-		return new InsWebFluxRegistrations();
-	}
+    @Bean
+    public WebFluxRegistrations insWebFluxRegistrations() {
+        return new InsWebFluxRegistrations();
+    }
 }

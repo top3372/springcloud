@@ -18,6 +18,7 @@ import java.util.*;
 
 /**
  * 账户操作
+ *
  * @Author: leon
  * @Date: 2019/3/14 11:38
  * @Version 1.0
@@ -30,8 +31,8 @@ public class AccountService extends AccountBaseService {
     private AccAccountInfoMapper accAccountInfoMapper;
 
 
-    @Transactional(propagation= Propagation.REQUIRED,rollbackFor = ServiceException.class)
-    public void batchCreate(List<AccAccountInfo> accAccountInfoList){
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = ServiceException.class)
+    public void batchCreate(List<AccAccountInfo> accAccountInfoList) {
         accAccountInfoMapper.insertList(accAccountInfoList);
     }
 
@@ -101,7 +102,7 @@ public class AccountService extends AccountBaseService {
     protected void updateAcctStatus(
             AccAccountInfo account,
             AcctStatusMapEnum status,
-            CodeEnumerable val) throws ServiceException  {
+            CodeEnumerable val) throws ServiceException {
 
         account.setLastUpdateTime(new Date());
         account.setStatusMap(BitmapStatusUtil.setStatus(account.getStatusMap(),
@@ -115,7 +116,7 @@ public class AccountService extends AccountBaseService {
      * 更新冻结金额
      *
      * @param account
-     * @param amt 如果是负数则为解冻，正数则为冻结
+     * @param amt     如果是负数则为解冻，正数则为冻结
      * @throws ServiceException
      * @throws
      */

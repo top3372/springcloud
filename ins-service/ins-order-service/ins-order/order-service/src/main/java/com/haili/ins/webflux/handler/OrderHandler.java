@@ -18,6 +18,6 @@ public class OrderHandler {
 
     public Mono<ServerResponse> orderList(ServerRequest request) {
         return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
-                .body(BodyInserters.fromObject(new ResultInfo(ResponseCodeEnum.SUCCESS.getCode(),ResponseCodeEnum.SUCCESS.getDesc())));
+                .body(BodyInserters.fromObject(new ResultInfo(ResponseCodeEnum.SUCCESS.getCode(), ResponseCodeEnum.SUCCESS.getDesc())));
     }
 }

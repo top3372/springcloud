@@ -1,4 +1,3 @@
-
 online: false
 
 logging.config: classpath:log4j2.xml
@@ -26,9 +25,9 @@ spring:
 
   # 配置下面两个值将会走到 ControllerAdvice 全局里面去
   # org.springframework.boot.autoconfigure.web.WebMvcProperties
-#  main:
-#      #允许配置文件中存在相同名字时 覆盖
-#    allow-bean-definition-overriding: true
+  #  main:
+  #      #允许配置文件中存在相同名字时 覆盖
+  #    allow-bean-definition-overriding: true
   mvc.throw-exception-if-no-handler-found: true
   # org.springframework.boot.autoconfigure.web.ResourceProperties
   resources.add-mappings: false

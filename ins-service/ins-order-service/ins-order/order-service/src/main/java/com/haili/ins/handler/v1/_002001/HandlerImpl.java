@@ -14,45 +14,43 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * 
  * @author jack
- *
  */
 @Service("002001.v1")
 public class HandlerImpl implements BusinessHandler {
-	
-	@Autowired
-	private MemberFeign memberFeign;
 
-	
-	@Override
-	public InvokeResponse invokeBusiness(InvokeParameter invokeParam) throws ServiceException {
-		InvokeLogger.info("_002001开始");
-		InvokeResponse response = new InvokeResponse();
+    @Autowired
+    private MemberFeign memberFeign;
 
-		try {
-			Request request = JSONUtil.toObject(invokeParam.getDataMsg(), Request.class);
-			// 请求参数校验
-			InvokeHelper.validate(request);
 
-			InvokeRequest ir = new InvokeRequest();
-			ir.setDataMsg("{\"name\":\"111\"}");
-			ir.setOriginNo("002");
-			ir.setSerCode("001001");
-			ir.setTargetNo("001");
+    @Override
+    public InvokeResponse invokeBusiness(InvokeParameter invokeParam) throws ServiceException {
+        InvokeLogger.info("_002001开始");
+        InvokeResponse response = new InvokeResponse();
 
-			InvokeResponse invokeResponse = memberFeign.invoke(ir);
-			InvokeLogger.info("invokeResponse: " + JSONUtil.toJson(invokeResponse));
-			response.buildSuccResp();
+        try {
+            Request request = JSONUtil.toObject(invokeParam.getDataMsg(), Request.class);
+            // 请求参数校验
+            InvokeHelper.validate(request);
 
-		}catch(ServiceException se) {
-			throw se;
-		}catch (Exception e) {
-			InvokeLogger.error("_002001失败", e);
-			response.buildFailResp();
-		}
+            InvokeRequest ir = new InvokeRequest();
+            ir.setDataMsg("{\"name\":\"111\"}");
+            ir.setOriginNo("002");
+            ir.setSerCode("001001");
+            ir.setTargetNo("001");
 
-		InvokeLogger.info("_002001结束");
-		return response;
-	}
+            InvokeResponse invokeResponse = memberFeign.invoke(ir);
+            InvokeLogger.info("invokeResponse: " + JSONUtil.toJson(invokeResponse));
+            response.buildSuccResp();
+
+        } catch (ServiceException se) {
+            throw se;
+        } catch (Exception e) {
+            InvokeLogger.error("_002001失败", e);
+            response.buildFailResp();
+        }
+
+        InvokeLogger.info("_002001结束");
+        return response;
+    }
 }

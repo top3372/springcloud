@@ -38,10 +38,10 @@ public class SecurityFilter implements Filter {
             if (HailiInsConstant.SUCCESS.equals(responseCode)) {
                 filterChain.doFilter(servletRequest, servletResponse);
             } else {
-                servletResponse.getWriter().print(JSONUtil.toJson(new ResultInfo(HailiInsConstant.VERIFY_ERROR,"服务调用token验证失败")));
+                servletResponse.getWriter().print(JSONUtil.toJson(new ResultInfo(HailiInsConstant.VERIFY_ERROR, "服务调用token验证失败")));
             }
         } else {
-            servletResponse.getWriter().print(JSONUtil.toJson(new ResultInfo(HailiInsConstant.VERIFY_ERROR,"服务调用token不存在")));
+            servletResponse.getWriter().print(JSONUtil.toJson(new ResultInfo(HailiInsConstant.VERIFY_ERROR, "服务调用token不存在")));
 
         }
 

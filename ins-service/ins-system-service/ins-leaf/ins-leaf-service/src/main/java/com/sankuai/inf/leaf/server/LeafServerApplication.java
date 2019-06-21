@@ -9,7 +9,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication
 public class LeafServerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(LeafServerApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(LeafServerApplication.class, args);
+    }
 }

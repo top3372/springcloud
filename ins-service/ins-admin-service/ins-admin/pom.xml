@@ -18,5 +18,5 @@
         <module>admin-dao</module>
         <module>admin-service</module>
     </modules>
-    
+
 </project>

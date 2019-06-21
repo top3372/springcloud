@@ -26,7 +26,7 @@ public class CustomUserDetails implements UserDetails, CredentialsContainer {
     private Collection<GrantedAuthority> grantedAuthorities;
     private String clientId;
 
-    public CustomUserDetails(Oauth2User oauth2User,User user){
+    public CustomUserDetails(Oauth2User oauth2User, User user) {
         this.oauth2User = oauth2User;
         this.user = user;
     }

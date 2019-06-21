@@ -16,7 +16,7 @@ public class SendMqController {
     private SenderService senderService;
 
     @RequestMapping("/sendMq")
-    public void send(){
+    public void send() {
         senderService.send();
     }
 

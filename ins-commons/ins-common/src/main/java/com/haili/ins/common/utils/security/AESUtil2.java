@@ -7,20 +7,21 @@ import javax.crypto.spec.SecretKeySpec;
 
 /*******************************************************************************
  * AES加解密算法
- * 
+ *
  * @使用byte2hex做转码
- * 
+ *
  */
 
-public class AESUtil2{
+public class AESUtil2 {
 
-	/**
-	 * 加密
-	 * @param sSrc
-	 * @param sKey
-	 * @return
-	 * @throws Exception
-	 */
+    /**
+     * 加密
+     *
+     * @param sSrc
+     * @param sKey
+     * @return
+     * @throws Exception
+     */
     public static String Encrypt(String sSrc, String sKey) throws Exception {
         if (sKey == null) {
             System.out.print("Key为空null");
@@ -43,6 +44,7 @@ public class AESUtil2{
 
     /**
      * 解密
+     *
      * @param sSrc
      * @param sKey
      * @return

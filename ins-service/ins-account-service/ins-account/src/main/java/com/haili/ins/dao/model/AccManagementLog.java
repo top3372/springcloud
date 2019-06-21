@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -14,7 +15,7 @@ import lombok.Data;
 public class AccManagementLog implements Serializable {
     /**
      * 内部流水号
-     *
+     * <p>
      * Table:     T_ACC_MANAGEMENT_LOG
      * Column:    ACC_SEQ_NO
      * Nullable:  false
@@ -25,7 +26,7 @@ public class AccManagementLog implements Serializable {
 
     /**
      * 系统跟踪号
-     *
+     * <p>
      * Table:     T_ACC_MANAGEMENT_LOG
      * Column:    SYS_TRACE_NO
      * Nullable:  true
@@ -35,7 +36,7 @@ public class AccManagementLog implements Serializable {
 
     /**
      * 交易时间
-     *
+     * <p>
      * Table:     T_ACC_MANAGEMENT_LOG
      * Column:    TXN_TIME
      * Nullable:  true
@@ -51,7 +52,7 @@ public class AccManagementLog implements Serializable {
 
     /**
      * 账户号码
-     *
+     * <p>
      * Table:     T_ACC_MANAGEMENT_LOG
      * Column:    ACCOUNT_NO
      * Nullable:  true
@@ -61,14 +62,14 @@ public class AccManagementLog implements Serializable {
 
     /**
      * 交易类型：
-            1:开户
-            2:销户
-            3:账户冻结
-            4:账户解冻
-            5:锁定
-            6:解锁
-            
-     *
+     * 1:开户
+     * 2:销户
+     * 3:账户冻结
+     * 4:账户解冻
+     * 5:锁定
+     * 6:解锁
+     * <p>
+     * <p>
      * Table:     T_ACC_MANAGEMENT_LOG
      * Column:    TXN_TYPE
      * Nullable:  true
@@ -78,7 +79,7 @@ public class AccManagementLog implements Serializable {
 
     /**
      * 交易代码
-     *
+     * <p>
      * Table:     T_ACC_MANAGEMENT_LOG
      * Column:    TXN_CODE
      * Nullable:  true
@@ -88,7 +89,7 @@ public class AccManagementLog implements Serializable {
 
     /**
      * 交易摘要
-     *
+     * <p>
      * Table:     T_ACC_MANAGEMENT_LOG
      * Column:    TXN_DSCPT
      * Nullable:  true
@@ -98,7 +99,7 @@ public class AccManagementLog implements Serializable {
 
     /**
      * 原状态
-     *
+     * <p>
      * Table:     T_ACC_MANAGEMENT_LOG
      * Column:    BEFORE_STATUS
      * Nullable:  true
@@ -108,7 +109,7 @@ public class AccManagementLog implements Serializable {
 
     /**
      * 现状态
-     *
+     * <p>
      * Table:     T_ACC_MANAGEMENT_LOG
      * Column:    AFTER_STATUS
      * Nullable:  true
@@ -118,7 +119,7 @@ public class AccManagementLog implements Serializable {
 
     /**
      * 备注
-     *
+     * <p>
      * Table:     T_ACC_MANAGEMENT_LOG
      * Column:    REMARK
      * Nullable:  true
@@ -128,7 +129,7 @@ public class AccManagementLog implements Serializable {
 
     /**
      * 预留金额字段1
-     *
+     * <p>
      * Table:     T_ACC_MANAGEMENT_LOG
      * Column:    RSVD_AMT1
      * Nullable:  true
@@ -138,7 +139,7 @@ public class AccManagementLog implements Serializable {
 
     /**
      * 预留金额字段2
-     *
+     * <p>
      * Table:     T_ACC_MANAGEMENT_LOG
      * Column:    RSVD_AMT2
      * Nullable:  true
@@ -148,7 +149,7 @@ public class AccManagementLog implements Serializable {
 
     /**
      * 预留文本字段1
-     *
+     * <p>
      * Table:     T_ACC_MANAGEMENT_LOG
      * Column:    RSVD_TEXT1
      * Nullable:  true
@@ -158,7 +159,7 @@ public class AccManagementLog implements Serializable {
 
     /**
      * 预留文本字段2
-     *
+     * <p>
      * Table:     T_ACC_MANAGEMENT_LOG
      * Column:    RSVD_TEXT2
      * Nullable:  true

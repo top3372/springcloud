@@ -3,90 +3,90 @@ package com.haili.ins.common.vo.base;
 import java.io.Serializable;
 import java.util.Date;
 
-public abstract class AbsResponseBean<T> implements Serializable{
+public abstract class AbsResponseBean<T> implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6632899838939719803L;
-	
-	private String reqId = "";
-	private String version = "1";
-	private String status;
-	private String errorCode;
-	private String errorMessage;
-	private Date dateTime = new Date();
-	private String reserve;
+    /**
+     *
+     */
+    private static final long serialVersionUID = -6632899838939719803L;
 
-	public AbsResponseBean() {
-		super();
-	}
+    private String reqId = "";
+    private String version = "1";
+    private String status;
+    private String errorCode;
+    private String errorMessage;
+    private Date dateTime = new Date();
+    private String reserve;
 
-	public AbsResponseBean(String reqId, String version, String status, String errorCode, String errorMessage,
-			Date dateTime, String reserve) {
-		super();
-		this.reqId = reqId;
-		this.version = version;
-		this.status = status;
-		this.errorCode = errorCode;
-		this.errorMessage = errorMessage;
-		this.dateTime = dateTime;
-		this.reserve = reserve;
-	}
+    public AbsResponseBean() {
+        super();
+    }
 
-	public String getReqId() {
-		return reqId;
-	}
+    public AbsResponseBean(String reqId, String version, String status, String errorCode, String errorMessage,
+                           Date dateTime, String reserve) {
+        super();
+        this.reqId = reqId;
+        this.version = version;
+        this.status = status;
+        this.errorCode = errorCode;
+        this.errorMessage = errorMessage;
+        this.dateTime = dateTime;
+        this.reserve = reserve;
+    }
 
-	public void setReqId(String reqId) {
-		this.reqId = reqId;
-	}
+    public String getReqId() {
+        return reqId;
+    }
 
-	public String getVersion() {
-		return version;
-	}
+    public void setReqId(String reqId) {
+        this.reqId = reqId;
+    }
 
-	public void setVersion(String version) {
-		this.version = version;
-	}
+    public String getVersion() {
+        return version;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public void setVersion(String version) {
+        this.version = version;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public String getStatus() {
+        return status;
+    }
 
-	public String getErrorCode() {
-		return errorCode;
-	}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-	public void setErrorCode(String errorCode) {
-		this.errorCode = errorCode;
-	}
+    public String getErrorCode() {
+        return errorCode;
+    }
 
-	public String getErrorMessage() {
-		return errorMessage;
-	}
+    public void setErrorCode(String errorCode) {
+        this.errorCode = errorCode;
+    }
 
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
-	}
+    public String getErrorMessage() {
+        return errorMessage;
+    }
 
-	public Date getDateTime() {
-		return dateTime;
-	}
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
 
-	public void setDateTime(Date dateTime) {
-		this.dateTime = dateTime;
-	}
+    public Date getDateTime() {
+        return dateTime;
+    }
 
-	public String getReserve() {
-		return reserve;
-	}
+    public void setDateTime(Date dateTime) {
+        this.dateTime = dateTime;
+    }
 
-	public void setReserve(String reserve) {
-		this.reserve = reserve;
-	}
+    public String getReserve() {
+        return reserve;
+    }
+
+    public void setReserve(String reserve) {
+        this.reserve = reserve;
+    }
 }

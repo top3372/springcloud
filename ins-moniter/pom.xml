@@ -13,8 +13,8 @@
     <artifactId>ins-moniter</artifactId>
     <packaging>pom</packaging>
     <modules>
-       <module>ins-moniter-admin</module>
-       <module>ins-elk</module>
+        <module>ins-moniter-admin</module>
+        <module>ins-elk</module>
     </modules>
 
     <dependencies>

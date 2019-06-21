@@ -4,7 +4,9 @@ package com.haili.ins.exception;
 import com.haili.ins.common.exception.CommonServiceException;
 import com.haili.ins.enums.ResponseCodeEnum;
 
-/** 业务异常 */
+/**
+ * 业务异常
+ */
 public class ServiceException extends CommonServiceException {
 
     private String code;

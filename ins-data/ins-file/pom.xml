@@ -18,5 +18,5 @@
         <module>ins-aliyun-oss</module>
         <module>ins-ucloud</module>
     </modules>
-    
+
 </project>

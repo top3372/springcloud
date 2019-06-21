@@ -10,7 +10,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
  * @Date: 2019/4/11 19:35
  * @Version 1.0
  */
-public class InsWebMvcRegistrations  implements WebMvcRegistrations {
+public class InsWebMvcRegistrations implements WebMvcRegistrations {
 
     @Override
     public RequestMappingHandlerMapping getRequestMappingHandlerMapping() {

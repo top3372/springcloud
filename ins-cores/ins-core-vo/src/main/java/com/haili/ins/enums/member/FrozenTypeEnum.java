@@ -15,17 +15,20 @@ public enum FrozenTypeEnum {
     public String getCode() {
         return code;
     }
+
     public void setCode(String code) {
         this.code = code;
     }
+
     public String getDesc() {
         return desc;
     }
+
     public void setDesc(String desc) {
         this.desc = desc;
     }
 
-    FrozenTypeEnum(String code,String desc) {
+    FrozenTypeEnum(String code, String desc) {
         this.code = code;
         this.desc = desc;
     }

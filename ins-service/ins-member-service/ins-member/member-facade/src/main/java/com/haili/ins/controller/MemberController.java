@@ -20,16 +20,16 @@ public class MemberController {
     //hasPermission('user::add')
     @RequestMapping("/info")
     @PreAuth("@permissionService.permitAll()")
-    public ResultInfo<String> info(){
+    public ResultInfo<String> info() {
 
-        return ResultInfo.success("success",ResponseCodeEnum.SUCCESS.getDesc());
+        return ResultInfo.success("success", ResponseCodeEnum.SUCCESS.getDesc());
     }
 
     @RequestMapping("/info2")
     @ApiVersion("1.2")
     @PreAuth("@permissionService.denyAll()")
-    public ResultInfo info2(){
+    public ResultInfo info2() {
 
-        return ResultInfo.success("success",ResponseCodeEnum.SUCCESS.getDesc());
+        return ResultInfo.success("success", ResponseCodeEnum.SUCCESS.getDesc());
     }
 }

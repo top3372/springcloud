@@ -35,7 +35,7 @@ public class PermissionServiceImpl implements PermissionService {
     @Override
     public boolean denyAll() {
         return false;
-                //hasRole(RoleConstant.ADMIN);
+        //hasRole(RoleConstant.ADMIN);
     }
 
     /**

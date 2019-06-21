@@ -23,8 +23,9 @@ import org.springframework.security.oauth2.provider.token.store.redis.RedisToken
 
 /**
  * 认证服务器配置
- * @author lxg
  *
+ * @author lxg
+ * <p>
  * 2017年2月17日上午10:50:04
  */
 @Configuration
@@ -57,9 +58,9 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     private WebResponseExceptionTranslator customWebResponseExceptionTranslator;
 
 
-
     /**
      * 配置令牌端点(Token Endpoint)的安全约束.
+     *
      * @param security
      * @throws Exception
      */
@@ -77,6 +78,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
     /**
      * 配置客户端详情服务（ClientDetailsService），客户端详情信息在这里进行初始化，你能够把客户端详情信息写死在这里或者是通过数据库来存储调取详情信息
+     *
      * @param clients
      * @throws Exception
      */
@@ -112,12 +114,13 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .accessTokenConverter(accessTokenConverter())
                 //自定义OAuth2返回格式
                 .exceptionTranslator(customWebResponseExceptionTranslator)
-                ;
+        ;
     }
 
 
     /**
      * 使用Jwt的方式生成token
+     *
      * @return
      */
     @Bean
@@ -136,10 +139,11 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
     /**
      * AuthenticationCode 存入redis中
+     *
      * @return
      */
     @Bean
-    public RedisAuthenticationCodeServices redisAuthenticationCodeServices(){
+    public RedisAuthenticationCodeServices redisAuthenticationCodeServices() {
         return new RedisAuthenticationCodeServices(redisConnectionFactory);
     }
 

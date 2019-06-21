@@ -1,50 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haili.ins.dao.mapper.AccountEntryMapper">
-  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.AccountEntry">
-    <result column="SEQ_NO" jdbcType="VARCHAR" property="seqNo" />
-    <result column="SERVICE_CODE" jdbcType="VARCHAR" property="serviceCode" />
-    
-    <!-- 交易代码
-            交易代码 -->
-    <result column="TXN_CODE" jdbcType="VARCHAR" property="txnCode" />
-    <result column="DEAL_CODE" jdbcType="VARCHAR" property="dealCode" />
-    
-    <!-- 交易类型
-            0-管理类交易
-            1-交易类交易
-            2-授权类交易
-            3-清算类交易 -->
-    <result column="TXN_TYPE" jdbcType="CHAR" property="txnType" />
-    
-    <!-- 交易名称
-            交易名称 -->
-    <result column="TXN_NAME" jdbcType="VARCHAR" property="txnName" />
-    
-    <!-- 交易摘要
-            交易摘要 -->
-    <result column="TXN_ABSTRACT" jdbcType="VARCHAR" property="txnAbstract" />
-    
-    <!-- 付款方借贷标志
-            D-借
-            C-贷 -->
-    <result column="PAYER_DC_FLAG" jdbcType="CHAR" property="payerDcFlag" />
-    
-    <!-- 收款方借贷标志
-            D-借
-            C-贷 -->
-    <result column="PAYEE_DC_FLAG" jdbcType="CHAR" property="payeeDcFlag" />
-    
-    <!-- 是否参与清算
-            0-不参与
-            1-参与 -->
-    <result column="CLEARING_FLAG" jdbcType="CHAR" property="clearingFlag" />
-  </resultMap>
-  
-  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-08 15:00:06 ### -->
+    <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.AccountEntry">
+        <result column="SEQ_NO" jdbcType="VARCHAR" property="seqNo"/>
+        <result column="SERVICE_CODE" jdbcType="VARCHAR" property="serviceCode"/>
+
+        <!-- 交易代码
+                交易代码 -->
+        <result column="TXN_CODE" jdbcType="VARCHAR" property="txnCode"/>
+        <result column="DEAL_CODE" jdbcType="VARCHAR" property="dealCode"/>
+
+        <!-- 交易类型
+                0-管理类交易
+                1-交易类交易
+                2-授权类交易
+                3-清算类交易 -->
+        <result column="TXN_TYPE" jdbcType="CHAR" property="txnType"/>
+
+        <!-- 交易名称
+                交易名称 -->
+        <result column="TXN_NAME" jdbcType="VARCHAR" property="txnName"/>
+
+        <!-- 交易摘要
+                交易摘要 -->
+        <result column="TXN_ABSTRACT" jdbcType="VARCHAR" property="txnAbstract"/>
+
+        <!-- 付款方借贷标志
+                D-借
+                C-贷 -->
+        <result column="PAYER_DC_FLAG" jdbcType="CHAR" property="payerDcFlag"/>
+
+        <!-- 收款方借贷标志
+                D-借
+                C-贷 -->
+        <result column="PAYEE_DC_FLAG" jdbcType="CHAR" property="payeeDcFlag"/>
+
+        <!-- 是否参与清算
+                0-不参与
+                1-参与 -->
+        <result column="CLEARING_FLAG" jdbcType="CHAR" property="clearingFlag"/>
+    </resultMap>
+
+    <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-08 15:00:06 ### -->
 
 
+    <!-- Your codes goes start here!!! -->
 
-  <!-- Your codes goes start here!!! -->
-  
 </mapper>

@@ -23,7 +23,7 @@ import java.nio.charset.Charset;
 
 
 @Slf4j
-public class GatewayGlobalFilter  implements GlobalFilter, Ordered {
+public class GatewayGlobalFilter implements GlobalFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
@@ -54,7 +54,7 @@ public class GatewayGlobalFilter  implements GlobalFilter, Ordered {
 
         ServerHttpRequest originalRequest = exchange.getRequest();
         String method = originalRequest.getMethodValue();
-        log.info("<======请求值方法: {}" , method);
+        log.info("<======请求值方法: {}", method);
         URI originalRequestUrl = originalRequest.getURI();
         //只记录http的请求
         String scheme = originalRequestUrl.getScheme();
@@ -63,7 +63,7 @@ public class GatewayGlobalFilter  implements GlobalFilter, Ordered {
             HttpHeaders headers = originalRequest.getHeaders();
             headers.forEach((name, values) -> {
                 values.forEach(value -> {
-                    log.info("<======header: {}: {}" , name,value);
+                    log.info("<======header: {}: {}", name, value);
                 });
             });
         }
@@ -72,10 +72,8 @@ public class GatewayGlobalFilter  implements GlobalFilter, Ordered {
 //        log.info("<======请求值: {}" , JSONUtil.toJson(requestBody));
 
 
-
         return chain.filter(exchange.mutate().response(decoratedResponse).build());
     }
-
 
 
     @Override

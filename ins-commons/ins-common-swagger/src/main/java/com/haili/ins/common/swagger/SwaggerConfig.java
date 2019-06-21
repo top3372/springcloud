@@ -23,14 +23,12 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * 
  * @author m1039224
- *
  */
 
 
 /**
- * 
+ *
  * Class for generating swagger ui
  * You can hit all the endpoints after running the application on http://localhost:8080/swagger-ui.html#/
  *
@@ -38,11 +36,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig implements WebMvcConfigurer {
-       @Bean
-       public Docket api() {
-             return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.any())
-                          .paths(PathSelectors.any()).build();
-       }
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.any()).build();
+    }
 
 
     @Override

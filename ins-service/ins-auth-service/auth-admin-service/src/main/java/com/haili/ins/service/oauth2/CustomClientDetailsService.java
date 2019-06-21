@@ -47,13 +47,14 @@ public class CustomClientDetailsService implements ClientDetailsService {
 
     /**
      * 通过数据库表 oauth_client_details 来读取授权服务配置
+     *
      * @param clientId
      * @return
      */
     private ClientDetails loadClientDetails(String clientId) {
         JdbcClientDetailsService jdbcClientDetailsService = new JdbcClientDetailsService(dataSource);
         ClientDetails clientDetails = jdbcClientDetailsService.loadClientByClientId(clientId);
-        if(clientDetails == null) {
+        if (clientDetails == null) {
             throw new ClientRegistrationException("应用" + clientId + "不存在!");
         }
         cacheClientDetails(clientDetails);

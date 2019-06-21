@@ -33,7 +33,9 @@ public class WebMvcConfiguration {
         return registration;
     }
 
-    /** 处理字符的 filter. */
+    /**
+     * 处理字符的 filter.
+     */
     @Bean
     public FilterRegistrationBean encodingFilterRegistrationBean() {
         CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
@@ -71,7 +73,7 @@ public class WebMvcConfiguration {
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);
-        FilterRegistrationBean bean =  new FilterRegistrationBean(new CorsFilter(source));
+        FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
         bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
         return bean;
     }

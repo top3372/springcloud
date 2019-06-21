@@ -3,6 +3,7 @@ package com.haili.ins.dao.model;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -13,7 +14,7 @@ import lombok.Data;
 public class SysNotice implements Serializable {
     /**
      * 公告ID
-     *
+     * <p>
      * Table:     sys_notice
      * Column:    notice_id
      * Nullable:  false
@@ -25,7 +26,7 @@ public class SysNotice implements Serializable {
 
     /**
      * 公告标题
-     *
+     * <p>
      * Table:     sys_notice
      * Column:    notice_title
      * Nullable:  false
@@ -35,7 +36,7 @@ public class SysNotice implements Serializable {
 
     /**
      * 公告类型（1通知 2公告）
-     *
+     * <p>
      * Table:     sys_notice
      * Column:    notice_type
      * Nullable:  false
@@ -45,7 +46,7 @@ public class SysNotice implements Serializable {
 
     /**
      * 公告内容
-     *
+     * <p>
      * Table:     sys_notice
      * Column:    notice_content
      * Nullable:  true
@@ -55,7 +56,7 @@ public class SysNotice implements Serializable {
 
     /**
      * 公告状态（0正常 1关闭）
-     *
+     * <p>
      * Table:     sys_notice
      * Column:    status
      * Nullable:  true
@@ -65,7 +66,7 @@ public class SysNotice implements Serializable {
 
     /**
      * 创建者
-     *
+     * <p>
      * Table:     sys_notice
      * Column:    create_by
      * Nullable:  true
@@ -75,7 +76,7 @@ public class SysNotice implements Serializable {
 
     /**
      * 创建时间
-     *
+     * <p>
      * Table:     sys_notice
      * Column:    create_time
      * Nullable:  true
@@ -85,7 +86,7 @@ public class SysNotice implements Serializable {
 
     /**
      * 更新者
-     *
+     * <p>
      * Table:     sys_notice
      * Column:    update_by
      * Nullable:  true
@@ -95,7 +96,7 @@ public class SysNotice implements Serializable {
 
     /**
      * 更新时间
-     *
+     * <p>
      * Table:     sys_notice
      * Column:    update_time
      * Nullable:  true
@@ -105,7 +106,7 @@ public class SysNotice implements Serializable {
 
     /**
      * 备注
-     *
+     * <p>
      * Table:     sys_notice
      * Column:    remark
      * Nullable:  true

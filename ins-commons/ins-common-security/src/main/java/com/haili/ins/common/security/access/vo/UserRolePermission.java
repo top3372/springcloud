@@ -18,7 +18,7 @@ public class UserRolePermission implements Serializable {
 
     private static final long serialVersionUID = -6196668386612721595L;
     private String userId;
-    private String roles ;
+    private String roles;
     private String permissions;
 
 }

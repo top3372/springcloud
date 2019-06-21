@@ -1,38 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haili.ins.dao.mapper.MemberLoginLogMapper">
-  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.MemberLoginLog">
-    <id column="ID" jdbcType="VARCHAR" property="id" />
-    <result column="MEMBER_ID" jdbcType="VARCHAR" property="memberId" />
-    <result column="LOGIN_TYPE" jdbcType="VARCHAR" property="loginType" />
-    <result column="THIRD_SOURCE" jdbcType="VARCHAR" property="thirdSource" />
-    <result column="LOGIN_NAME_TYPE" jdbcType="VARCHAR" property="loginNameType" />
-    <result column="LOGIN_NAME" jdbcType="VARCHAR" property="loginName" />
-    <result column="LOGIN_PWD_TYPE" jdbcType="VARCHAR" property="loginPwdType" />
-    <result column="LOGIN_STATUS" jdbcType="VARCHAR" property="loginStatus" />
-    <result column="FAIL_CAUSE" jdbcType="VARCHAR" property="failCause" />
-    <result column="LOGIN_IP" jdbcType="VARCHAR" property="loginIp" />
-    <result column="LOGIN_DEVICE_ID" jdbcType="VARCHAR" property="loginDeviceId" />
-    <result column="LOGIN_TERMINAL" jdbcType="VARCHAR" property="loginTerminal" />
-    <result column="LOGIN_DESC" jdbcType="VARCHAR" property="loginDesc" />
-    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
-    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
-    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
-    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    ID, MEMBER_ID, LOGIN_TYPE, THIRD_SOURCE, LOGIN_NAME_TYPE, LOGIN_NAME, LOGIN_PWD_TYPE, 
-    LOGIN_STATUS, FAIL_CAUSE, LOGIN_IP, LOGIN_DEVICE_ID, LOGIN_TERMINAL, LOGIN_DESC, 
-    CREATE_DATE, CREATE_BY, UPDATE_DATE, UPDATE_BY
-  </sql>
-  
-  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-01 00:42:55 ### -->
+    <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.MemberLoginLog">
+        <id column="ID" jdbcType="VARCHAR" property="id"/>
+        <result column="MEMBER_ID" jdbcType="VARCHAR" property="memberId"/>
+        <result column="LOGIN_TYPE" jdbcType="VARCHAR" property="loginType"/>
+        <result column="THIRD_SOURCE" jdbcType="VARCHAR" property="thirdSource"/>
+        <result column="LOGIN_NAME_TYPE" jdbcType="VARCHAR" property="loginNameType"/>
+        <result column="LOGIN_NAME" jdbcType="VARCHAR" property="loginName"/>
+        <result column="LOGIN_PWD_TYPE" jdbcType="VARCHAR" property="loginPwdType"/>
+        <result column="LOGIN_STATUS" jdbcType="VARCHAR" property="loginStatus"/>
+        <result column="FAIL_CAUSE" jdbcType="VARCHAR" property="failCause"/>
+        <result column="LOGIN_IP" jdbcType="VARCHAR" property="loginIp"/>
+        <result column="LOGIN_DEVICE_ID" jdbcType="VARCHAR" property="loginDeviceId"/>
+        <result column="LOGIN_TERMINAL" jdbcType="VARCHAR" property="loginTerminal"/>
+        <result column="LOGIN_DESC" jdbcType="VARCHAR" property="loginDesc"/>
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy"/>
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate"/>
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        ID, MEMBER_ID, LOGIN_TYPE, THIRD_SOURCE, LOGIN_NAME_TYPE, LOGIN_NAME, LOGIN_PWD_TYPE,
+        LOGIN_STATUS, FAIL_CAUSE, LOGIN_IP, LOGIN_DEVICE_ID, LOGIN_TERMINAL, LOGIN_DESC,
+        CREATE_DATE, CREATE_BY, UPDATE_DATE, UPDATE_BY
+    </sql>
+
+    <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-01 00:42:55 ### -->
 
 
+    <!-- Your codes goes start here!!! -->
 
-  <!-- Your codes goes start here!!! -->
-  
 </mapper>

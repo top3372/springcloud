@@ -19,11 +19,9 @@ public class SecureException extends CommonServiceException {
         super(desc);
     }
 
-    public SecureException(String code,String desc) {
+    public SecureException(String code, String desc) {
         super(code, desc);
     }
-
-
 
 
 }

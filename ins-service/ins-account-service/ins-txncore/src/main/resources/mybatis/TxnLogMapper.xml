@@ -1,95 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haili.ins.dao.mapper.TxnLogMapper">
-  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.TxnLog">
-    <id column="TXN_SEQ_NO" jdbcType="VARCHAR" property="txnSeqNo" />
-    
-    <!-- 系统跟踪号 -->
-    <result column="SYS_TRACE_NO" jdbcType="VARCHAR" property="sysTraceNo" />
-    
-    <!-- 交易开始时间 -->
-    <result column="TXN_TIME_FROM" jdbcType="TIMESTAMP" property="txnTimeFrom" />
-    
-    <!-- 交易完成时间 -->
-    <result column="TXN_TIME_TO" jdbcType="TIMESTAMP" property="txnTimeTo" />
-    
-    <!-- 服务号 -->
-    <result column="SERVICE_CODE" jdbcType="VARCHAR" property="serviceCode" />
-    
-    <!-- 0-处理中
-            1-成功
-            2-失败
-            3-滞留
-            4-超时 -->
-    <result column="TXN_STATUS" jdbcType="CHAR" property="txnStatus" />
-    
-    <!-- 交易号 -->
-    <result column="TXN_CODE" jdbcType="VARCHAR" property="txnCode" />
-    
-    <!-- 返回码 -->
-    <result column="RESP_CODE" jdbcType="VARCHAR" property="respCode" />
-    
-    <!-- 业务流水号 -->
-    <result column="BUS_SEQ_NO" jdbcType="VARCHAR" property="busSeqNo" />
-    
-    <!-- 转出会员号 -->
-    <result column="OUT_CUSTMER_CODE" jdbcType="VARCHAR" property="outCustmerCode" />
-    
-    <!-- 转入会员号 -->
-    <result column="IN_CUSTMER_CODE" jdbcType="VARCHAR" property="inCustmerCode" />
-    
-    <!-- 机构号 -->
-    <result column="ORG_CODE" jdbcType="VARCHAR" property="orgCode" />
-    
-    <!-- 支付机构号-支付渠道 -->
-    <result column="PAY_ORG_CODE" jdbcType="VARCHAR" property="payOrgCode" />
-    
-    <!-- 支付机构流水号 -->
-    <result column="PAY_ORG_SEQ_NO" jdbcType="VARCHAR" property="payOrgSeqNo" />
-    
-    <!-- 订单金额 -->
-    <result column="ORDER_AMOUNT" jdbcType="DECIMAL" property="orderAmount" />
-    
-    <!-- 交易金额 -->
-    <result column="TXN_AMOUNT" jdbcType="DECIMAL" property="txnAmount" />
-    
-    <!-- 156-人民币 -->
-    <result column="CURRENCY_CODE" jdbcType="CHAR" property="currencyCode" />
-    
-    <!-- 手续费 -->
-    <result column="FEE_AMT" jdbcType="DECIMAL" property="feeAmt" />
-    
-    <!-- 分润费 -->
-    <result column="PROFIT_AMT" jdbcType="DECIMAL" property="profitAmt" />
-    
-    <!-- 利息 -->
-    <result column="INTEREST_AMT" jdbcType="DECIMAL" property="interestAmt" />
-    
-    <!-- 溢价 -->
-    <result column="PREMIUM_AMT" jdbcType="DECIMAL" property="premiumAmt" />
-    
-    <!-- 1-参与
-            0-不参与 -->
-    <result column="IS_CLEARING" jdbcType="CHAR" property="isClearing" />
-    <result column="RSVD_AMT1" jdbcType="DECIMAL" property="rsvdAmt1" />
-    <result column="RSVD_AMT2" jdbcType="DECIMAL" property="rsvdAmt2" />
-    <result column="RSVD_TEXT1" jdbcType="VARCHAR" property="rsvdText1" />
-    <result column="RSVD_TEXT2" jdbcType="VARCHAR" property="rsvdText2" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    TXN_SEQ_NO, SYS_TRACE_NO, TXN_TIME_FROM, TXN_TIME_TO, SERVICE_CODE, TXN_STATUS, TXN_CODE, 
-    RESP_CODE, BUS_SEQ_NO, OUT_CUSTMER_CODE, IN_CUSTMER_CODE, ORG_CODE, PAY_ORG_CODE, 
-    PAY_ORG_SEQ_NO, ORDER_AMOUNT, TXN_AMOUNT, CURRENCY_CODE, FEE_AMT, PROFIT_AMT, INTEREST_AMT, 
-    PREMIUM_AMT, IS_CLEARING, RSVD_AMT1, RSVD_AMT2, RSVD_TEXT1, RSVD_TEXT2
-  </sql>
-  
-  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-08 15:00:06 ### -->
+    <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.TxnLog">
+        <id column="TXN_SEQ_NO" jdbcType="VARCHAR" property="txnSeqNo"/>
+
+        <!-- 系统跟踪号 -->
+        <result column="SYS_TRACE_NO" jdbcType="VARCHAR" property="sysTraceNo"/>
+
+        <!-- 交易开始时间 -->
+        <result column="TXN_TIME_FROM" jdbcType="TIMESTAMP" property="txnTimeFrom"/>
+
+        <!-- 交易完成时间 -->
+        <result column="TXN_TIME_TO" jdbcType="TIMESTAMP" property="txnTimeTo"/>
+
+        <!-- 服务号 -->
+        <result column="SERVICE_CODE" jdbcType="VARCHAR" property="serviceCode"/>
+
+        <!-- 0-处理中
+                1-成功
+                2-失败
+                3-滞留
+                4-超时 -->
+        <result column="TXN_STATUS" jdbcType="CHAR" property="txnStatus"/>
+
+        <!-- 交易号 -->
+        <result column="TXN_CODE" jdbcType="VARCHAR" property="txnCode"/>
+
+        <!-- 返回码 -->
+        <result column="RESP_CODE" jdbcType="VARCHAR" property="respCode"/>
+
+        <!-- 业务流水号 -->
+        <result column="BUS_SEQ_NO" jdbcType="VARCHAR" property="busSeqNo"/>
+
+        <!-- 转出会员号 -->
+        <result column="OUT_CUSTMER_CODE" jdbcType="VARCHAR" property="outCustmerCode"/>
+
+        <!-- 转入会员号 -->
+        <result column="IN_CUSTMER_CODE" jdbcType="VARCHAR" property="inCustmerCode"/>
+
+        <!-- 机构号 -->
+        <result column="ORG_CODE" jdbcType="VARCHAR" property="orgCode"/>
+
+        <!-- 支付机构号-支付渠道 -->
+        <result column="PAY_ORG_CODE" jdbcType="VARCHAR" property="payOrgCode"/>
+
+        <!-- 支付机构流水号 -->
+        <result column="PAY_ORG_SEQ_NO" jdbcType="VARCHAR" property="payOrgSeqNo"/>
+
+        <!-- 订单金额 -->
+        <result column="ORDER_AMOUNT" jdbcType="DECIMAL" property="orderAmount"/>
+
+        <!-- 交易金额 -->
+        <result column="TXN_AMOUNT" jdbcType="DECIMAL" property="txnAmount"/>
+
+        <!-- 156-人民币 -->
+        <result column="CURRENCY_CODE" jdbcType="CHAR" property="currencyCode"/>
+
+        <!-- 手续费 -->
+        <result column="FEE_AMT" jdbcType="DECIMAL" property="feeAmt"/>
+
+        <!-- 分润费 -->
+        <result column="PROFIT_AMT" jdbcType="DECIMAL" property="profitAmt"/>
+
+        <!-- 利息 -->
+        <result column="INTEREST_AMT" jdbcType="DECIMAL" property="interestAmt"/>
+
+        <!-- 溢价 -->
+        <result column="PREMIUM_AMT" jdbcType="DECIMAL" property="premiumAmt"/>
+
+        <!-- 1-参与
+                0-不参与 -->
+        <result column="IS_CLEARING" jdbcType="CHAR" property="isClearing"/>
+        <result column="RSVD_AMT1" jdbcType="DECIMAL" property="rsvdAmt1"/>
+        <result column="RSVD_AMT2" jdbcType="DECIMAL" property="rsvdAmt2"/>
+        <result column="RSVD_TEXT1" jdbcType="VARCHAR" property="rsvdText1"/>
+        <result column="RSVD_TEXT2" jdbcType="VARCHAR" property="rsvdText2"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        TXN_SEQ_NO, SYS_TRACE_NO, TXN_TIME_FROM, TXN_TIME_TO, SERVICE_CODE, TXN_STATUS, TXN_CODE,
+        RESP_CODE, BUS_SEQ_NO, OUT_CUSTMER_CODE, IN_CUSTMER_CODE, ORG_CODE, PAY_ORG_CODE,
+        PAY_ORG_SEQ_NO, ORDER_AMOUNT, TXN_AMOUNT, CURRENCY_CODE, FEE_AMT, PROFIT_AMT, INTEREST_AMT,
+        PREMIUM_AMT, IS_CLEARING, RSVD_AMT1, RSVD_AMT2, RSVD_TEXT1, RSVD_TEXT2
+    </sql>
+
+    <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-08 15:00:06 ### -->
 
 
+    <!-- Your codes goes start here!!! -->
 
-  <!-- Your codes goes start here!!! -->
-  
 </mapper>

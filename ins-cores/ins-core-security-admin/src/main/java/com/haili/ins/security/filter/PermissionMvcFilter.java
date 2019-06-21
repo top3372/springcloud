@@ -22,7 +22,6 @@ public class PermissionMvcFilter implements Filter {
 
 
     /**
-     *
      * @param servletRequest
      * @param servletResponse
      * @param filterChain
@@ -41,7 +40,7 @@ public class PermissionMvcFilter implements Filter {
         String roles = request.getHeader(HttpHeaderConstant.ROLES);
         String permissions = request.getHeader(HttpHeaderConstant.PERMISSIONS);
         log.info("userId: " + userId + ",roles: " + roles + ",permissions: " + permissions);
-        UserRolePermission urp = new UserRolePermission(userId,roles,permissions);
+        UserRolePermission urp = new UserRolePermission(userId, roles, permissions);
         SecurityThreadLocalContext.setUserRolePermission(urp);
 
         log.info(" 结束PermissionMvcFilter调用 : ");

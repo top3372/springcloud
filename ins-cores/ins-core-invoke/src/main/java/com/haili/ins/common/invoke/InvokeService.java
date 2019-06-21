@@ -21,7 +21,7 @@ public class InvokeService {
     @Resource
     private Map<String, BusinessHandler> businessHandlerMap;
 
-    public String invoke(InvokeParameter invokeParameter){
+    public String invoke(InvokeParameter invokeParameter) {
 
         try {
             long start = System.currentTimeMillis();
@@ -36,8 +36,8 @@ public class InvokeService {
             //InvokeLogger.info("<=== Request", "dataMsg", invokeParameter.getMsgCompress() == 0 ? dataMsg : "<compressed>");
 
             //验证请求服务代码是否正确
-            BusinessHandler service = getBusinessHandler(invokeParameter.getSerCode() + "." +invokeParameter.getVersionNo());
-            if(service==null){
+            BusinessHandler service = getBusinessHandler(invokeParameter.getSerCode() + "." + invokeParameter.getVersionNo());
+            if (service == null) {
                 throw new ServiceException(ResponseCodeEnum.UNDEFINED_SERVICE.getCode(), ResponseCodeEnum.UNDEFINED_SERVICE.getDesc());
             }
             //invokeParameter.setDataMsg(dataMsg);
@@ -47,7 +47,7 @@ public class InvokeService {
             InvokeLogger.info("===> Response(" + cost + "ms)", "response", response.toJson());
 
             return InvokeHelper.buildResponse(invokeParameter.getSerCode(), invokeParameter.getSysTraceNo(), invokeParameter.getOriginNo(), invokeParameter.getVersionNo(), response.toJson());
-        }catch (ServiceException e) {
+        } catch (ServiceException e) {
             InvokeLogger.error("InvokeServiceImpl.invoke throws error", e);
             Map<String, String> result = new HashMap<String, String>();
 
@@ -71,26 +71,27 @@ public class InvokeService {
      *
      * @return
      */
-    private  void validate(InvokeParameter invokeParameter) throws ServiceException {
-        InvokeHelper.validateReqParam(invokeParameter.getSerCode(), invokeParameter.getSysTraceNo(), invokeParameter.getOriginNo(),invokeParameter.getTargetNo(),
-                invokeParameter.getVersionNo() , invokeParameter.getDataLength(), invokeParameter.getDataMsg());
+    private void validate(InvokeParameter invokeParameter) throws ServiceException {
+        InvokeHelper.validateReqParam(invokeParameter.getSerCode(), invokeParameter.getSysTraceNo(), invokeParameter.getOriginNo(), invokeParameter.getTargetNo(),
+                invokeParameter.getVersionNo(), invokeParameter.getDataLength(), invokeParameter.getDataMsg());
         //验证请求消息正文内容长度
         InvokeHelper.validateDataMsgSize(invokeParameter.getDataLength(), invokeParameter.getDataMsg());
     }
 
     /**
      * 验证是否需要解压缩
+     *
      * @param msgCompress
      * @param dataMsg
      * @return
      * @throws ServiceException
      */
-    private String getCompress(int msgCompress,String dataMsg) throws ServiceException{
-        if(msgCompress==1){
+    private String getCompress(int msgCompress, String dataMsg) throws ServiceException {
+        if (msgCompress == 1) {
             try {
-                return  ZipUtil.uncompress(dataMsg);
+                return ZipUtil.uncompress(dataMsg);
             } catch (IOException e) {
-                InvokeLogger.error(ResponseCodeEnum.UNCOMPRESS_FAILURE.getDesc(),e);
+                InvokeLogger.error(ResponseCodeEnum.UNCOMPRESS_FAILURE.getDesc(), e);
                 throw new ServiceException(ResponseCodeEnum.UNCOMPRESS_FAILURE);
             }
         }

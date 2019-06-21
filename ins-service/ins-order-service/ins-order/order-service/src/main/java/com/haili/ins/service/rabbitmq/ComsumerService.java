@@ -13,16 +13,16 @@ import java.io.IOException;
 @Component
 public class ComsumerService {
 
-     @RabbitListener(queues = "${mq.message.exchange.queue.name}")
-     public void process(Message message, Channel channel) throws IOException {
+    @RabbitListener(queues = "${mq.message.exchange.queue.name}")
+    public void process(Message message, Channel channel) throws IOException {
 
-         log.info("receive: " + new String(message.getBody()));
-         // 采用手动应答模式, 手动确认应答更为安全稳定
-         channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
-         //拒绝
-         //channel.basicReject(message.getMessageProperties().getDeliveryTag(), true);
-         //退回
-         //channel.basicNack(message.getMessageProperties().getDeliveryTag(),false,true);
+        log.info("receive: " + new String(message.getBody()));
+        // 采用手动应答模式, 手动确认应答更为安全稳定
+        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+        //拒绝
+        //channel.basicReject(message.getMessageProperties().getDeliveryTag(), true);
+        //退回
+        //channel.basicNack(message.getMessageProperties().getDeliveryTag(),false,true);
 
-     }
+    }
 }

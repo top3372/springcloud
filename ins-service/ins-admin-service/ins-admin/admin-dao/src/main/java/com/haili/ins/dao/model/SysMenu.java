@@ -2,6 +2,7 @@ package com.haili.ins.dao.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -12,7 +13,7 @@ import lombok.Data;
 public class SysMenu implements Serializable {
     /**
      * 主键
-     *
+     * <p>
      * Table:     sys_menu
      * Column:    menu_id
      * Nullable:  false
@@ -56,9 +57,9 @@ public class SysMenu implements Serializable {
 
     /**
      * 状态
-0：禁用
-1：启用
-     *
+     * 0：禁用
+     * 1：启用
+     * <p>
      * Table:     sys_menu
      * Column:    status
      * Nullable:  true
@@ -68,9 +69,9 @@ public class SysMenu implements Serializable {
 
     /**
      * 是否删除
-0:未删除
-1:已删除
-     *
+     * 0:未删除
+     * 1:已删除
+     * <p>
      * Table:     sys_menu
      * Column:    is_del
      * Nullable:  true

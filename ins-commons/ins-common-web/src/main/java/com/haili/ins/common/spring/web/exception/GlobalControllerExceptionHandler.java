@@ -10,29 +10,28 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import javax.validation.ConstraintViolationException;
 
 /**
- *
  * @author ming 定义全局异常处理
  * @RestControllerAdvice 是@controlleradvice 与@ResponseBody 的组合注解
  */
-@RestControllerAdvice 
+@RestControllerAdvice
 public class GlobalControllerExceptionHandler {
 
-    @ExceptionHandler(value = { ConstraintViolationException.class })
+    @ExceptionHandler(value = {ConstraintViolationException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResultInfo<ApiErrorResponse> constraintViolationException(ConstraintViolationException ex) {
-        return new ResultInfo(new ApiErrorResponse(500, 5001, ex.getMessage()),"500",ex.getMessage());
-    }
-    
-    @ExceptionHandler(value = { IllegalArgumentException.class })
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResultInfo<ApiErrorResponse> IllegalArgumentException(IllegalArgumentException ex) {
-        return new ResultInfo(new ApiErrorResponse(501, 5002, ex.getMessage()),"501",ex.getMessage());
+        return new ResultInfo(new ApiErrorResponse(500, 5001, ex.getMessage()), "500", ex.getMessage());
     }
 
-    @ExceptionHandler(value = { Exception.class })
+    @ExceptionHandler(value = {IllegalArgumentException.class})
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResultInfo<ApiErrorResponse> IllegalArgumentException(IllegalArgumentException ex) {
+        return new ResultInfo(new ApiErrorResponse(501, 5002, ex.getMessage()), "501", ex.getMessage());
+    }
+
+    @ExceptionHandler(value = {Exception.class})
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResultInfo<ApiErrorResponse> unknownException(Exception ex) {
 
-        return new ResultInfo(new ApiErrorResponse(500, 5002, ex.getMessage()),"500",ex.getMessage());
+        return new ResultInfo(new ApiErrorResponse(500, 5002, ex.getMessage()), "500", ex.getMessage());
     }
 }

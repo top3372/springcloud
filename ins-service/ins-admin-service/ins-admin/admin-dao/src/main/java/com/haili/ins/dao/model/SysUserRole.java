@@ -2,6 +2,7 @@ package com.haili.ins.dao.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 import lombok.Data;
 
 @Table(name = "`sys_user_role`")
@@ -9,7 +10,7 @@ import lombok.Data;
 public class SysUserRole implements Serializable {
     /**
      * 用户ID
-     *
+     * <p>
      * Table:     sys_user_role
      * Column:    user_id
      * Nullable:  false
@@ -20,7 +21,7 @@ public class SysUserRole implements Serializable {
 
     /**
      * 角色ID
-     *
+     * <p>
      * Table:     sys_user_role
      * Column:    role_id
      * Nullable:  false

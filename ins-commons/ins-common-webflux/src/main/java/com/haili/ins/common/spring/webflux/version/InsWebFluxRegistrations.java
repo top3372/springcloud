@@ -10,7 +10,7 @@ import org.springframework.web.reactive.result.method.annotation.RequestMappingH
  * @Date: 2019/4/11 19:35
  * @Version 1.0
  */
-public class InsWebFluxRegistrations  implements WebFluxRegistrations {
+public class InsWebFluxRegistrations implements WebFluxRegistrations {
 
     @Override
     public RequestMappingHandlerMapping getRequestMappingHandlerMapping() {

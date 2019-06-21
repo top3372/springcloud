@@ -17,8 +17,7 @@ mapper:
   #mappers: tk.mybatis.mapper.common.Mapper,tk.mybatis.mapper.common.Mapper2
   notEmpty: true
 
-## org.springframework.boot.autoconfigure.web.ServerProperties
-server.port: 8999
+
 management:
   endpoints:
     web:

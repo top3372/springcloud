@@ -18,19 +18,21 @@ public interface LeafIdFeign {
 
     /**
      * getSegmentID
+     *
      * @param key
      * @return
      */
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/api/segment/get/{key}")
-    String getSegmentID(@PathVariable(value="key") String key);
+    String getSegmentID(@PathVariable(value = "key") String key);
 
     /**
      * getSnowflakeID
+     *
      * @param key
      * @return
      */
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("/api/snowflake/get/{key}")
-    String getSnowflakeID(@PathVariable(value="key") String key);
+    String getSnowflakeID(@PathVariable(value = "key") String key);
 }

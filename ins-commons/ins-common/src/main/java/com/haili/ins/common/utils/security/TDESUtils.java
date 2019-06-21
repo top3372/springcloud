@@ -10,7 +10,7 @@ public class TDESUtils {
 
     private Cipher encryptCipher = null;
     private Cipher decryptCipher = null;
-    
+
     public void init(String argKey) throws Exception {
         Key key = this.getKey(argKey);
         encryptCipher = Cipher.getInstance("DES/ECB/NoPadding");
@@ -19,9 +19,10 @@ public class TDESUtils {
         decryptCipher.init(Cipher.DECRYPT_MODE, key);
     }
 
-    
+
     /**
      * 单des
+     *
      * @param arrB
      * @return
      * @throws Exception
@@ -32,6 +33,7 @@ public class TDESUtils {
 
     /**
      * 单des
+     *
      * @param strIn
      * @return
      * @throws Exception
@@ -44,6 +46,7 @@ public class TDESUtils {
 
     /**
      * 单des
+     *
      * @param arrB
      * @return
      * @throws Exception
@@ -54,6 +57,7 @@ public class TDESUtils {
 
     /**
      * 单des
+     *
      * @param strIn
      * @return
      * @throws Exception
@@ -61,7 +65,7 @@ public class TDESUtils {
     public String decrypt(String strIn, String code) throws Exception {
         return new String(deCrypt(hexStr2ByteArr(strIn, code)));
     }
-    
+
     public String makeMAC(String sData) throws Exception {
         byte[] rtn = new byte[8];
         if (sData != null) {
@@ -92,9 +96,10 @@ public class TDESUtils {
             sb.append(byteHEX(rtn[i]));
         return sb.toString().toUpperCase();
     }
-    
+
     /**
      * 3des
+     *
      * @param sData
      * @param sKey
      * @return
@@ -108,15 +113,16 @@ public class TDESUtils {
         this.init(sKey.substring(0, 16));
         b = this.enCrypt(b);
         StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < b.length; i++){
-        	sb.append(byteHEX(b[i]));
+        for (int i = 0; i < b.length; i++) {
+            sb.append(byteHEX(b[i]));
         }
-        
+
         return sb.toString().toUpperCase();
     }
-    
+
     /**
      * 3des
+     *
      * @param sData
      * @param sKey
      * @return
@@ -134,17 +140,17 @@ public class TDESUtils {
             sb.append(byteHEX(b[i]));
         return sb.toString().toUpperCase();
     }
-    
+
     public static String byteHEX(byte ib) {
-        char[] digitNormal = { '0', '1', '2', '3', '4', '5', '6', '7', '8',
-                '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+        char[] digitNormal = {'0', '1', '2', '3', '4', '5', '6', '7', '8',
+                '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         char[] ob = new char[2];
         ob[0] = digitNormal[(ib >>> 4) & 0x0F];
         ob[1] = digitNormal[ib & 0x0F];
         String s = new String(ob);
         return s;
     }
-    
+
     private String[] subString(String str) {
         int length = str.length();
         String[] strs = null;
@@ -171,6 +177,7 @@ public class TDESUtils {
 
     /**
      * 转ascii
+     *
      * @param p_SourStr
      * @return
      */
@@ -208,7 +215,7 @@ public class TDESUtils {
         }
         return arrOut;
     }
-    
+
     private Key getKey(String argKey) throws Exception {
         String[] keys = subString(argKey);
         byte[] b1 = new byte[keys.length];
@@ -223,41 +230,42 @@ public class TDESUtils {
         Key key = new SecretKeySpec(b2, "DES");
         return key;
     }
-    
+
     public String en3DESCrpt(String sData, String pinKey, String enccode) throws Exception {
-    	String newData = getNewString(sData,enccode);
-    	return enCrypt(newData, pinKey, enccode);
+        String newData = getNewString(sData, enccode);
+        return enCrypt(newData, pinKey, enccode);
     }
-    
-    public static String getNewString(String src,String enccode){
-		StringBuffer sbf = new StringBuffer(src);
-		int l = getLength(src,enccode);
-		int tmp =((l+7)/8*8)-l;
-		for(int i=0;i<tmp;i++){
-			sbf.append(' ');
-		}
-		return sbf.toString();
-	}
-	
-	public static int getLength(String src,String enccode){
-		int strc = 0;
-		for (int i = 0; i < src.length(); i++) {
-			if (src.toCharArray()[i] > 255) {
-				if("UTF-8".equalsIgnoreCase(enccode)){
-					strc+=3;
-				}else if("GBK".equalsIgnoreCase(enccode)){
-					strc += 2;
-				}
-			} else {
-				strc++;
-			}
-		}
-		return strc;
-	}
- 
-    
+
+    public static String getNewString(String src, String enccode) {
+        StringBuffer sbf = new StringBuffer(src);
+        int l = getLength(src, enccode);
+        int tmp = ((l + 7) / 8 * 8) - l;
+        for (int i = 0; i < tmp; i++) {
+            sbf.append(' ');
+        }
+        return sbf.toString();
+    }
+
+    public static int getLength(String src, String enccode) {
+        int strc = 0;
+        for (int i = 0; i < src.length(); i++) {
+            if (src.toCharArray()[i] > 255) {
+                if ("UTF-8".equalsIgnoreCase(enccode)) {
+                    strc += 3;
+                } else if ("GBK".equalsIgnoreCase(enccode)) {
+                    strc += 2;
+                }
+            } else {
+                strc++;
+            }
+        }
+        return strc;
+    }
+
+
     /**
      * 解码
+     *
      * @param sData
      * @param pinKey
      * @return
@@ -271,9 +279,10 @@ public class TDESUtils {
         String key16bits = sb.toString().toUpperCase();
         return this.deCrypt(sData, key16bits, code);
     }
-    
+
     /**
      * 解码
+     *
      * @param sData
      * @param pinKey
      * @return
@@ -283,51 +292,53 @@ public class TDESUtils {
         byte[] b = hexStr2ByteArr(this.deCrypt(sData, pinKey, decode), decode);
         return b;
     }
-    
-    
+
+
     private static String hexString = "0123456789ABCDEF";
 
     /**
      * 将字符串编码成16进制数字,适用于所有字符（包括中文）
+     *
      * @param str
      * @return
      * @throws Exception
      */
-    public String byteToHex(String str, String code) throws Exception{
-       // 根据默认编码获取字节数组
-       byte[] bytes = str.getBytes(code);//GBK     ISO-8859-1
-       StringBuilder sb = new StringBuilder(bytes.length * 2);
-       // 将字节数组中每个字节拆解成2位16进制整数
-       for (int i = 0; i < bytes.length; i++) {
-    	   
-    	     sb.append(hexString.charAt((bytes[i] & 0xf0) >> 4));//1-4
-    	     sb.append(hexString.charAt((bytes[i] & 0x0f) >> 0));//1-2
-    	     
-       }
-       return sb.toString();
+    public String byteToHex(String str, String code) throws Exception {
+        // 根据默认编码获取字节数组
+        byte[] bytes = str.getBytes(code);//GBK     ISO-8859-1
+        StringBuilder sb = new StringBuilder(bytes.length * 2);
+        // 将字节数组中每个字节拆解成2位16进制整数
+        for (int i = 0; i < bytes.length; i++) {
+
+            sb.append(hexString.charAt((bytes[i] & 0xf0) >> 4));//1-4
+            sb.append(hexString.charAt((bytes[i] & 0x0f) >> 0));//1-2
+
+        }
+        return sb.toString();
     }
 
     /**
      * 将16进制数字解码成字符串,适用于所有字符（包括中文） decode(String
      * bytes)方法里面的bytes字符串必须大写，即toUpperCase()
+     *
      * @param bytes
      * @return
      * @throws Exception
      */
-    public String hexToByte(String bytes, String code) throws Exception{
-       ByteArrayOutputStream baos = new ByteArrayOutputStream(bytes.length() / 2);
-       // 将每2位16进制整数组装成一个字节
-       for (int i = 0; i < bytes.length(); i += 2){
-    	   int ii = (hexString.indexOf(bytes.charAt(i)) << 4 | hexString.indexOf(bytes.charAt(i + 1)));
-           baos.write(ii);
-       }
-       return new String(baos.toByteArray(), code);
+    public String hexToByte(String bytes, String code) throws Exception {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream(bytes.length() / 2);
+        // 将每2位16进制整数组装成一个字节
+        for (int i = 0; i < bytes.length(); i += 2) {
+            int ii = (hexString.indexOf(bytes.charAt(i)) << 4 | hexString.indexOf(bytes.charAt(i + 1)));
+            baos.write(ii);
+        }
+        return new String(baos.toByteArray(), code);
     }
-     
+
     /**
      * Description : Test <br>
      * Created on 2008-12-15 下午02:00:08 <br>
-     * 
+     *
      * @param args
      */
     public static void main(String[] args) {
@@ -335,10 +346,10 @@ public class TDESUtils {
             TDESUtils desPlus = new TDESUtils();
             System.out.println("加密::" + desPlus.en3DESCrpt("郑梦久啥", "BC945DE342907ACE1433A3B4C578D2A9", "GBK"));
             byte[] temp = desPlus.de3DESCrpt2(desPlus.en3DESCrpt("郑梦久啥", "BC945DE342907ACE1433A3B4C578D2A9", "GBK"),
-            									"BC945DE342907ACE1433A3B4C578D2A9", "GBK");
-            System.out.println("解密::" + new String(temp,"GBK"));
-            
-            
+                    "BC945DE342907ACE1433A3B4C578D2A9", "GBK");
+            System.out.println("解密::" + new String(temp, "GBK"));
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -17,7 +17,7 @@ public class MessageCorrelationData<T> extends CorrelationData implements Serial
 
     private static final long serialVersionUID = 6256300521232589907L;
 
-    public MessageCorrelationData(){
+    public MessageCorrelationData() {
         super();
     }
 

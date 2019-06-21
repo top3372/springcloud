@@ -1,78 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haili.ins.dao.mapper.SysUserMapper">
-  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.SysUser">
-    
-    <!-- 用户ID -->
-    <id column="user_id" jdbcType="BIGINT" property="userId" />
-    
-    <!-- 部门ID -->
-    <result column="dept_id" jdbcType="BIGINT" property="deptId" />
-    
-    <!-- 登录账号 -->
-    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
-    
-    <!-- 用户昵称 -->
-    <result column="user_name" jdbcType="VARCHAR" property="userName" />
-    
-    <!-- 用户类型（00系统用户） -->
-    <result column="user_type" jdbcType="VARCHAR" property="userType" />
-    
-    <!-- 用户邮箱 -->
-    <result column="email" jdbcType="VARCHAR" property="email" />
-    
-    <!-- 手机号码 -->
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
-    
-    <!-- 用户性别（0男 1女 2未知） -->
-    <result column="sex" jdbcType="CHAR" property="sex" />
-    
-    <!-- 头像路径 -->
-    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
-    
-    <!-- 密码 -->
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    
-    <!-- 盐加密 -->
-    <result column="salt" jdbcType="VARCHAR" property="salt" />
-    
-    <!-- 帐号状态（0正常 1停用） -->
-    <result column="status" jdbcType="CHAR" property="status" />
-    
-    <!-- 删除标志（0代表存在 2代表删除） -->
-    <result column="del_flag" jdbcType="CHAR" property="delFlag" />
-    
-    <!-- 最后登陆IP -->
-    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
-    
-    <!-- 最后登陆时间 -->
-    <result column="login_date" jdbcType="TIMESTAMP" property="loginDate" />
-    
-    <!-- 创建者 -->
-    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
-    
-    <!-- 创建时间 -->
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    
-    <!-- 更新者 -->
-    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
-    
-    <!-- 更新时间 -->
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    
-    <!-- 备注 -->
-    <result column="remark" jdbcType="VARCHAR" property="remark" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    user_id, dept_id, login_name, user_name, user_type, email, phone, sex, avatar, password, 
-    salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, 
-    update_time, remark
-  </sql>
-  
-  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-04-09 17:19:30 ### -->
+    <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.SysUser">
 
-  
+        <!-- 用户ID -->
+        <id column="user_id" jdbcType="BIGINT" property="userId"/>
+
+        <!-- 部门ID -->
+        <result column="dept_id" jdbcType="BIGINT" property="deptId"/>
+
+        <!-- 登录账号 -->
+        <result column="login_name" jdbcType="VARCHAR" property="loginName"/>
+
+        <!-- 用户昵称 -->
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+
+        <!-- 用户类型（00系统用户） -->
+        <result column="user_type" jdbcType="VARCHAR" property="userType"/>
+
+        <!-- 用户邮箱 -->
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+
+        <!-- 手机号码 -->
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+
+        <!-- 用户性别（0男 1女 2未知） -->
+        <result column="sex" jdbcType="CHAR" property="sex"/>
+
+        <!-- 头像路径 -->
+        <result column="avatar" jdbcType="VARCHAR" property="avatar"/>
+
+        <!-- 密码 -->
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+
+        <!-- 盐加密 -->
+        <result column="salt" jdbcType="VARCHAR" property="salt"/>
+
+        <!-- 帐号状态（0正常 1停用） -->
+        <result column="status" jdbcType="CHAR" property="status"/>
+
+        <!-- 删除标志（0代表存在 2代表删除） -->
+        <result column="del_flag" jdbcType="CHAR" property="delFlag"/>
+
+        <!-- 最后登陆IP -->
+        <result column="login_ip" jdbcType="VARCHAR" property="loginIp"/>
+
+        <!-- 最后登陆时间 -->
+        <result column="login_date" jdbcType="TIMESTAMP" property="loginDate"/>
+
+        <!-- 创建者 -->
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+
+        <!-- 创建时间 -->
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+
+        <!-- 更新者 -->
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+
+        <!-- 更新时间 -->
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+
+        <!-- 备注 -->
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        user_id, dept_id, login_name, user_name, user_type, email, phone, sex, avatar, password,
+        salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by,
+        update_time, remark
+    </sql>
+
+    <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-04-09 17:19:30 ### -->
+
+
 </mapper>

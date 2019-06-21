@@ -28,7 +28,7 @@ public class SenderService {
      * 给hello队列发送消息
      */
     public void send() {
-        for (int i =0; i< 10; i++) {
+        for (int i = 0; i < 10; i++) {
             String msg = "hello, 序号: " + i;
             System.out.println("Producer, " + msg);
             RabbitmqMessage<String> message = new RabbitmqMessage<>();
@@ -40,12 +40,12 @@ public class SenderService {
             message.setRoutingKey(rabbitConfProperties.getMessageRoutingKey());
             message.setTimestamp(System.currentTimeMillis());
             message.setBody(msg);
-            MessageCorrelationData data = new MessageCorrelationData(id,message);
+            MessageCorrelationData data = new MessageCorrelationData(id, message);
             data.setId(id);
             data.setExchange(rabbitConfProperties.getMessageExchange());
             //data.setRoutingKey(rabbitConfProperties.getMessageRoutingKey());
 
-            rabbitTemplate.convertAndSend(data.getExchange(),null, message,data);
+            rabbitTemplate.convertAndSend(data.getExchange(), null, message, data);
 
 
         }

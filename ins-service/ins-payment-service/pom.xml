@@ -20,5 +20,5 @@
         <module>ins-payment-channel</module><!--支付渠道-->
         <module>ins-payment-repair</module><!--补单-->
     </modules>
-    
+
 </project>

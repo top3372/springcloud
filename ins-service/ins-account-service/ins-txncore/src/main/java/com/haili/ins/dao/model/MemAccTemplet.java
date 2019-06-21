@@ -2,6 +2,7 @@ package com.haili.ins.dao.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -21,20 +22,20 @@ public class MemAccTemplet implements Serializable {
 
     /**
      * 模板属性
-            会员
-            100-普通会员
-            
-            支付机构
-            200-第三方支付机构
-            201-银行机构
-            
-            投资标
-            400-高风投资标
-            
-            内部账户
-            999-高风内部账户
-            
-     *
+     * 会员
+     * 100-普通会员
+     * <p>
+     * 支付机构
+     * 200-第三方支付机构
+     * 201-银行机构
+     * <p>
+     * 投资标
+     * 400-高风投资标
+     * <p>
+     * 内部账户
+     * 999-高风内部账户
+     * <p>
+     * <p>
      * Table:     T_MEM_ACC_TEMPLET
      * Column:    TEMPLET_TYPE
      * Nullable:  true
@@ -44,8 +45,8 @@ public class MemAccTemplet implements Serializable {
 
     /**
      * 账户类型-具体见账户说明文档
-            
-     *
+     * <p>
+     * <p>
      * Table:     T_MEM_ACC_TEMPLET
      * Column:    ACC_TYPE
      * Nullable:  true
@@ -63,7 +64,7 @@ public class MemAccTemplet implements Serializable {
 
     /**
      * 账户说明
-     *
+     * <p>
      * Table:     T_MEM_ACC_TEMPLET
      * Column:    ACC_DESP
      * Nullable:  true

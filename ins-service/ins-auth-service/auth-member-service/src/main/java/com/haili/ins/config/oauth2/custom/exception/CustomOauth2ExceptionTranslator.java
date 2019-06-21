@@ -30,9 +30,9 @@ public class CustomOauth2ExceptionTranslator extends DefaultWebResponseException
         OAuth2Exception oAuth2Exception;
         if (e.getMessage() != null && e.getMessage().equals(BAD_MSG)) {
             oAuth2Exception = new InvalidGrantException("用户名或密码错误", e);
-        }else if (e instanceof InternalAuthenticationServiceException) {
+        } else if (e instanceof InternalAuthenticationServiceException) {
             oAuth2Exception = new InvalidGrantException(e.getMessage(), e);
-        }   else{
+        } else {
             oAuth2Exception = new UnsupportedResponseTypeException(e.getMessage(), e);
         }
         return super.translate(oAuth2Exception);

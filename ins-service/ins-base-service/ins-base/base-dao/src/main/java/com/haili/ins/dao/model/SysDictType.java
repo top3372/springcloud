@@ -3,6 +3,7 @@ package com.haili.ins.dao.model;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -13,7 +14,7 @@ import lombok.Data;
 public class SysDictType implements Serializable {
     /**
      * 字典主键
-     *
+     * <p>
      * Table:     sys_dict_type
      * Column:    dict_id
      * Nullable:  false
@@ -25,7 +26,7 @@ public class SysDictType implements Serializable {
 
     /**
      * 字典名称
-     *
+     * <p>
      * Table:     sys_dict_type
      * Column:    dict_name
      * Nullable:  true
@@ -35,7 +36,7 @@ public class SysDictType implements Serializable {
 
     /**
      * 字典类型
-     *
+     * <p>
      * Table:     sys_dict_type
      * Column:    dict_type
      * Nullable:  true
@@ -45,7 +46,7 @@ public class SysDictType implements Serializable {
 
     /**
      * 状态（0正常 1停用）
-     *
+     * <p>
      * Table:     sys_dict_type
      * Column:    status
      * Nullable:  true
@@ -55,7 +56,7 @@ public class SysDictType implements Serializable {
 
     /**
      * 创建者
-     *
+     * <p>
      * Table:     sys_dict_type
      * Column:    create_by
      * Nullable:  true
@@ -65,7 +66,7 @@ public class SysDictType implements Serializable {
 
     /**
      * 创建时间
-     *
+     * <p>
      * Table:     sys_dict_type
      * Column:    create_time
      * Nullable:  true
@@ -75,7 +76,7 @@ public class SysDictType implements Serializable {
 
     /**
      * 更新者
-     *
+     * <p>
      * Table:     sys_dict_type
      * Column:    update_by
      * Nullable:  true
@@ -85,7 +86,7 @@ public class SysDictType implements Serializable {
 
     /**
      * 更新时间
-     *
+     * <p>
      * Table:     sys_dict_type
      * Column:    update_time
      * Nullable:  true
@@ -95,7 +96,7 @@ public class SysDictType implements Serializable {
 
     /**
      * 备注
-     *
+     * <p>
      * Table:     sys_dict_type
      * Column:    remark
      * Nullable:  true

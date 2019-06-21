@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -23,7 +24,7 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 系统跟踪号
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    SYS_TRACE_NO
      * Nullable:  false
@@ -33,7 +34,7 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 套号
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    SUITE_NO
      * Nullable:  false
@@ -43,7 +44,7 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 账户号
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    ACCOUNT_NO
      * Nullable:  false
@@ -53,7 +54,7 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 科目号
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    TITLE_NO
      * Nullable:  true
@@ -63,9 +64,9 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 分录账务类型：
-            0:表内分录
-            1:表外分录
-     *
+     * 0:表内分录
+     * 1:表外分录
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    ENTRY_TYPE
      * Nullable:  true
@@ -75,10 +76,10 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 分录标志位：
-            第一位：自动手工标志
-            0:自动
-            1:手工
-     *
+     * 第一位：自动手工标志
+     * 0:自动
+     * 1:手工
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    ENTRY_BIT_MAP
      * Nullable:  true
@@ -88,7 +89,7 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 交易币种
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    TXN_CURRENCY
      * Nullable:  true
@@ -98,7 +99,7 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 金额
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    AMOUNT
      * Nullable:  false
@@ -108,11 +109,11 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 交易类型：
-            0-正常
-            1-红字
-            2-蓝字
-            
-     *
+     * 0-正常
+     * 1-红字
+     * 2-蓝字
+     * <p>
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    TXN_TYPE
      * Nullable:  false
@@ -122,9 +123,9 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 借贷方向：
-            D:借
-            C:贷
-     *
+     * D:借
+     * C:贷
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    DIRECTION
      * Nullable:  false
@@ -134,13 +135,13 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 状态标识位：
-            第一位：红字标识
-            0-未红字
-            1-已红字
-            第二位：蓝字标识
-            0-未蓝字
-            1-已蓝字
-     *
+     * 第一位：红字标识
+     * 0-未红字
+     * 1-已红字
+     * 第二位：蓝字标识
+     * 0-未蓝字
+     * 1-已蓝字
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    STATUS_MAP
      * Nullable:  true
@@ -150,7 +151,7 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 记账日期
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    CLEAR_DATE
      * Nullable:  false
@@ -160,7 +161,7 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 创建时间
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    CREATE_TIME
      * Nullable:  false
@@ -170,7 +171,7 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 余额修改时间
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    BAL_UPDATE_TIME
      * Nullable:  true
@@ -180,7 +181,7 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 备注
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    REMARK
      * Nullable:  true
@@ -190,9 +191,9 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 是否缓冲入账：
-            0:未缓冲 
-            1:缓冲
-     *
+     * 0:未缓冲
+     * 1:缓冲
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    IS_BUFFER
      * Nullable:  true
@@ -202,7 +203,7 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 原分录流水号
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    OLD_ENTRY_SEQ_NO
      * Nullable:  true
@@ -212,7 +213,7 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 预留金额字段1
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    RSVD_AMT1
      * Nullable:  true
@@ -222,7 +223,7 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 预留金额字段2
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    RSVD_AMT2
      * Nullable:  true
@@ -232,7 +233,7 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 预留文本字段1
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    RSVD_TEXT1
      * Nullable:  true
@@ -242,7 +243,7 @@ public class AccAccountEntryHis implements Serializable {
 
     /**
      * 预留文本字段2
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_ENTRY_HIS
      * Column:    RSVD_TEXT2
      * Nullable:  true

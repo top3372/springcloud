@@ -2,8 +2,8 @@ package com.haili.ins.enums.member;
 
 public enum MemberTypeEnum {
 
-    MEMBER_TYPE_PERSONAL("1","个人会员"),
-    MEMBER_TYPE_COMPANY("2","企业会员"),
+    MEMBER_TYPE_PERSONAL("1", "个人会员"),
+    MEMBER_TYPE_COMPANY("2", "企业会员"),
 
     ;
     private String code;
@@ -12,17 +12,20 @@ public enum MemberTypeEnum {
     public String getCode() {
         return code;
     }
+
     public void setCode(String code) {
         this.code = code;
     }
+
     public String getDesc() {
         return desc;
     }
+
     public void setDesc(String desc) {
         this.desc = desc;
     }
 
-    private MemberTypeEnum(String code,String desc) {
+    private MemberTypeEnum(String code, String desc) {
         this.code = code;
         this.desc = desc;
     }

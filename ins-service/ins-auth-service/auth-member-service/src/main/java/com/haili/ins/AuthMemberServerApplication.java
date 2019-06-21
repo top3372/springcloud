@@ -13,7 +13,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 //@EnableEurekaClient
 @EnableDiscoveryClient
-public class AuthMemberServerApplication{
+public class AuthMemberServerApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AuthMemberServerApplication.class, args);

@@ -47,7 +47,7 @@ public class CustomOauthExceptionSerializer extends StdSerializer<CustomOauthExc
         gen.writeStringField("responseDesc", ResponseCodeEnum.NO_AUTH_CODE.getDesc());
         gen.writeStringField("responseData", JSONUtil.toJson(map));
 
-        if (value.getAdditionalInformation()!=null) {
+        if (value.getAdditionalInformation() != null) {
             for (Map.Entry<String, String> entry : value.getAdditionalInformation().entrySet()) {
                 String key = entry.getKey();
                 String add = entry.getValue();

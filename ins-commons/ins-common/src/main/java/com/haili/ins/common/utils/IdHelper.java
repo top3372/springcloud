@@ -13,7 +13,7 @@ import java.util.Map;
  */
 @Slf4j
 @Component
-@ConditionalOnProperty(value = "spring.haili.id.generator.enabled", havingValue ="true")
+@ConditionalOnProperty(value = "spring.haili.id.generator.enabled", havingValue = "true")
 public class IdHelper {
 
     //数据中心id
@@ -36,6 +36,7 @@ public class IdHelper {
 
     /**
      * 获取ID
+     *
      * @author sunk
      */
     public synchronized long nextId() {
@@ -44,9 +45,8 @@ public class IdHelper {
 
     /**
      *
-     *
      */
-    public synchronized Map<String,Object> parseInfo(String id) {
+    public synchronized Map<String, Object> parseInfo(String id) {
         return snowflakeIdWorker.parseInfo(id);
     }
 }

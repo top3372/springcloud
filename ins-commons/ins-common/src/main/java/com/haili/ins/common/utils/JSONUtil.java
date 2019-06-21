@@ -11,7 +11,9 @@ import java.util.List;
 @SuppressWarnings("unchecked")
 public class JSONUtil {
 
-    /** 只有一些基础规则的 json 映射器. 需要序列化和反序列化时, 就使用这个映射器 */
+    /**
+     * 只有一些基础规则的 json 映射器. 需要序列化和反序列化时, 就使用这个映射器
+     */
     private static final ObjectMapper BASIC = new ObjectMapper();
 
     /**
@@ -39,6 +41,7 @@ public class JSONUtil {
     }
 
     private static final ObjectMapper CONVERT = new ConvertObjectMapper();
+
     private static class ConvertObjectMapper extends ObjectMapper {
         private ConvertObjectMapper() {
             super();
@@ -49,8 +52,11 @@ public class JSONUtil {
             setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
         }
     }
-    /** 类型转换, 转换若失败将会返回 null */
-    public static <S,T> T convert(S source, Class<T> clazz) {
+
+    /**
+     * 类型转换, 转换若失败将会返回 null
+     */
+    public static <S, T> T convert(S source, Class<T> clazz) {
         String json = toJson(CONVERT, source);
         try {
             return CONVERT.readValue(json, clazz);
@@ -58,8 +64,11 @@ public class JSONUtil {
             return null;
         }
     }
-    /** List 转换, 转换若失败将会返回 空列表 */
-    public static <S,T> List<T> convert(List<S> source, Class<T> clazz) {
+
+    /**
+     * List 转换, 转换若失败将会返回 空列表
+     */
+    public static <S, T> List<T> convert(List<S> source, Class<T> clazz) {
         String json = toJson(CONVERT, source);
         try {
             return CONVERT.readValue(json, CONVERT.getTypeFactory().constructCollectionType(List.class, clazz));
@@ -68,7 +77,9 @@ public class JSONUtil {
         }
     }
 
-    /** 对象转换成 json 字符串 */
+    /**
+     * 对象转换成 json 字符串
+     */
     public static String toJson(Object obj) {
         return toJson(BASIC, obj);
     }
@@ -81,12 +92,16 @@ public class JSONUtil {
         }
     }
 
-    /** 对象转换成 json 字符串, 主要用来渲染到前台 */
+    /**
+     * 对象转换成 json 字符串, 主要用来渲染到前台
+     */
     public static String toRender(Object obj) {
         return toJson(RENDER, obj);
     }
 
-    /** 将 json 字符串转换为对象 */
+    /**
+     * 将 json 字符串转换为对象
+     */
     public static <T> T toObject(String json, Class<T> clazz) {
         try {
             return BASIC.readValue(json, clazz);
@@ -95,7 +110,9 @@ public class JSONUtil {
         }
     }
 
-    /** 将 json 字符串转换为对象, 当转换异常时, 返回 null */
+    /**
+     * 将 json 字符串转换为对象, 当转换异常时, 返回 null
+     */
     public static <T> T toObjectNil(String json, Class<T> clazz) {
         try {
             return BASIC.readValue(json, clazz);
@@ -104,7 +121,9 @@ public class JSONUtil {
         }
     }
 
-    /** 将 json 字符串转换为指定的数组列表 */
+    /**
+     * 将 json 字符串转换为指定的数组列表
+     */
     public static <T> List<T> toList(String json, Class<T> clazz) {
         try {
             return BASIC.readValue(json, BASIC.getTypeFactory().constructCollectionType(List.class, clazz));
@@ -112,7 +131,10 @@ public class JSONUtil {
             throw new RuntimeException("json(" + json + ") to list(" + clazz.getName() + ") exception.", e);
         }
     }
-    /** 将 json 字符串转换为指定的数组列表 */
+
+    /**
+     * 将 json 字符串转换为指定的数组列表
+     */
     public static <T> List<T> toListNil(String json, Class<T> clazz) {
         try {
             return BASIC.readValue(json, BASIC.getTypeFactory().constructCollectionType(List.class, clazz));

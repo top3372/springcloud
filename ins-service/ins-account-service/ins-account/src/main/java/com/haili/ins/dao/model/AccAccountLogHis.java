@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -23,7 +24,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 系统跟踪号
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    SYS_TRACE_NO
      * Nullable:  true
@@ -41,7 +42,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 交易时间
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    TXN_TIME
      * Nullable:  true
@@ -51,7 +52,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 账户号码
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    ACCOUNT_NO
      * Nullable:  true
@@ -61,7 +62,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 交易代码
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    TXN_CODE
      * Nullable:  true
@@ -71,11 +72,11 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 交易类型:
-            0:正常
-            1:红字
-            2:蓝字
-            
-     *
+     * 0:正常
+     * 1:红字
+     * 2:蓝字
+     * <p>
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    TXN_TYPE
      * Nullable:  true
@@ -85,7 +86,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 交易摘要
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    TXN_DSCPT
      * Nullable:  true
@@ -95,7 +96,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 币种代码
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    TXN_CURRENCY_CODE
      * Nullable:  true
@@ -105,10 +106,10 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 借贷标志:
-            D:借
-            C:贷
-            0-无
-     *
+     * D:借
+     * C:贷
+     * 0-无
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    DIRECTION
      * Nullable:  true
@@ -118,7 +119,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 交易金额
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    TXN_AMT
      * Nullable:  true
@@ -128,7 +129,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 交易前余额
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    BEFORE_AMT
      * Nullable:  true
@@ -138,7 +139,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 交易后余额
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    AFTER_AMT
      * Nullable:  true
@@ -148,7 +149,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 分录流水号
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    ENTRY_SEQ_NO
      * Nullable:  true
@@ -158,7 +159,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 关联流水
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    REF_ACC_SEQ_NO
      * Nullable:  true
@@ -168,7 +169,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 关联账号
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    REF_ACCOUNT_NO
      * Nullable:  true
@@ -178,7 +179,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 原流水号
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    OLD_ACC_SEQ_NO
      * Nullable:  true
@@ -188,13 +189,13 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 状态标识位：
-            第一位：红字标识
-            0-未红字
-            1-已红字
-            第二位：蓝字标识
-            0-未蓝字
-            1-已蓝字
-     *
+     * 第一位：红字标识
+     * 0-未红字
+     * 1-已红字
+     * 第二位：蓝字标识
+     * 0-未蓝字
+     * 1-已蓝字
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    STATUS_MAP
      * Nullable:  true
@@ -204,7 +205,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 备注
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    REMARK
      * Nullable:  true
@@ -214,7 +215,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 预留金额字段1
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    RSVD_AMT1
      * Nullable:  true
@@ -224,7 +225,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 预留金额字段2
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    RSVD_AMT2
      * Nullable:  true
@@ -234,7 +235,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 预留文本字段1
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    RSVD_TEXT1
      * Nullable:  true
@@ -244,7 +245,7 @@ public class AccAccountLogHis implements Serializable {
 
     /**
      * 预留文本字段2
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_LOG_HIS
      * Column:    RSVD_TEXT2
      * Nullable:  true

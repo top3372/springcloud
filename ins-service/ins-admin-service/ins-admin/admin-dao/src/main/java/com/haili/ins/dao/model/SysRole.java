@@ -3,6 +3,7 @@ package com.haili.ins.dao.model;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -13,7 +14,7 @@ import lombok.Data;
 public class SysRole implements Serializable {
     /**
      * 角色ID
-     *
+     * <p>
      * Table:     sys_role
      * Column:    role_id
      * Nullable:  false
@@ -25,7 +26,7 @@ public class SysRole implements Serializable {
 
     /**
      * 角色名称
-     *
+     * <p>
      * Table:     sys_role
      * Column:    role_name
      * Nullable:  false
@@ -35,7 +36,7 @@ public class SysRole implements Serializable {
 
     /**
      * 角色权限字符串
-     *
+     * <p>
      * Table:     sys_role
      * Column:    role_key
      * Nullable:  false
@@ -45,7 +46,7 @@ public class SysRole implements Serializable {
 
     /**
      * 显示顺序
-     *
+     * <p>
      * Table:     sys_role
      * Column:    role_sort
      * Nullable:  false
@@ -55,7 +56,7 @@ public class SysRole implements Serializable {
 
     /**
      * 数据范围（1：全部数据权限 2：自定数据权限）
-     *
+     * <p>
      * Table:     sys_role
      * Column:    data_scope
      * Nullable:  true
@@ -65,7 +66,7 @@ public class SysRole implements Serializable {
 
     /**
      * 角色状态（0正常 1停用）
-     *
+     * <p>
      * Table:     sys_role
      * Column:    status
      * Nullable:  false
@@ -75,7 +76,7 @@ public class SysRole implements Serializable {
 
     /**
      * 删除标志（0代表存在 2代表删除）
-     *
+     * <p>
      * Table:     sys_role
      * Column:    del_flag
      * Nullable:  true
@@ -85,7 +86,7 @@ public class SysRole implements Serializable {
 
     /**
      * 创建者
-     *
+     * <p>
      * Table:     sys_role
      * Column:    create_by
      * Nullable:  true
@@ -95,7 +96,7 @@ public class SysRole implements Serializable {
 
     /**
      * 创建时间
-     *
+     * <p>
      * Table:     sys_role
      * Column:    create_time
      * Nullable:  true
@@ -105,7 +106,7 @@ public class SysRole implements Serializable {
 
     /**
      * 更新者
-     *
+     * <p>
      * Table:     sys_role
      * Column:    update_by
      * Nullable:  true
@@ -115,7 +116,7 @@ public class SysRole implements Serializable {
 
     /**
      * 更新时间
-     *
+     * <p>
      * Table:     sys_role
      * Column:    update_time
      * Nullable:  true
@@ -125,7 +126,7 @@ public class SysRole implements Serializable {
 
     /**
      * 备注
-     *
+     * <p>
      * Table:     sys_role
      * Column:    remark
      * Nullable:  true

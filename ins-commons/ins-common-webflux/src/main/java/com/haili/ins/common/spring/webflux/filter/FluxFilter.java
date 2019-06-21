@@ -18,7 +18,7 @@ public class FluxFilter implements WebFilter {
     @Override
     public Mono<Void> filter(ServerWebExchange serverWebExchange,
                              WebFilterChain webFilterChain) {
-        ServerHttpRequest request =  serverWebExchange.getRequest();
+        ServerHttpRequest request = serverWebExchange.getRequest();
         //ServerHttpResponse response =  exchange.getResponse();'
         StringBuilder sb = new StringBuilder();
         sb.append("###FluxFilter[Thread-")

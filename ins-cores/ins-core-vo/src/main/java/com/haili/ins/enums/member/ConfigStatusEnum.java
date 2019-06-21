@@ -7,9 +7,9 @@ package com.haili.ins.enums.member;
  */
 public enum ConfigStatusEnum {
 
-    IS_SET("1","已设置"),
+    IS_SET("1", "已设置"),
 
-    NO_SET("0","未设置"),
+    NO_SET("0", "未设置"),
     ;
     private String code;
     private String desc;
@@ -17,17 +17,20 @@ public enum ConfigStatusEnum {
     public String getCode() {
         return code;
     }
+
     public void setCode(String code) {
         this.code = code;
     }
+
     public String getDesc() {
         return desc;
     }
+
     public void setDesc(String desc) {
         this.desc = desc;
     }
 
-    ConfigStatusEnum(String code,String desc) {
+    ConfigStatusEnum(String code, String desc) {
         this.code = code;
         this.desc = desc;
     }

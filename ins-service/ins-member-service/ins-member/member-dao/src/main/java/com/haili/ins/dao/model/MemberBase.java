@@ -3,6 +3,7 @@ package com.haili.ins.dao.model;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -22,7 +23,7 @@ public class MemberBase implements Serializable {
 
     /**
      * 用户名
-     *
+     * <p>
      * Table:     t_member_base
      * Column:    REG_ACCOUNT
      * Nullable:  true
@@ -32,7 +33,7 @@ public class MemberBase implements Serializable {
 
     /**
      * 用户名掩码
-     *
+     * <p>
      * Table:     t_member_base
      * Column:    REG_ACCOUNT_MASK
      * Nullable:  true
@@ -42,7 +43,7 @@ public class MemberBase implements Serializable {
 
     /**
      * 会员类型
-     *
+     * <p>
      * Table:     t_member_base
      * Column:    MEMBER_TYPE
      * Nullable:  true
@@ -52,7 +53,7 @@ public class MemberBase implements Serializable {
 
     /**
      * 会员等级
-     *
+     * <p>
      * Table:     t_member_base
      * Column:    MEMBER_LEVEL
      * Nullable:  true
@@ -62,7 +63,7 @@ public class MemberBase implements Serializable {
 
     /**
      * 会员成长值
-     *
+     * <p>
      * Table:     t_member_base
      * Column:    MEMBER_GROW_VALUE
      * Nullable:  true
@@ -72,7 +73,7 @@ public class MemberBase implements Serializable {
 
     /**
      * 会员风险等级
-     *
+     * <p>
      * Table:     t_member_base
      * Column:    RISK_LEVEL
      * Nullable:  true
@@ -82,7 +83,7 @@ public class MemberBase implements Serializable {
 
     /**
      * 积分
-     *
+     * <p>
      * Table:     t_member_base
      * Column:    POINT
      * Nullable:  true
@@ -92,7 +93,7 @@ public class MemberBase implements Serializable {
 
     /**
      * 状态
-     *
+     * <p>
      * Table:     t_member_base
      * Column:    STATUS
      * Nullable:  true
@@ -102,7 +103,7 @@ public class MemberBase implements Serializable {
 
     /**
      * 交易状态
-     *
+     * <p>
      * Table:     t_member_base
      * Column:    TXN_STATUS
      * Nullable:  true
@@ -112,7 +113,7 @@ public class MemberBase implements Serializable {
 
     /**
      * 头像设置状态
-     *
+     * <p>
      * Table:     t_member_base
      * Column:    HEADER_FLAG
      * Nullable:  true
@@ -122,7 +123,7 @@ public class MemberBase implements Serializable {
 
     /**
      * 是否设置过用户名
-     *
+     * <p>
      * Table:     t_member_base
      * Column:    USER_NAME_FLAG
      * Nullable:  true
@@ -220,7 +221,7 @@ public class MemberBase implements Serializable {
 
     /**
      * 营销来源
-     *
+     * <p>
      * Table:     t_member_base
      * Column:    SOURCE_CODE
      * Nullable:  true

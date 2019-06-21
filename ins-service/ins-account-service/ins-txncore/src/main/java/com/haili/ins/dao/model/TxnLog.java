@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -23,7 +24,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 系统跟踪号
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    SYS_TRACE_NO
      * Nullable:  false
@@ -33,7 +34,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 交易开始时间
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    TXN_TIME_FROM
      * Nullable:  true
@@ -43,7 +44,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 交易完成时间
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    TXN_TIME_TO
      * Nullable:  true
@@ -53,7 +54,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 服务号
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    SERVICE_CODE
      * Nullable:  true
@@ -63,11 +64,11 @@ public class TxnLog implements Serializable {
 
     /**
      * 0-处理中
-            1-成功
-            2-失败
-            3-滞留
-            4-超时
-     *
+     * 1-成功
+     * 2-失败
+     * 3-滞留
+     * 4-超时
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    TXN_STATUS
      * Nullable:  true
@@ -77,7 +78,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 交易号
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    TXN_CODE
      * Nullable:  true
@@ -87,7 +88,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 返回码
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    RESP_CODE
      * Nullable:  true
@@ -97,7 +98,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 业务流水号
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    BUS_SEQ_NO
      * Nullable:  true
@@ -107,7 +108,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 转出会员号
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    OUT_CUSTMER_CODE
      * Nullable:  true
@@ -117,7 +118,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 转入会员号
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    IN_CUSTMER_CODE
      * Nullable:  true
@@ -127,7 +128,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 机构号
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    ORG_CODE
      * Nullable:  true
@@ -137,7 +138,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 支付机构号-支付渠道
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    PAY_ORG_CODE
      * Nullable:  true
@@ -147,7 +148,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 支付机构流水号
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    PAY_ORG_SEQ_NO
      * Nullable:  true
@@ -157,7 +158,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 订单金额
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    ORDER_AMOUNT
      * Nullable:  true
@@ -167,7 +168,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 交易金额
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    TXN_AMOUNT
      * Nullable:  true
@@ -177,7 +178,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 156-人民币
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    CURRENCY_CODE
      * Nullable:  true
@@ -187,7 +188,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 手续费
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    FEE_AMT
      * Nullable:  true
@@ -197,7 +198,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 分润费
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    PROFIT_AMT
      * Nullable:  true
@@ -207,7 +208,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 利息
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    INTEREST_AMT
      * Nullable:  true
@@ -217,7 +218,7 @@ public class TxnLog implements Serializable {
 
     /**
      * 溢价
-     *
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    PREMIUM_AMT
      * Nullable:  true
@@ -227,8 +228,8 @@ public class TxnLog implements Serializable {
 
     /**
      * 1-参与
-            0-不参与
-     *
+     * 0-不参与
+     * <p>
      * Table:     T_TXN_LOG
      * Column:    IS_CLEARING
      * Nullable:  true

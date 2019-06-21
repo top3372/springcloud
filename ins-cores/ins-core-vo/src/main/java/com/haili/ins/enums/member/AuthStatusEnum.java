@@ -7,9 +7,9 @@ package com.haili.ins.enums.member;
  */
 public enum AuthStatusEnum {
 
-    AUTH_WAIT("0","待验证"),
-    AUTH_SUCCESS("1","验证通过"),
-    AUTH_FAIL("2","验证失败"),
+    AUTH_WAIT("0", "待验证"),
+    AUTH_SUCCESS("1", "验证通过"),
+    AUTH_FAIL("2", "验证失败"),
     ;
 
     private String code;
@@ -18,17 +18,20 @@ public enum AuthStatusEnum {
     public String getCode() {
         return code;
     }
+
     public void setCode(String code) {
         this.code = code;
     }
+
     public String getDesc() {
         return desc;
     }
+
     public void setDesc(String desc) {
         this.desc = desc;
     }
 
-    AuthStatusEnum(String code,String desc) {
+    AuthStatusEnum(String code, String desc) {
         this.code = code;
         this.desc = desc;
     }

@@ -23,16 +23,17 @@ public class MaskUtil {
 
     /**
      * 获得银行卡号和身份证号掩码
-     * @Title: getMask
-     * @Description: TODO
+     *
      * @param number
      * @param maskType
      * @return
+     * @Title: getMask
+     * @Description: TODO
      * @author: sjc
      * @date: 2017年4月19日 下午2:54:01
      */
     public static String getMask(String number, String maskType) {
-        if(number == null || number.equals("")){
+        if (number == null || number.equals("")) {
             return "";
         }
         int starCount;

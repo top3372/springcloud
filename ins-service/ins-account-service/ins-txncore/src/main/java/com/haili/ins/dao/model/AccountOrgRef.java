@@ -2,6 +2,7 @@ package com.haili.ins.dao.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -36,8 +37,8 @@ public class AccountOrgRef implements Serializable {
 
     /**
      * 账户类型：
-            
-     *
+     * <p>
+     * <p>
      * Table:     T_ACCOUNT_ORG_REF
      * Column:    ACCOUNT_TYPE
      * Nullable:  true
@@ -47,9 +48,9 @@ public class AccountOrgRef implements Serializable {
 
     /**
      * 绑定标志
-            0-解绑
-            1-绑定
-     *
+     * 0-解绑
+     * 1-绑定
+     * <p>
      * Table:     T_ACCOUNT_ORG_REF
      * Column:    IS_BINDING
      * Nullable:  true

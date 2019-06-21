@@ -3,6 +3,7 @@ package com.haili.ins.dao.model;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -13,7 +14,7 @@ import lombok.Data;
 public class SysUser implements Serializable {
     /**
      * 用户ID
-     *
+     * <p>
      * Table:     sys_user
      * Column:    user_id
      * Nullable:  false
@@ -25,7 +26,7 @@ public class SysUser implements Serializable {
 
     /**
      * 部门ID
-     *
+     * <p>
      * Table:     sys_user
      * Column:    dept_id
      * Nullable:  true
@@ -35,7 +36,7 @@ public class SysUser implements Serializable {
 
     /**
      * 登录账号
-     *
+     * <p>
      * Table:     sys_user
      * Column:    login_name
      * Nullable:  false
@@ -45,7 +46,7 @@ public class SysUser implements Serializable {
 
     /**
      * 用户昵称
-     *
+     * <p>
      * Table:     sys_user
      * Column:    user_name
      * Nullable:  false
@@ -55,7 +56,7 @@ public class SysUser implements Serializable {
 
     /**
      * 用户类型（00系统用户）
-     *
+     * <p>
      * Table:     sys_user
      * Column:    user_type
      * Nullable:  true
@@ -65,7 +66,7 @@ public class SysUser implements Serializable {
 
     /**
      * 用户邮箱
-     *
+     * <p>
      * Table:     sys_user
      * Column:    email
      * Nullable:  true
@@ -75,7 +76,7 @@ public class SysUser implements Serializable {
 
     /**
      * 手机号码
-     *
+     * <p>
      * Table:     sys_user
      * Column:    phone
      * Nullable:  true
@@ -85,7 +86,7 @@ public class SysUser implements Serializable {
 
     /**
      * 用户性别（0男 1女 2未知）
-     *
+     * <p>
      * Table:     sys_user
      * Column:    sex
      * Nullable:  true
@@ -95,7 +96,7 @@ public class SysUser implements Serializable {
 
     /**
      * 头像路径
-     *
+     * <p>
      * Table:     sys_user
      * Column:    avatar
      * Nullable:  true
@@ -105,7 +106,7 @@ public class SysUser implements Serializable {
 
     /**
      * 密码
-     *
+     * <p>
      * Table:     sys_user
      * Column:    password
      * Nullable:  true
@@ -115,7 +116,7 @@ public class SysUser implements Serializable {
 
     /**
      * 盐加密
-     *
+     * <p>
      * Table:     sys_user
      * Column:    salt
      * Nullable:  true
@@ -125,7 +126,7 @@ public class SysUser implements Serializable {
 
     /**
      * 帐号状态（0正常 1停用）
-     *
+     * <p>
      * Table:     sys_user
      * Column:    status
      * Nullable:  true
@@ -135,7 +136,7 @@ public class SysUser implements Serializable {
 
     /**
      * 删除标志（0代表存在 2代表删除）
-     *
+     * <p>
      * Table:     sys_user
      * Column:    del_flag
      * Nullable:  true
@@ -145,7 +146,7 @@ public class SysUser implements Serializable {
 
     /**
      * 最后登陆IP
-     *
+     * <p>
      * Table:     sys_user
      * Column:    login_ip
      * Nullable:  true
@@ -155,7 +156,7 @@ public class SysUser implements Serializable {
 
     /**
      * 最后登陆时间
-     *
+     * <p>
      * Table:     sys_user
      * Column:    login_date
      * Nullable:  true
@@ -165,7 +166,7 @@ public class SysUser implements Serializable {
 
     /**
      * 创建者
-     *
+     * <p>
      * Table:     sys_user
      * Column:    create_by
      * Nullable:  true
@@ -175,7 +176,7 @@ public class SysUser implements Serializable {
 
     /**
      * 创建时间
-     *
+     * <p>
      * Table:     sys_user
      * Column:    create_time
      * Nullable:  true
@@ -185,7 +186,7 @@ public class SysUser implements Serializable {
 
     /**
      * 更新者
-     *
+     * <p>
      * Table:     sys_user
      * Column:    update_by
      * Nullable:  true
@@ -195,7 +196,7 @@ public class SysUser implements Serializable {
 
     /**
      * 更新时间
-     *
+     * <p>
      * Table:     sys_user
      * Column:    update_time
      * Nullable:  true
@@ -205,7 +206,7 @@ public class SysUser implements Serializable {
 
     /**
      * 备注
-     *
+     * <p>
      * Table:     sys_user
      * Column:    remark
      * Nullable:  true

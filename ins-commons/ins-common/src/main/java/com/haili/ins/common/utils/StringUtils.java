@@ -132,8 +132,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
      * @param object Object
      * @return true：为空 false：非空
      */
-    public static boolean isNull(Object object)
-    {
+    public static boolean isNull(Object object) {
         return object == null;
     }
 
@@ -143,8 +142,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
      * @param object Object
      * @return true：非空 false：空
      */
-    public static boolean isNotNull(Object object)
-    {
+    public static boolean isNotNull(Object object) {
         return !isNull(object);
     }
 }

@@ -13,18 +13,15 @@ import org.springframework.transaction.annotation.Transactional;
 public class MemberService {
 
 
-
     /**
      * 绑定手机号
+     *
      * @param memberInfo
      */
-    @Transactional(propagation= Propagation.REQUIRES_NEW,rollbackFor = ServiceException.class)
-    public void bindMobile(MemberInfo memberInfo){
+    @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = ServiceException.class)
+    public void bindMobile(MemberInfo memberInfo) {
 
     }
-
-
-
 
 
 }

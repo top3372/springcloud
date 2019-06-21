@@ -24,7 +24,8 @@ public class MgmLogListener implements SmartApplicationListener {
     private MgmLogService mgmLogService;
 
     /**
-     *  该方法返回true&supportsSourceType同样返回true时，才会调用该监听内的onApplicationEvent方法
+     * 该方法返回true&supportsSourceType同样返回true时，才会调用该监听内的onApplicationEvent方法
+     *
      * @param aClass 接收到的监听事件类型
      * @return
      */
@@ -35,7 +36,8 @@ public class MgmLogListener implements SmartApplicationListener {
     }
 
     /**
-     *  该方法返回true&supportsEventType同样返回true时，才会调用该监听内的onApplicationEvent方法
+     * 该方法返回true&supportsEventType同样返回true时，才会调用该监听内的onApplicationEvent方法
+     *
      * @param aClass
      * @return
      */
@@ -46,7 +48,8 @@ public class MgmLogListener implements SmartApplicationListener {
     }
 
     /**
-     *  supportsEventType & supportsSourceType 两个方法返回true时调用该方法执行业务逻辑
+     * supportsEventType & supportsSourceType 两个方法返回true时调用该方法执行业务逻辑
+     *
      * @param applicationEvent 具体监听实例，这里是MemberRegisterEvent
      */
     @Override
@@ -65,6 +68,7 @@ public class MgmLogListener implements SmartApplicationListener {
 
     /**
      * 同步情况下监听执行的顺序
+     *
      * @return
      */
     @Override

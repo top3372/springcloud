@@ -6,9 +6,9 @@ package com.haili.ins.enums.member;
  * @Version 1.0
  */
 public enum IdentityAuthTypeEnum {
-    IDENTITY("1","实名认证"),
-    BANK_VERIFY("2","银行卡认证"),
-    OCR_VERIFY("3","人脸识别认证"),
+    IDENTITY("1", "实名认证"),
+    BANK_VERIFY("2", "银行卡认证"),
+    OCR_VERIFY("3", "人脸识别认证"),
 
     ;
     private String code;
@@ -17,12 +17,15 @@ public enum IdentityAuthTypeEnum {
     public String getCode() {
         return code;
     }
+
     public void setCode(String code) {
         this.code = code;
     }
+
     public String getDesc() {
         return desc;
     }
+
     public void setDesc(String desc) {
         this.desc = desc;
     }

@@ -58,17 +58,17 @@ public class ErrorFilter extends ZuulFilter {
                 WebUtils.renderJson(ctx.getResponse(), new ResultInfo(String.valueOf(HttpStatus.BAD_REQUEST.value()),
                         zuulException.getMessage(), zuulException.getCause().getMessage()));
 
-            }else{
+            } else {
                 Exception exception = (Exception) e;
                 ((Exception) e).printStackTrace();
                 WebUtils.renderJson(ctx.getResponse(), new ResultInfo(String.valueOf(HttpStatus.NOT_FOUND.value()),
-                        exception.getMessage(),exception.getCause().getMessage()));
+                        exception.getMessage(), exception.getCause().getMessage()));
             }
         } catch (Exception ex) {
             String error = "Error during filtering[ErrorFilter]";
             log.error("Exception filtering in custom error filter", ex);
             ReflectionUtils.rethrowRuntimeException(ex);
-            WebUtils.renderJson(ctx.getResponse(), new ResultInfo(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()), error,error));
+            WebUtils.renderJson(ctx.getResponse(), new ResultInfo(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()), error, error));
         }
         return null;
     }

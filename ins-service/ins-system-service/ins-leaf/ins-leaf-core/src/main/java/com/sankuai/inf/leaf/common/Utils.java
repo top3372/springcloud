@@ -7,12 +7,13 @@ import java.net.InetAddress;
 
 public class Utils {
     private static final Logger logger = LoggerFactory.getLogger(Utils.class);
+
     public static String getIp() {
         String ip;
         try {
             InetAddress addr = InetAddress.getLocalHost();
             ip = addr.getHostAddress();
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             ip = "";
             logger.warn("Utils get IP warn", ex);
         }

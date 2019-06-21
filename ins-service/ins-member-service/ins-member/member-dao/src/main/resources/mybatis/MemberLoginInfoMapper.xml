@@ -1,40 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haili.ins.dao.mapper.MemberLoginInfoMapper">
-  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.MemberLoginInfo">
-    <id column="ID" jdbcType="VARCHAR" property="id" />
-    <result column="MEMBER_ID" jdbcType="VARCHAR" property="memberId" />
-    <result column="LOGIN_TYPE" jdbcType="VARCHAR" property="loginType" />
-    <result column="THIRD_SOURCE_CODE" jdbcType="VARCHAR" property="thirdSourceCode" />
-    <result column="LOGIN_NAME_TYPE" jdbcType="VARCHAR" property="loginNameType" />
-    <result column="LOGIN_NAME" jdbcType="VARCHAR" property="loginName" />
-    <result column="LOGIN_PWD_TYPE" jdbcType="VARCHAR" property="loginPwdType" />
-    <result column="LOGIN_PWD" jdbcType="VARCHAR" property="loginPwd" />
-    <result column="LOGIN_PWD_STRENGTH" jdbcType="VARCHAR" property="loginPwdStrength" />
-    <result column="LOGIN_STATUS" jdbcType="VARCHAR" property="loginStatus" />
-    <result column="LAST_LOGIN_TIME" jdbcType="TIMESTAMP" property="lastLoginTime" />
-    <result column="LAST_LOGIN_IP" jdbcType="VARCHAR" property="lastLoginIp" />
-    <result column="LAST_LOGIN_FAIL_TIME" jdbcType="TIMESTAMP" property="lastLoginFailTime" />
-    <result column="FAIL_TIMES" jdbcType="VARCHAR" property="failTimes" />
-    <result column="LOCK_DATE" jdbcType="DATE" property="lockDate" />
-    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
-    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
-    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
-    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    ID, MEMBER_ID, LOGIN_TYPE, THIRD_SOURCE_CODE, LOGIN_NAME_TYPE, LOGIN_NAME, LOGIN_PWD_TYPE, 
-    LOGIN_PWD, LOGIN_PWD_STRENGTH, LOGIN_STATUS, LAST_LOGIN_TIME, LAST_LOGIN_IP, LAST_LOGIN_FAIL_TIME, 
-    FAIL_TIMES, LOCK_DATE, CREATE_DATE, CREATE_BY, UPDATE_DATE, UPDATE_BY
-  </sql>
-  
-  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-01 00:42:55 ### -->
+    <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.MemberLoginInfo">
+        <id column="ID" jdbcType="VARCHAR" property="id"/>
+        <result column="MEMBER_ID" jdbcType="VARCHAR" property="memberId"/>
+        <result column="LOGIN_TYPE" jdbcType="VARCHAR" property="loginType"/>
+        <result column="THIRD_SOURCE_CODE" jdbcType="VARCHAR" property="thirdSourceCode"/>
+        <result column="LOGIN_NAME_TYPE" jdbcType="VARCHAR" property="loginNameType"/>
+        <result column="LOGIN_NAME" jdbcType="VARCHAR" property="loginName"/>
+        <result column="LOGIN_PWD_TYPE" jdbcType="VARCHAR" property="loginPwdType"/>
+        <result column="LOGIN_PWD" jdbcType="VARCHAR" property="loginPwd"/>
+        <result column="LOGIN_PWD_STRENGTH" jdbcType="VARCHAR" property="loginPwdStrength"/>
+        <result column="LOGIN_STATUS" jdbcType="VARCHAR" property="loginStatus"/>
+        <result column="LAST_LOGIN_TIME" jdbcType="TIMESTAMP" property="lastLoginTime"/>
+        <result column="LAST_LOGIN_IP" jdbcType="VARCHAR" property="lastLoginIp"/>
+        <result column="LAST_LOGIN_FAIL_TIME" jdbcType="TIMESTAMP" property="lastLoginFailTime"/>
+        <result column="FAIL_TIMES" jdbcType="VARCHAR" property="failTimes"/>
+        <result column="LOCK_DATE" jdbcType="DATE" property="lockDate"/>
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy"/>
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate"/>
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        ID, MEMBER_ID, LOGIN_TYPE, THIRD_SOURCE_CODE, LOGIN_NAME_TYPE, LOGIN_NAME, LOGIN_PWD_TYPE,
+        LOGIN_PWD, LOGIN_PWD_STRENGTH, LOGIN_STATUS, LAST_LOGIN_TIME, LAST_LOGIN_IP, LAST_LOGIN_FAIL_TIME,
+        FAIL_TIMES, LOCK_DATE, CREATE_DATE, CREATE_BY, UPDATE_DATE, UPDATE_BY
+    </sql>
+
+    <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-01 00:42:55 ### -->
 
 
+    <!-- Your codes goes start here!!! -->
 
-  <!-- Your codes goes start here!!! -->
-  
 </mapper>

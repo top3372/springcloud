@@ -38,19 +38,17 @@ public abstract class AbstractRegisterService {
     protected LeafIdFeign leafIdFeign;
 
     /**
-     *
      * @param registerRequest
      */
-    public abstract  void registerBefore(RegisterRequest registerRequest);
+    public abstract void registerBefore(RegisterRequest registerRequest);
 
     /**
-     *
      * @param registerRequest
      */
     public abstract void registerAfter(RegisterRequest registerRequest);
 
-    @Transactional(propagation= Propagation.REQUIRES_NEW,rollbackFor = ServiceException.class)
-    public MemberInfo register(RegisterRequest registerRequest){
+    @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = ServiceException.class)
+    public MemberInfo register(RegisterRequest registerRequest) {
         registerBefore(registerRequest);
         //生成分布式唯一id
         String memberId = leafIdFeign.getSnowflakeID("member");
@@ -64,10 +62,10 @@ public abstract class AbstractRegisterService {
         memberInfo.setUserName(userName);
         memberInfo.setUserNameMask(userNameMask);
 
-        if(RegexUtil.match(RegexConstant.MOBILE_REGEX, registerRequest.getRegisterName())) {
+        if (RegexUtil.match(RegexConstant.MOBILE_REGEX, registerRequest.getRegisterName())) {
             memberInfo.setMobile(registerRequest.getRegisterName());
             memberInfo.setMobileMask(SecurityUtil.hidePhone(registerRequest.getRegisterName()));
-        }else if(RegexUtil.match(RegexConstant.EMAIL_REGEX, registerRequest.getRegisterName())) {
+        } else if (RegexUtil.match(RegexConstant.EMAIL_REGEX, registerRequest.getRegisterName())) {
             memberInfo.setEmail(registerRequest.getRegisterName());
             memberInfo.setEmailMask(SecurityUtil.hideEmail(registerRequest.getRegisterName()));
         }
@@ -100,10 +98,10 @@ public abstract class AbstractRegisterService {
         memberBase.setTxnStatus(TxnStatusEnum.TXN_STATUS_NORMAL.getCode());
         memberBase.setHeaderFlag(ConfigStatusEnum.NO_SET.getCode());
 
-        if(RegexUtil.match(RegexConstant.MOBILE_REGEX, registerRequest.getRegisterName())) {
+        if (RegexUtil.match(RegexConstant.MOBILE_REGEX, registerRequest.getRegisterName())) {
             memberBase.setMobile(registerRequest.getRegisterName());
             memberBase.setMobileMask(SecurityUtil.hidePhone(registerRequest.getRegisterName()));
-        }else if(RegexUtil.match(RegexConstant.EMAIL_REGEX, registerRequest.getRegisterName())) {
+        } else if (RegexUtil.match(RegexConstant.EMAIL_REGEX, registerRequest.getRegisterName())) {
             memberBase.setEmail(registerRequest.getRegisterName());
             memberBase.setEmailMask(SecurityUtil.hideEmail(registerRequest.getRegisterName()));
         }
@@ -132,7 +130,7 @@ public abstract class AbstractRegisterService {
         memberLoginInfo.setLoginNameType(registerRequest.getRegisterNameType());
 
         memberLoginInfo.setLoginName(registerRequest.getRegisterName());
-       //memberLoginInfo.setLoginPwdType();
+        //memberLoginInfo.setLoginPwdType();
         memberLoginInfo.setLoginPwd(registerRequest.getPassWord());
 //        memberLoginInfo.setLoginPwdStrength();
 
@@ -141,7 +139,6 @@ public abstract class AbstractRegisterService {
 //        memberLoginInfo.setCreateBy(copy.getCreateBy());
 //        memberLoginInfo.setUpdateDate(copy.getUpdateDate());
 //        memberLoginInfo.setUpdateBy(copy.getUpdateBy());
-
 
 
 //        账户前置-开户
@@ -154,7 +151,7 @@ public abstract class AbstractRegisterService {
     }
 
 
-    public void addRegLog(RegisterRequest registerRequest){
+    public void addRegLog(RegisterRequest registerRequest) {
         MemberRegLog memberRegLog = new MemberRegLog();
 
 

@@ -1,104 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haili.ins.dao.mapper.AccAccountEntryHisMapper">
-  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.AccAccountEntryHis">
-    <id column="ENTRY_SEQ_NO" jdbcType="VARCHAR" property="entrySeqNo" />
-    
-    <!-- 系统跟踪号 -->
-    <result column="SYS_TRACE_NO" jdbcType="VARCHAR" property="sysTraceNo" />
-    
-    <!-- 套号 -->
-    <result column="SUITE_NO" jdbcType="VARCHAR" property="suiteNo" />
-    
-    <!-- 账户号 -->
-    <result column="ACCOUNT_NO" jdbcType="VARCHAR" property="accountNo" />
-    
-    <!-- 科目号 -->
-    <result column="TITLE_NO" jdbcType="VARCHAR" property="titleNo" />
-    
-    <!-- 分录账务类型：
-            0:表内分录
-            1:表外分录 -->
-    <result column="ENTRY_TYPE" jdbcType="CHAR" property="entryType" />
-    
-    <!-- 分录标志位：
-            第一位：自动手工标志
-            0:自动
-            1:手工 -->
-    <result column="ENTRY_BIT_MAP" jdbcType="VARCHAR" property="entryBitMap" />
-    
-    <!-- 交易币种 -->
-    <result column="TXN_CURRENCY" jdbcType="VARCHAR" property="txnCurrency" />
-    
-    <!-- 金额 -->
-    <result column="AMOUNT" jdbcType="DECIMAL" property="amount" />
-    
-    <!-- 交易类型：
-            0-正常
-            1-红字
-            2-蓝字
-             -->
-    <result column="TXN_TYPE" jdbcType="CHAR" property="txnType" />
-    
-    <!-- 借贷方向：
-            D:借
-            C:贷 -->
-    <result column="DIRECTION" jdbcType="CHAR" property="direction" />
-    
-    <!-- 状态标识位：
-            第一位：红字标识
-            0-未红字
-            1-已红字
-            第二位：蓝字标识
-            0-未蓝字
-            1-已蓝字 -->
-    <result column="STATUS_MAP" jdbcType="VARCHAR" property="statusMap" />
-    
-    <!-- 记账日期 -->
-    <result column="CLEAR_DATE" jdbcType="DATE" property="clearDate" />
-    
-    <!-- 创建时间 -->
-    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
-    
-    <!-- 余额修改时间 -->
-    <result column="BAL_UPDATE_TIME" jdbcType="TIMESTAMP" property="balUpdateTime" />
-    
-    <!-- 备注 -->
-    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
-    
-    <!-- 是否缓冲入账：
-            0:未缓冲 
-            1:缓冲 -->
-    <result column="IS_BUFFER" jdbcType="CHAR" property="isBuffer" />
-    
-    <!-- 原分录流水号 -->
-    <result column="OLD_ENTRY_SEQ_NO" jdbcType="VARCHAR" property="oldEntrySeqNo" />
-    
-    <!-- 预留金额字段1 -->
-    <result column="RSVD_AMT1" jdbcType="DECIMAL" property="rsvdAmt1" />
-    
-    <!-- 预留金额字段2 -->
-    <result column="RSVD_AMT2" jdbcType="DECIMAL" property="rsvdAmt2" />
-    
-    <!-- 预留文本字段1 -->
-    <result column="RSVD_TEXT1" jdbcType="VARCHAR" property="rsvdText1" />
-    
-    <!-- 预留文本字段2 -->
-    <result column="RSVD_TEXT2" jdbcType="VARCHAR" property="rsvdText2" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    ENTRY_SEQ_NO, SYS_TRACE_NO, SUITE_NO, ACCOUNT_NO, TITLE_NO, ENTRY_TYPE, ENTRY_BIT_MAP, 
-    TXN_CURRENCY, AMOUNT, TXN_TYPE, DIRECTION, STATUS_MAP, CLEAR_DATE, CREATE_TIME, BAL_UPDATE_TIME, 
-    REMARK, IS_BUFFER, OLD_ENTRY_SEQ_NO, RSVD_AMT1, RSVD_AMT2, RSVD_TEXT1, RSVD_TEXT2
-  </sql>
-  
-  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-08 15:00:32 ### -->
+    <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.AccAccountEntryHis">
+        <id column="ENTRY_SEQ_NO" jdbcType="VARCHAR" property="entrySeqNo"/>
+
+        <!-- 系统跟踪号 -->
+        <result column="SYS_TRACE_NO" jdbcType="VARCHAR" property="sysTraceNo"/>
+
+        <!-- 套号 -->
+        <result column="SUITE_NO" jdbcType="VARCHAR" property="suiteNo"/>
+
+        <!-- 账户号 -->
+        <result column="ACCOUNT_NO" jdbcType="VARCHAR" property="accountNo"/>
+
+        <!-- 科目号 -->
+        <result column="TITLE_NO" jdbcType="VARCHAR" property="titleNo"/>
+
+        <!-- 分录账务类型：
+                0:表内分录
+                1:表外分录 -->
+        <result column="ENTRY_TYPE" jdbcType="CHAR" property="entryType"/>
+
+        <!-- 分录标志位：
+                第一位：自动手工标志
+                0:自动
+                1:手工 -->
+        <result column="ENTRY_BIT_MAP" jdbcType="VARCHAR" property="entryBitMap"/>
+
+        <!-- 交易币种 -->
+        <result column="TXN_CURRENCY" jdbcType="VARCHAR" property="txnCurrency"/>
+
+        <!-- 金额 -->
+        <result column="AMOUNT" jdbcType="DECIMAL" property="amount"/>
+
+        <!-- 交易类型：
+                0-正常
+                1-红字
+                2-蓝字
+                 -->
+        <result column="TXN_TYPE" jdbcType="CHAR" property="txnType"/>
+
+        <!-- 借贷方向：
+                D:借
+                C:贷 -->
+        <result column="DIRECTION" jdbcType="CHAR" property="direction"/>
+
+        <!-- 状态标识位：
+                第一位：红字标识
+                0-未红字
+                1-已红字
+                第二位：蓝字标识
+                0-未蓝字
+                1-已蓝字 -->
+        <result column="STATUS_MAP" jdbcType="VARCHAR" property="statusMap"/>
+
+        <!-- 记账日期 -->
+        <result column="CLEAR_DATE" jdbcType="DATE" property="clearDate"/>
+
+        <!-- 创建时间 -->
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+
+        <!-- 余额修改时间 -->
+        <result column="BAL_UPDATE_TIME" jdbcType="TIMESTAMP" property="balUpdateTime"/>
+
+        <!-- 备注 -->
+        <result column="REMARK" jdbcType="VARCHAR" property="remark"/>
+
+        <!-- 是否缓冲入账：
+                0:未缓冲
+                1:缓冲 -->
+        <result column="IS_BUFFER" jdbcType="CHAR" property="isBuffer"/>
+
+        <!-- 原分录流水号 -->
+        <result column="OLD_ENTRY_SEQ_NO" jdbcType="VARCHAR" property="oldEntrySeqNo"/>
+
+        <!-- 预留金额字段1 -->
+        <result column="RSVD_AMT1" jdbcType="DECIMAL" property="rsvdAmt1"/>
+
+        <!-- 预留金额字段2 -->
+        <result column="RSVD_AMT2" jdbcType="DECIMAL" property="rsvdAmt2"/>
+
+        <!-- 预留文本字段1 -->
+        <result column="RSVD_TEXT1" jdbcType="VARCHAR" property="rsvdText1"/>
+
+        <!-- 预留文本字段2 -->
+        <result column="RSVD_TEXT2" jdbcType="VARCHAR" property="rsvdText2"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        ENTRY_SEQ_NO, SYS_TRACE_NO, SUITE_NO, ACCOUNT_NO, TITLE_NO, ENTRY_TYPE, ENTRY_BIT_MAP,
+        TXN_CURRENCY, AMOUNT, TXN_TYPE, DIRECTION, STATUS_MAP, CLEAR_DATE, CREATE_TIME, BAL_UPDATE_TIME,
+        REMARK, IS_BUFFER, OLD_ENTRY_SEQ_NO, RSVD_AMT1, RSVD_AMT2, RSVD_TEXT1, RSVD_TEXT2
+    </sql>
+
+    <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-08 15:00:32 ### -->
 
 
+    <!-- Your codes goes start here!!! -->
 
-  <!-- Your codes goes start here!!! -->
-  
 </mapper>

@@ -13,7 +13,7 @@
     <groupId>com.haili.ins.service.system.leaf</groupId>
     <artifactId>ins-leaf</artifactId>
     <version>1.0-SNAPSHOT</version>
-   <packaging>pom</packaging>
+    <packaging>pom</packaging>
     <modules>
         <module>ins-leaf-core</module>
         <module>ins-leaf-service</module>

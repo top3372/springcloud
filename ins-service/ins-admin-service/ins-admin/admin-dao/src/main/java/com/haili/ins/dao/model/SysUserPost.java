@@ -2,6 +2,7 @@ package com.haili.ins.dao.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 import lombok.Data;
 
 @Table(name = "`sys_user_post`")
@@ -9,7 +10,7 @@ import lombok.Data;
 public class SysUserPost implements Serializable {
     /**
      * 用户ID
-     *
+     * <p>
      * Table:     sys_user_post
      * Column:    user_id
      * Nullable:  false
@@ -20,7 +21,7 @@ public class SysUserPost implements Serializable {
 
     /**
      * 岗位ID
-     *
+     * <p>
      * Table:     sys_user_post
      * Column:    post_id
      * Nullable:  false

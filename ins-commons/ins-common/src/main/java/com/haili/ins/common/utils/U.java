@@ -14,7 +14,9 @@ import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.regex.Pattern;
 
-/** 工具类 */
+/**
+ * 工具类
+ */
 public final class U {
 
     public static final Charset UTF8 = StandardCharsets.UTF_8;
@@ -24,23 +26,37 @@ public final class U {
     public static final String SPLIT = ",|，";
 
     private static final String LIKE = "%";
-    /** 只验证位数, 因为手机号码经常会变化 */
+    /**
+     * 只验证位数, 因为手机号码经常会变化
+     */
     private static final String PHONE = "^1([0-9]{10})$";
-    /** _abc-def@123-hij.uvw_xyz.com 是正确的, -123@xyz.com 不是 */
+    /**
+     * _abc-def@123-hij.uvw_xyz.com 是正确的, -123@xyz.com 不是
+     */
     private static final String EMAIL = "^\\w[\\w\\-]*@([\\w\\-]+\\.\\w+)+$";
-    /** ico, jpeg, jpg, bmp, png 后缀 */
+    /**
+     * ico, jpeg, jpg, bmp, png 后缀
+     */
     private static final String IMAGE = "(?i)^(.*)\\.(ico|jpeg|jpg|bmp|png)$";
-    /** IPv4 地址 */
+    /**
+     * IPv4 地址
+     */
     private static final String IPV4 = "^([01]?[0-9]{1,2}|2[0-4][0-9]|25[0-5])(\\.([01]?[0-9]{1,2}|2[0-4][0-9]|25[0-5])){3}$";
-    /** 身份证号码 */
+    /**
+     * 身份证号码
+     */
     private static final String ID_CARD = "^([0-9]{15}|[0-9]{17}[0-9Xx])$";
 
-    /** 中文 */
+    /**
+     * 中文
+     */
     private static final String CHINESE = "[\\u4e00-\\u9fa5]";
 
     private static final String LOCAL = "127.0.0.1,localhost,::1";
 
-    /** 生成指定位数的随机数 */
+    /**
+     * 生成指定位数的随机数
+     */
     public static String random(int length) {
         if (length <= 0) {
             return EMPTY;
@@ -52,7 +68,9 @@ public final class U {
         }
         return sbd.toString();
     }
+
     private static final String TMP = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
     public static String randomLetterAndNumber(int length) {
         if (length <= 0) {
             return EMPTY;
@@ -66,31 +84,46 @@ public final class U {
     }
 
 
-    /** 传入的数不为 null 且 大于 0 就返回 true */
+    /**
+     * 传入的数不为 null 且 大于 0 就返回 true
+     */
     public static boolean greater0(Number obj) {
         return obj != null && obj.doubleValue() > 0;
     }
-    /** 传入的数为 null 或 小于等于 0 就返回 true */
+
+    /**
+     * 传入的数为 null 或 小于等于 0 就返回 true
+     */
     public static boolean less0(Number obj) {
         return obj == null || obj.doubleValue() <= 0;
     }
-    /** 数值在指定的数区间时(包含边界)返回 true */
+
+    /**
+     * 数值在指定的数区间时(包含边界)返回 true
+     */
     public static boolean betweenBorder(Number num, Number min, Number max) {
         return num.doubleValue() >= min.doubleValue() && num.doubleValue() <= max.doubleValue();
     }
 
 
-    /** 对象为 null, 或者其字符串形态为 空白符, "null" 时返回 true */
+    /**
+     * 对象为 null, 或者其字符串形态为 空白符, "null" 时返回 true
+     */
     public static boolean isBlank(Object obj) {
         return obj == null || StringUtils.isBlank(obj.toString()) || "null".equalsIgnoreCase(obj.toString().trim());
     }
-    /** 对象非空时返回 true */
+
+    /**
+     * 对象非空时返回 true
+     */
     public static boolean isNotBlank(Object obj) {
         return !isBlank(obj);
     }
 
 
-    /** 将字符串中指定位数的值模糊成 * 并返回. 索引位从 0 开始 */
+    /**
+     * 将字符串中指定位数的值模糊成 * 并返回. 索引位从 0 开始
+     */
     public static String foggy(String param, int start, int end) {
         if (isBlank(param)) {
             return EMPTY;
@@ -106,9 +139,11 @@ public final class U {
     public static String like(String param) {
         return isBlank(param) ? U.EMPTY : LIKE + param + LIKE;
     }
+
     public static String leftLike(String param) {
         return isBlank(param) ? U.EMPTY : LIKE + param;
     }
+
     public static String rightLike(String param) {
         return isBlank(param) ? U.EMPTY : param + LIKE;
     }
@@ -116,7 +151,7 @@ public final class U {
 
     /**
      * 验证 指定正则 是否 <span style="color:red;">全字匹配</span> 指定字符串, 匹配则返回 true <br/><br/>
-     *
+     * <p>
      * 左右空白符 : (?m)(^\s*|\s*$)<br>
      * 空白符 : (^\\s*)|(\\s*$)<br/>
      * 匹配多行注释 : /\*\*(\s|.)*?\* /<br/>
@@ -124,42 +159,67 @@ public final class U {
     public static boolean checkRegexWithStrict(String param, String regex) {
         return isNotBlank(param) && Pattern.compile(regex).matcher(param).matches();
     }
-    /** 后缀是图片则返回 true */
+
+    /**
+     * 后缀是图片则返回 true
+     */
     public static boolean checkImage(String image) {
         return checkRegexWithStrict(image, IMAGE);
     }
-    /** 是正确的邮箱地址则返回 true */
+
+    /**
+     * 是正确的邮箱地址则返回 true
+     */
     public static boolean checkEmail(String email) {
         return checkRegexWithStrict(email, EMAIL);
     }
-    /** 是一个手机则返回 true */
+
+    /**
+     * 是一个手机则返回 true
+     */
     public static boolean checkPhone(String phone) {
         return checkRegexWithStrict(phone, PHONE);
     }
-    /** 是一个有效的 ipv4 地址则返回 true */
+
+    /**
+     * 是一个有效的 ipv4 地址则返回 true
+     */
     public static boolean isLicitIp(String ip) {
         return checkRegexWithStrict(ip, IPV4);
     }
-    /** 是一个有效的身份证号就返回 true */
+
+    /**
+     * 是一个有效的身份证号就返回 true
+     */
     public static boolean isIdCard(String num) {
         return checkRegexWithStrict(num, ID_CARD);
     }
-    /** 是本地请求则返回 true */
+
+    /**
+     * 是本地请求则返回 true
+     */
     public static boolean isLocalRequest(String ip) {
         return LOCAL.contains(ip);
     }
 
-    /** 只要找到匹配即返回 true */
+    /**
+     * 只要找到匹配即返回 true
+     */
     public static boolean checkRegexWithRelax(String param, String regex) {
         return isNotBlank(param) && Pattern.compile(regex).matcher(param).find();
     }
-    /** 传入的参数只要包含中文就返回 true */
+
+    /**
+     * 传入的参数只要包含中文就返回 true
+     */
     public static boolean checkChinese(String param) {
         return checkRegexWithRelax(param, CHINESE);
     }
 
 
-    /** 字符转义. 主要针对 url 传递给后台前的操作. 如 ? 转换为 %3F, = 转换为 %3D, & 转换为 %26 等 */
+    /**
+     * 字符转义. 主要针对 url 传递给后台前的操作. 如 ? 转换为 %3F, = 转换为 %3D, & 转换为 %26 等
+     */
     public static String urlEncode(String url) {
         if (isBlank(url)) {
             return EMPTY;
@@ -171,7 +231,10 @@ public final class U {
             return EMPTY;
         }
     }
-    /** 字符反转义, 主要针对 url 传递到后台后的操作 */
+
+    /**
+     * 字符反转义, 主要针对 url 传递到后台后的操作
+     */
     public static String urlDecode(String src) {
         if (isBlank(src)) {
             return EMPTY;
@@ -184,17 +247,21 @@ public final class U {
         }
     }
 
-    /** 属性转换成方法, 加上 get 并首字母大写 */
+    /**
+     * 属性转换成方法, 加上 get 并首字母大写
+     */
     public static String fieldToMethod(String field) {
         if (isBlank(field)) {
             return EMPTY;
         }
 
         field = field.trim();
-        return  "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
+        return "get" + field.substring(0, 1).toUpperCase() + field.substring(1);
     }
 
-    /** 调用对象的公有方法. 将会忽略异常只返回 null, 如果要对异常专门记录勿调用此方法 */
+    /**
+     * 调用对象的公有方法. 将会忽略异常只返回 null, 如果要对异常专门记录勿调用此方法
+     */
     public static Object getMethod(Object obj, String method, Object... param) {
         if (isNotBlank(method)) {
             try {
@@ -212,7 +279,9 @@ public final class U {
         return null;
     }
 
-    /** 转换成 id=123&name=xyz&name=opq */
+    /**
+     * 转换成 id=123&name=xyz&name=opq
+     */
     public static String formatParam(Map<String, ?> params) {
         if (A.isEmpty(params)) {
             return EMPTY;
@@ -245,28 +314,28 @@ public final class U {
         return sbd.toString();
     }
 
-    public static void checkEmpty(Object obj,String msg){
+    public static void checkEmpty(Object obj, String msg) {
         checkEmpty(obj, msg, msg);
     }
 
-    public static void checkEmpty(Object obj,String msg,String log){
-        if(isBlank(obj)){
+    public static void checkEmpty(Object obj, String msg, String log) {
+        if (isBlank(obj)) {
 
             throw new CommonServiceException(msg);
         }
     }
 
-    public static void throwServiceExce(String msg){
+    public static void throwServiceExce(String msg) {
         throwServiceExce(msg, msg);
     }
 
-    public static void throwServiceExce(String msg,String log){
-        throwServiceExce(HailiInsConstant.FAILURE,msg,  log);
+    public static void throwServiceExce(String msg, String log) {
+        throwServiceExce(HailiInsConstant.FAILURE, msg, log);
     }
 
-    public static void throwServiceExce(String code,String msg,String log){
+    public static void throwServiceExce(String code, String msg, String log) {
 
-        throw new CommonServiceException(code,msg);
+        throw new CommonServiceException(code, msg);
     }
 
 }

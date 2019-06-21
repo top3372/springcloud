@@ -24,7 +24,7 @@ public class MemberRegisterService extends AbstractRegisterService {
 
     @Override
     public void registerAfter(RegisterRequest registerRequest) {
-        applicationContext.publishEvent(new MemberRegisterEvent(this,registerRequest));
+        applicationContext.publishEvent(new MemberRegisterEvent(this, registerRequest));
     }
 
 }

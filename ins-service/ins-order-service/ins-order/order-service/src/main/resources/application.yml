@@ -1,4 +1,3 @@
-
 spring:
   application.name: order-server
   datasource:
@@ -22,7 +21,7 @@ spring:
     listener:
       simple:
         #采用手动应答
-#        acknowledge-mode: manual
+        #        acknowledge-mode: manual
         #指定最小消费者数量
         concurrency: 1
         #指定最大消费者数量
@@ -30,8 +29,8 @@ spring:
         retry:
           #是否支持重试
           enabled: true
-#      direct:
-#        acknowledge-mode: manual
+    #      direct:
+    #        acknowledge-mode: manual
     connection-timeout: 50000
 
 

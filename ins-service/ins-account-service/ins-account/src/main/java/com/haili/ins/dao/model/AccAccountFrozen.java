@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -14,7 +15,7 @@ import lombok.Data;
 public class AccAccountFrozen implements Serializable {
     /**
      * 内部流水号
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    ACC_SEQ_NO
      * Nullable:  false
@@ -25,7 +26,7 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 系统跟踪号
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    SYS_TRACE_NO
      * Nullable:  true
@@ -35,7 +36,7 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 记账日期
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    CLEAR_DATE
      * Nullable:  true
@@ -45,7 +46,7 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 交易时间
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    TXN_TIME
      * Nullable:  true
@@ -55,7 +56,7 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 账户号码
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    ACCOUNT_NO
      * Nullable:  true
@@ -65,11 +66,11 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 交易类型:
-            0:正常
-            1:红字
-            2:蓝字
-            
-     *
+     * 0:正常
+     * 1:红字
+     * 2:蓝字
+     * <p>
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    TXN_TYPE
      * Nullable:  true
@@ -79,7 +80,7 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 交易代码
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    TXN_CODE
      * Nullable:  true
@@ -89,7 +90,7 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 交易摘要
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    TXN_DSCPT
      * Nullable:  true
@@ -99,7 +100,7 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 币种代码
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    TXN_CURRENCY_CODE
      * Nullable:  true
@@ -109,7 +110,7 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 交易金额
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    TXN_AMT
      * Nullable:  true
@@ -119,7 +120,7 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 账户余额
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    BALANCE
      * Nullable:  true
@@ -129,7 +130,7 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 交易前可用余额
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    BEFORE_AVAILABLE
      * Nullable:  true
@@ -139,7 +140,7 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 交易后可用余额
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    AFTER_AVAILABLE
      * Nullable:  true
@@ -149,7 +150,7 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 原流水号
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    OLD_ACC_SEQ_NO
      * Nullable:  true
@@ -159,19 +160,19 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 状态标识位:
-            第一位：冲正标识
-            0-未冲正
-            1-已冲正
-            第二位：撤销标识
-            0-未撤销
-            1-已撤销
-            第三位：完成标识
-            0-未完成
-            1-已完成
-            第四位：金额解冻冻结
-            0-冻结
-            1-解冻
-     *
+     * 第一位：冲正标识
+     * 0-未冲正
+     * 1-已冲正
+     * 第二位：撤销标识
+     * 0-未撤销
+     * 1-已撤销
+     * 第三位：完成标识
+     * 0-未完成
+     * 1-已完成
+     * 第四位：金额解冻冻结
+     * 0-冻结
+     * 1-解冻
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    STATUS_MAP
      * Nullable:  true
@@ -181,7 +182,7 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 备注
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    REMARK
      * Nullable:  true
@@ -191,7 +192,7 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 预留金额字段1
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    RSVD_AMT1
      * Nullable:  true
@@ -201,7 +202,7 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 预留金额字段2
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    RSVD_AMT2
      * Nullable:  true
@@ -211,7 +212,7 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 预留文本字段1
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    RSVD_TEXT1
      * Nullable:  true
@@ -221,7 +222,7 @@ public class AccAccountFrozen implements Serializable {
 
     /**
      * 预留文本字段2
-     *
+     * <p>
      * Table:     T_ACC_ACCOUNT_FROZEN
      * Column:    RSVD_TEXT2
      * Nullable:  true

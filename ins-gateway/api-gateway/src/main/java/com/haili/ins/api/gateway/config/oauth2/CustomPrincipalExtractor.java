@@ -11,20 +11,20 @@ public class CustomPrincipalExtractor implements PrincipalExtractor {
     public Object extractPrincipal(Map<String, Object> map) {
 
 
-        if( !map.isEmpty() ) {
+        if (!map.isEmpty()) {
 
             CustomPrincipal customPrincipal = new CustomPrincipal();
-            boolean result = (Boolean)map.get("result");
-            Map<String,String> dataMap = (Map)map.get("data");
-            String code = (String)map.get("code");
-            String msg = (String)map.get("msg");
+            boolean result = (Boolean) map.get("result");
+            Map<String, String> dataMap = (Map) map.get("data");
+            String code = (String) map.get("code");
+            String msg = (String) map.get("msg");
 
 
-            customPrincipal.setUserName((String)dataMap.get("userName"));
-            customPrincipal.setUserId((String)dataMap.get("userId"));
-            customPrincipal.setStatus((String)dataMap.get("status"));
-            customPrincipal.setRoles((String)dataMap.get("roles"));
-            customPrincipal.setResources((String)dataMap.get("resources"));
+            customPrincipal.setUserName((String) dataMap.get("userName"));
+            customPrincipal.setUserId((String) dataMap.get("userId"));
+            customPrincipal.setStatus((String) dataMap.get("status"));
+            customPrincipal.setRoles((String) dataMap.get("roles"));
+            customPrincipal.setResources((String) dataMap.get("resources"));
             return customPrincipal;
         }
         return null;

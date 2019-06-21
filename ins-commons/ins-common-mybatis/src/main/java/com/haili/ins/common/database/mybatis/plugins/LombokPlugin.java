@@ -10,13 +10,9 @@ import org.mybatis.generator.api.dom.java.TopLevelClass;
 import java.util.List;
 
 /**
- *
- *  @Author: GuiRunning 郭贵荣
- *
- *  @Description: 整合Lombok
- *
- *  @Date: 2018/7/14 1:52
- *
+ * @Author: GuiRunning 郭贵荣
+ * @Description: 整合Lombok
+ * @Date: 2018/7/14 1:52
  */
 public class LombokPlugin extends PluginAdapter {
 

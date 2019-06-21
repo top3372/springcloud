@@ -2,7 +2,6 @@ package com.haili.ins.common.utils;
 
 /**
  * This class provides convenient functions to convert hex string to byte array and vice versa.
- *
  */
 public class HexUtil {
 
@@ -11,12 +10,12 @@ public class HexUtil {
 
     /**
      * Converts a byte array to hex string.
-     * 
+     *
      * @param b -
-     *            the input byte array
+     *          the input byte array
      * @return hex string representation of b.
      */
-    
+
     public static String toHexString(byte[] b) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < b.length; i++) {
@@ -28,9 +27,9 @@ public class HexUtil {
 
     /**
      * Converts a hex string into a byte array.
-     * 
+     *
      * @param s -
-     *            string to be converted
+     *          string to be converted
      * @return byte array converted from s
      */
     public static byte[] toByteArray(String s) {

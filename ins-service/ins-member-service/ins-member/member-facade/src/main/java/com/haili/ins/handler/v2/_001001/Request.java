@@ -7,8 +7,7 @@ import lombok.Data;
 public class Request {
 
 
-	private String name ;
-	
-	
+    private String name;
+
 
 }

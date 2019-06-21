@@ -11,18 +11,17 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 import javax.validation.ConstraintViolationException;
 
 /**
- *
  * @author ming 定义全局异常处理
  * @RestControllerAdvice 是@controlleradvice 与@ResponseBody 的组合注解
  */
-@RestControllerAdvice 
+@RestControllerAdvice
 public class MvcControllerExceptionHandler {
 
 
-    @ExceptionHandler(value = { NoHandlerFoundException.class })
+    @ExceptionHandler(value = {NoHandlerFoundException.class})
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResultInfo<ApiErrorResponse> noHandlerFoundException(Exception ex) {
-        return new ResultInfo(new ApiErrorResponse(404, 4041, ex.getMessage()),"404",ex.getMessage());
+        return new ResultInfo(new ApiErrorResponse(404, 4041, ex.getMessage()), "404", ex.getMessage());
     }
 
 }

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -14,7 +15,7 @@ import lombok.Data;
 public class AccTitleInfo implements Serializable {
     /**
      * 记录号
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    RECORD_NO
      * Nullable:  false
@@ -25,7 +26,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 科目号
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    TITLE_NO
      * Nullable:  true
@@ -35,7 +36,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 汇总科目号
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    SUM_TITLE_NO
      * Nullable:  true
@@ -45,10 +46,10 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 科目名称:
-            1:对公
-            2:对私
-            9:内部
-     *
+     * 1:对公
+     * 2:对私
+     * 9:内部
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    TITLE_NAME
      * Nullable:  true
@@ -58,13 +59,13 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 科目级别:
-            0:汇总科目
-            1:一级科目
-            2:二级科目
-            3:三级科目
-            9:明细科目
-            
-     *
+     * 0:汇总科目
+     * 1:一级科目
+     * 2:二级科目
+     * 3:三级科目
+     * 9:明细科目
+     * <p>
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    GRADE
      * Nullable:  true
@@ -74,7 +75,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 所属一级科目
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    TITLE_CLASS_A
      * Nullable:  true
@@ -84,7 +85,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 所属一级科目号
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    TITLE_CLASS_A_CODE
      * Nullable:  true
@@ -94,7 +95,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 所属二级科目
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    TITLE_CLASS_B
      * Nullable:  true
@@ -104,7 +105,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 所属二级科目号
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    TITLE_CLASS_B_CODE
      * Nullable:  true
@@ -130,8 +131,8 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 币种代码:
-            156:人民币
-     *
+     * 156:人民币
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    CURRENCY_CODE
      * Nullable:  true
@@ -141,10 +142,10 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 借贷标识:
-            D:借
-            C:贷
-            0:双向
-     *
+     * D:借
+     * C:贷
+     * 0:双向
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    DIRECTION
      * Nullable:  true
@@ -154,11 +155,11 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 单多账户标识:
-            0:汇总科目 (不开户)
-            1:单帐户科目
-            2:多帐户科目
-            
-     *
+     * 0:汇总科目 (不开户)
+     * 1:单帐户科目
+     * 2:多帐户科目
+     * <p>
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    ACCOUNT_NUM_FLAG
      * Nullable:  true
@@ -168,14 +169,14 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 科目属性:
-            1:对公
-            2:对私
-            3:贷款
-            4:清算
-            5:待清算
-            9:内部帐
-            
-     *
+     * 1:对公
+     * 2:对私
+     * 3:贷款
+     * 4:清算
+     * 5:待清算
+     * 9:内部帐
+     * <p>
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    TITLE_ATTRIBUTE
      * Nullable:  true
@@ -185,13 +186,13 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 科目类型:
-            1:资产
-            2:负债
-            3:共同
-            4:所有者权益
-            5:损益
-            
-     *
+     * 1:资产
+     * 2:负债
+     * 3:共同
+     * 4:所有者权益
+     * 5:损益
+     * <p>
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    TITLE_TYPE
      * Nullable:  true
@@ -201,7 +202,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 内部账户类型
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    ACCOUNT_INNER_TYPE
      * Nullable:  true
@@ -211,15 +212,15 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 科目账户基本类型:
-            1:基本户
-            2:一般户
-            3:专用户
-            4:临时户
-            5:保证金户
-            6:备付金户
-            
-            
-     *
+     * 1:基本户
+     * 2:一般户
+     * 3:专用户
+     * 4:临时户
+     * 5:保证金户
+     * 6:备付金户
+     * <p>
+     * <p>
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    ACCOUNT_BASE_TYPE
      * Nullable:  true
@@ -229,14 +230,14 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 状态:
-            A-新建待审核
-            B-更新待审核
-            C-停用待审核
-            Z-注销待审核
-            1-正常
-            2-停用
-            9-注销
-     *
+     * A-新建待审核
+     * B-更新待审核
+     * C-停用待审核
+     * Z-注销待审核
+     * 1-正常
+     * 2-停用
+     * 9-注销
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    STATUS
      * Nullable:  true
@@ -246,7 +247,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 录入人
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    CREATE_UID
      * Nullable:  true
@@ -256,7 +257,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 录入时间
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    CREATE_TIME
      * Nullable:  true
@@ -266,7 +267,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 审核人
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    CHECK_UID
      * Nullable:  true
@@ -276,7 +277,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 审核时间
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    CHECK_TIME
      * Nullable:  true
@@ -286,7 +287,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 最后修改人
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    LAST_MODIFY_UID
      * Nullable:  true
@@ -296,7 +297,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 最后修改时间
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    LAST_MODIFY_TIME
      * Nullable:  true
@@ -306,9 +307,9 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 归档标志:
-            1-未归档
-            2-已归档
-     *
+     * 1-未归档
+     * 2-已归档
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    ARCHIVE_FLAG
      * Nullable:  true
@@ -318,7 +319,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 归档人
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    ARCHIVE_UID
      * Nullable:  true
@@ -328,7 +329,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 归档时间
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    ARCHIVE_TIME
      * Nullable:  true
@@ -338,7 +339,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 原记录编号
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    L_RECORD_NO
      * Nullable:  true
@@ -348,7 +349,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 备注
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    REMARK
      * Nullable:  true
@@ -358,7 +359,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 保留域1
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    RESV_FLD1
      * Nullable:  true
@@ -368,7 +369,7 @@ public class AccTitleInfo implements Serializable {
 
     /**
      * 保留域2
-     *
+     * <p>
      * Table:     T_ACC_TITLE_INFO
      * Column:    RESV_FLD2
      * Nullable:  true

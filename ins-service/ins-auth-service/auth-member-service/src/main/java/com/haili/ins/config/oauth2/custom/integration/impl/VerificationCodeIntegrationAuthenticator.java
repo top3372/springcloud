@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 集成验证码认证
+ *
  * @author LIQIU
  * @date 2018-3-31
  **/

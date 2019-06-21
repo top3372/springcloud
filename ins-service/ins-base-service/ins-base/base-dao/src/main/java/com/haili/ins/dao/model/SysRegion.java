@@ -2,6 +2,7 @@ package com.haili.ins.dao.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -12,7 +13,7 @@ import lombok.Data;
 public class SysRegion implements Serializable {
     /**
      * 地区id
-     *
+     * <p>
      * Table:     sys_region
      * Column:    region_code
      * Nullable:  false
@@ -23,7 +24,7 @@ public class SysRegion implements Serializable {
 
     /**
      * 名称
-     *
+     * <p>
      * Table:     sys_region
      * Column:    region_name
      * Nullable:  false
@@ -33,7 +34,7 @@ public class SysRegion implements Serializable {
 
     /**
      * 上级id
-     *
+     * <p>
      * Table:     sys_region
      * Column:    parent_region_code
      * Nullable:  false
@@ -43,7 +44,7 @@ public class SysRegion implements Serializable {
 
     /**
      * 排序代码
-     *
+     * <p>
      * Table:     sys_region
      * Column:    disorder
      * Nullable:  true

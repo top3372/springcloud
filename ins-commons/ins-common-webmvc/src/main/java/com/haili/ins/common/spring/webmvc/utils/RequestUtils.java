@@ -9,10 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Enumeration;
 
-/** <span style="color:red;">!!!此工具类请只在 controller 中调用!!!</span> */
+/**
+ * <span style="color:red;">!!!此工具类请只在 controller 中调用!!!</span>
+ */
 public final class RequestUtils {
 
-    /** 当前用户 id 的 key */
+    /**
+     * 当前用户 id 的 key
+     */
     public static final String CURRENT_USER_ID = "currentUserId";
 
     private static final String USER_AGENT = "user-agent";
@@ -76,12 +80,16 @@ public final class RequestUtils {
         return U.formatParam(getRequest().getParameterMap());
     }
 
-    /** 请求头里的 referer 这个单词拼写是错误的, 应该是 referrer, 然而历史遗留原因导致这个问题永远不会被更正 */
+    /**
+     * 请求头里的 referer 这个单词拼写是错误的, 应该是 referrer, 然而历史遗留原因导致这个问题永远不会被更正
+     */
     public static String getReferrer() {
         return getRequest().getHeader(REFERRER);
     }
 
-    /** 先从请求头中查, 为空再从参数中查 */
+    /**
+     * 先从请求头中查, 为空再从参数中查
+     */
     public static String getHeaderOrParam(String param) {
         HttpServletRequest request = getRequest();
         String header = request.getHeader(param);
@@ -91,7 +99,9 @@ public final class RequestUtils {
         return U.isBlank(header) ? U.EMPTY : header.trim();
     }
 
-    /** 格式化头里的参数 */
+    /**
+     * 格式化头里的参数
+     */
     public static String formatHeadParam() {
         HttpServletRequest request = getRequest();
 
@@ -105,8 +115,6 @@ public final class RequestUtils {
         }
         return sbd.toString();
     }
-
-
 
 
     public static HttpServletRequest getRequest() {

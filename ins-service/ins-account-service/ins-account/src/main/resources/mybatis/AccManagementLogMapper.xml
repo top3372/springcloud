@@ -1,70 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haili.ins.dao.mapper.AccManagementLogMapper">
-  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.AccManagementLog">
-    
-    <!-- 内部流水号 -->
-    <id column="ACC_SEQ_NO" jdbcType="VARCHAR" property="accSeqNo" />
-    
-    <!-- 系统跟踪号 -->
-    <result column="SYS_TRACE_NO" jdbcType="VARCHAR" property="sysTraceNo" />
-    
-    <!-- 交易时间 -->
-    <result column="TXN_TIME" jdbcType="TIMESTAMP" property="txnTime" />
+    <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.AccManagementLog">
 
-    <result column="OWNER_ORG" jdbcType="VARCHAR" property="ownerOrg" />
-    <!-- 账户号码 -->
-    <result column="ACCOUNT_NO" jdbcType="VARCHAR" property="accountNo" />
-    
-    <!-- 交易类型：
-            1:开户
-            2:销户
-            3:账户冻结
-            4:账户解冻
-            5:锁定
-            6:解锁
-             -->
-    <result column="TXN_TYPE" jdbcType="VARCHAR" property="txnType" />
-    
-    <!-- 交易代码 -->
-    <result column="TXN_CODE" jdbcType="VARCHAR" property="txnCode" />
-    
-    <!-- 交易摘要 -->
-    <result column="TXN_DSCPT" jdbcType="VARCHAR" property="txnDscpt" />
-    
-    <!-- 原状态 -->
-    <result column="BEFORE_STATUS" jdbcType="VARCHAR" property="beforeStatus" />
-    
-    <!-- 现状态 -->
-    <result column="AFTER_STATUS" jdbcType="VARCHAR" property="afterStatus" />
-    
-    <!-- 备注 -->
-    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
-    
-    <!-- 预留金额字段1 -->
-    <result column="RSVD_AMT1" jdbcType="DECIMAL" property="rsvdAmt1" />
-    
-    <!-- 预留金额字段2 -->
-    <result column="RSVD_AMT2" jdbcType="DECIMAL" property="rsvdAmt2" />
-    
-    <!-- 预留文本字段1 -->
-    <result column="RSVD_TEXT1" jdbcType="VARCHAR" property="rsvdText1" />
-    
-    <!-- 预留文本字段2 -->
-    <result column="RSVD_TEXT2" jdbcType="VARCHAR" property="rsvdText2" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    ACC_SEQ_NO, SYS_TRACE_NO, TXN_TIME, OWNER_ORG,ACCOUNT_NO, TXN_TYPE, TXN_CODE, TXN_DSCPT, BEFORE_STATUS,
-    AFTER_STATUS, REMARK, RSVD_AMT1, RSVD_AMT2, RSVD_TEXT1, RSVD_TEXT2
-  </sql>
-  
-  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-08 15:00:32 ### -->
+        <!-- 内部流水号 -->
+        <id column="ACC_SEQ_NO" jdbcType="VARCHAR" property="accSeqNo"/>
+
+        <!-- 系统跟踪号 -->
+        <result column="SYS_TRACE_NO" jdbcType="VARCHAR" property="sysTraceNo"/>
+
+        <!-- 交易时间 -->
+        <result column="TXN_TIME" jdbcType="TIMESTAMP" property="txnTime"/>
+
+        <result column="OWNER_ORG" jdbcType="VARCHAR" property="ownerOrg"/>
+        <!-- 账户号码 -->
+        <result column="ACCOUNT_NO" jdbcType="VARCHAR" property="accountNo"/>
+
+        <!-- 交易类型：
+                1:开户
+                2:销户
+                3:账户冻结
+                4:账户解冻
+                5:锁定
+                6:解锁
+                 -->
+        <result column="TXN_TYPE" jdbcType="VARCHAR" property="txnType"/>
+
+        <!-- 交易代码 -->
+        <result column="TXN_CODE" jdbcType="VARCHAR" property="txnCode"/>
+
+        <!-- 交易摘要 -->
+        <result column="TXN_DSCPT" jdbcType="VARCHAR" property="txnDscpt"/>
+
+        <!-- 原状态 -->
+        <result column="BEFORE_STATUS" jdbcType="VARCHAR" property="beforeStatus"/>
+
+        <!-- 现状态 -->
+        <result column="AFTER_STATUS" jdbcType="VARCHAR" property="afterStatus"/>
+
+        <!-- 备注 -->
+        <result column="REMARK" jdbcType="VARCHAR" property="remark"/>
+
+        <!-- 预留金额字段1 -->
+        <result column="RSVD_AMT1" jdbcType="DECIMAL" property="rsvdAmt1"/>
+
+        <!-- 预留金额字段2 -->
+        <result column="RSVD_AMT2" jdbcType="DECIMAL" property="rsvdAmt2"/>
+
+        <!-- 预留文本字段1 -->
+        <result column="RSVD_TEXT1" jdbcType="VARCHAR" property="rsvdText1"/>
+
+        <!-- 预留文本字段2 -->
+        <result column="RSVD_TEXT2" jdbcType="VARCHAR" property="rsvdText2"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        ACC_SEQ_NO, SYS_TRACE_NO, TXN_TIME, OWNER_ORG,ACCOUNT_NO, TXN_TYPE, TXN_CODE, TXN_DSCPT, BEFORE_STATUS,
+        AFTER_STATUS, REMARK, RSVD_AMT1, RSVD_AMT2, RSVD_TEXT1, RSVD_TEXT2
+    </sql>
+
+    <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-08 15:00:32 ### -->
 
 
+    <!-- Your codes goes start here!!! -->
 
-  <!-- Your codes goes start here!!! -->
-  
 </mapper>

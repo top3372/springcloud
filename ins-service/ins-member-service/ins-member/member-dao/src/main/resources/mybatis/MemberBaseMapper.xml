@@ -1,75 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haili.ins.dao.mapper.MemberBaseMapper">
-  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.MemberBase">
-    <id column="MEMBER_ID" jdbcType="VARCHAR" property="memberId" />
-    
-    <!-- 用户名 -->
-    <result column="REG_ACCOUNT" jdbcType="VARCHAR" property="regAccount" />
-    
-    <!-- 用户名掩码 -->
-    <result column="REG_ACCOUNT_MASK" jdbcType="VARCHAR" property="regAccountMask" />
-    
-    <!-- 会员类型 -->
-    <result column="MEMBER_TYPE" jdbcType="VARCHAR" property="memberType" />
-    
-    <!-- 会员等级 -->
-    <result column="MEMBER_LEVEL" jdbcType="VARCHAR" property="memberLevel" />
-    
-    <!-- 会员成长值 -->
-    <result column="MEMBER_GROW_VALUE" jdbcType="VARCHAR" property="memberGrowValue" />
-    
-    <!-- 会员风险等级 -->
-    <result column="RISK_LEVEL" jdbcType="VARCHAR" property="riskLevel" />
-    
-    <!-- 积分 -->
-    <result column="POINT" jdbcType="VARCHAR" property="point" />
-    
-    <!-- 状态 -->
-    <result column="STATUS" jdbcType="VARCHAR" property="status" />
-    
-    <!-- 交易状态 -->
-    <result column="TXN_STATUS" jdbcType="VARCHAR" property="txnStatus" />
-    
-    <!-- 头像设置状态 -->
-    <result column="HEADER_FLAG" jdbcType="VARCHAR" property="headerFlag" />
-    
-    <!-- 是否设置过用户名 -->
-    <result column="USER_NAME_FLAG" jdbcType="VARCHAR" property="userNameFlag" />
-    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
-    <result column="EMAIL_MASK" jdbcType="VARCHAR" property="emailMask" />
-    <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
-    <result column="MOBILE_MASK" jdbcType="VARCHAR" property="mobileMask" />
-    <result column="NICK_NAME" jdbcType="VARCHAR" property="nickName" />
-    <result column="NICK_NAME_MASK" jdbcType="VARCHAR" property="nickNameMask" />
-    <result column="AUTH_STATUS" jdbcType="VARCHAR" property="authStatus" />
-    <result column="CARD_AUTH_TYPE" jdbcType="VARCHAR" property="cardAuthType" />
-    <result column="PAY_PWD_STATUS" jdbcType="VARCHAR" property="payPwdStatus" />
-    <result column="EMAIL_AUTH_STATUS" jdbcType="VARCHAR" property="emailAuthStatus" />
-    <result column="CURRENT_CERTIFICATION_STEP" jdbcType="VARCHAR" property="currentCertificationStep" />
-    
-    <!-- 营销来源 -->
-    <result column="SOURCE_CODE" jdbcType="VARCHAR" property="sourceCode" />
-    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
-    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
-    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
-    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    MEMBER_ID, REG_ACCOUNT, REG_ACCOUNT_MASK, MEMBER_TYPE, MEMBER_LEVEL, MEMBER_GROW_VALUE, 
-    RISK_LEVEL, POINT, STATUS, TXN_STATUS, HEADER_FLAG, USER_NAME_FLAG, EMAIL, EMAIL_MASK, 
-    MOBILE, MOBILE_MASK, NICK_NAME, NICK_NAME_MASK, AUTH_STATUS, CARD_AUTH_TYPE, PAY_PWD_STATUS, 
-    EMAIL_AUTH_STATUS, CURRENT_CERTIFICATION_STEP, SOURCE_CODE, CREATE_DATE, CREATE_BY, 
-    UPDATE_DATE, UPDATE_BY
-  </sql>
-  
-  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-04 17:28:17 ### -->
+    <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.MemberBase">
+        <id column="MEMBER_ID" jdbcType="VARCHAR" property="memberId"/>
+
+        <!-- 用户名 -->
+        <result column="REG_ACCOUNT" jdbcType="VARCHAR" property="regAccount"/>
+
+        <!-- 用户名掩码 -->
+        <result column="REG_ACCOUNT_MASK" jdbcType="VARCHAR" property="regAccountMask"/>
+
+        <!-- 会员类型 -->
+        <result column="MEMBER_TYPE" jdbcType="VARCHAR" property="memberType"/>
+
+        <!-- 会员等级 -->
+        <result column="MEMBER_LEVEL" jdbcType="VARCHAR" property="memberLevel"/>
+
+        <!-- 会员成长值 -->
+        <result column="MEMBER_GROW_VALUE" jdbcType="VARCHAR" property="memberGrowValue"/>
+
+        <!-- 会员风险等级 -->
+        <result column="RISK_LEVEL" jdbcType="VARCHAR" property="riskLevel"/>
+
+        <!-- 积分 -->
+        <result column="POINT" jdbcType="VARCHAR" property="point"/>
+
+        <!-- 状态 -->
+        <result column="STATUS" jdbcType="VARCHAR" property="status"/>
+
+        <!-- 交易状态 -->
+        <result column="TXN_STATUS" jdbcType="VARCHAR" property="txnStatus"/>
+
+        <!-- 头像设置状态 -->
+        <result column="HEADER_FLAG" jdbcType="VARCHAR" property="headerFlag"/>
+
+        <!-- 是否设置过用户名 -->
+        <result column="USER_NAME_FLAG" jdbcType="VARCHAR" property="userNameFlag"/>
+        <result column="EMAIL" jdbcType="VARCHAR" property="email"/>
+        <result column="EMAIL_MASK" jdbcType="VARCHAR" property="emailMask"/>
+        <result column="MOBILE" jdbcType="VARCHAR" property="mobile"/>
+        <result column="MOBILE_MASK" jdbcType="VARCHAR" property="mobileMask"/>
+        <result column="NICK_NAME" jdbcType="VARCHAR" property="nickName"/>
+        <result column="NICK_NAME_MASK" jdbcType="VARCHAR" property="nickNameMask"/>
+        <result column="AUTH_STATUS" jdbcType="VARCHAR" property="authStatus"/>
+        <result column="CARD_AUTH_TYPE" jdbcType="VARCHAR" property="cardAuthType"/>
+        <result column="PAY_PWD_STATUS" jdbcType="VARCHAR" property="payPwdStatus"/>
+        <result column="EMAIL_AUTH_STATUS" jdbcType="VARCHAR" property="emailAuthStatus"/>
+        <result column="CURRENT_CERTIFICATION_STEP" jdbcType="VARCHAR" property="currentCertificationStep"/>
+
+        <!-- 营销来源 -->
+        <result column="SOURCE_CODE" jdbcType="VARCHAR" property="sourceCode"/>
+        <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy"/>
+        <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate"/>
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        MEMBER_ID, REG_ACCOUNT, REG_ACCOUNT_MASK, MEMBER_TYPE, MEMBER_LEVEL, MEMBER_GROW_VALUE,
+        RISK_LEVEL, POINT, STATUS, TXN_STATUS, HEADER_FLAG, USER_NAME_FLAG, EMAIL, EMAIL_MASK,
+        MOBILE, MOBILE_MASK, NICK_NAME, NICK_NAME_MASK, AUTH_STATUS, CARD_AUTH_TYPE, PAY_PWD_STATUS,
+        EMAIL_AUTH_STATUS, CURRENT_CERTIFICATION_STEP, SOURCE_CODE, CREATE_DATE, CREATE_BY,
+        UPDATE_DATE, UPDATE_BY
+    </sql>
+
+    <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-04 17:28:17 ### -->
 
 
+    <!-- Your codes goes start here!!! -->
 
-  <!-- Your codes goes start here!!! -->
-  
 </mapper>

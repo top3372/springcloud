@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * auth-server提供user信息，所以auth-server也是一个Resource Server
+ *
  * @author: LeonMa
  * @date: 2018/12/28 12:54
  */

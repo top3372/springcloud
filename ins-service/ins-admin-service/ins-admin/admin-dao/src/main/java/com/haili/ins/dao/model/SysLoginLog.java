@@ -3,6 +3,7 @@ package com.haili.ins.dao.model;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -13,7 +14,7 @@ import lombok.Data;
 public class SysLoginLog implements Serializable {
     /**
      * 访问ID
-     *
+     * <p>
      * Table:     sys_login_log
      * Column:    info_id
      * Nullable:  false
@@ -25,7 +26,7 @@ public class SysLoginLog implements Serializable {
 
     /**
      * 登录账号
-     *
+     * <p>
      * Table:     sys_login_log
      * Column:    login_name
      * Nullable:  true
@@ -35,7 +36,7 @@ public class SysLoginLog implements Serializable {
 
     /**
      * 登录IP地址
-     *
+     * <p>
      * Table:     sys_login_log
      * Column:    ipaddr
      * Nullable:  true
@@ -45,7 +46,7 @@ public class SysLoginLog implements Serializable {
 
     /**
      * 登录地点
-     *
+     * <p>
      * Table:     sys_login_log
      * Column:    login_location
      * Nullable:  true
@@ -55,7 +56,7 @@ public class SysLoginLog implements Serializable {
 
     /**
      * 浏览器类型
-     *
+     * <p>
      * Table:     sys_login_log
      * Column:    browser
      * Nullable:  true
@@ -65,7 +66,7 @@ public class SysLoginLog implements Serializable {
 
     /**
      * 操作系统
-     *
+     * <p>
      * Table:     sys_login_log
      * Column:    os
      * Nullable:  true
@@ -75,7 +76,7 @@ public class SysLoginLog implements Serializable {
 
     /**
      * 登录状态（0成功 1失败）
-     *
+     * <p>
      * Table:     sys_login_log
      * Column:    status
      * Nullable:  true
@@ -85,7 +86,7 @@ public class SysLoginLog implements Serializable {
 
     /**
      * 提示消息
-     *
+     * <p>
      * Table:     sys_login_log
      * Column:    msg
      * Nullable:  true
@@ -95,7 +96,7 @@ public class SysLoginLog implements Serializable {
 
     /**
      * 访问时间
-     *
+     * <p>
      * Table:     sys_login_log
      * Column:    login_time
      * Nullable:  true

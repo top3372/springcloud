@@ -13,7 +13,7 @@
     <artifactId>ins-commons</artifactId>
     <packaging>pom</packaging>
     <modules>
-       <module>ins-common</module>
+        <module>ins-common</module>
         <module>ins-common-database</module>
         <module>ins-common-mybatis</module>
         <module>ins-common-security</module>

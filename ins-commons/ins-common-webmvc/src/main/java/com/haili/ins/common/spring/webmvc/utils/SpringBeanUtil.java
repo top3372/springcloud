@@ -11,12 +11,12 @@ import javax.servlet.ServletContext;
 public class SpringBeanUtil {
     private static ServletContext sc = null;
 
-    public static void setServletContext(ServletContext sc){
+    public static void setServletContext(ServletContext sc) {
         SpringBeanUtil.sc = sc;
     }
 
-    public static Object getBean(String serviceName){
-        if (SpringBeanUtil.sc==null){
+    public static Object getBean(String serviceName) {
+        if (SpringBeanUtil.sc == null) {
             throw new RuntimeException("请在系统启动时加载InitializeServlet");
         }
         WebApplicationContext wac = WebApplicationContextUtils.getRequiredWebApplicationContext(SpringBeanUtil.sc);
@@ -24,15 +24,15 @@ public class SpringBeanUtil {
         return service;
     }
 
-    public static String getContextName(){
+    public static String getContextName() {
         return null;
     }
 
     public static <T> T getBean(Class<T> clazz) {
-        if (SpringBeanUtil.sc==null){
+        if (SpringBeanUtil.sc == null) {
             throw new RuntimeException("请在系统启动时加载InitializeServlet");
         }
-        WebApplicationContext wac =WebApplicationContextUtils.getRequiredWebApplicationContext(SpringBeanUtil.sc);
+        WebApplicationContext wac = WebApplicationContextUtils.getRequiredWebApplicationContext(SpringBeanUtil.sc);
         return wac.getBean(clazz);
     }
 }

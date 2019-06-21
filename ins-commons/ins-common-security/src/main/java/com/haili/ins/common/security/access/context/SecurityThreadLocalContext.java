@@ -11,18 +11,17 @@ public class SecurityThreadLocalContext {
 
     private static ThreadLocal<UserRolePermission> userRolePermissionThreadLocal = new ThreadLocal<>();
 
-    public static void setUserRolePermission(UserRolePermission userRolePermission){
+    public static void setUserRolePermission(UserRolePermission userRolePermission) {
         userRolePermissionThreadLocal.set(userRolePermission);
     }
 
-    public static UserRolePermission getUserRolePermission(){
+    public static UserRolePermission getUserRolePermission() {
         return userRolePermissionThreadLocal.get();
     }
 
-    public static void clearUserRolePermission(){
+    public static void clearUserRolePermission() {
         userRolePermissionThreadLocal.remove();
     }
-
 
 
 }

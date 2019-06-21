@@ -7,7 +7,7 @@ import org.springframework.util.NumberUtils;
 
 /**
  * 转换数字出错时, 使用 0 代替(默认出错时会抛出 IllegalArgumentException 异常).
- *
+ * <p>
  * 此 convert 用于替代 org.springframework.core.convert.support.StringToNumberConverterFactory
  *
  * @see org.springframework.core.convert.support.StringToNumberConverterFactory
@@ -23,6 +23,7 @@ public class StringToNumberConverter implements ConverterFactory<String, Number>
 
     private static final class StringToNumber<T extends Number> implements Converter<String, T> {
         private final Class<T> targetType;
+
         StringToNumber(Class<T> targetType) {
             this.targetType = targetType;
         }

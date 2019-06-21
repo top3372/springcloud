@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class GatewayConfiguration {
 
     @Bean
-    public GatewayGlobalFilter gatewayGlobalFilter(){
+    public GatewayGlobalFilter gatewayGlobalFilter() {
         return new GatewayGlobalFilter();
     }
 }

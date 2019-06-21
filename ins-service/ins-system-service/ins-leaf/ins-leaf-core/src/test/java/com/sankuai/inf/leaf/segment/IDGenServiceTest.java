@@ -17,6 +17,7 @@ import java.util.Properties;
 public class IDGenServiceTest {
     IDGen idGen;
     DruidDataSource dataSource;
+
     //@Before
     public void before() throws IOException, SQLException {
         // Load Db Config
@@ -37,6 +38,7 @@ public class IDGenServiceTest {
         ((SegmentIDGenImpl) idGen).setDao(dao);
         idGen.init();
     }
+
     //@Test
     public void testGetId() {
         for (int i = 0; i < 100; ++i) {
@@ -44,9 +46,10 @@ public class IDGenServiceTest {
             System.out.println(r);
         }
     }
-   // @After
+
+    // @After
     public void after() {
-       dataSource.close();
+        dataSource.close();
     }
 
 }

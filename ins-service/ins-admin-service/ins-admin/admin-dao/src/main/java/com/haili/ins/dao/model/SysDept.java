@@ -3,6 +3,7 @@ package com.haili.ins.dao.model;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -13,7 +14,7 @@ import lombok.Data;
 public class SysDept implements Serializable {
     /**
      * 部门id
-     *
+     * <p>
      * Table:     sys_dept
      * Column:    dept_id
      * Nullable:  false
@@ -25,7 +26,7 @@ public class SysDept implements Serializable {
 
     /**
      * 父部门id
-     *
+     * <p>
      * Table:     sys_dept
      * Column:    parent_id
      * Nullable:  true
@@ -35,7 +36,7 @@ public class SysDept implements Serializable {
 
     /**
      * 祖级列表
-     *
+     * <p>
      * Table:     sys_dept
      * Column:    ancestors
      * Nullable:  true
@@ -45,7 +46,7 @@ public class SysDept implements Serializable {
 
     /**
      * 部门名称
-     *
+     * <p>
      * Table:     sys_dept
      * Column:    dept_name
      * Nullable:  true
@@ -55,7 +56,7 @@ public class SysDept implements Serializable {
 
     /**
      * 显示顺序
-     *
+     * <p>
      * Table:     sys_dept
      * Column:    order_num
      * Nullable:  true
@@ -65,7 +66,7 @@ public class SysDept implements Serializable {
 
     /**
      * 负责人
-     *
+     * <p>
      * Table:     sys_dept
      * Column:    leader
      * Nullable:  true
@@ -75,7 +76,7 @@ public class SysDept implements Serializable {
 
     /**
      * 联系电话
-     *
+     * <p>
      * Table:     sys_dept
      * Column:    phone
      * Nullable:  true
@@ -85,7 +86,7 @@ public class SysDept implements Serializable {
 
     /**
      * 邮箱
-     *
+     * <p>
      * Table:     sys_dept
      * Column:    email
      * Nullable:  true
@@ -95,7 +96,7 @@ public class SysDept implements Serializable {
 
     /**
      * 部门状态（0正常 1停用）
-     *
+     * <p>
      * Table:     sys_dept
      * Column:    status
      * Nullable:  true
@@ -105,7 +106,7 @@ public class SysDept implements Serializable {
 
     /**
      * 删除标志（0代表存在 2代表删除）
-     *
+     * <p>
      * Table:     sys_dept
      * Column:    del_flag
      * Nullable:  true
@@ -115,7 +116,7 @@ public class SysDept implements Serializable {
 
     /**
      * 创建者
-     *
+     * <p>
      * Table:     sys_dept
      * Column:    create_by
      * Nullable:  true
@@ -125,7 +126,7 @@ public class SysDept implements Serializable {
 
     /**
      * 创建时间
-     *
+     * <p>
      * Table:     sys_dept
      * Column:    create_time
      * Nullable:  true
@@ -135,7 +136,7 @@ public class SysDept implements Serializable {
 
     /**
      * 更新者
-     *
+     * <p>
      * Table:     sys_dept
      * Column:    update_by
      * Nullable:  true
@@ -145,7 +146,7 @@ public class SysDept implements Serializable {
 
     /**
      * 更新时间
-     *
+     * <p>
      * Table:     sys_dept
      * Column:    update_time
      * Nullable:  true

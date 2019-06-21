@@ -13,10 +13,10 @@ import java.lang.annotation.*;
 @Inherited
 public @interface ApiVersion {
 
-	/**
-	 * url 路径中的版本
-	 *
-	 * @return 版本号
-	 */
-	String value() default "";
+    /**
+     * url 路径中的版本
+     *
+     * @return 版本号
+     */
+    String value() default "";
 }

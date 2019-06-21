@@ -13,7 +13,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 //@EnableEurekaClient
 @EnableDiscoveryClient
-public class AuthAdminServerApplication{
+public class AuthAdminServerApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AuthAdminServerApplication.class, args);

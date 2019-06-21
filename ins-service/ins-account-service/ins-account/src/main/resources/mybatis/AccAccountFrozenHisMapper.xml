@@ -1,97 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haili.ins.dao.mapper.AccAccountFrozenHisMapper">
-  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.AccAccountFrozenHis">
-    
-    <!-- 内部流水号 -->
-    <id column="ACC_SEQ_NO" jdbcType="VARCHAR" property="accSeqNo" />
-    
-    <!-- 系统跟踪号 -->
-    <result column="SYS_TRACE_NO" jdbcType="VARCHAR" property="sysTraceNo" />
-    
-    <!-- 记账日期 -->
-    <result column="CLEAR_DATE" jdbcType="CHAR" property="clearDate" />
-    
-    <!-- 交易时间 -->
-    <result column="TXN_TIME" jdbcType="TIMESTAMP" property="txnTime" />
-    
-    <!-- 账户号码 -->
-    <result column="ACCOUNT_NO" jdbcType="VARCHAR" property="accountNo" />
-    
-    <!-- 交易类型:
-            0:正常
-            1:红字
-            2:蓝字
-             -->
-    <result column="TXN_TYPE" jdbcType="CHAR" property="txnType" />
-    
-    <!-- 交易代码 -->
-    <result column="TXN_CODE" jdbcType="VARCHAR" property="txnCode" />
-    
-    <!-- 交易摘要 -->
-    <result column="TXN_DSCPT" jdbcType="VARCHAR" property="txnDscpt" />
-    
-    <!-- 币种代码 -->
-    <result column="TXN_CURRENCY_CODE" jdbcType="CHAR" property="txnCurrencyCode" />
-    
-    <!-- 交易金额 -->
-    <result column="TXN_AMT" jdbcType="DECIMAL" property="txnAmt" />
-    
-    <!-- 账户余额 -->
-    <result column="BALANCE" jdbcType="DECIMAL" property="balance" />
-    
-    <!-- 交易前可用余额 -->
-    <result column="BEFORE_AVAILABLE" jdbcType="DECIMAL" property="beforeAvailable" />
-    
-    <!-- 交易后可用余额 -->
-    <result column="AFTER_AVAILABLE" jdbcType="DECIMAL" property="afterAvailable" />
-    
-    <!-- 原流水号 -->
-    <result column="OLD_ACC_SEQ_NO" jdbcType="VARCHAR" property="oldAccSeqNo" />
-    
-    <!-- 状态标识位:
-            第一位：冲正标识
-            0-未冲正
-            1-已冲正
-            第二位：撤销标识
-            0-未撤销
-            1-已撤销
-            第三位：完成标识
-            0-未完成
-            1-已完成
-            第四位：金额解冻冻结
-            0-冻结
-            1-解冻 -->
-    <result column="STATUS_MAP" jdbcType="VARCHAR" property="statusMap" />
-    
-    <!-- 备注 -->
-    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
-    
-    <!-- 预留金额字段1 -->
-    <result column="RSVD_AMT1" jdbcType="DECIMAL" property="rsvdAmt1" />
-    
-    <!-- 预留金额字段2 -->
-    <result column="RSVD_AMT2" jdbcType="DECIMAL" property="rsvdAmt2" />
-    
-    <!-- 预留文本字段1 -->
-    <result column="RSVD_TEXT1" jdbcType="VARCHAR" property="rsvdText1" />
-    
-    <!-- 预留文本字段2 -->
-    <result column="RSVD_TEXT2" jdbcType="VARCHAR" property="rsvdText2" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    ACC_SEQ_NO, SYS_TRACE_NO, CLEAR_DATE, TXN_TIME, ACCOUNT_NO, TXN_TYPE, TXN_CODE, TXN_DSCPT, 
-    TXN_CURRENCY_CODE, TXN_AMT, BALANCE, BEFORE_AVAILABLE, AFTER_AVAILABLE, OLD_ACC_SEQ_NO, 
-    STATUS_MAP, REMARK, RSVD_AMT1, RSVD_AMT2, RSVD_TEXT1, RSVD_TEXT2
-  </sql>
-  
-  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-08 15:00:32 ### -->
+    <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.AccAccountFrozenHis">
+
+        <!-- 内部流水号 -->
+        <id column="ACC_SEQ_NO" jdbcType="VARCHAR" property="accSeqNo"/>
+
+        <!-- 系统跟踪号 -->
+        <result column="SYS_TRACE_NO" jdbcType="VARCHAR" property="sysTraceNo"/>
+
+        <!-- 记账日期 -->
+        <result column="CLEAR_DATE" jdbcType="CHAR" property="clearDate"/>
+
+        <!-- 交易时间 -->
+        <result column="TXN_TIME" jdbcType="TIMESTAMP" property="txnTime"/>
+
+        <!-- 账户号码 -->
+        <result column="ACCOUNT_NO" jdbcType="VARCHAR" property="accountNo"/>
+
+        <!-- 交易类型:
+                0:正常
+                1:红字
+                2:蓝字
+                 -->
+        <result column="TXN_TYPE" jdbcType="CHAR" property="txnType"/>
+
+        <!-- 交易代码 -->
+        <result column="TXN_CODE" jdbcType="VARCHAR" property="txnCode"/>
+
+        <!-- 交易摘要 -->
+        <result column="TXN_DSCPT" jdbcType="VARCHAR" property="txnDscpt"/>
+
+        <!-- 币种代码 -->
+        <result column="TXN_CURRENCY_CODE" jdbcType="CHAR" property="txnCurrencyCode"/>
+
+        <!-- 交易金额 -->
+        <result column="TXN_AMT" jdbcType="DECIMAL" property="txnAmt"/>
+
+        <!-- 账户余额 -->
+        <result column="BALANCE" jdbcType="DECIMAL" property="balance"/>
+
+        <!-- 交易前可用余额 -->
+        <result column="BEFORE_AVAILABLE" jdbcType="DECIMAL" property="beforeAvailable"/>
+
+        <!-- 交易后可用余额 -->
+        <result column="AFTER_AVAILABLE" jdbcType="DECIMAL" property="afterAvailable"/>
+
+        <!-- 原流水号 -->
+        <result column="OLD_ACC_SEQ_NO" jdbcType="VARCHAR" property="oldAccSeqNo"/>
+
+        <!-- 状态标识位:
+                第一位：冲正标识
+                0-未冲正
+                1-已冲正
+                第二位：撤销标识
+                0-未撤销
+                1-已撤销
+                第三位：完成标识
+                0-未完成
+                1-已完成
+                第四位：金额解冻冻结
+                0-冻结
+                1-解冻 -->
+        <result column="STATUS_MAP" jdbcType="VARCHAR" property="statusMap"/>
+
+        <!-- 备注 -->
+        <result column="REMARK" jdbcType="VARCHAR" property="remark"/>
+
+        <!-- 预留金额字段1 -->
+        <result column="RSVD_AMT1" jdbcType="DECIMAL" property="rsvdAmt1"/>
+
+        <!-- 预留金额字段2 -->
+        <result column="RSVD_AMT2" jdbcType="DECIMAL" property="rsvdAmt2"/>
+
+        <!-- 预留文本字段1 -->
+        <result column="RSVD_TEXT1" jdbcType="VARCHAR" property="rsvdText1"/>
+
+        <!-- 预留文本字段2 -->
+        <result column="RSVD_TEXT2" jdbcType="VARCHAR" property="rsvdText2"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        ACC_SEQ_NO, SYS_TRACE_NO, CLEAR_DATE, TXN_TIME, ACCOUNT_NO, TXN_TYPE, TXN_CODE, TXN_DSCPT,
+        TXN_CURRENCY_CODE, TXN_AMT, BALANCE, BEFORE_AVAILABLE, AFTER_AVAILABLE, OLD_ACC_SEQ_NO,
+        STATUS_MAP, REMARK, RSVD_AMT1, RSVD_AMT2, RSVD_TEXT1, RSVD_TEXT2
+    </sql>
+
+    <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-08 15:00:32 ### -->
 
 
+    <!-- Your codes goes start here!!! -->
 
-  <!-- Your codes goes start here!!! -->
-  
 </mapper>

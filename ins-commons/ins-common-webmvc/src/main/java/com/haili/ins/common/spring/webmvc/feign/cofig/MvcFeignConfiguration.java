@@ -17,7 +17,7 @@ public class MvcFeignConfiguration {
 
     @Bean
     public Contract mbvFeignContract(@Qualifier("mvcConversionService") ConversionService conversionService) {
-        ConverterRegistry converterRegistry =  ((ConverterRegistry) conversionService);
+        ConverterRegistry converterRegistry = ((ConverterRegistry) conversionService);
         converterRegistry.addConverter(new EnumToStringConverter());
         converterRegistry.addConverter(new StringToEnumConverter());
         return new InsSpringMvcContract(new ArrayList<>(), conversionService);

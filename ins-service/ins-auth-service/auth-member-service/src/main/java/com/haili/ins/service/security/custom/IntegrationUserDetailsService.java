@@ -54,7 +54,7 @@ public class IntegrationUserDetailsService implements UserDetailsService {
         integrationAuthentication.setUsername(username);
         Oauth2User oauth2User = this.authenticate(integrationAuthentication);
 
-        if(oauth2User == null){
+        if (oauth2User == null) {
             throw new UsernameNotFoundException(ResponseCodeEnum.LOGIN_FAILURE.getDesc());
         }
 
@@ -74,14 +74,14 @@ public class IntegrationUserDetailsService implements UserDetailsService {
                 oauth2User.getPassword(), isActive(oauth2User.getStatus()),
                 true, true,
                 isActive(oauth2User.getStatus()), authorities);
-        CustomUserDetails custom=  new CustomUserDetails(oauth2User,user);
+        CustomUserDetails custom = new CustomUserDetails(oauth2User, user);
         custom.setRoles(rolesIdList);
         custom.setResources(resourcesList);
         return custom;
 
     }
 
-    private boolean isActive(String active){
+    private boolean isActive(String active) {
         return "1".equals(active) ? true : false;
     }
 

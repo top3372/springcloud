@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration
-		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
-		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-	<properties resource="jdbc.properties"/>
-	<!-- 修改为本地maven mysql包路径 -->
-	<!--<classPathEntry-->
-		<!--location="D:\Code\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar" />-->
-	<context id="infoGuardian">
+    <properties resource="jdbc.properties"/>
+    <!-- 修改为本地maven mysql包路径 -->
+    <!--<classPathEntry-->
+    <!--location="D:\Code\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar" />-->
+    <context id="infoGuardian">
 
 
-		
-		<plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
             <property name="mappers" value="com.haili.ins.common.database.mybatis.mapper.BaseMapper"/>
             <property name="caseSensitive" value="true"/>
             <property name="forceAnnotation" value="true"/>
@@ -20,142 +19,142 @@
             <property name="endingDelimiter" value="`"/>
         </plugin>
 
-		<!-- 带上序列化接口 -->
-		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
-		<!-- 自定义的注释生成插件-->
-		<plugin type="CommentPlugin">
-			<!-- 抑制警告 -->
-			<property name="suppressTypeWarnings" value="true" />
-			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
-			<property name="suppressAllComments" value="false" />
-			<!-- 是否生成注释代时间戳-->
-			<property name="suppressDate" value="true" />
-		</plugin>
-		<!-- 整合lombok-->
-		<plugin type="LombokPlugin" >
-			<property name="hasLombok" value="true"/>
-		</plugin>
+        <!-- 带上序列化接口 -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!-- 自定义的注释生成插件-->
+        <plugin type="CommentPlugin">
+            <!-- 抑制警告 -->
+            <property name="suppressTypeWarnings" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="false"/>
+            <!-- 是否生成注释代时间戳-->
+            <property name="suppressDate" value="true"/>
+        </plugin>
+        <!-- 整合lombok-->
+        <plugin type="LombokPlugin">
+            <property name="hasLombok" value="true"/>
+        </plugin>
 
-		<!--  在tk -->
-		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
-			<property name="searchString" value="Mapper$" />
-			<property name="replaceString" value="Dao" />
-		</plugin>
+        <!--  在tk -->
+        <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+            <property name="searchString" value="Mapper$"/>
+            <property name="replaceString" value="Dao"/>
+        </plugin>
 
-		<!--<commentGenerator>-->
-			<!--&lt;!&ndash; 阻止生成注释 默认为false &ndash;&gt;-->
-			<!--<property name="suppressAllComments" value="true" />-->
-			<!--&lt;!&ndash;阻止生成的注释包含时间戳，默认为false &ndash;&gt;-->
-			<!--<property name="suppressDate" value="true" />-->
-		<!--</commentGenerator>-->
+        <!--<commentGenerator>-->
+        <!--&lt;!&ndash; 阻止生成注释 默认为false &ndash;&gt;-->
+        <!--<property name="suppressAllComments" value="true" />-->
+        <!--&lt;!&ndash;阻止生成的注释包含时间戳，默认为false &ndash;&gt;-->
+        <!--<property name="suppressDate" value="true" />-->
+        <!--</commentGenerator>-->
 
-		<!-- 数据库连接信息（修改为公共库） -->
-		<jdbcConnection driverClass="${spring.datasource.driver-class-name}"
-			connectionURL="${spring.datasource.url}" userId="${spring.datasource.username}"
-			password="${spring.datasource.password}" />
+        <!-- 数据库连接信息（修改为公共库） -->
+        <jdbcConnection driverClass="${spring.datasource.driver-class-name}"
+                        connectionURL="${spring.datasource.url}" userId="${spring.datasource.username}"
+                        password="${spring.datasource.password}"/>
 
-		<!-- 指定JDBC类型和Java类型如何转换 -->
-		<javaTypeResolver>
-			<!-- 是否强制DECIMAL和NUMERIC类型的字段转换为Java类型的java.math.BigDecimal,默认值为false -->
-			<property name="forceBigDecimals" value="true" />
-		</javaTypeResolver>
+        <!-- 指定JDBC类型和Java类型如何转换 -->
+        <javaTypeResolver>
+            <!-- 是否强制DECIMAL和NUMERIC类型的字段转换为Java类型的java.math.BigDecimal,默认值为false -->
+            <property name="forceBigDecimals" value="true"/>
+        </javaTypeResolver>
 
-		<!-- 生成模型的包名和位置 -->
-		<javaModelGenerator
-			targetPackage="com.haili.ins.dao.model"
-			targetProject="${mybatis.project}">
-			<property name="enableSubPackages" value="true" />
-			<property name="trimStrings" value="true" />
-			<!-- <property name="rootClass" value="com.winex.common.model.SimpleModel"/> -->
-		</javaModelGenerator>
+        <!-- 生成模型的包名和位置 -->
+        <javaModelGenerator
+                targetPackage="com.haili.ins.dao.model"
+                targetProject="${mybatis.project}">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+            <!-- <property name="rootClass" value="com.winex.common.model.SimpleModel"/> -->
+        </javaModelGenerator>
 
-		<!-- 生成映射文件的包名和位置 -->
-		<sqlMapGenerator targetPackage="mybatis"
-			targetProject="${mybatis.resources}">
-			<property name="enableSubPackages" value="true" />
-			<property name="mergeable" value="true"></property>
-		</sqlMapGenerator>
+        <!-- 生成映射文件的包名和位置 -->
+        <sqlMapGenerator targetPackage="mybatis"
+                         targetProject="${mybatis.resources}">
+            <property name="enableSubPackages" value="true"/>
+            <property name="mergeable" value="true"></property>
+        </sqlMapGenerator>
 
-		<!-- 生成DAO的包名和位置 -->
-		<javaClientGenerator
-			targetPackage="com.haili.ins.dao.mapper"
-			targetProject="${mybatis.project}" type="XMLMAPPER">
-			<property name="enableSubPackages" value="true" />
-		</javaClientGenerator>
+        <!-- 生成DAO的包名和位置 -->
+        <javaClientGenerator
+                targetPackage="com.haili.ins.dao.mapper"
+                targetProject="${mybatis.project}" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
 
-		<!-- 要生成的表对象 %代表全部生成,单独的表修改talbeName -->
+        <!-- 要生成的表对象 %代表全部生成,单独的表修改talbeName -->
 
-		<table tableName="T_ACC_ACCOUNT_ENTRY"
-			domainObjectName="AccAccountEntry" enableCountByExample="false"
-			enableUpdateByExample="false" enableDeleteByExample="false"
-			enableSelectByExample="false">
-			<!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
-		</table>
+        <table tableName="T_ACC_ACCOUNT_ENTRY"
+               domainObjectName="AccAccountEntry" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false">
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
+        </table>
 
-		<table tableName="T_ACC_ACCOUNT_ENTRY_HIS"
-			   domainObjectName="AccAccountEntryHis" enableCountByExample="false"
-			   enableUpdateByExample="false" enableDeleteByExample="false"
-			   enableSelectByExample="false">
-			<!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
-		</table>
+        <table tableName="T_ACC_ACCOUNT_ENTRY_HIS"
+               domainObjectName="AccAccountEntryHis" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false">
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
+        </table>
 
-		<table tableName="T_ACC_ACCOUNT_FROZEN"
-			   domainObjectName="AccAccountFrozen" enableCountByExample="false"
-			   enableUpdateByExample="false" enableDeleteByExample="false"
-			   enableSelectByExample="false">
-			<!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
-		</table>
+        <table tableName="T_ACC_ACCOUNT_FROZEN"
+               domainObjectName="AccAccountFrozen" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false">
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
+        </table>
 
-		<table tableName="T_ACC_ACCOUNT_FROZEN_HIS"
-			   domainObjectName="AccAccountFrozenHis" enableCountByExample="false"
-			   enableUpdateByExample="false" enableDeleteByExample="false"
-			   enableSelectByExample="false">
-			<!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
-		</table>
+        <table tableName="T_ACC_ACCOUNT_FROZEN_HIS"
+               domainObjectName="AccAccountFrozenHis" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false">
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
+        </table>
 
-		<table tableName="T_ACC_ACCOUNT_INFO"
-			   domainObjectName="AccAccountInfo" enableCountByExample="false"
-			   enableUpdateByExample="false" enableDeleteByExample="false"
-			   enableSelectByExample="false">
-			<!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
-		</table>
+        <table tableName="T_ACC_ACCOUNT_INFO"
+               domainObjectName="AccAccountInfo" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false">
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
+        </table>
 
-		<table tableName="T_ACC_ACCOUNT_LOG"
-			   domainObjectName="AccAccountLog" enableCountByExample="false"
-			   enableUpdateByExample="false" enableDeleteByExample="false"
-			   enableSelectByExample="false">
-			<!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
-		</table>
+        <table tableName="T_ACC_ACCOUNT_LOG"
+               domainObjectName="AccAccountLog" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false">
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
+        </table>
 
-		<table tableName="T_ACC_ACCOUNT_LOG_HIS"
-			   domainObjectName="AccAccountLogHis" enableCountByExample="false"
-			   enableUpdateByExample="false" enableDeleteByExample="false"
-			   enableSelectByExample="false">
-			<!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
-		</table>
+        <table tableName="T_ACC_ACCOUNT_LOG_HIS"
+               domainObjectName="AccAccountLogHis" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false">
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
+        </table>
 
-		<table tableName="T_ACC_MANAGEMENT_LOG"
-			   domainObjectName="AccManagementLog" enableCountByExample="false"
-			   enableUpdateByExample="false" enableDeleteByExample="false"
-			   enableSelectByExample="false">
-			<!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
-		</table>
+        <table tableName="T_ACC_MANAGEMENT_LOG"
+               domainObjectName="AccManagementLog" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false">
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
+        </table>
 
-		<table tableName="T_ACC_MANAGEMENT_LOG_HIS"
-			   domainObjectName="AccManagementLogHis" enableCountByExample="false"
-			   enableUpdateByExample="false" enableDeleteByExample="false"
-			   enableSelectByExample="false">
-			<!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
-		</table>
+        <table tableName="T_ACC_MANAGEMENT_LOG_HIS"
+               domainObjectName="AccManagementLogHis" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false">
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
+        </table>
 
-		<table tableName="T_ACC_TITLE_INFO"
-			   domainObjectName="AccTitleInfo" enableCountByExample="false"
-			   enableUpdateByExample="false" enableDeleteByExample="false"
-			   enableSelectByExample="false">
-			<!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
-		</table>
+        <table tableName="T_ACC_TITLE_INFO"
+               domainObjectName="AccTitleInfo" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false">
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
+        </table>
 
 
-		<!-- Maven命令执行：mvn mybatis-generator:generate -->
-	</context>
+        <!-- Maven命令执行：mvn mybatis-generator:generate -->
+    </context>
 </generatorConfiguration>

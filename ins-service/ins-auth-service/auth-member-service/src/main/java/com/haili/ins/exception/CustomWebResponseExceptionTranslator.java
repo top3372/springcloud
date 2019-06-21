@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  * @since 1.0
  */
 @Component("customWebResponseExceptionTranslator")
-public class    CustomWebResponseExceptionTranslator extends DefaultWebResponseExceptionTranslator {
+public class CustomWebResponseExceptionTranslator extends DefaultWebResponseExceptionTranslator {
     @Override
     public ResponseEntity<OAuth2Exception> translate(Exception e) throws Exception {
 

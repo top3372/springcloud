@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 
 /**
  * 默认登录处理
+ *
  * @author LIQIU
  * @date 2018-3-31
  **/
@@ -30,7 +31,7 @@ public class AuthorizationCodeAuthenticator extends AbstractPreparableIntegratio
 //        .findUserByUsername(integrationAuthentication.getUsername());
 //        return oauth2User;
         //获取密码，实际值是验证码
-     //   String password = integrationAuthentication.getAuthParameter("password");
+        //   String password = integrationAuthentication.getAuthParameter("password");
         //获取用户名，实际值是手机号
         String username = integrationAuthentication.getUsername();
 

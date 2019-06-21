@@ -1,151 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haili.ins.dao.mapper.AccAccountInfoMapper">
-  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.AccAccountInfo">
-    
-    <!-- 账户号 -->
-    <id column="ACCOUNT_NO" jdbcType="VARCHAR" property="accountNo" />
-    
-    <!-- 属主账户号 -->
-    <result column="MASTER_ACCOUNT_NO" jdbcType="VARCHAR" property="masterAccountNo" />
-    
-    <!-- 科目号 -->
-    <result column="ACCOUNT_TITLE_NO" jdbcType="VARCHAR" property="accountTitleNo" />
-    
-    <!-- 账户名称 -->
-    <result column="ACCOUNT_NAME" jdbcType="VARCHAR" property="accountName" />
-    
-    <!-- 开户日期 -->
-    <result column="OPEN_DATE" jdbcType="DATE" property="openDate" />
-    
-    <!-- 销户日期 -->
-    <result column="CLOSE_DATE" jdbcType="DATE" property="closeDate" />
-    
-    <!-- 有效日期 -->
-    <result column="VALID_DATE" jdbcType="DATE" property="validDate" />
-    
-    <!-- 锁定截止日期 -->
-    <result column="LOCK_END_DATE" jdbcType="DATE" property="lockEndDate" />
-    
-    <!-- 账户归属机构 -->
-    <result column="OWNER_ORG" jdbcType="VARCHAR" property="ownerOrg" />
-    
-    <!-- 账户开户机构 -->
-    <result column="OPEN_ORG" jdbcType="VARCHAR" property="openOrg" />
-    
-    <!-- 账户状态位图：
-            第一位:激活状态
-            0:未激活
-            1:已激活
-            第二位:锁定状态
-            0:未锁定
-            1:已锁定
-            第三位:冻结状态
-            0:未冻结
-            1:限额冻结
-            2:借方冻结
-            3:贷方冻结
-            4:双向冻结
-            第四位:销户状态
-            0:未销户
-            1:已销户
-            2:已结转长期不动户
-             -->
-    <result column="STATUS_MAP" jdbcType="VARCHAR" property="statusMap" />
-    
-    <!-- 账户属性：
-            1:对公
-            2:对私
-            3:贷款
-            4:清算
-            5:待清算
-            9:内部帐
-             -->
-    <result column="ACCOUNT_ATTRIBUTE" jdbcType="CHAR" property="accountAttribute" />
-    
-    <!-- 账户类型：
-            11-现金账户
-            12-积分（营销实物兑换）
-            13-体验金（虚拟币）
-            14-红包
-            15-预付卡券积分-xx卡（福利卡）
-            19-其他
-            
-            MV账户类型：
-            待结算账户
-            结算账户
-            
-            系统内部账户类型：
-            
-            
-            
-            
-            
-            
-             -->
-    <result column="ACCOUNT_TYPE" jdbcType="VARCHAR" property="accountType" />
-    
-    <!-- 账户基本类型：
-            1:基本户
-            2:一般户
-            3:专用户
-            4:临时户
-            5:保证金户
-            6:备付金户
-            
-             -->
-    <result column="ACCOUNT_BASE_TYPE" jdbcType="CHAR" property="accountBaseType" />
-    
-    <!-- 内部账户类型 -->
-    <result column="ACCOUNT_INNER_TYPE" jdbcType="VARCHAR" property="accountInnerType" />
-    
-    <!-- 账户等级：
-            1-普通账户
-            9-VIP账户 -->
-    <result column="ACCOUNT_GRADE" jdbcType="CHAR" property="accountGrade" />
-    
-    <!-- 余额方向：
-            D:借
-            C:贷
-            0:双向 -->
-    <result column="BAL_DIRECTION" jdbcType="CHAR" property="balDirection" />
-    
-    <!-- 币种代码：
-            156-人民币 -->
-    <result column="CURRENCY_CODE" jdbcType="CHAR" property="currencyCode" />
-    
-    <!-- 账户余额 -->
-    <result column="BALANCE" jdbcType="DECIMAL" property="balance" />
-    
-    <!-- 可用余额 -->
-    <result column="AVAILABLE_BALANCE" jdbcType="DECIMAL" property="availableBalance" />
-    
-    <!-- 冻结金额 -->
-    <result column="FROZEN_AMOUNT" jdbcType="DECIMAL" property="frozenAmount" />
-    
-    <!-- 账户关键数据密文 -->
-    <result column="ENCRYPTED_MSG" jdbcType="VARCHAR" property="encryptedMsg" />
-    
-    <!-- 最后更新时间 -->
-    <result column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="lastUpdateTime" />
-    
-    <!-- 最后交易时间 -->
-    <result column="LAST_TXN_TIME" jdbcType="TIMESTAMP" property="lastTxnTime" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    ACCOUNT_NO, MASTER_ACCOUNT_NO, ACCOUNT_TITLE_NO, ACCOUNT_NAME, OPEN_DATE, CLOSE_DATE, 
-    VALID_DATE, LOCK_END_DATE, OWNER_ORG, OPEN_ORG, STATUS_MAP, ACCOUNT_ATTRIBUTE, ACCOUNT_TYPE, 
-    ACCOUNT_BASE_TYPE, ACCOUNT_INNER_TYPE, ACCOUNT_GRADE, BAL_DIRECTION, CURRENCY_CODE, 
-    BALANCE, AVAILABLE_BALANCE, FROZEN_AMOUNT, ENCRYPTED_MSG, LAST_UPDATE_TIME, LAST_TXN_TIME
-  </sql>
-  
-  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-08 15:00:32 ### -->
+    <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.AccAccountInfo">
 
-  <!-- Your codes goes start here!!! -->
-  <update id="updateBalance" parameterType="com.haili.ins.dao.model.AccAccountInfo">
+        <!-- 账户号 -->
+        <id column="ACCOUNT_NO" jdbcType="VARCHAR" property="accountNo"/>
+
+        <!-- 属主账户号 -->
+        <result column="MASTER_ACCOUNT_NO" jdbcType="VARCHAR" property="masterAccountNo"/>
+
+        <!-- 科目号 -->
+        <result column="ACCOUNT_TITLE_NO" jdbcType="VARCHAR" property="accountTitleNo"/>
+
+        <!-- 账户名称 -->
+        <result column="ACCOUNT_NAME" jdbcType="VARCHAR" property="accountName"/>
+
+        <!-- 开户日期 -->
+        <result column="OPEN_DATE" jdbcType="DATE" property="openDate"/>
+
+        <!-- 销户日期 -->
+        <result column="CLOSE_DATE" jdbcType="DATE" property="closeDate"/>
+
+        <!-- 有效日期 -->
+        <result column="VALID_DATE" jdbcType="DATE" property="validDate"/>
+
+        <!-- 锁定截止日期 -->
+        <result column="LOCK_END_DATE" jdbcType="DATE" property="lockEndDate"/>
+
+        <!-- 账户归属机构 -->
+        <result column="OWNER_ORG" jdbcType="VARCHAR" property="ownerOrg"/>
+
+        <!-- 账户开户机构 -->
+        <result column="OPEN_ORG" jdbcType="VARCHAR" property="openOrg"/>
+
+        <!-- 账户状态位图：
+                第一位:激活状态
+                0:未激活
+                1:已激活
+                第二位:锁定状态
+                0:未锁定
+                1:已锁定
+                第三位:冻结状态
+                0:未冻结
+                1:限额冻结
+                2:借方冻结
+                3:贷方冻结
+                4:双向冻结
+                第四位:销户状态
+                0:未销户
+                1:已销户
+                2:已结转长期不动户
+                 -->
+        <result column="STATUS_MAP" jdbcType="VARCHAR" property="statusMap"/>
+
+        <!-- 账户属性：
+                1:对公
+                2:对私
+                3:贷款
+                4:清算
+                5:待清算
+                9:内部帐
+                 -->
+        <result column="ACCOUNT_ATTRIBUTE" jdbcType="CHAR" property="accountAttribute"/>
+
+        <!-- 账户类型：
+                11-现金账户
+                12-积分（营销实物兑换）
+                13-体验金（虚拟币）
+                14-红包
+                15-预付卡券积分-xx卡（福利卡）
+                19-其他
+
+                MV账户类型：
+                待结算账户
+                结算账户
+
+                系统内部账户类型：
+
+
+
+
+
+
+                 -->
+        <result column="ACCOUNT_TYPE" jdbcType="VARCHAR" property="accountType"/>
+
+        <!-- 账户基本类型：
+                1:基本户
+                2:一般户
+                3:专用户
+                4:临时户
+                5:保证金户
+                6:备付金户
+
+                 -->
+        <result column="ACCOUNT_BASE_TYPE" jdbcType="CHAR" property="accountBaseType"/>
+
+        <!-- 内部账户类型 -->
+        <result column="ACCOUNT_INNER_TYPE" jdbcType="VARCHAR" property="accountInnerType"/>
+
+        <!-- 账户等级：
+                1-普通账户
+                9-VIP账户 -->
+        <result column="ACCOUNT_GRADE" jdbcType="CHAR" property="accountGrade"/>
+
+        <!-- 余额方向：
+                D:借
+                C:贷
+                0:双向 -->
+        <result column="BAL_DIRECTION" jdbcType="CHAR" property="balDirection"/>
+
+        <!-- 币种代码：
+                156-人民币 -->
+        <result column="CURRENCY_CODE" jdbcType="CHAR" property="currencyCode"/>
+
+        <!-- 账户余额 -->
+        <result column="BALANCE" jdbcType="DECIMAL" property="balance"/>
+
+        <!-- 可用余额 -->
+        <result column="AVAILABLE_BALANCE" jdbcType="DECIMAL" property="availableBalance"/>
+
+        <!-- 冻结金额 -->
+        <result column="FROZEN_AMOUNT" jdbcType="DECIMAL" property="frozenAmount"/>
+
+        <!-- 账户关键数据密文 -->
+        <result column="ENCRYPTED_MSG" jdbcType="VARCHAR" property="encryptedMsg"/>
+
+        <!-- 最后更新时间 -->
+        <result column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="lastUpdateTime"/>
+
+        <!-- 最后交易时间 -->
+        <result column="LAST_TXN_TIME" jdbcType="TIMESTAMP" property="lastTxnTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        ACCOUNT_NO, MASTER_ACCOUNT_NO, ACCOUNT_TITLE_NO, ACCOUNT_NAME, OPEN_DATE, CLOSE_DATE,
+        VALID_DATE, LOCK_END_DATE, OWNER_ORG, OPEN_ORG, STATUS_MAP, ACCOUNT_ATTRIBUTE, ACCOUNT_TYPE,
+        ACCOUNT_BASE_TYPE, ACCOUNT_INNER_TYPE, ACCOUNT_GRADE, BAL_DIRECTION, CURRENCY_CODE,
+        BALANCE, AVAILABLE_BALANCE, FROZEN_AMOUNT, ENCRYPTED_MSG, LAST_UPDATE_TIME, LAST_TXN_TIME
+    </sql>
+
+    <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-03-08 15:00:32 ### -->
+
+    <!-- Your codes goes start here!!! -->
+    <update id="updateBalance" parameterType="com.haili.ins.dao.model.AccAccountInfo">
       update
       	T_ACC_ACCOUNT_INFO t
       set
@@ -159,23 +159,23 @@
   </update>
 
 
-  <update id="updateAccStatus" parameterType="com.haili.ins.dao.model.AccAccountInfo">
-    update T_ACC_ACCOUNT_INFO
-    <set>
-      <if test="lastUpdateTime != null">
-        LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="statusMap != null">
-        STATUS_MAP = #{statusMap,jdbcType=VARCHAR},
-      </if>
-      <if test="encryptedMsg != null">
-        ENCRYPTED_MSG = #{encryptedMsg,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
-  </update>
+    <update id="updateAccStatus" parameterType="com.haili.ins.dao.model.AccAccountInfo">
+        update T_ACC_ACCOUNT_INFO
+        <set>
+            <if test="lastUpdateTime != null">
+                LAST_UPDATE_TIME = #{lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="statusMap != null">
+                STATUS_MAP = #{statusMap,jdbcType=VARCHAR},
+            </if>
+            <if test="encryptedMsg != null">
+                ENCRYPTED_MSG = #{encryptedMsg,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ACCOUNT_NO = #{accountNo,jdbcType=VARCHAR}
+    </update>
 
-  <update id="updateFrozenAmt" parameterType="com.haili.ins.dao.model.AccAccountInfo">
+    <update id="updateFrozenAmt" parameterType="com.haili.ins.dao.model.AccAccountInfo">
     update
       	T_ACC_ACCOUNT_INFO t
       set
@@ -188,25 +188,25 @@
       	ACCOUNT_NO=#{accountNo}
   </update>
 
-  <select id="lockAccountRows" resultMap="BaseResultMap" parameterType="java.util.HashMap">
-    select * from T_ACC_ACCOUNT_INFO
-    where 1 = 1
-    and ACCOUNT_NO in
-    <foreach item="acctNo" index="index" collection="acctNos"
-             open="(" separator="," close=")">
-      #{acctNo}
-    </foreach>
-    for update
-  </select>
+    <select id="lockAccountRows" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+        select * from T_ACC_ACCOUNT_INFO
+        where 1 = 1
+        and ACCOUNT_NO in
+        <foreach item="acctNo" index="index" collection="acctNos"
+                 open="(" separator="," close=")">
+            #{acctNo}
+        </foreach>
+        for update
+    </select>
 
-  <select id="selectByAccountNoList" resultMap="BaseResultMap" parameterType="java.util.HashMap">
-    select * from T_ACC_ACCOUNT_INFO
-    where 1 = 1
-    and ACCOUNT_NO in
-    <foreach item="acctNo" index="index" collection="acctNos"
-             open="(" separator="," close=")">
-      #{acctNo}
-    </foreach>
-  </select>
+    <select id="selectByAccountNoList" resultMap="BaseResultMap" parameterType="java.util.HashMap">
+        select * from T_ACC_ACCOUNT_INFO
+        where 1 = 1
+        and ACCOUNT_NO in
+        <foreach item="acctNo" index="index" collection="acctNos"
+                 open="(" separator="," close=")">
+            #{acctNo}
+        </foreach>
+    </select>
 
 </mapper>

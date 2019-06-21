@@ -13,12 +13,13 @@ import java.util.List;
 
 /**
  * 账户管理日志
+ *
  * @Author: leon
  * @Date: 2019/3/13 16:27
  * @Version 1.0
  */
 @Service
-public class MgmLogService extends AccountBaseService{
+public class MgmLogService extends AccountBaseService {
 
     @Resource
     private AccManagementLogMapper accManagementLogMapper;
@@ -30,7 +31,7 @@ public class MgmLogService extends AccountBaseService{
      * @param
      * @throws ServiceException
      */
-    public void insertMgmLog(MgmLogParam mgmLogParam)  {
+    public void insertMgmLog(MgmLogParam mgmLogParam) {
 
         AccManagementLog tAccManagementLog = new AccManagementLog();
         tAccManagementLog.setSysTraceNo(mgmLogParam.getSysTraceNo());
@@ -59,7 +60,7 @@ public class MgmLogService extends AccountBaseService{
     public void insertMgmLogBatchly(List<MgmLogParam> paramList) {
 
         List<AccManagementLog> mgmLogList = new ArrayList<AccManagementLog>();
-        for (MgmLogParam param : paramList ) {
+        for (MgmLogParam param : paramList) {
             AccManagementLog tAccManagementLog = new AccManagementLog();
             tAccManagementLog.setSysTraceNo(param.getSysTraceNo());
             tAccManagementLog.setTxnTime(new Date());

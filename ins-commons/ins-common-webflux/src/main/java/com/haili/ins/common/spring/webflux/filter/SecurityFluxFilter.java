@@ -33,8 +33,8 @@ public class SecurityFluxFilter implements WebFilter {
     public Mono<Void> filter(ServerWebExchange serverWebExchange,
                              WebFilterChain webFilterChain) {
         log.info(" 开始SecurityFluxFilter调用 : ");
-        ServerHttpRequest serverHttpRequest =  serverWebExchange.getRequest();
-        ServerHttpResponse serverHttpResponse =  serverWebExchange.getResponse();
+        ServerHttpRequest serverHttpRequest = serverWebExchange.getRequest();
+        ServerHttpResponse serverHttpResponse = serverWebExchange.getResponse();
         String url = serverHttpRequest.getURI().toString();
         log.info("请求uri: " + url);
         //获取请求http头xttblog_token值
@@ -44,15 +44,15 @@ public class SecurityFluxFilter implements WebFilter {
             String responseCode = JWTUtils.verifyToken(token);
             if (HailiInsConstant.SUCCESS.equals(responseCode)) {
                 return webFilterChain.filter(serverWebExchange);
-            }else{
+            } else {
                 serverHttpResponse.setStatusCode(HttpStatus.UNAUTHORIZED);
                 return serverHttpResponse
-                        .writeWith(Mono.just(new DefaultDataBufferFactory().wrap(JSONUtil.toJson(new ResultInfo(HailiInsConstant.VERIFY_ERROR,"服务调用token验证失败")).getBytes())));
+                        .writeWith(Mono.just(new DefaultDataBufferFactory().wrap(JSONUtil.toJson(new ResultInfo(HailiInsConstant.VERIFY_ERROR, "服务调用token验证失败")).getBytes())));
             }
-        }else{
+        } else {
             serverHttpResponse.setStatusCode(HttpStatus.UNAUTHORIZED);
             return serverHttpResponse
-                .writeWith(Mono.just(new DefaultDataBufferFactory().wrap(JSONUtil.toJson(new ResultInfo(HailiInsConstant.VERIFY_ERROR,"服务调用token不存在")).getBytes())));
+                    .writeWith(Mono.just(new DefaultDataBufferFactory().wrap(JSONUtil.toJson(new ResultInfo(HailiInsConstant.VERIFY_ERROR, "服务调用token不存在")).getBytes())));
 
         }
 

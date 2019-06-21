@@ -13,10 +13,10 @@ import java.util.concurrent.Executor;
  */
 @Configuration
 @EnableAsync
-public class ListenerAsyncConfiguration implements AsyncConfigurer
-{
+public class ListenerAsyncConfiguration implements AsyncConfigurer {
     /**
      * 获取异步线程池执行对象
+     *
      * @return
      */
     @Override

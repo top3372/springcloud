@@ -19,12 +19,12 @@ public class EncryptService {
     @Value("${encrypt.keyword:GAOEX&021#38645}")
     private String keyWord;
 
-    private EncryptService(){
+    private EncryptService() {
         // 读取证书地址
 
     }
 
-    public InvokeResponse encrypt(InvokeRequest invokeRequest)throws Exception{
+    public InvokeResponse encrypt(InvokeRequest invokeRequest) throws Exception {
         InvokeResponse invokeResponse = new InvokeResponse();
 
         String dataMsg = invokeRequest.getDataMsg();
@@ -38,6 +38,7 @@ public class EncryptService {
 
     /**
      * 关键密文加密
+     *
      * @param flatMsg
      * @return
      * @throws Exception

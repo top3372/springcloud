@@ -37,7 +37,7 @@ public class Oauth2ZuulFilter extends ZuulFilter {
 
     @Override
     public int filterOrder() {
-        return RIBBON_ROUTING_FILTER_ORDER   ;
+        return RIBBON_ROUTING_FILTER_ORDER;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class Oauth2ZuulFilter extends ZuulFilter {
         String url = request.getRequestURI();
 //        String requestMethod = requestContext.getRequest().getMethod();
 
-        if(permitAllUrlProperties.isPermitAllUrl(url)){
+        if (permitAllUrlProperties.isPermitAllUrl(url)) {
             return false;
         }
         return true;
@@ -64,7 +64,7 @@ public class Oauth2ZuulFilter extends ZuulFilter {
         String routeName = request.getRequestURL().toString();
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        CustomPrincipal customPrincipal = (CustomPrincipal)authentication.getPrincipal();
+        CustomPrincipal customPrincipal = (CustomPrincipal) authentication.getPrincipal();
         System.out.println(JSONUtil.toJson(customPrincipal));
 
         /**

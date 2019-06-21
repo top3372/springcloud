@@ -29,7 +29,7 @@ public class AuthExceptionEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response,
                          AuthenticationException authException)
-            throws  ServletException {
+            throws ServletException {
 
         Map map = new HashMap();
         map.put("error", HttpServletResponse.SC_UNAUTHORIZED);

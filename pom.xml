@@ -6,24 +6,23 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.4.RELEASE</version>
-        <relativePath/>
+        <version>2.1.5.RELEASE</version>
     </parent>
 
     <groupId>com.haili.ins</groupId>
     <artifactId>haili-ins</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-		<module>ins-block</module>
+        <module>ins-block</module>
         <module>ins-commons</module>
         <module>ins-config</module>
-		<module>ins-cores</module>
+        <module>ins-cores</module>
         <module>ins-data</module>
         <module>ins-distribution-transaction</module>
-		<module>ins-doc</module>
+        <module>ins-doc</module>
         <module>ins-feign</module>
-		<module>ins-flow</module>
-		<module>ins-invocation-chain</module>
+        <module>ins-flow</module>
+        <module>ins-invocation-chain</module>
         <module>ins-gateway</module>
         <module>ins-moniter</module>
         <module>ins-message</module>
@@ -37,23 +36,24 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven-jar-plugin>3.1.2</maven-jar-plugin>
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
         <spring-cloud-alibaba.version>0.9.0.RELEASE</spring-cloud-alibaba.version>
-        <joda.version>2.10.1</joda.version>
+        <joda.version>2.10.2</joda.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
         <commons-codec.version>1.12</commons-codec.version>
         <commons-fileupload.version>1.4</commons-fileupload.version>
         <guava.version>27.1-jre</guava.version>
-        <lombok.version>1.18.6</lombok.version>
+        <lombok.version>1.18.8</lombok.version>
         <jackson.version>2.9.8</jackson.version>
         <fastjson.version>1.2.56</fastjson.version>
         <gson.version>2.8.5</gson.version>
         <hikaricp.version>3.3.1</hikaricp.version>
-        <mysql.version>8.0.15</mysql.version>
-        <mybatis.version>3.5.0</mybatis.version>
-        <mybatis-spring.version>2.0.0</mybatis-spring.version>
+        <mysql.version>8.0.16</mysql.version>
+        <mybatis.version>3.5.1</mybatis.version>
+        <mybatis-spring.version>2.0.1</mybatis-spring.version>
         <tk.mybatis.version>2.1.5</tk.mybatis.version>
-        <pagehelper-spring.version>1.2.10</pagehelper-spring.version>
+        <pagehelper-spring.version>1.2.11</pagehelper-spring.version>
         <snakeyaml.version>1.24</snakeyaml.version>
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <httpclient.version>4.5.8</httpclient.version>
@@ -61,14 +61,13 @@
         <httpcore.version>4.4.11</httpcore.version>
         <httpasyncclient.version>4.1.4</httpasyncclient.version>
         <httpcore-nio.version>4.4.11</httpcore-nio.version>
-        <okhttp3.version>3.14.0</okhttp3.version>
+        <okhttp3.version>3.14.2</okhttp3.version>
         <hibernate-validator.version>6.1.0.Alpha4</hibernate-validator.version>
         <javax-validation.version>2.0.1.Final</javax-validation.version>
-        <glassfish-el.version>3.0.1-b11</glassfish-el.version>
+        <!--        <glassfish-el.version>3.0.1-b11</glassfish-el.version>-->
         <swagger2.version>2.9.2</swagger2.version>
         <zxing.version>3.3.3</zxing.version>
         <auth0.jwt.version>3.8.0</auth0.jwt.version>
-        <hikaricp.version>3.3.1</hikaricp.version>
         <poi.version>4.1.0</poi.version>
     </properties>
 
@@ -97,13 +96,11 @@
             </dependency>
 
 
-
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
             </dependency>
-
 
 
             <dependency>
@@ -163,7 +160,19 @@
             <name>Spring Milestones</name>
             <url>https://repo.spring.io/milestone</url>
         </repository>
+        <!--        <repository>-->
+        <!--            <id>aliyunmaven</id>-->
+        <!--            <url>https://maven.aliyun.com/repository/central</url>-->
+        <!--        </repository>-->
     </repositories>
+
+    <!--	<pluginRepositories>-->
+    <!--        <pluginRepository>-->
+    <!--            <id>repository.spring.release</id>-->
+    <!--            <name>Spring GA Repository</name>-->
+    <!--            <url>https://repo.spring.io/plugins-release/</url>-->
+    <!--        </pluginRepository>-->
+    <!--	</pluginRepositories>-->
 
     <build>
 

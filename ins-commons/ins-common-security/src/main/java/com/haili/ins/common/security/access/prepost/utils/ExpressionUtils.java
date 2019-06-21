@@ -10,7 +10,7 @@ public final class ExpressionUtils {
 
     public static boolean evaluateAsBoolean(Expression expr, EvaluationContext ctx) {
         try {
-            return (Boolean)expr.getValue(ctx, Boolean.class);
+            return (Boolean) expr.getValue(ctx, Boolean.class);
         } catch (EvaluationException var3) {
             throw new IllegalArgumentException("Failed to evaluate expression '" + expr.getExpressionString() + "'", var3);
         }

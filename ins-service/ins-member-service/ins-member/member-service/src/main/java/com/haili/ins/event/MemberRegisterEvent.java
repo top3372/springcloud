@@ -12,7 +12,8 @@ public class MemberRegisterEvent extends ApplicationEvent {
 
     /**
      * 重写构造函数
-     * @param source 发生事件的对象
+     *
+     * @param source          发生事件的对象
      * @param registerRequest 注册用户对象
      */
     public MemberRegisterEvent(Object source, RegisterRequest registerRequest) {

@@ -2,15 +2,19 @@ package com.haili.ins.common.utils;
 
 import java.util.*;
 
-/** 集合相关的工具包 */
+/**
+ * 集合相关的工具包
+ */
 public final class A {
 
     public static boolean isArray(Object obj) {
         return (obj != null && obj.getClass().isArray());
     }
+
     public static <T> boolean isEmpty(T[] array) {
         return array == null || array.length == 0;
     }
+
     public static <T> boolean isNotEmpty(T[] array) {
         return !isEmpty(array);
     }
@@ -18,6 +22,7 @@ public final class A {
     public static <T> boolean isEmpty(Collection<T> collection) {
         return collection == null || collection.size() == 0;
     }
+
     public static <T> boolean isNotEmpty(Collection<T> collection) {
         return !isEmpty(collection);
     }
@@ -25,6 +30,7 @@ public final class A {
     public static boolean isEmpty(Map map) {
         return map == null || map.isEmpty();
     }
+
     public static boolean isNotEmpty(Map map) {
         return !isEmpty(map);
     }
@@ -32,12 +38,15 @@ public final class A {
     public static <T> String toStr(Collection<T> collection) {
         return toStr(collection, ",");
     }
+
     public static <T> String toStr(Collection<T> collection, String split) {
         return toStr(collection.toArray(), split);
     }
+
     public static String toStr(Object[] array) {
         return toStr(array, ",");
     }
+
     public static String toStr(Object[] array, String split) {
         if (isEmpty(array)) {
             return U.EMPTY;
@@ -53,11 +62,14 @@ public final class A {
         return sbd.toString();
     }
 
-    /** 构造 HashMap, 必须保证每两个参数的类型是一致的! 当参数是奇数时, 最后一个 key 将会被忽略 */
+    /**
+     * 构造 HashMap, 必须保证每两个参数的类型是一致的! 当参数是奇数时, 最后一个 key 将会被忽略
+     */
     @SuppressWarnings("unchecked")
     public static <K, V> HashMap<K, V> maps(Object... keysAndValues) {
         return (HashMap<K, V>) maps(new HashMap<K, V>(), keysAndValues);
     }
+
     @SuppressWarnings("unchecked")
     private static <K, V> Map<K, V> maps(Map<K, V> result, Object... keysAndValues) {
         if (isNotEmpty(keysAndValues)) {
@@ -69,17 +81,25 @@ public final class A {
         }
         return result;
     }
-    /** 构造 LinkedHashMap, 必须保证每两个参数的类型是一致的! 当参数是奇数时, 最后一个 key 将会被忽略 */
+
+    /**
+     * 构造 LinkedHashMap, 必须保证每两个参数的类型是一致的! 当参数是奇数时, 最后一个 key 将会被忽略
+     */
     @SuppressWarnings("unchecked")
     public static <K, V> LinkedHashMap<K, V> linkedMaps(Object... keysAndValues) {
         return (LinkedHashMap<K, V>) maps(new LinkedHashMap<K, V>(), keysAndValues);
     }
 
-    /** 获取集合的第一个元素 */
+    /**
+     * 获取集合的第一个元素
+     */
     public static <T> T first(Collection<T> collection) {
         return isEmpty(collection) ? null : collection.iterator().next();
     }
-    /** 获取集合的最后一个元素 */
+
+    /**
+     * 获取集合的最后一个元素
+     */
     public static <T> T last(Collection<T> collection) {
         if (isEmpty(collection)) {
             return null;
@@ -100,7 +120,9 @@ public final class A {
         }
     }
 
-    /** 集合中随机返回一个 */
+    /**
+     * 集合中随机返回一个
+     */
     @SuppressWarnings("unchecked")
     public static <T> T rand(Collection<T> source) {
         return isEmpty(source) ? null : (T) source.toArray()[U.RANDOM.nextInt(source.size())];

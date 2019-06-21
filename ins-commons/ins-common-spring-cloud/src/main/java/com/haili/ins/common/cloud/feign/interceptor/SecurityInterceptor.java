@@ -17,7 +17,6 @@ import lombok.extern.slf4j.Slf4j;
 public class SecurityInterceptor implements RequestInterceptor {
 
 
-
     @Override
     public void apply(RequestTemplate requestTemplate) {
 
@@ -26,8 +25,6 @@ public class SecurityInterceptor implements RequestInterceptor {
         String jwtToken = JWTUtils.createToken(routeName + "&" + RandomUtil.generateSeqNo());
         log.info("jwtToken: " + jwtToken);
         requestTemplate.header(HttpHeaderConstant.SECURITY_TOKEN, jwtToken);
-
-
 
 
     }

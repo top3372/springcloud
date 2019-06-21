@@ -11,19 +11,19 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 /**
-
  * ========================
+ *
  * @author Leon
  */
 @Component
-public class MemberRegisterListener implements SmartApplicationListener
-{
+public class MemberRegisterListener implements SmartApplicationListener {
     @Resource
     private MemberRegisterService memberRegisterService;
 
 
     /**
-     *  该方法返回true&supportsSourceType同样返回true时，才会调用该监听内的onApplicationEvent方法
+     * 该方法返回true&supportsSourceType同样返回true时，才会调用该监听内的onApplicationEvent方法
+     *
      * @param aClass 接收到的监听事件类型
      * @return
      */
@@ -34,7 +34,8 @@ public class MemberRegisterListener implements SmartApplicationListener
     }
 
     /**
-     *  该方法返回true&supportsEventType同样返回true时，才会调用该监听内的onApplicationEvent方法
+     * 该方法返回true&supportsEventType同样返回true时，才会调用该监听内的onApplicationEvent方法
+     *
      * @param aClass
      * @return
      */
@@ -45,7 +46,8 @@ public class MemberRegisterListener implements SmartApplicationListener
     }
 
     /**
-     *  supportsEventType & supportsSourceType 两个方法返回true时调用该方法执行业务逻辑
+     * supportsEventType & supportsSourceType 两个方法返回true时调用该方法执行业务逻辑
+     *
      * @param applicationEvent 具体监听实例，这里是MemberRegisterEvent
      */
     @Override
@@ -59,11 +61,12 @@ public class MemberRegisterListener implements SmartApplicationListener
         memberRegisterService.addRegLog(registerRequest);
 
         //生成邀请码信息
-        System.out.println("用户："+registerRequest.getRegisterName()+"，注册成功，发送邮件通知。");
+        System.out.println("用户：" + registerRequest.getRegisterName() + "，注册成功，发送邮件通知。");
     }
 
     /**
      * 同步情况下监听执行的顺序
+     *
      * @return
      */
     @Override

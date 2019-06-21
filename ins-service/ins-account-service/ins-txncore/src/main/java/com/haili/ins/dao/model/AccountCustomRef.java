@@ -2,6 +2,7 @@ package com.haili.ins.dao.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -37,13 +38,13 @@ public class AccountCustomRef implements Serializable {
 
     /**
      * 账户类型：
-            1-现金账户
-            2-体验金账户
-            3-红包账户
-            4-积分账户
-            9-其他
-            
-     *
+     * 1-现金账户
+     * 2-体验金账户
+     * 3-红包账户
+     * 4-积分账户
+     * 9-其他
+     * <p>
+     * <p>
      * Table:     T_ACCOUNT_CUSTOM_REF
      * Column:    ACCOUNT_TYPE
      * Nullable:  true
@@ -53,9 +54,9 @@ public class AccountCustomRef implements Serializable {
 
     /**
      * 绑定标志
-            0-解绑
-            1-绑定
-     *
+     * 0-解绑
+     * 1-绑定
+     * <p>
      * Table:     T_ACCOUNT_CUSTOM_REF
      * Column:    IS_BINDING
      * Nullable:  true

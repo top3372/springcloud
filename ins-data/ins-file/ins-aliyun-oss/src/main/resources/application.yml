@@ -1,4 +1,3 @@
-
 ## org.springframework.boot.autoconfigure.web.ServerProperties
 server:
   port: 6000
@@ -46,12 +45,9 @@ zuul:
 
 auth:
   permitall:
-    -
-      pattern: /auth/**
-    -
-      pattern: /**/public/**
-    -
-      pattern: /actuator/**
+    - pattern: /auth/**
+    - pattern: /**/public/**
+    - pattern: /actuator/**
 
 security:
   oauth2:

@@ -3,6 +3,7 @@ package com.haili.ins.dao.model;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -13,7 +14,7 @@ import lombok.Data;
 public class SysOperLog implements Serializable {
     /**
      * 日志主键
-     *
+     * <p>
      * Table:     sys_oper_log
      * Column:    oper_id
      * Nullable:  false
@@ -25,7 +26,7 @@ public class SysOperLog implements Serializable {
 
     /**
      * 模块标题
-     *
+     * <p>
      * Table:     sys_oper_log
      * Column:    title
      * Nullable:  true
@@ -35,7 +36,7 @@ public class SysOperLog implements Serializable {
 
     /**
      * 业务类型（0其它 1新增 2修改 3删除）
-     *
+     * <p>
      * Table:     sys_oper_log
      * Column:    business_type
      * Nullable:  true
@@ -45,7 +46,7 @@ public class SysOperLog implements Serializable {
 
     /**
      * 方法名称
-     *
+     * <p>
      * Table:     sys_oper_log
      * Column:    method
      * Nullable:  true
@@ -55,7 +56,7 @@ public class SysOperLog implements Serializable {
 
     /**
      * 操作类别（0其它 1后台用户 2手机端用户）
-     *
+     * <p>
      * Table:     sys_oper_log
      * Column:    operator_type
      * Nullable:  true
@@ -65,7 +66,7 @@ public class SysOperLog implements Serializable {
 
     /**
      * 操作人员
-     *
+     * <p>
      * Table:     sys_oper_log
      * Column:    oper_name
      * Nullable:  true
@@ -75,7 +76,7 @@ public class SysOperLog implements Serializable {
 
     /**
      * 部门名称
-     *
+     * <p>
      * Table:     sys_oper_log
      * Column:    dept_name
      * Nullable:  true
@@ -85,7 +86,7 @@ public class SysOperLog implements Serializable {
 
     /**
      * 请求URL
-     *
+     * <p>
      * Table:     sys_oper_log
      * Column:    oper_url
      * Nullable:  true
@@ -95,7 +96,7 @@ public class SysOperLog implements Serializable {
 
     /**
      * 主机地址
-     *
+     * <p>
      * Table:     sys_oper_log
      * Column:    oper_ip
      * Nullable:  true
@@ -105,7 +106,7 @@ public class SysOperLog implements Serializable {
 
     /**
      * 操作地点
-     *
+     * <p>
      * Table:     sys_oper_log
      * Column:    oper_location
      * Nullable:  true
@@ -115,7 +116,7 @@ public class SysOperLog implements Serializable {
 
     /**
      * 请求参数
-     *
+     * <p>
      * Table:     sys_oper_log
      * Column:    oper_param
      * Nullable:  true
@@ -125,7 +126,7 @@ public class SysOperLog implements Serializable {
 
     /**
      * 操作状态（0正常 1异常）
-     *
+     * <p>
      * Table:     sys_oper_log
      * Column:    status
      * Nullable:  true
@@ -135,7 +136,7 @@ public class SysOperLog implements Serializable {
 
     /**
      * 错误消息
-     *
+     * <p>
      * Table:     sys_oper_log
      * Column:    error_msg
      * Nullable:  true
@@ -145,7 +146,7 @@ public class SysOperLog implements Serializable {
 
     /**
      * 操作时间
-     *
+     * <p>
      * Table:     sys_oper_log
      * Column:    oper_time
      * Nullable:  true

@@ -20,7 +20,7 @@ public class ZuulFilterConfiguration {
     }
 
     @Bean
-    public ErrorFilter errorFilter(){
+    public ErrorFilter errorFilter() {
         return new ErrorFilter();
     }
 

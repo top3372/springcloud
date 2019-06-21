@@ -24,6 +24,7 @@ public class SegmentService {
     private Logger logger = LoggerFactory.getLogger(SegmentService.class);
     IDGen idGen;
     DruidDataSource dataSource;
+
     public SegmentService() throws SQLException, InitException {
         Properties properties = PropertyFactory.getProperties();
         boolean flag = Boolean.parseBoolean(properties.getProperty(Constants.LEAF_SEGMENT_ENABLE, "true"));
@@ -53,16 +54,18 @@ public class SegmentService {
             logger.info("Zero ID Gen Service Init Successfully");
         }
     }
+
     public Result getId(String key) {
         Result result = idGen.get(key);
 
-        if(Status.SUCCESS.equals(result.getStatus())){
-            String date= DateUtil.now(DateFormatType.YYYYMMDDHHMMSSSSS);
+        if (Status.SUCCESS.equals(result.getStatus())) {
+            String date = DateUtil.now(DateFormatType.YYYYMMDDHHMMSSSSS);
             String id = String.valueOf(idGen.get(key).getId());
             result.setId(date + id);
         }
         return result;
     }
+
     public SegmentIDGenImpl getIdGen() {
         if (idGen instanceof SegmentIDGenImpl) {
             return (SegmentIDGenImpl) idGen;

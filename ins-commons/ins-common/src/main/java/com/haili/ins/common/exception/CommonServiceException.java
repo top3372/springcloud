@@ -3,7 +3,9 @@ package com.haili.ins.common.exception;
 
 import com.haili.ins.common.constants.HailiInsConstant;
 
-/** 业务异常 */
+/**
+ * 业务异常
+ */
 public class CommonServiceException extends RuntimeException {
 
     private String code;

@@ -2,6 +2,7 @@ package com.haili.ins.dao.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 import lombok.Data;
 
 @Table(name = "`sys_role_dept`")
@@ -9,7 +10,7 @@ import lombok.Data;
 public class SysRoleDept implements Serializable {
     /**
      * 角色ID
-     *
+     * <p>
      * Table:     sys_role_dept
      * Column:    role_id
      * Nullable:  false
@@ -20,7 +21,7 @@ public class SysRoleDept implements Serializable {
 
     /**
      * 部门ID
-     *
+     * <p>
      * Table:     sys_role_dept
      * Column:    dept_id
      * Nullable:  false

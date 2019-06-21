@@ -16,7 +16,7 @@ public class MgmLogEvent extends ApplicationEvent {
 
     private List<MgmLogParam> mgmLogParamList;
 
-    public MgmLogEvent(Object source,List<MgmLogParam> mgmLogParamList ){
+    public MgmLogEvent(Object source, List<MgmLogParam> mgmLogParamList) {
         super(source);
         this.mgmLogParamList = mgmLogParamList;
     }

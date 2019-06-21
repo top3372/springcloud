@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haili.ins.dao.mapper.SysRegionMapper">
-  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.SysRegion">
-    
-    <!-- 地区id -->
-    <id column="region_code" jdbcType="VARCHAR" property="regionCode" />
-    
-    <!-- 名称 -->
-    <result column="region_name" jdbcType="VARCHAR" property="regionName" />
-    
-    <!-- 上级id -->
-    <result column="parent_region_code" jdbcType="VARCHAR" property="parentRegionCode" />
-    
-    <!-- 排序代码 -->
-    <result column="disorder" jdbcType="INTEGER" property="disorder" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    region_code, region_name, parent_region_code, disorder
-  </sql>
-  
-  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-04-09 16:22:07 ### -->
+    <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.SysRegion">
+
+        <!-- 地区id -->
+        <id column="region_code" jdbcType="VARCHAR" property="regionCode"/>
+
+        <!-- 名称 -->
+        <result column="region_name" jdbcType="VARCHAR" property="regionName"/>
+
+        <!-- 上级id -->
+        <result column="parent_region_code" jdbcType="VARCHAR" property="parentRegionCode"/>
+
+        <!-- 排序代码 -->
+        <result column="disorder" jdbcType="INTEGER" property="disorder"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        region_code, region_name, parent_region_code, disorder
+    </sql>
+
+    <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-04-09 16:22:07 ### -->
 
 
+    <!-- Your codes goes start here!!! -->
 
-  <!-- Your codes goes start here!!! -->
-  
 </mapper>

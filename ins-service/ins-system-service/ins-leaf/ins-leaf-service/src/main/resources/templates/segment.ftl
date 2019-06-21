@@ -25,20 +25,20 @@
     <tbody>
     <#if data?exists>
         <#list data?keys as key>
-        <tr>
-            <td>${key}</td>
-            <td>${data[key].initOk?string('true','false')}</td>
-            <td>${data[key].nextReady?string('true','false')}</td>
-            <td>${data[key].pos}</td>
-            <td>${data[key].value0}</td>
-            <td>${data[key].max0}</td>
-            <td>${data[key].step0}</td>
-            <td>${data[key].value1}</td>
-            <td>${data[key].max1}</td>
-            <td>${data[key].step1}</td>
-        </tr>
-        <tr>
-        </tr>
+            <tr>
+                <td>${key}</td>
+                <td>${data[key].initOk?string('true','false')}</td>
+                <td>${data[key].nextReady?string('true','false')}</td>
+                <td>${data[key].pos}</td>
+                <td>${data[key].value0}</td>
+                <td>${data[key].max0}</td>
+                <td>${data[key].step0}</td>
+                <td>${data[key].value1}</td>
+                <td>${data[key].max1}</td>
+                <td>${data[key].step1}</td>
+            </tr>
+            <tr>
+            </tr>
 
         </#list>
     </#if>

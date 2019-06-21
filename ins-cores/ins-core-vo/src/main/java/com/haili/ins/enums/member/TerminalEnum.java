@@ -2,37 +2,37 @@ package com.haili.ins.enums.member;
 
 /**
  * 终端
- * @author new
  *
+ * @author new
  */
 public enum TerminalEnum {
 
 
-	ANDROID("Android", "安卓"),
+    ANDROID("Android", "安卓"),
 
-	IOS("iOS", "苹果"),
+    IOS("iOS", "苹果"),
 
-	WEB("WEB", "PC"),
+    WEB("WEB", "PC"),
 
-	H5("H5", "H5");
-
-
-	private String code;
-	private String desc;
+    H5("H5", "H5");
 
 
-	TerminalEnum(String code, String desc) {
-
-		this.code = code;
-		this.desc = desc;
-	}
+    private String code;
+    private String desc;
 
 
-	public String getCode() {
-		return code;
-	}
+    TerminalEnum(String code, String desc) {
 
-	public String getDesc() {
-		return desc;
-	}
+        this.code = code;
+        this.desc = desc;
+    }
+
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
 }

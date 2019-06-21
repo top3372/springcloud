@@ -44,10 +44,10 @@ public class InvokeController {
 //        HttpServletRequest request = requestAttributes.getRequest();
 
         InvokeParameter parameter = new InvokeParameter();
-        BeanUtils.copyProperties(invokeRequest,parameter);
+        BeanUtils.copyProperties(invokeRequest, parameter);
         parameter.setVersionNo("v1");
 
-        invokeResponse = InvokeHelper.invoke(invokeService,parameter);
+        invokeResponse = InvokeHelper.invoke(invokeService, parameter);
 
         return invokeResponse;
     }

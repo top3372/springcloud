@@ -3,6 +3,7 @@ package com.haili.ins.dao.model;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -13,7 +14,7 @@ import lombok.Data;
 public class SysPost implements Serializable {
     /**
      * 岗位ID
-     *
+     * <p>
      * Table:     sys_post
      * Column:    post_id
      * Nullable:  false
@@ -25,7 +26,7 @@ public class SysPost implements Serializable {
 
     /**
      * 岗位编码
-     *
+     * <p>
      * Table:     sys_post
      * Column:    post_code
      * Nullable:  false
@@ -35,7 +36,7 @@ public class SysPost implements Serializable {
 
     /**
      * 岗位名称
-     *
+     * <p>
      * Table:     sys_post
      * Column:    post_name
      * Nullable:  false
@@ -45,7 +46,7 @@ public class SysPost implements Serializable {
 
     /**
      * 显示顺序
-     *
+     * <p>
      * Table:     sys_post
      * Column:    post_sort
      * Nullable:  false
@@ -55,7 +56,7 @@ public class SysPost implements Serializable {
 
     /**
      * 状态（0正常 1停用）
-     *
+     * <p>
      * Table:     sys_post
      * Column:    status
      * Nullable:  false
@@ -65,7 +66,7 @@ public class SysPost implements Serializable {
 
     /**
      * 创建者
-     *
+     * <p>
      * Table:     sys_post
      * Column:    create_by
      * Nullable:  true
@@ -75,7 +76,7 @@ public class SysPost implements Serializable {
 
     /**
      * 创建时间
-     *
+     * <p>
      * Table:     sys_post
      * Column:    create_time
      * Nullable:  true
@@ -85,7 +86,7 @@ public class SysPost implements Serializable {
 
     /**
      * 更新者
-     *
+     * <p>
      * Table:     sys_post
      * Column:    update_by
      * Nullable:  true
@@ -95,7 +96,7 @@ public class SysPost implements Serializable {
 
     /**
      * 更新时间
-     *
+     * <p>
      * Table:     sys_post
      * Column:    update_time
      * Nullable:  true
@@ -105,7 +106,7 @@ public class SysPost implements Serializable {
 
     /**
      * 备注
-     *
+     * <p>
      * Table:     sys_post
      * Column:    remark
      * Nullable:  true

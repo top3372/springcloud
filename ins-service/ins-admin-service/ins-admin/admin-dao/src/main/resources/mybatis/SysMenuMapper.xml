@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haili.ins.dao.mapper.SysMenuMapper">
-  <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.SysMenu">
-    
-    <!-- 主键 -->
-    <id column="menu_id" jdbcType="VARCHAR" property="menuId" />
-    <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
-    <result column="menu_url" jdbcType="VARCHAR" property="menuUrl" />
-    <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
-    <result column="order_num" jdbcType="INTEGER" property="orderNum" />
-    
-    <!-- 状态
-0：禁用
-1：启用 -->
-    <result column="status" jdbcType="VARCHAR" property="status" />
-    
-    <!-- 是否删除
-0:未删除
-1:已删除 -->
-    <result column="is_del" jdbcType="VARCHAR" property="isDel" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    menu_id, menu_name, menu_url, parent_id, order_num, status, is_del
-  </sql>
-  
-  <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-04-09 15:43:30 ### -->
+    <resultMap id="BaseResultMap" type="com.haili.ins.dao.model.SysMenu">
+
+        <!-- 主键 -->
+        <id column="menu_id" jdbcType="VARCHAR" property="menuId"/>
+        <result column="menu_name" jdbcType="VARCHAR" property="menuName"/>
+        <result column="menu_url" jdbcType="VARCHAR" property="menuUrl"/>
+        <result column="parent_id" jdbcType="VARCHAR" property="parentId"/>
+        <result column="order_num" jdbcType="INTEGER" property="orderNum"/>
+
+        <!-- 状态
+    0：禁用
+    1：启用 -->
+        <result column="status" jdbcType="VARCHAR" property="status"/>
+
+        <!-- 是否删除
+    0:未删除
+    1:已删除 -->
+        <result column="is_del" jdbcType="VARCHAR" property="isDel"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        menu_id, menu_name, menu_url, parent_id, order_num, status, is_del
+    </sql>
+
+    <!-- ### 以上代码由MBG + CommentPlugin自动生成, 生成时间: 2019-04-09 15:43:30 ### -->
 
 
-  
 </mapper>

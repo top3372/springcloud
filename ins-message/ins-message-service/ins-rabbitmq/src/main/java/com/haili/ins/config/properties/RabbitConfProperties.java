@@ -37,5 +37,4 @@ public class RabbitConfProperties {
     private String sender;
 
 
-
 }

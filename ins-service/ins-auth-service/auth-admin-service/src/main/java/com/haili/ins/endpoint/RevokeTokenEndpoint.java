@@ -26,10 +26,10 @@ public class RevokeTokenEndpoint {
     @ResponseBody
     public ResultInfo revokeToken(String access_token) {
 
-        if (consumerTokenServices.revokeToken(access_token)){
-            return new ResultInfo(ResponseCodeEnum.SUCCESS.getCode(),"注销成功");
-        }else{
-            return new ResultInfo(ResponseCodeEnum.LOGOUT_FAILURE.getCode(),"注销失败");
+        if (consumerTokenServices.revokeToken(access_token)) {
+            return new ResultInfo(ResponseCodeEnum.SUCCESS.getCode(), "注销成功");
+        } else {
+            return new ResultInfo(ResponseCodeEnum.LOGOUT_FAILURE.getCode(), "注销失败");
         }
     }
 }

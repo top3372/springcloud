@@ -11,5 +11,4 @@ package com.haili.ins.config.constant;
 public final class RabbitmqConstant {
 
 
-
 }

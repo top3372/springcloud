@@ -18,8 +18,10 @@ import java.util.Map;
 public class SnowflakeIdWorker {
 
     // ==============================Fields===========================================
-    /** 开始时间截 (2015-01-01) */
-    private final long START_STMP  = 1551255812000L;
+    /**
+     * 开始时间截 (2015-01-01)
+     */
+    private final long START_STMP = 1551255812000L;
 
     private static final long ZERO = 0L;
 
@@ -106,6 +108,7 @@ public class SnowflakeIdWorker {
 
     /**
      * 获取数据中心ID
+     *
      * @author sunk
      */
     public static long getDatacenterId(long id) {
@@ -129,6 +132,7 @@ public class SnowflakeIdWorker {
 
     /**
      * 获取工作节点ID
+     *
      * @author sunk
      */
     public static long getWorkerId(long id) {
@@ -138,18 +142,18 @@ public class SnowflakeIdWorker {
         return shift & mask;
     }
 
-    public Map<String,Object> parseInfo(String id) {
+    public Map<String, Object> parseInfo(String id) {
         id = Long.toBinaryString(Long.parseLong(id));
         int len = id.length();
 //        JSONObject jsonObject = new JSONObject();
-        Map<String,Object> resultMap = new HashMap<>();
-        long sequenceStart = len < WORKER_LEFT  ? 0 : len - WORKER_LEFT ;
-        long workerStart = len < DATACENTER_LEFT  ? 0 : len - DATACENTER_LEFT ;
-        long timeStart = len < TIMESTMP_LEFT  ? 0 : len - TIMESTMP_LEFT ;
-        String sequence = id.substring((int)sequenceStart , len);
-        String workerId = sequenceStart == 0 ? "0" : id.substring((int)workerStart, (int)sequenceStart);
-        String dataCenterId = workerStart == 0 ? "0" : id.substring((int)timeStart, (int)workerStart);
-        String time = timeStart == 0 ? "0" : id.substring(0, (int)timeStart);
+        Map<String, Object> resultMap = new HashMap<>();
+        long sequenceStart = len < WORKER_LEFT ? 0 : len - WORKER_LEFT;
+        long workerStart = len < DATACENTER_LEFT ? 0 : len - DATACENTER_LEFT;
+        long timeStart = len < TIMESTMP_LEFT ? 0 : len - TIMESTMP_LEFT;
+        String sequence = id.substring((int) sequenceStart, len);
+        String workerId = sequenceStart == 0 ? "0" : id.substring((int) workerStart, (int) sequenceStart);
+        String dataCenterId = workerStart == 0 ? "0" : id.substring((int) timeStart, (int) workerStart);
+        String time = timeStart == 0 ? "0" : id.substring(0, (int) timeStart);
         int sequenceInt = Integer.valueOf(sequence, 2);
         resultMap.put("sequence", sequenceInt);
         int workerIdInt = Integer.valueOf(workerId, 2);
@@ -158,14 +162,17 @@ public class SnowflakeIdWorker {
         resultMap.put("dataCenter", dataCenterIdInt);
         long diffTime = Long.parseLong(time, 2);
         long timeLong = diffTime + START_STMP;
-        String date = DateUtil.transferLongToDate(DateFormatType.YYYYMMDDHHMMSSSSS,timeLong);
+        String date = DateUtil.transferLongToDate(DateFormatType.YYYYMMDDHHMMSSSSS, timeLong);
         resultMap.put("date", date);
         return resultMap;
     }
 
 
     //==============================Test=============================================
-    /** 测试 */
+
+    /**
+     * 测试
+     */
     public static void main(String[] args) {
         SnowflakeIdWorker idWorker = new SnowflakeIdWorker(5, 0);
         for (int i = 0; i < 1000; i++) {

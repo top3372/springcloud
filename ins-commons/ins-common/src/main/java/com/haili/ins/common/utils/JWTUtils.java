@@ -1,7 +1,6 @@
 package com.haili.ins.common.utils;
 
 
-
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
@@ -18,28 +17,30 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * API调用认证工具类，采用RSA加密
- * @author yinjihuan
  *
+ * @author yinjihuan
  */
 public class JWTUtils {
 
 
-
-    /** token秘钥，请勿泄露，请勿随便修改 backups:JKKLJOoasdlfj */
+    /**
+     * token秘钥，请勿泄露，请勿随便修改 backups:JKKLJOoasdlfj
+     */
     public static final String SECRET = "haili.ins.service";
-    /** token 过期时间: 10天 */
+    /**
+     * token 过期时间: 10天
+     */
     public static final int calendarField = Calendar.DATE;
     public static final int calendarInterval = 10;
 
     /**
      * JWT生成Token.<br/>
-     *
+     * <p>
      * JWT构成: header, payload, signature
      *
-     * @param sequenceNo
-     *            登录成功后用户user_id, 参数user_id不可传空
+     * @param sequenceNo 登录成功后用户user_id, 参数user_id不可传空
      */
-    public static String createToken(String sequenceNo){
+    public static String createToken(String sequenceNo) {
         Date iatDate = new Date();
         // expire time
         Calendar nowTime = Calendar.getInstance();
@@ -77,25 +78,25 @@ public class JWTUtils {
             JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
             verifier.verify(token);
             return HailiInsConstant.SUCCESS;
-        }catch(JWTVerificationException je){
+        } catch (JWTVerificationException je) {
             je.printStackTrace();
             return HailiInsConstant.VERIFY_ERROR;
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return HailiInsConstant.VERIFY_ERROR;
         }
     }
 
-    public static Map<String,Claim> praseClaim(String token) {
+    public static Map<String, Claim> praseClaim(String token) {
         DecodedJWT jwt = null;
         try {
             JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
             jwt = verifier.verify(token);
 
-        }catch(JWTVerificationException je){
+        } catch (JWTVerificationException je) {
             je.printStackTrace();
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
 
         }

@@ -16,6 +16,7 @@ import java.util.Properties;
 public class SnowflakeService {
     private Logger logger = LoggerFactory.getLogger(SnowflakeService.class);
     IDGen idGen;
+
     public SnowflakeService() throws InitException {
         Properties properties = PropertyFactory.getProperties();
         boolean flag = Boolean.parseBoolean(properties.getProperty(Constants.LEAF_SNOWFLAKE_ENABLE, "true"));
@@ -23,7 +24,7 @@ public class SnowflakeService {
             String zkAddress = properties.getProperty(Constants.LEAF_SNOWFLAKE_ZK_ADDRESS);
             int port = Integer.parseInt(properties.getProperty(Constants.LEAF_SNOWFLAKE_PORT));
             idGen = new SnowflakeIDGenImpl(zkAddress, port);
-            if(idGen.init()) {
+            if (idGen.init()) {
                 logger.info("Snowflake Service Init Successfully");
             } else {
                 throw new InitException("Snowflake Service Init Fail");
@@ -33,6 +34,7 @@ public class SnowflakeService {
             logger.info("Zero ID Gen Service Init Successfully");
         }
     }
+
     public Result getId(String key) {
         return idGen.get(key);
     }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * 二维码登录
+ *
  * @author: LeonMa
  * @date: 2019/01/17 12:03
  */

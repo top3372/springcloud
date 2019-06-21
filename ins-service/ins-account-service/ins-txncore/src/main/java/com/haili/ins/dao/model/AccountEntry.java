@@ -2,6 +2,7 @@ package com.haili.ins.dao.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 import lombok.Data;
 
 /**
@@ -28,8 +29,8 @@ public class AccountEntry implements Serializable {
 
     /**
      * 交易代码
-            交易代码
-     *
+     * 交易代码
+     * <p>
      * Table:     T_ACCOUNT_ENTRY
      * Column:    TXN_CODE
      * Nullable:  false
@@ -47,11 +48,11 @@ public class AccountEntry implements Serializable {
 
     /**
      * 交易类型
-            0-管理类交易
-            1-交易类交易
-            2-授权类交易
-            3-清算类交易
-     *
+     * 0-管理类交易
+     * 1-交易类交易
+     * 2-授权类交易
+     * 3-清算类交易
+     * <p>
      * Table:     T_ACCOUNT_ENTRY
      * Column:    TXN_TYPE
      * Nullable:  true
@@ -61,8 +62,8 @@ public class AccountEntry implements Serializable {
 
     /**
      * 交易名称
-            交易名称
-     *
+     * 交易名称
+     * <p>
      * Table:     T_ACCOUNT_ENTRY
      * Column:    TXN_NAME
      * Nullable:  true
@@ -72,8 +73,8 @@ public class AccountEntry implements Serializable {
 
     /**
      * 交易摘要
-            交易摘要
-     *
+     * 交易摘要
+     * <p>
      * Table:     T_ACCOUNT_ENTRY
      * Column:    TXN_ABSTRACT
      * Nullable:  true
@@ -83,9 +84,9 @@ public class AccountEntry implements Serializable {
 
     /**
      * 付款方借贷标志
-            D-借
-            C-贷
-     *
+     * D-借
+     * C-贷
+     * <p>
      * Table:     T_ACCOUNT_ENTRY
      * Column:    PAYER_DC_FLAG
      * Nullable:  true
@@ -95,9 +96,9 @@ public class AccountEntry implements Serializable {
 
     /**
      * 收款方借贷标志
-            D-借
-            C-贷
-     *
+     * D-借
+     * C-贷
+     * <p>
      * Table:     T_ACCOUNT_ENTRY
      * Column:    PAYEE_DC_FLAG
      * Nullable:  true
@@ -107,9 +108,9 @@ public class AccountEntry implements Serializable {
 
     /**
      * 是否参与清算
-            0-不参与
-            1-参与
-     *
+     * 0-不参与
+     * 1-参与
+     * <p>
      * Table:     T_ACCOUNT_ENTRY
      * Column:    CLEARING_FLAG
      * Nullable:  true

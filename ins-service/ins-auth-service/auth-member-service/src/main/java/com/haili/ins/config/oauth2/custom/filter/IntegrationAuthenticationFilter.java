@@ -28,9 +28,6 @@ import java.util.Map;
 /**
  * @author: LeonMa
  * @date: 2019/01/15 10:20
- *
- *
- *
  */
 @Component
 public class IntegrationAuthenticationFilter extends GenericFilterBean implements ApplicationContextAware {
@@ -45,7 +42,7 @@ public class IntegrationAuthenticationFilter extends GenericFilterBean implement
 
     private RequestMatcher requestMatcher;
 
-    public IntegrationAuthenticationFilter(){
+    public IntegrationAuthenticationFilter() {
         this.requestMatcher = new OrRequestMatcher(
                 new AntPathRequestMatcher(OAUTH_TOKEN_URL, "GET"),
                 new AntPathRequestMatcher(OAUTH_TOKEN_URL, "POST")
@@ -58,50 +55,51 @@ public class IntegrationAuthenticationFilter extends GenericFilterBean implement
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
-        if(requestMatcher.matches(request)){
+        if (requestMatcher.matches(request)) {
             //设置集成登录信息
             IntegrationAuthentication integrationAuthentication = new IntegrationAuthentication();
             integrationAuthentication.setAuthType(request.getParameter(AUTH_TYPE_PARM_NAME));
             integrationAuthentication.setAuthParameters(request.getParameterMap());
             IntegrationAuthenticationContext.set(integrationAuthentication);
-            try{
+            try {
                 //预处理
                 this.prepare(integrationAuthentication);
 
-                filterChain.doFilter(request,response);
+                filterChain.doFilter(request, response);
 
                 //后置处理
                 this.complete(integrationAuthentication);
-            }finally {
+            } finally {
                 IntegrationAuthenticationContext.clear();
             }
-        }else{
-            filterChain.doFilter(request,response);
+        } else {
+            filterChain.doFilter(request, response);
         }
     }
 
     /**
      * 进行预处理
+     *
      * @param integrationAuthentication
      */
     private void prepare(IntegrationAuthentication integrationAuthentication) {
 
         //延迟加载认证器
-        if(this.authenticators == null){
-            synchronized (this){
-                Map<String,IntegrationAuthenticator> integrationAuthenticatorMap = applicationContext.getBeansOfType(IntegrationAuthenticator.class);
-                if(integrationAuthenticatorMap != null){
+        if (this.authenticators == null) {
+            synchronized (this) {
+                Map<String, IntegrationAuthenticator> integrationAuthenticatorMap = applicationContext.getBeansOfType(IntegrationAuthenticator.class);
+                if (integrationAuthenticatorMap != null) {
                     this.authenticators = integrationAuthenticatorMap.values();
                 }
             }
         }
 
-        if(this.authenticators == null){
+        if (this.authenticators == null) {
             this.authenticators = new ArrayList<>();
         }
 
-        for (IntegrationAuthenticator authenticator: authenticators) {
-            if(authenticator.support(integrationAuthentication)){
+        for (IntegrationAuthenticator authenticator : authenticators) {
+            if (authenticator.support(integrationAuthentication)) {
                 authenticator.prepare(integrationAuthentication);
             }
         }
@@ -109,11 +107,12 @@ public class IntegrationAuthenticationFilter extends GenericFilterBean implement
 
     /**
      * 后置处理
+     *
      * @param integrationAuthentication
      */
-    private void complete(IntegrationAuthentication integrationAuthentication){
-        for (IntegrationAuthenticator authenticator: authenticators) {
-            if(authenticator.support(integrationAuthentication)){
+    private void complete(IntegrationAuthentication integrationAuthentication) {
+        for (IntegrationAuthenticator authenticator : authenticators) {
+            if (authenticator.support(integrationAuthentication)) {
                 authenticator.complete(integrationAuthentication);
             }
         }

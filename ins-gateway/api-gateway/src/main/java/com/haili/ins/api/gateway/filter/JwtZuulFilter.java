@@ -27,7 +27,7 @@ public class JwtZuulFilter extends ZuulFilter {
 
     @Override
     public int filterOrder() {
-        return RIBBON_ROUTING_FILTER_ORDER + 1  ;
+        return RIBBON_ROUTING_FILTER_ORDER + 1;
     }
 
     @Override

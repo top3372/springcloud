@@ -19,5 +19,4 @@ public class Oauth2WebConfiguration implements WebMvcConfigurer {
     }
 
 
-
 }

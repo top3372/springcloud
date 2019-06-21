@@ -18,5 +18,5 @@
         <module>ins-account</module><!--账户核心-->
         <module>ins-txncore</module><!--账户前置-->
     </modules>
-    
+
 </project>

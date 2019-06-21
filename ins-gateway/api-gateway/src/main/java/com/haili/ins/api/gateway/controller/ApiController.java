@@ -1,6 +1,7 @@
 package com.haili.ins.api.gateway.controller;
 
 //import org.apache.shiro.SecurityUtils;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -30,9 +31,9 @@ public class ApiController {
 //    }
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public Principal user(Principal user){
+    public Principal user(Principal user) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails)authentication.getDetails();
+        OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails) authentication.getDetails();
         System.out.println(details.getTokenType() + "" + details.getTokenValue());
         return user;
     }

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.haili.ins.common.utils;
 
@@ -29,56 +29,56 @@ import com.google.zxing.common.HybridBinarizer;
 
 /**
  * @author xn.yang
- * 
+ *
  */
 public class QRUtils {
 
-	private final static String format = "png";
+    private final static String format = "png";
 
-	public static void createQRCode(String text, int width, int height,
-			OutputStream outputStream) {
+    public static void createQRCode(String text, int width, int height,
+                                    OutputStream outputStream) {
 
-		Map hints = new HashMap();
-		hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
-		try {
-			BitMatrix bitMatrix = new MultiFormatWriter().encode(text,
-					BarcodeFormat.QR_CODE, width, height, hints);
-			MatrixToImageWriter.writeToStream(bitMatrix, format, outputStream);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+        Map hints = new HashMap();
+        hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
+        try {
+            BitMatrix bitMatrix = new MultiFormatWriter().encode(text,
+                    BarcodeFormat.QR_CODE, width, height, hints);
+            MatrixToImageWriter.writeToStream(bitMatrix, format, outputStream);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-	public static void readQR(InputStream inputStream) {
-		try {
-			MultiFormatReader formatReader = new MultiFormatReader();
+    public static void readQR(InputStream inputStream) {
+        try {
+            MultiFormatReader formatReader = new MultiFormatReader();
 
-			BufferedImage image = ImageIO.read(inputStream);
+            BufferedImage image = ImageIO.read(inputStream);
 
-			LuminanceSource source = new BufferedImageLuminanceSource(image);
-			Binarizer binarizer = new HybridBinarizer(source);
-			BinaryBitmap binaryBitmap = new BinaryBitmap(binarizer);
+            LuminanceSource source = new BufferedImageLuminanceSource(image);
+            Binarizer binarizer = new HybridBinarizer(source);
+            BinaryBitmap binaryBitmap = new BinaryBitmap(binarizer);
 
-			Map hints = new HashMap();
-			hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
+            Map hints = new HashMap();
+            hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
 
-			Result result = formatReader.decode(binaryBitmap, hints);
+            Result result = formatReader.decode(binaryBitmap, hints);
 
-			System.out.println("解析结果 = " + result.toString());
-			System.out.println("二维码格式类型 = " + result.getBarcodeFormat());
-			System.out.println("二维码文本内容 = " + result.getText());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public static void main(String a[]) throws Exception{
-		String text = "http://www.zpudata.com";
-		int width=300;
-		int height=300;
-		FileOutputStream outputStream = new FileOutputStream(new File("C:/Users/ysh/Pictures/a.png"));
-		
-		QRUtils.createQRCode(text, width, height, outputStream);
-	}
+            System.out.println("解析结果 = " + result.toString());
+            System.out.println("二维码格式类型 = " + result.getBarcodeFormat());
+            System.out.println("二维码文本内容 = " + result.getText());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String a[]) throws Exception {
+        String text = "http://www.zpudata.com";
+        int width = 300;
+        int height = 300;
+        FileOutputStream outputStream = new FileOutputStream(new File("C:/Users/ysh/Pictures/a.png"));
+
+        QRUtils.createQRCode(text, width, height, outputStream);
+    }
 
 }

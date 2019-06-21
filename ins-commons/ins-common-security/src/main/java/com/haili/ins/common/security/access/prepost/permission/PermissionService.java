@@ -27,7 +27,7 @@ public interface PermissionService {
      * @param permission 权限
      * @return {boolean}
      */
-    public boolean hasPermission(String permission) ;
+    public boolean hasPermission(String permission);
 
     /**
      * 判断接口是否有xxx:xxx权限
@@ -35,7 +35,7 @@ public interface PermissionService {
      * @param role 角色
      * @return {boolean}
      */
-    public boolean hasRole(String role) ;
+    public boolean hasRole(String role);
 
     public boolean hasAnyRole(String... role);
 

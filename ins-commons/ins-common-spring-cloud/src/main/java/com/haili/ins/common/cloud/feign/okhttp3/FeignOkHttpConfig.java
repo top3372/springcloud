@@ -17,17 +17,17 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 @ConditionalOnClass(Feign.class)
 @AutoConfigureBefore(FeignAutoConfiguration.class)
-@ConditionalOnProperty(value = "feign.okhttp.enabled", havingValue ="true")
+@ConditionalOnProperty(value = "feign.okhttp.enabled", havingValue = "true")
 public class FeignOkHttpConfig {
 
     @Value("${feign.okhttp.log.level:NONE}")
-    private String level ;
+    private String level;
 
     @Bean
     /**
      * okhttp拦截器 用于打日志
      */
-    public HttpLoggingInterceptor httpLoggingInterceptor(){
+    public HttpLoggingInterceptor httpLoggingInterceptor() {
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.valueOf(level));
         return httpLoggingInterceptor;
@@ -37,20 +37,20 @@ public class FeignOkHttpConfig {
     HttpLoggingInterceptor httpLoggingInterceptor;
 
     @Bean
-    public okhttp3.OkHttpClient okHttpClient(){
+    public okhttp3.OkHttpClient okHttpClient() {
 
         return new okhttp3.OkHttpClient.Builder()
                 //设置连接的读取超时时间，默认10s
-            .readTimeout(60, TimeUnit.SECONDS)
-            //设置连接的连接超时的时间，默认10s
-            .connectTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
+                //设置连接的连接超时的时间，默认10s
+                .connectTimeout(60, TimeUnit.SECONDS)
                 //设置写入超时时间，默认10s
-            .writeTimeout(120, TimeUnit.SECONDS) 
-            .connectionPool(new ConnectionPool())
+                .writeTimeout(120, TimeUnit.SECONDS)
+                .connectionPool(new ConnectionPool())
                 //添加拦截器
-            .addInterceptor(httpLoggingInterceptor)
+                .addInterceptor(httpLoggingInterceptor)
                 //是否自动重连
 //           .retryOnConnectionFailure(true)
-            .build();
+                .build();
     }
 }

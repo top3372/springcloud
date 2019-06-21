@@ -74,7 +74,7 @@ public class TxServiceImpl implements BusinessHandler {
         accountService.batchCreate(accountInfoList);
 
         //异步记录开户管理日志
-        applicationContext.publishEvent(new MgmLogEvent(this,mgmLogParamList));
+        applicationContext.publishEvent(new MgmLogEvent(this, mgmLogParamList));
 
         Response response = new Response();
         response.setAccountInfo(listAccount);

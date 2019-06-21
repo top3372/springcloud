@@ -15,21 +15,21 @@ import javax.annotation.Resource;
  * @Date: 2019/3/13 15:42
  * @Version 1.0
  */
-public class AccountBaseService{
+public class AccountBaseService {
 
     @Resource
-    private  EncryptFeign encryptFeign;
+    private EncryptFeign encryptFeign;
 
     @Resource
-    private  LeafIdFeign leafIdFeign;
+    private LeafIdFeign leafIdFeign;
 
 
-    public String genAccSeqNo(){
+    public String genAccSeqNo() {
 
         return leafIdFeign.getSegmentID("S_ACC_SEQ_NO");
     }
 
-    public String genEntrySeqNo(){
+    public String genEntrySeqNo() {
 
         return leafIdFeign.getSegmentID("S_ENTRY_SEQ_NO");
     }
@@ -62,7 +62,7 @@ public class AccountBaseService{
     }
 
     public String encrypt(AccAccountInfo account) {
-        StringBuffer strBuf= new StringBuffer();
+        StringBuffer strBuf = new StringBuffer();
         strBuf.append(account.getAccountNo());
         strBuf.append(account.getStatusMap());
         strBuf.append(account.getBalance());
@@ -80,7 +80,7 @@ public class AccountBaseService{
     }
 
     public String encrypt(String accountNo, String statusMap, String balance, String availableBalance, String frozenAmount) {
-        StringBuffer strBuf= new StringBuffer();
+        StringBuffer strBuf = new StringBuffer();
         strBuf.append(accountNo);
         strBuf.append(statusMap);
         strBuf.append(balance);

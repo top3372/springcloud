@@ -1,4 +1,3 @@
-
 spring:
   rabbitmq:
     #配置rabbitmq的主机
