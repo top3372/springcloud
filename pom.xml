@@ -38,7 +38,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven-jar-plugin>3.1.2</maven-jar-plugin>
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
-        <spring-cloud-alibaba.version>0.9.0.RELEASE</spring-cloud-alibaba.version>
+        <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
         <joda.version>2.10.2</joda.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
         <commons-codec.version>1.12</commons-codec.version>
