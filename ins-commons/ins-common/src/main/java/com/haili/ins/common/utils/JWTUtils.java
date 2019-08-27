@@ -1,18 +1,16 @@
 package com.haili.ins.common.utils;
 
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.exceptions.JWTVerificationException;
-import com.auth0.jwt.interfaces.Claim;
-import com.auth0.jwt.interfaces.DecodedJWT;
-import com.auth0.jwt.interfaces.JWTVerifier;
+
 import com.haili.ins.common.constants.HailiInsConstant;
+import io.jsonwebtoken.*;
 import org.apache.commons.lang3.StringUtils;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -24,23 +22,23 @@ public class JWTUtils {
 
 
     /**
-     * token秘钥，请勿泄露，请勿随便修改 backups:JKKLJOoasdlfj
+     * token秘钥，请勿泄露，请勿随便修改
      */
     public static final String SECRET = "haili.ins.service";
     /**
      * token 过期时间: 10天
      */
-    public static final int calendarField = Calendar.DATE;
-    public static final int calendarInterval = 10;
+    public static final int calendarField = Calendar.HOUR;
+    public static final int calendarInterval = 1;
 
     /**
      * JWT生成Token.<br/>
      * <p>
      * JWT构成: header, payload, signature
      *
-     * @param sequenceNo 登录成功后用户user_id, 参数user_id不可传空
+     * @param sub 登录成功后用户user_id, 参数user_id不可传空
      */
-    public static String createToken(String sequenceNo) {
+    public static String createToken(String sub) {
         Date iatDate = new Date();
         // expire time
         Calendar nowTime = Calendar.getInstance();
@@ -52,15 +50,30 @@ public class JWTUtils {
         map.put("alg", "HS256");
         map.put("typ", "JWT");
 
+        Map<String, Object> claim = new ConcurrentHashMap<>();
+        claim.put("sequence_no", sub);
+        claim.put("ccc", "aaa");
+
         // build token
         // param backups {iss:Service, aud:APP}
-        String token = JWT.create().withHeader(map) // header
-//                .withClaim("iss", "Service") // payload
-////                .withClaim("aud", "APP")
-                .withClaim("sequence_no", sequenceNo)
-                .withIssuedAt(iatDate) // sign time
-                .withExpiresAt(expiresDate) // expire time
-                .sign(Algorithm.HMAC256(SECRET)); // signature
+        String token =
+                Jwts.builder()
+                        .setSubject(sub)
+                        .setHeader(map)
+                        .addClaims(claim)
+                        .setId(UUID.randomUUID().toString())
+                        .setIssuedAt(iatDate)
+                        .setExpiration(expiresDate)
+                        .signWith(SignatureAlgorithm.HS256,SECRET)
+                        .compact();
+//
+//        JWT.create().withHeader(map) // header
+////                .withClaim("iss", "Service") // payload
+//////                .withClaim("aud", "APP")
+//                .withClaim("sequence_no", sequenceNo)
+//                .withIssuedAt(iatDate) // sign time
+//                .withExpiresAt(expiresDate) // expire time
+//                .sign(Algorithm.HMAC256(SECRET)); // signature
 
         return token;
     }
@@ -75,51 +88,36 @@ public class JWTUtils {
     public static String verifyToken(String token) {
 
         try {
-            JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
-            verifier.verify(token);
+            Claims claims = Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token).getBody();
             return HailiInsConstant.SUCCESS;
-        } catch (JWTVerificationException je) {
-            je.printStackTrace();
-            return HailiInsConstant.VERIFY_ERROR;
-        } catch (Exception e) {
+        }catch (Exception e) {
             e.printStackTrace();
             return HailiInsConstant.VERIFY_ERROR;
         }
-    }
-
-    public static Map<String, Claim> praseClaim(String token) {
-        DecodedJWT jwt = null;
-        try {
-            JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
-            jwt = verifier.verify(token);
-
-        } catch (JWTVerificationException je) {
-            je.printStackTrace();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        }
-        return jwt.getClaims();
     }
 
     /**
-     * 根据Token获取user_id
+     * 解析Token
      *
      * @param token
-     * @return user_id
+     * @return 返回subject
+     * @throws Exception
      */
-    public static String getAppUID(String token) {
-        Map<String, Claim> claims = praseClaim(token);
-        Claim user_id_claim = claims.get("sequence_no");
-        if (null == user_id_claim || StringUtils.isEmpty(user_id_claim.asString())) {
-            // token 校验失败, 抛出Token验证非法异常
-        }
-        return user_id_claim.asString();
+    public static String parserToken(String token) {
+
+        Jws<Claims> claims = Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token);
+
+        return claims.getBody().getSubject();
+
     }
 
 
     public static void main(String[] args) throws Exception {
         System.out.println(JWTUtils.createToken("111111L"));
+        System.out.println(JWTUtils.verifyToken("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9" +
+                ".eyJzdWIiOiIxMTExMTFMIiwianRpIjoiM2FhMGNiNWUtZGNhNS00MzFiLWE3YWItY2JkYmRjNjg4ZTVjIiwiaWF0IjoxNTY2ODEzNzU4LCJleHAiOjE1NjY4MTczNTh9.fUCjCCEly7SfHEzBjFo6MFKowLQWV5xdelkScInLJhQ"));
+        System.out.println(JWTUtils.parserToken("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9" +
+                ".eyJzdWIiOiIxMTExMTFMIiwianRpIjoiM2FhMGNiNWUtZGNhNS00MzFiLWE3YWItY2JkYmRjNjg4ZTVjIiwiaWF0IjoxNTY2ODEzNzU4LCJleHAiOjE1NjY4MTczNTh9.fUCjCCEly7SfHEzBjFo6MFKowLQWV5xdelkScInLJhQ"));
+
     }
 }

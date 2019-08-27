@@ -16,5 +16,7 @@
     <packaging>pom</packaging>
     <modules>
         <!--        <module>ins-invocation-chain-cat</module>-->
+        <!--        <module>ins-invocation-chain-skywalking</module>-->
+
     </modules>
 </project>
