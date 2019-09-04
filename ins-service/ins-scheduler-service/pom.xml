@@ -15,8 +15,8 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>ins-batch</module>
-        <module>ins-scheduler-job</module>
+        <module>ins-scheduler</module>
+        <module>ins-alibaba-schedulerx</module>
     </modules>
 
 </project>

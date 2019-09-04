@@ -13,6 +13,10 @@
     <groupId>com.haili.ins.block</groupId>
     <artifactId>ins-block-fabric</artifactId>
     <version>1.0-SNAPSHOT</version>
-
-
+    <packaging>pom</packaging>
+    <modules>
+        <module>ins-original-sdk</module><!--基于hyperledger fabric 原生sdk-->
+        <module>ins-tencent-sdk</module><!--基于腾讯sdk-->
+        <module>ins-aliyun-sdk</module><!--基于阿里sdk-->
+    </modules>
 </project>

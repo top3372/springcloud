@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.haili.ins.service.scheduler</groupId>
-        <artifactId>ins-scheduler-service</artifactId>
+        <groupId>com.haili.ins.invocation.chain</groupId>
+        <artifactId>ins-invocation-chain</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.haili.ins.service.scheduler</groupId>
-    <artifactId>ins-scheduler-job</artifactId>
+    <groupId>com.haili.ins.invocation.chain</groupId>
+    <artifactId>ins-invocation-chain-cat</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-
+    
 </project>

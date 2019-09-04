@@ -36,10 +36,22 @@ spring:
     nacos:
       discovery:
         server-addr: ${register.center}
+    sentinel:
+      transport:
+        port: 8720
+        dashboard: localhost:9999
+      filter:
+        enabled: true
+      scg.fallback:
+          mode: response
+          response-status: 444
+          response-body: 1234
+      scg:
+          order: -100
 
 
-hystrix.command.default.execution:
-  timeout.enabled: true
-  isolation:
-    thread:
-      timeout-in-milliseconds: 60000
+#hystrix.command.default.execution:
+#  timeout.enabled: true
+#  isolation:
+#    thread:
+#      timeout-in-milliseconds: 60000

@@ -47,10 +47,11 @@ spring:
     nacos:
       discovery:
         server-addr: ${register.center}
-  #    sentinel:
-  #      transport:
-  #        port: 8722
-  #        dashboard: localhost:9999
+    sentinel:
+      transport:
+        port: 8722
+        dashboard: localhost:9999
+      eager: true
 
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
@@ -73,8 +74,8 @@ feign:
       mime-types: ["text/xml","application/xml","application/json"]
       min-request-size: 2048
     response.enabled: true
-  #  sentinel:
-  #    enabled: true
+  sentinel:
+    enabled: true
   ## 配置httpclient线程池
   httpclient:
     enabled: false

@@ -41,6 +41,14 @@ spring:
       transport:
         port: 8720
         dashboard: localhost:9999
+      filter:
+        enabled: false
+      zuul:
+        order:
+          pre: 2000
+          post: 500
+          error: -100
+        enabled: true
 
 feign:
   compression:
@@ -58,9 +66,10 @@ feign:
     enabled: true
     log.level: "NONE"
 
-#
-hystrix.command.default.execution:
-  timeout.enabled: true
-  isolation:
-    thread:
-      timeout-in-milliseconds: 60000
+##
+#hystrix.command.default.execution:
+#  timeout.enabled: true
+#  isolation:
+#    thread:
+#      timeout-in-milliseconds: 60000
+
