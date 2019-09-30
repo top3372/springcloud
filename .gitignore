@@ -84,3 +84,9 @@ ins-service/ins-system-service/ins-leaf/ins-leaf-service/target/
 ins-third-party/ins-alipay/target/
 ins-third-party/ins-weibo/target/
 ins-third-party/ins-weixin/target/
+ins-block/ins-block-fabric/ins-original-sdk/target/
+ins-block/ins-block-fabric/ins-tencent-sdk/target/
+ins-invocation-chain/ins-invocation-chain-cat/target/
+ins-invocation-chain/ins-invocation-chain-skywalking/target/
+ins-service/ins-scheduler-service/ins-alibaba-schedulerx/target/
+ins-service/ins-scheduler-service/ins-scheduler/target/
